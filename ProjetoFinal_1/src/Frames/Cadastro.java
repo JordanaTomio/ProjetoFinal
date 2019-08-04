@@ -24,7 +24,7 @@ import javax.swing.ImageIcon;
 import javax.swing.ButtonGroup;
 import javax.swing.JPasswordField;
 
-public class CadastroInstituicao extends JFrame {
+public class Cadastro extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtRZ_Social;
@@ -45,7 +45,7 @@ public class CadastroInstituicao extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastroInstituicao frame = new CadastroInstituicao();
+					Cadastro frame = new Cadastro();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +57,7 @@ public class CadastroInstituicao extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CadastroInstituicao() {
+	public Cadastro() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Alunos\\Downloads\\ia004b-500x500.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
@@ -292,7 +292,7 @@ public class CadastroInstituicao extends JFrame {
 		contentPane.add(txtPS);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(CadastroInstituicao.class.getResource("/imagens/Background.jpg")));
+		lblNewLabel_1.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/Background.jpg")));
 		lblNewLabel_1.setBounds(0, -2, 644, 401);
 		contentPane.add(lblNewLabel_1);
 	}

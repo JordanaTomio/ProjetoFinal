@@ -56,7 +56,7 @@ public class Login extends JFrame {
 		JButton btnRegistrar = new JButton("");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CadastroInstituicao CIC = new CadastroInstituicao();
+				Cadastro CIC = new Cadastro();
 				CIC.setVisible(true);
 				dispose();
 			}
