@@ -1,9 +1,12 @@
 package Frames;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -17,6 +20,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import DAO.AnimalDAO;
+
 public class PetAdotar extends JFrame {
 
 	private JPanel contentPane;
@@ -27,7 +32,13 @@ public class PetAdotar extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private JTextField txtImagem;
-
+	JRadioButton btnMacho = new JRadioButton("Macho");
+	JRadioButton btnCao = new JRadioButton("C\u00E3o");
+	JRadioButton btnGato = new JRadioButton("Gato");
+	JRadioButton btnFemea = new JRadioButton("F\u00EAmea");
+	JCheckBox vacinadodb = new JCheckBox("Vacinado");
+	JCheckBox castradodb = new JCheckBox("Castrado");
+	
 	/**
 	 * Launch the application.
 	 */
@@ -55,149 +66,298 @@ public class PetAdotar extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblPetInformacoes = new JLabel("Pet Informa\u00E7\u00F5es");
 		lblPetInformacoes.setBounds(184, 23, 258, 44);
 		lblPetInformacoes.setFont(new Font("Bauhaus 93", Font.BOLD, 30));
 		contentPane.add(lblPetInformacoes);
-		
+
 		JLabel lblNomePet = new JLabel("Nome do pet:");
 		lblNomePet.setBounds(10, 94, 107, 14);
 		lblNomePet.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(lblNomePet);
-		
+
 		txtNomePet = new JTextField();
+		txtNomePet.setEditable(false);
 		txtNomePet.setBounds(124, 92, 182, 20);
 		contentPane.add(txtNomePet);
 		txtNomePet.setColumns(10);
-		
+
 		JLabel lblAno = new JLabel("Ano:");
 		lblAno.setBounds(10, 148, 46, 14);
 		lblAno.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(lblAno);
-		
+
 		JLabel lblTipo = new JLabel("Tipo:");
 		lblTipo.setBounds(386, 306, 56, 12);
 		lblTipo.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(lblTipo);
-		
+
 		JLabel lblRaca = new JLabel("Ra\u00E7a:");
 		lblRaca.setBounds(10, 205, 51, 14);
 		lblRaca.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(lblRaca);
-		
+
 		JLabel lblTamanho = new JLabel("Tamanho:");
 		lblTamanho.setBounds(9, 255, 72, 14);
 		lblTamanho.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(lblTamanho);
-		
+
 		JLabel lblGenero = new JLabel("G\u00EAnero:");
 		lblGenero.setBounds(386, 256, 56, 14);
 		lblGenero.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(lblGenero);
-		
+
 		txtAno = new JTextField();
 		txtAno.setBounds(124, 146, 182, 20);
 		txtAno.setColumns(10);
 		contentPane.add(txtAno);
-		
+
 		txtTamanho = new JTextField();
 		txtTamanho.setBounds(124, 253, 182, 20);
 		txtTamanho.setColumns(10);
 		contentPane.add(txtTamanho);
-		
+
 		txtRaca = new JTextField();
 		txtRaca.setBounds(124, 203, 182, 20);
 		txtRaca.setColumns(10);
 		contentPane.add(txtRaca);
-		
+
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(10, 352, 107, 31);
 		btnBuscar.setFont(new Font("Book Antiqua", Font.BOLD, 12));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String Raca = txtRaca.getText();
+				String Ano = txtAno.getText();
+				String Tamanho = txtTamanho.getText();
 				
-				
+				if (!(Raca.equals(null))) {
+					ResultSet rs = AnimalDAO.selectByRaca(Raca);
+					try {
+						while (rs.next()) {
+							String nome = rs.getString("NM_Animal");
+							String ano = rs.getString("ANO_Animal");
+							String raca = rs.getString("RC_Animal");
+							String tamanho = rs.getString("TM_Animal");
+							String tipo = rs.getString("TP_Animal");
+							String sexo = rs.getString("SX_Animal");
+							String vacinas = rs.getString("VC_Animal");
+							String castrado = rs.getString("CS_Animal");
+							
+							if (tipo.equals("Cachorro")){
+								btnCao.setSelected(true);
+							} else {
+								btnGato.setSelected(true);
+							}
+							
+							if (sexo.equals("Macho")){
+								btnMacho.setSelected(true);
+							} else {
+								btnFemea.setSelected(true);
+							}
+							
+							if (castrado.equals("Sim")){
+								castradodb.setSelected(true);
+							} else{
+								castradodb.setSelected(false);
+							}
+							
+							if	(vacinas.equals("Sim")){
+								vacinadodb.setSelected(true);
+							} else {
+								vacinadodb.setSelected(false);
+							}
+							
+							txtTamanho.setText(tamanho);
+							txtRaca.setText(raca);
+							txtAno.setText(ano);
+							txtNomePet.setText(nome);
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+
+				}
+				if (!(Ano.equals(null))) {
+					ResultSet rs = AnimalDAO.selectByAno(Ano);
+					try {
+						while (rs.next()) {
+							String nome = rs.getString("NM_Animal");
+							String ano = rs.getString("ANO_Animal");
+							String raca = rs.getString("RC_Animal");
+							String tamanho = rs.getString("TM_Animal");
+							String tipo = rs.getString("TP_Animal");
+							String sexo = rs.getString("SX_Animal");
+							String vacinas = rs.getString("VC_Animal");
+							String castrado = rs.getString("CS_Animal");
+							
+							if (tipo.equals("Cachorro")){
+								btnCao.setSelected(true);
+							} else {
+								btnGato.setSelected(true);
+							}
+							
+							if (sexo.equals("Macho")){
+								btnMacho.setSelected(true);
+							} else {
+								btnFemea.setSelected(true);
+							}
+							
+							if (castrado.equals("Sim")){
+								castradodb.setSelected(true);
+							} else{
+								castradodb.setSelected(false);
+							}
+							
+							if	(vacinas.equals("Sim")){
+								vacinadodb.setSelected(true);
+							} else {
+								vacinadodb.setSelected(false);
+							}
+							
+							txtTamanho.setText(tamanho);
+							txtRaca.setText(raca);
+							txtAno.setText(ano);
+							txtNomePet.setText(nome);
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+
+				}
+			
+
+			if (!(Tamanho.equals(null))) {
+				ResultSet rs = AnimalDAO.selectByTamanho(Ano);
+				try {
+					while (rs.next()) {
+						String nome = rs.getString("NM_Animal");
+						String ano = rs.getString("ANO_Animal");
+						String raca = rs.getString("RC_Animal");
+						String tamanho = rs.getString("TM_Animal");
+						String tipo = rs.getString("TP_Animal");
+						String sexo = rs.getString("SX_Animal");
+						String vacinas = rs.getString("VC_Animal");
+						String castrado = rs.getString("CS_Animal");
+						
+						if (tipo.equals("Cachorro")){
+							btnCao.setSelected(true);
+						} else {
+							btnGato.setSelected(true);
+						}
+						
+						if (sexo.equals("Macho")){
+							btnMacho.setSelected(true);
+						} else {
+							btnFemea.setSelected(true);
+						}
+						
+						if (castrado.equals("Sim")){
+							castradodb.setSelected(true);
+						} else{
+							castradodb.setSelected(false);
+						}
+						
+						if	(vacinas.equals("Sim")){
+							vacinadodb.setSelected(true);
+						} else {
+							vacinadodb.setSelected(false);
+						}
+						
+						txtTamanho.setText(tamanho);
+						txtRaca.setText(raca);
+						txtAno.setText(ano);
+						txtNomePet.setText(nome);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+			}
 			}
 		});
 		contentPane.add(btnBuscar);
+
 		
-		JRadioButton rdbtnMacho = new JRadioButton("Macho");
-		rdbtnMacho.setBounds(448, 252, 72, 23);
-		rdbtnMacho.setBorderPainted(false);
-		rdbtnMacho.setContentAreaFilled(false);
-		rdbtnMacho.setFocusPainted(false);
-		rdbtnMacho.setOpaque(false);
-		rdbtnMacho.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		buttonGroup.add(rdbtnMacho);
-		contentPane.add(rdbtnMacho);
+		btnMacho.setBounds(448, 252, 72, 23);
+		btnMacho.setBorderPainted(false);
+		btnMacho.setContentAreaFilled(false);
+		btnMacho.setFocusPainted(false);
+		btnMacho.setOpaque(false);
+		btnMacho.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		buttonGroup.add(btnMacho);
+		contentPane.add(btnMacho);
+
+	
+		btnFemea.setBounds(532, 252, 78, 23);
+		btnFemea.setBorderPainted(false);
+		btnFemea.setContentAreaFilled(false);
+		btnFemea.setFocusPainted(false);
+		btnFemea.setOpaque(false);
+		btnFemea.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		buttonGroup.add(btnFemea);
+		contentPane.add(btnFemea);
+
 		
-		JRadioButton rdbtnFemea = new JRadioButton("F\u00EAmea");
-		rdbtnFemea.setBounds(532, 252, 78, 23);
-		rdbtnFemea.setBorderPainted(false);
-		rdbtnFemea.setContentAreaFilled(false);
-		rdbtnFemea.setFocusPainted(false);
-		rdbtnFemea.setOpaque(false);
-		rdbtnFemea.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		buttonGroup.add(rdbtnFemea);
-		contentPane.add(rdbtnFemea);
+		btnCao.setBounds(448, 302, 64, 16);
+		btnCao.setBorderPainted(false);
+		btnCao.setContentAreaFilled(false);
+		btnCao.setFocusPainted(false);
+		btnCao.setOpaque(false);
+		btnCao.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		buttonGroup_1.add(btnCao);
+		contentPane.add(btnCao);
+
 		
-		JRadioButton rdbtnCao = new JRadioButton("C\u00E3o");
-		rdbtnCao.setBounds(448, 302, 64, 16);
-		rdbtnCao.setBorderPainted(false);
-		rdbtnCao.setContentAreaFilled(false);
-		rdbtnCao.setFocusPainted(false);
-		rdbtnCao.setOpaque(false);
-		rdbtnCao.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		buttonGroup_1.add(rdbtnCao);
-		contentPane.add(rdbtnCao);
-		
-		JRadioButton rdbtnGato = new JRadioButton("Gato");
-		rdbtnGato.setBounds(532, 302, 64, 16);
-		rdbtnGato.setBorderPainted(false);
-		rdbtnGato.setContentAreaFilled(false);
-		rdbtnGato.setFocusPainted(false);
-		rdbtnGato.setOpaque(false);
-		rdbtnGato.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		buttonGroup_1.add(rdbtnGato);
-		contentPane.add(rdbtnGato);
-		
+		btnGato.setBounds(532, 302, 64, 16);
+		btnGato.setBorderPainted(false);
+		btnGato.setContentAreaFilled(false);
+		btnGato.setFocusPainted(false);
+		btnGato.setOpaque(false);
+		btnGato.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		buttonGroup_1.add(btnGato);
+		contentPane.add(btnGato);
+
 		txtImagem = new JTextField();
 		txtImagem.setBounds(386, 94, 210, 140);
 		txtImagem.setEditable(false);
 		contentPane.add(txtImagem);
 		txtImagem.setColumns(10);
+
 		
-		JCheckBox chckbxVacinado = new JCheckBox("Vacinado");
-		chckbxVacinado.setBounds(10, 301, 97, 23);
-		chckbxVacinado.setBackground(new Color(224, 255, 255));
-		chckbxVacinado.setBorderPainted(false);
-		chckbxVacinado.setContentAreaFilled(false);
-		chckbxVacinado.setFocusPainted(false);
-		chckbxVacinado.setOpaque(false);
-		chckbxVacinado.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		contentPane.add(chckbxVacinado);
+		vacinadodb.setBounds(10, 301, 97, 23);
+		vacinadodb.setBackground(new Color(224, 255, 255));
+		vacinadodb.setBorderPainted(false);
+		vacinadodb.setContentAreaFilled(false);
+		vacinadodb.setFocusPainted(false);
+		vacinadodb.setOpaque(false);
+		vacinadodb.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		contentPane.add(vacinadodb);
+
 		
-		JCheckBox chckbxCastrado = new JCheckBox("Castrado");
-		chckbxCastrado.setBounds(112, 301, 97, 23);
-		chckbxCastrado.setBorderPainted(false);
-		chckbxCastrado.setContentAreaFilled(false);
-		chckbxCastrado.setFocusPainted(false);
-		chckbxCastrado.setOpaque(false);
-		chckbxCastrado.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		contentPane.add(chckbxCastrado);
-		
+		castradodb.setBounds(112, 301, 97, 23);
+		castradodb.setBorderPainted(false);
+		castradodb.setContentAreaFilled(false);
+		castradodb.setFocusPainted(false);
+		castradodb.setOpaque(false);
+		castradodb.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		contentPane.add(castradodb);
+
 		JButton btnAdotar = new JButton("Adotar <3 ");
 		btnAdotar.setBounds(127, 352, 107, 31);
 		btnAdotar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				JOptionPane.showMessageDialog(null, "Parabéns! Você está perto de adotar um Pet." +"\n"+ "Entraremos em contato para agendar a visita" +"\n"+ "de avaliação e levar seu novo amigo!");
+
+				JOptionPane.showMessageDialog(null,
+						"Parabéns! Você está perto de adotar um Pet." + "\n"
+								+ "Entraremos em contato para agendar a visita" + "\n"
+								+ "de avaliação e levar seu novo amigo!");
 			}
 		});
 		btnAdotar.setFont(new Font("Book Antiqua", Font.BOLD, 12));
 		contentPane.add(btnAdotar);
-		
+
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -209,7 +369,7 @@ public class PetAdotar extends JFrame {
 		btnVoltar.setFont(new Font("Book Antiqua", Font.BOLD, 12));
 		btnVoltar.setBounds(244, 352, 107, 31);
 		contentPane.add(btnVoltar);
-		
+
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/Background.jpg")));
 		lblNewLabel.setBounds(0, 0, 644, 401);
