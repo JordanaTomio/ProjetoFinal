@@ -1,22 +1,22 @@
 package Frames;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.DecimalFormat;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 
 public class FinalizarPedido extends JFrame {
 
@@ -54,28 +54,29 @@ public class FinalizarPedido extends JFrame {
 		
 		setBackground(new Color(255, 228, 225));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 428, 424);
+		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 228, 225));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 182, 193));
-		panel.setBounds(0, 0, 410, 66);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblPagamento = new JLabel("Pagamento");
-		lblPagamento.setFont(new Font("Harlow Solid Italic", Font.PLAIN, 30));
-		lblPagamento.setForeground(new Color(255, 240, 245));
-		lblPagamento.setBounds(128, 13, 148, 40);
-		panel.add(lblPagamento);
+		JButton btnVoltar = new JButton("");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PetShopMenu psm = new PetShopMenu();
+				psm.setVisible(true);
+				dispose();
+			}
+		});
+		btnVoltar.setBounds(10, 308, 68, 69);
+		btnVoltar.setBorderPainted(false);
+		btnVoltar.setContentAreaFilled(false);
+		contentPane.add(btnVoltar);
 		
 		JLabel lblSeuTotal = new JLabel("Seu total \u00E9 de");
 		lblSeuTotal.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-		lblSeuTotal.setBounds(65, 99, 141, 26);
+		lblSeuTotal.setBounds(194, 100, 141, 26);
 		contentPane.add(lblSeuTotal);
 		
 		JLabel total = new JLabel("");
@@ -83,12 +84,17 @@ public class FinalizarPedido extends JFrame {
 		total.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		total.setBounds(216, 100, 95, 23);
 		String lbl = ConsultarProdutos.ValoresTotaisString;
+		
+		JLabel lblVoltar = new JLabel("");
+		lblVoltar.setIcon(new ImageIcon(FinalizarPedido.class.getResource("/imagens/3209260-128(1).png")));
+		lblVoltar.setBounds(19, 308, 53, 69);
+		contentPane.add(lblVoltar);
 		total.setText(ConsultarProdutos.ValoresTotaisString);
 		contentPane.add(total);
 		
 		JLabel lblSelecioneOMtodo = new JLabel("Selecione o m\u00E9todo de pagamento:");
 		lblSelecioneOMtodo.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		lblSelecioneOMtodo.setBounds(64, 125, 282, 52);
+		lblSelecioneOMtodo.setBounds(171, 122, 282, 52);
 		contentPane.add(lblSelecioneOMtodo);
 		
 		JRadioButton cartao = new JRadioButton("Cart\u00E3o");
@@ -105,8 +111,10 @@ public class FinalizarPedido extends JFrame {
 		});
 		buttonGroup.add(cartao);
 		cartao.setBackground(new Color(255, 228, 225));
-		cartao.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		cartao.setBounds(45, 181, 127, 25);
+		cartao.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+		cartao.setBounds(122, 181, 127, 25);
+		cartao.setBorderPainted(false);
+		cartao.setContentAreaFilled(false);
 		contentPane.add(cartao);
 		
 		JRadioButton avista = new JRadioButton("\u00C0 vista");
@@ -124,8 +132,10 @@ public class FinalizarPedido extends JFrame {
 		});
 		buttonGroup.add(avista);
 		avista.setBackground(new Color(255, 228, 225));
-		avista.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		avista.setBounds(238, 181, 127, 25);
+		avista.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+		avista.setBounds(363, 181, 127, 25);
+		avista.setBorderPainted(false);
+		avista.setContentAreaFilled(false);
 		contentPane.add(avista);
 		
 		x2 = new JRadioButton("2x");
@@ -141,7 +151,9 @@ public class FinalizarPedido extends JFrame {
 		buttonGroup_1.add(x2);
 		x2.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		x2.setBackground(new Color(255, 228, 225));
-		x2.setBounds(64, 208, 127, 25);
+		x2.setBounds(141, 208, 127, 25);
+		x2.setBorderPainted(false);
+		x2.setContentAreaFilled(false);
 		x2.setVisible(false);
 		contentPane.add(x2);
 		
@@ -158,24 +170,27 @@ public class FinalizarPedido extends JFrame {
 		buttonGroup_1.add(x3);
 		x3.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		x3.setBackground(new Color(255, 228, 225));
-		x3.setBounds(65, 238, 127, 25);
+		x3.setBounds(142, 238, 127, 25);
+		x3.setBorderPainted(false);
+		x3.setContentAreaFilled(false);
 		x3.setVisible(false);
 		contentPane.add(x3);
 		
 		desconto = new JLabel("15% de desconto!");
-		desconto.setBounds(236, 209, 113, 16);
+		desconto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		desconto.setBounds(361, 213, 117, 16);
 		desconto.setVisible(false);
 		contentPane.add(desconto);
 		
 		JLabel lblTotal = new JLabel("Total:");
 		lblTotal.setFont(new Font("Lucida Bright", Font.PLAIN, 25));
-		lblTotal.setBounds(30, 313, 134, 32);
+		lblTotal.setBounds(151, 313, 134, 32);
 		contentPane.add(lblTotal);
 		
 		totalFinal = new JLabel("  ");
 		totalFinal.setForeground(new Color(255, 0, 51));
 		totalFinal.setFont(new Font("Lucida Bright", Font.PLAIN, 22));
-		totalFinal.setBounds(126, 319, 95, 23);
+		totalFinal.setBounds(245, 313, 106, 29);
 		contentPane.add(totalFinal);
 		
 		JButton btnFinalizar = new JButton("Finalizar");
@@ -186,9 +201,19 @@ public class FinalizarPedido extends JFrame {
 			}
 		});
 		btnFinalizar.setBackground(new Color(255, 240, 245));
-		btnFinalizar.setForeground(new Color(255, 0, 51));
-		btnFinalizar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		btnFinalizar.setBounds(269, 321, 97, 25);
+		btnFinalizar.setForeground(Color.BLACK);
+		btnFinalizar.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		btnFinalizar.setBounds(491, 306, 119, 51);
 		contentPane.add(btnFinalizar);
+		
+		JLabel lblPagamento = new JLabel("Pagamento");
+		lblPagamento.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
+		lblPagamento.setBounds(238, 11, 282, 62);
+		contentPane.add(lblPagamento);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(FinalizarPedido.class.getResource("/imagens/Background.jpg")));
+		lblNewLabel.setBounds(0, 0, 644, 401);
+		contentPane.add(lblNewLabel);
 	}
 }

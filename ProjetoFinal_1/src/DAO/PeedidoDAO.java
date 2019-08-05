@@ -85,7 +85,8 @@ public class PeedidoDAO {
 			}
 		}
 		public static void save(Beans.Pedido pedido) {
-			MySQLConfiguration s = new MySQLConfiguration();
+			MySQLConfiguration c = new MySQLConfiguration();
+
 			String q = "INSERT INTO pedido(CD_Cliente) VALUES (?)";
 			try {
 				PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
