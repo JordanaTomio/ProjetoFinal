@@ -260,29 +260,13 @@ public class BanhoTosa extends JFrame {
 	protected void Confirmar() {
 	
 		MySQLConfiguration c = new MySQLConfiguration();
-		String q;
-		String w;
+		String q = "";
 		
 		try {
 			Statement comando = c.conn.createStatement();
 			
-			// estou aqui
-			if (rdbtnBanhoETosa.isSelected()) {
-				q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico)" + "VALUES ('" + txtDATA.getText() + "', '"
-						+ txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho e Tosa')";
-				
-			}else if(rdbtnBanho.isSelected()) { 
-				q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico)" + "VALUES ('" + txtDATA.getText() + "', '"
-						+ txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho')";
-				
-			}else {
-				q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente)" + "VALUES ('" + txtDATA.getText() + "', '"
-						+ txtHORA.getText() + "', '" + txtCLIENTE.getText() + "')";	
-			}
-			System.out.println(q);
-			comando.executeUpdate(q);
+			
 			// --------------------------------------------------------------------------------------------
-
 			if (rdbtnPequeno.isSelected() && rdbtnBanho.isSelected()) {
 
 				Object[] options = { "Confirmar", "Cancelar" };
@@ -292,11 +276,13 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
-					w = "INSERT INTO agenda (SV_Servico) VALUES ('Banho')";
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
+							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho', '15.00')";
+				
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
-			} else if (rdbtnPequeno.isSelected() && rdbtnBanhoETosa.isSelected()) {
+			}else if (rdbtnPequeno.isSelected() && rdbtnBanhoETosa.isSelected()) {
 				Object[] options = { "Confirmar", "Cancelar" };
 				int N = JOptionPane.showOptionDialog(null, "Valor: R$ 25,00", "Gostaria de confirmar horário?",
 						JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
@@ -304,6 +290,8 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
+							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho e Tosa', '25.00')";
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
@@ -316,6 +304,8 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
+							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho', '20.00')";
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
@@ -327,6 +317,8 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
+							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho e tosa', '30.00')";
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
@@ -338,6 +330,8 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
+							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho', '30.00')";
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
@@ -349,10 +343,17 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
+							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho e tosa', '40.00')";
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
 			}
+			// --------------------------------------------------------------------------------------------
+
+				System.out.println(q);
+				comando.executeUpdate(q);
+			
 		} catch (Exception ex) {
 			System.err.println("FALHA NA no bang da CONFIRMAÇÃO");
 			ex.printStackTrace();
@@ -374,28 +375,27 @@ public class BanhoTosa extends JFrame {
 		String q = "";
 		String w = "";
 
-		q = "SELECT a.DT_Servico, a.HR_Servico, a.NM_Cliente FROM agenda a";
-		if (!txtDATA.getText().isEmpty()) {
-			w = "a.DT_Servico = " + txtDATA.getText();
+		q = "SELECT DT_Servico, HR_Servico, NM_Cliente FROM agenda ";
+	/*	if (!txtDATA.getText().isEmpty()) {
+			w = "DT_Servico = " + txtDATA.getText();
 		}
 		// -------------------------------------------------------------\\
 		if (!txtHORA.getText().isEmpty()) {
-			w = "a.HR_Servico = '" + txtHORA.getText() + "' ";
+			w = "HR_Servico = '" + txtHORA.getText() + "' ";
 		}
 		// -------------------------------------------------------------\\
 		if (!txtCLIENTE.getText().isEmpty()) {
 			if (w.isEmpty()) {
-				w = "a.NM_Cliente like '%" + txtCLIENTE.getText() + "%' ";
+				w = "NM_Cliente like '%" + txtCLIENTE.getText() + "%' ";
 			} else {
-				w += " and a.NM_Cliente like '%" + txtCLIENTE.getText() + "%' ";
+				w += " and NM_Cliente like '%" + txtCLIENTE.getText() + "%' ";
 			}
 		}
 		// -------------------------------------------------------------\\
 		if (!w.isEmpty()) {
 			q += " WHERE " + w;
-		}
+		}*/
 		// -------------------------------------------------------------\\
-		// q += " order by a.CD_Servico";
 		try {
 			PreparedStatement comando = c.conn.prepareStatement(q);
 			ResultSet rs = comando.executeQuery();
