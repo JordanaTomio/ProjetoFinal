@@ -112,7 +112,7 @@ public class BanhoTosa extends JFrame {
 		rdbtnPequeno = new JRadioButton("Pequeno");
 		buttonGroup.add(rdbtnPequeno);
 		rdbtnPequeno.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		rdbtnPequeno.setBorderPainted(true);
+		rdbtnPequeno.setBorderPainted(false);
 		rdbtnPequeno.setContentAreaFilled(false);
 		rdbtnPequeno.setFocusPainted(false);
 		rdbtnPequeno.setBounds(193, 56, 100, 23);
