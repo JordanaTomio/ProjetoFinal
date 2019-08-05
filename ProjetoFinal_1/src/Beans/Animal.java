@@ -2,8 +2,6 @@ package Beans;
 
 public class Animal {
 	int idAnimal;
-	
-
 	String nomeAnimal;
 	String anoAnimal;
 	String porteAnimal;
