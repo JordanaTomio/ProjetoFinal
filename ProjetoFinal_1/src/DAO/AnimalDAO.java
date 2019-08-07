@@ -4,8 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.DefaultListModel;
-
 import br.com.idog.Configuration.MySQLConfiguration;
 
 public class AnimalDAO {
