@@ -114,7 +114,7 @@ public class AnimalDAO {
 			String tamanho, String raca, String ano) {
 		String q = "";
 		String w = "";
-
+		System.out.println(castrado);
 
 		q = "SELECT NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal ";
 		if (!ano.isEmpty()) {
@@ -126,6 +126,8 @@ public class AnimalDAO {
 			
 		if (!tamanho.isEmpty()) {
 			w = " TM_Animal like '%" + tamanho + "%'";
+		} else {
+			w += " and TM_Animal like '%" + tamanho + "%'";
 		}
 		
 		if (!raca.isEmpty()) {
@@ -141,12 +143,44 @@ public class AnimalDAO {
 			} else {
 				w += " and TP_Animal like '%" + tipo + "%'";
 			}
+			
+		}
+		if (!sexo.isEmpty()) {
+			if (w.isEmpty()) {
+				w = " SX_Animal Like '%" + sexo + "%'";
+			} else {
+				w += " and SX_Animal like '%" + sexo + "%'";
+			}
+			
+		}
+		if (!vacinas.isEmpty()) {
+			if (w.isEmpty()) {
+				w = " VC_Animal Like '%" + vacinas + "%'";
+			} else {
+				w += " and VC_Animal like '%" + vacinas + "%'";
+			}
+			
+		}
+		if (!castrado.isEmpty()) {
+			if (w.isEmpty()) {
+				w = " CS_Animal Like '%" + castrado + "%'";
+			} else {
+				w += " and CS_Animal like '%" + castrado + "%'";
+			}
 		}
 	}
 		
 		if (!w.isEmpty()) {
 			q += "where" + w;
 		}
+		System.out.println(nome);
+		System.out.println(castrado);
+		System.out.println(vacinas);
+		System.out.println(tipo);
+		System.out.println(sexo);
+		System.out.println(tamanho);
+		System.out.println(raca);
+		System.out.println(ano);
 		System.out.println(q);
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);

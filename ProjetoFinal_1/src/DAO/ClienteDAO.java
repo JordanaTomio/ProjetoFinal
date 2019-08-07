@@ -98,4 +98,16 @@ public class ClienteDAO {
 			return false;
 		}
 	}
+	public static ResultSet findAll() {
+		String q = "SELECT CD_Cliente, PN_Cliente, SN_Cliente, TL_Cliente, EM_Cliente FROM cliente";
+
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Clientes aren't found.");
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

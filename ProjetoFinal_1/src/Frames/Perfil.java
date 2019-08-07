@@ -26,6 +26,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 */
 import br.com.idog.Configuration.MySQLConfiguration;
+import br.com.idog.DAO.PedidoDAO;
+import br.com.idog.Frames.Main;
+import br.com.idog.Models.Pedido;
 
 public class Perfil<EntityManager> extends JFrame {
 
@@ -277,8 +280,14 @@ public class Perfil<EntityManager> extends JFrame {
 		txtCPFPerfil.setColumns(10);
 		txtCPFPerfil.setBounds(47, 306, 243, 20);
 		contentPane.add(txtCPFPerfil);
-	}
+			}
+			});
 /*
+ * 				Pedido pedido = new Pedido(0, Main.cliente.getCdCodigo());
+				PedidoDAO.save(pedido);
+ * 
+ * 
+ * 
 	public static class ClienteDAO {
 		public static ResultSet selectAll(String pnome) {
 			MySQLConfiguration c = new MySQLConfiguration();
@@ -352,6 +361,7 @@ public class Perfil<EntityManager> extends JFrame {
 			this.visualizaDadosUsuario = usuarioDAO.buscarUsuairoPorLogin(visualizaDadosUsuario());
 			return "/usuario/usuario_dadosCadastrais.xhtml";
 		}*/
+	
 	}
 }
 

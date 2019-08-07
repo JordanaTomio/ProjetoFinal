@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -29,7 +30,6 @@ import Beans.Items;
 import Beans.Pedido;
 import DAO.ItemsDAO;
 import DAO.PeedidoDAO;
-import javax.swing.ImageIcon;
 
 
 public class ConsultarProdutos extends JFrame {
