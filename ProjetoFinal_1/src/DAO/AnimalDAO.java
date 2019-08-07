@@ -119,55 +119,37 @@ public class AnimalDAO {
 
 
 		q = "SELECT NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal ";
-		if (!(tamanho.isEmpty())) {
+		if (!ano.isEmpty()) {
+			if (w.isEmpty()) {
+				w = " ANO_Animal Like '%" + ano + "%'";
+			} else {
+				w += " and ANO_Animal like '%" + ano + "%'";
+			}
+			
+		if (!tamanho.isEmpty()) {
 			w = " TM_Animal like '%" + tamanho + "%'";
 		}
-		if (!(raca.isEmpty())) {
+		
+		if (!raca.isEmpty()) {
 			if (w.isEmpty()) {
 				w = " RC_Animal Like '%" + raca + "%'";
 			} else {
 				w += " and RC_Animal like '%" + raca + "%'";
 			}
 		}
-		if (!(tipo.isEmpty())) {
+		if (!tipo.isEmpty()) {
 			if (w.isEmpty()) {
 				w = " TP_Animal Like '%" + tipo + "%'";
 			} else {
 				w += " and TP_Animal like '%" + tipo + "%'";
 			}
 		}
-		if (!(ano.isEmpty())) {
-			if (w.isEmpty()) {
-				w = " ANO_Animal Like '%" + ano + "%'";
-			} else {
-				w += " and ANO_Animal like '%" + ano + "%'";
-			}
-		}
-		if (!(castrado.isEmpty())) {
-			if (w.isEmpty()) {
-				w = " CS_Animal Like '%" + castrado + "%'";
-			} else {
-				w += " and CS_Animal like '%" + castrado + "%'";
-			}
-		}
-		if (!(vacinas.isEmpty())) {
-			if (w.isEmpty()) {
-				w = " VC_Animal Like '%" + vacinas + "%'";
-			} else {
-				w += " and VC_Animal like '%" + vacinas + "%'";
-			}
-		}
-		if (!(sexo.isEmpty())) {
-			if (w.isEmpty()) {
-				w = " SX_Animal Like '%" + sexo + "%'";
-			} else {
-				w += " and SX_Animal like '%" + sexo + "%'";
-			}
-
-		}
+	}
+		
 		if (!w.isEmpty()) {
 			q += "where" + w;
 		}
+		System.out.println(q);
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			return ps.executeQuery();
