@@ -38,7 +38,8 @@ public class PetAdotar extends JFrame {
 	JRadioButton btnFemea = new JRadioButton("F\u00EAmea");
 	JCheckBox vacinadodb = new JCheckBox("Vacinado");
 	JCheckBox castradodb = new JCheckBox("Castrado");
-	
+
+
 	/**
 	 * Launch the application.
 	 */
@@ -77,6 +78,18 @@ public class PetAdotar extends JFrame {
 		lblNomePet.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(lblNomePet);
 
+		JButton btnProximo = new JButton("");
+		btnProximo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		
+			}
+		});
+		btnProximo.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/3847912-128(2).png")));
+		btnProximo.setBounds(519, 324, 46, 44);
+		btnProximo.setBorderPainted(false);
+		btnProximo.setContentAreaFilled(false);
+		contentPane.add(btnProximo);
+
 		txtNomePet = new JTextField();
 		txtNomePet.setEditable(false);
 		txtNomePet.setBounds(124, 92, 182, 20);
@@ -89,7 +102,7 @@ public class PetAdotar extends JFrame {
 		contentPane.add(lblAno);
 
 		JLabel lblTipo = new JLabel("Tipo:");
-		lblTipo.setBounds(386, 306, 56, 12);
+		lblTipo.setBounds(387, 283, 56, 17);
 		lblTipo.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(lblTipo);
 
@@ -130,15 +143,135 @@ public class PetAdotar extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				String Raca = txtRaca.getText();
 				String Ano = txtAno.getText();
-				String Tamanho = txtTamanho.getText();
+				String Tamanho = txtTamanho.getText(); 
+				String Sexo = "";
+				String Tipo = "";
+				String Vacinas = "";
+				String Castrado = "";
+				String Nome = "";
 				
-				String Sexo = "Macho";
-				if (btnMacho.isSelected()){
+				if (castradodb.isSelected()) {
+					Castrado = "Sim";
+				} else {
+					Castrado = "Não";
+				}
+
+				if (vacinadodb.isSelected()) {
+					Vacinas = "Sim";
+				} else {
+					Vacinas = "Não";
+				}
+
+				if (btnMacho.isSelected()) {
 					Sexo = "Macho";
-				}else{
+				} else {
 					Sexo = "Fêmea";
 				}
+
+				if (btnCao.isSelected()) {
+					Tipo = "Cachorro";
+				} else {
+					Tipo = "Gato";
+				}
+
 				
+				
+				ResultSet rs = AnimalDAO.selectByAll(Nome, Castrado, Vacinas, Tipo, Sexo, Tamanho, Raca, Ano);
+				
+				try {
+					while (rs.next()) {
+						String nome = rs.getString("NM_Animal");
+						String ano = rs.getString("ANO_Animal");
+						String raca = rs.getString("RC_Animal");
+						String tamanho = rs.getString("TM_Animal");
+						String tipo = rs.getString("TP_Animal");
+						String sexo = rs.getString("SX_Animal");
+						String vacinas = rs.getString("VC_Animal");
+						String castrado = rs.getString("CS_Animal");
+
+						if (tipo.equals("Cachorro")) {
+							btnCao.setSelected(true);
+						} else {
+							btnGato.setSelected(true);
+						}
+
+						if (sexo.equals("Macho")) {
+							btnMacho.setSelected(true);
+						} else {
+							btnFemea.setSelected(true);
+						}
+
+						if (castrado.equals("Sim")) {
+							castradodb.setSelected(true);
+						} else {
+							castradodb.setSelected(false);
+						}
+
+						if (vacinas.equals("Sim")) {
+							vacinadodb.setSelected(true);
+						} else {
+							vacinadodb.setSelected(false);
+						}
+
+						txtTamanho.setText(tamanho);
+						txtRaca.setText(raca);
+						txtAno.setText(ano);
+						txtNomePet.setText(nome);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+			}
+				
+				/*if (!(Sexo.equals(null))) {
+					ResultSet rs = AnimalDAO.selectBySexo(Sexo);
+					try {
+						while (rs.next()) {
+							String nome = rs.getString("NM_Animal");
+							String ano = rs.getString("ANO_Animal");
+							String raca = rs.getString("RC_Animal");
+							String tamanho = rs.getString("TM_Animal");
+							String tipo = rs.getString("TP_Animal");
+							String sexo = rs.getString("SX_Animal");
+							String vacinas = rs.getString("VC_Animal");
+							String castrado = rs.getString("CS_Animal");
+
+							if (tipo.equals("Cachorro")) {
+								btnCao.setSelected(true);
+							} else {
+								btnGato.setSelected(true);
+							}
+
+							if (sexo.equals("Macho")) {
+								btnMacho.setSelected(true);
+							} else {
+								btnFemea.setSelected(true);
+							}
+
+							if (castrado.equals("Sim")) {
+								castradodb.setSelected(true);
+							} else {
+								castradodb.setSelected(false);
+							}
+
+							if (vacinas.equals("Sim")) {
+								vacinadodb.setSelected(true);
+							} else {
+								vacinadodb.setSelected(false);
+							}
+
+							txtTamanho.setText(tamanho);
+							txtRaca.setText(raca);
+							txtAno.setText(ano);
+							txtNomePet.setText(nome);
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+
+				}
+
 				if (!(Raca.equals(null))) {
 					ResultSet rs = AnimalDAO.selectByRaca(Raca);
 					try {
@@ -151,31 +284,31 @@ public class PetAdotar extends JFrame {
 							String sexo = rs.getString("SX_Animal");
 							String vacinas = rs.getString("VC_Animal");
 							String castrado = rs.getString("CS_Animal");
-							
-							if (tipo.equals("Cachorro")){
+
+							if (tipo.equals("Cachorro")) {
 								btnCao.setSelected(true);
 							} else {
 								btnGato.setSelected(true);
 							}
-							
-							if (sexo.equals("Macho")){
+
+							if (sexo.equals("Macho")) {
 								btnMacho.setSelected(true);
 							} else {
 								btnFemea.setSelected(true);
 							}
-							
-							if (castrado.equals("Sim")){
+
+							if (castrado.equals("Sim")) {
 								castradodb.setSelected(true);
-							} else{
+							} else {
 								castradodb.setSelected(false);
 							}
-							
-							if	(vacinas.equals("Sim")){
+
+							if (vacinas.equals("Sim")) {
 								vacinadodb.setSelected(true);
 							} else {
 								vacinadodb.setSelected(false);
 							}
-							
+
 							txtTamanho.setText(tamanho);
 							txtRaca.setText(raca);
 							txtAno.setText(ano);
@@ -186,8 +319,9 @@ public class PetAdotar extends JFrame {
 					}
 
 				}
-				if (!(Ano.equals(null))) {
-					ResultSet rs = AnimalDAO.selectByAno(Ano);
+
+				if (!(Tamanho.equals(null))) {
+					ResultSet rs = AnimalDAO.selectByTamanho(Ano);
 					try {
 						while (rs.next()) {
 							String nome = rs.getString("NM_Animal");
@@ -198,31 +332,31 @@ public class PetAdotar extends JFrame {
 							String sexo = rs.getString("SX_Animal");
 							String vacinas = rs.getString("VC_Animal");
 							String castrado = rs.getString("CS_Animal");
-							
-							if (tipo.equals("Cachorro")){
+
+							if (tipo.equals("Cachorro")) {
 								btnCao.setSelected(true);
 							} else {
 								btnGato.setSelected(true);
 							}
-							
-							if (sexo.equals("Macho")){
+
+							if (sexo.equals("Macho")) {
 								btnMacho.setSelected(true);
 							} else {
 								btnFemea.setSelected(true);
 							}
-							
-							if (castrado.equals("Sim")){
+
+							if (castrado.equals("Sim")) {
 								castradodb.setSelected(true);
-							} else{
+							} else {
 								castradodb.setSelected(false);
 							}
-							
-							if	(vacinas.equals("Sim")){
+
+							if (vacinas.equals("Sim")) {
 								vacinadodb.setSelected(true);
 							} else {
 								vacinadodb.setSelected(false);
 							}
-							
+
 							txtTamanho.setText(tamanho);
 							txtRaca.setText(raca);
 							txtAno.setText(ano);
@@ -233,108 +367,163 @@ public class PetAdotar extends JFrame {
 					}
 
 				}
-			
 
-			if (!(Tamanho.equals(null))) {
-				ResultSet rs = AnimalDAO.selectByTamanho(Ano);
-				try {
-					while (rs.next()) {
-						String nome = rs.getString("NM_Animal");
-						String ano = rs.getString("ANO_Animal");
-						String raca = rs.getString("RC_Animal");
-						String tamanho = rs.getString("TM_Animal");
-						String tipo = rs.getString("TP_Animal");
-						String sexo = rs.getString("SX_Animal");
-						String vacinas = rs.getString("VC_Animal");
-						String castrado = rs.getString("CS_Animal");
-						
-						if (tipo.equals("Cachorro")){
-							btnCao.setSelected(true);
-						} else {
-							btnGato.setSelected(true);
+				if (!(Sexo.equals(null))) {
+					ResultSet rs = AnimalDAO.selectBySexo(Sexo);
+					try {
+						while (rs.next()) {
+							String nome = rs.getString("NM_Animal");
+							String ano = rs.getString("ANO_Animal");
+							String raca = rs.getString("RC_Animal");
+							String tamanho = rs.getString("TM_Animal");
+							String tipo = rs.getString("TP_Animal");
+							String sexo = rs.getString("SX_Animal");
+							String vacinas = rs.getString("VC_Animal");
+							String castrado = rs.getString("CS_Animal");
+
+							if (tipo.equals("Cachorro")) {
+								btnCao.setSelected(true);
+							} else {
+								btnGato.setSelected(true);
+							}
+
+							if (sexo.equals("Macho")) {
+								btnMacho.setSelected(true);
+							} else {
+								btnFemea.setSelected(true);
+							}
+
+							if (castrado.equals("Sim")) {
+								castradodb.setSelected(true);
+							} else {
+								castradodb.setSelected(false);
+							}
+
+							if (vacinas.equals("Sim")) {
+								vacinadodb.setSelected(true);
+							} else {
+								vacinadodb.setSelected(false);
+							}
+
+							txtTamanho.setText(tamanho);
+							txtRaca.setText(raca);
+							txtAno.setText(ano);
+							txtNomePet.setText(nome);
 						}
-						
-						if (sexo.equals("Macho")){
-							btnMacho.setSelected(true);
-						} else {
-							btnFemea.setSelected(true);
-						}
-						
-						if (castrado.equals("Sim")){
-							castradodb.setSelected(true);
-						} else{
-							castradodb.setSelected(false);
-						}
-						
-						if	(vacinas.equals("Sim")){
-							vacinadodb.setSelected(true);
-						} else {
-							vacinadodb.setSelected(false);
-						}
-						
-						txtTamanho.setText(tamanho);
-						txtRaca.setText(raca);
-						txtAno.setText(ano);
-						txtNomePet.setText(nome);
+					} catch (SQLException e) {
+						e.printStackTrace();
 					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 
-			}
-			
-			if (!(Sexo.equals(null))) {
-				ResultSet rs = AnimalDAO.selectBySexo(Sexo);
-				try {
-					while (rs.next()) {
-						String nome = rs.getString("NM_Animal");
-						String ano = rs.getString("ANO_Animal");
-						String raca = rs.getString("RC_Animal");
-						String tamanho = rs.getString("TM_Animal");
-						String tipo = rs.getString("TP_Animal");
-						String sexo = rs.getString("SX_Animal");
-						String vacinas = rs.getString("VC_Animal");
-						String castrado = rs.getString("CS_Animal");
-						
-						if (tipo.equals("Cachorro")){
-							btnCao.setSelected(true);
-						} else {
-							btnGato.setSelected(true);
+				}
+				if (!(Tipo.equals(null))) {
+					ResultSet rs = AnimalDAO.selectByTipo(Tipo);
+					try {
+						while (rs.next()) {
+							String nome = rs.getString("NM_Animal");
+							String ano = rs.getString("ANO_Animal");
+							String raca = rs.getString("RC_Animal");
+							String tamanho = rs.getString("TM_Animal");
+							String tipo = rs.getString("TP_Animal");
+							String sexo = rs.getString("SX_Animal");
+							String vacinas = rs.getString("VC_Animal");
+							String castrado = rs.getString("CS_Animal");
+
+							if (tipo.equals("Cachorro")) {
+								btnCao.setSelected(true);
+							} else {
+								btnGato.setSelected(true);
+							}
+
+							if (sexo.equals("Macho")) {
+								btnMacho.setSelected(true);
+							} else {
+								btnFemea.setSelected(true);
+							}
+
+							if (castrado.equals("Sim")) {
+								castradodb.setSelected(true);
+							} else {
+								castradodb.setSelected(false);
+							}
+
+							if (vacinas.equals("Sim")) {
+								vacinadodb.setSelected(true);
+							} else {
+								vacinadodb.setSelected(false);
+							}
+
+							txtTamanho.setText(tamanho);
+							txtRaca.setText(raca);
+							txtAno.setText(ano);
+							txtNomePet.setText(nome);
 						}
-						
-						if (sexo.equals("Macho")){
-							btnMacho.setSelected(true);
-						} else {
-							btnFemea.setSelected(true);
-						}
-						
-						if (castrado.equals("Sim")){
-							castradodb.setSelected(true);
-						} else{
-							castradodb.setSelected(false);
-						}
-						
-						if	(vacinas.equals("Sim")){
-							vacinadodb.setSelected(true);
-						} else {
-							vacinadodb.setSelected(false);
-						}
-						
-						txtTamanho.setText(tamanho);
-						txtRaca.setText(raca);
-						txtAno.setText(ano);
-						txtNomePet.setText(nome);
+					} catch (SQLException e) {
+						e.printStackTrace();
 					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 
-			}
-			}
+				}
+				if (!(Vacinas.equals(null))) {
+					ResultSet rs = AnimalDAO.selectByVacinas(Vacinas);
+					try {
+						while (rs.next()) {
+							String nome = rs.getString("NM_Animal");
+							String ano = rs.getString("ANO_Animal");
+							String raca = rs.getString("RC_Animal");
+							String tamanho = rs.getString("TM_Animal");
+							String tipo = rs.getString("TP_Animal");
+							String sexo = rs.getString("SX_Animal");
+							String vacinas = rs.getString("VC_Animal");
+							String castrado = rs.getString("CS_Animal");
+
+							if (tipo.equals("Cachorro")) {
+								btnCao.setSelected(true);
+							} else {
+								btnGato.setSelected(true);
+							}
+
+							if (sexo.equals("Macho")) {
+								btnMacho.setSelected(true);
+							} else {
+								btnFemea.setSelected(true);
+							}
+
+							if (castrado.equals("Sim")) {
+								castradodb.setSelected(true);
+							} else {
+								castradodb.setSelected(false);
+							}
+
+							if (vacinas.equals("Sim")) {
+								vacinadodb.setSelected(true);
+							} else {
+								vacinadodb.setSelected(false);
+							}
+
+							txtTamanho.setText(tamanho);
+							txtRaca.setText(raca);
+							txtAno.setText(ano);
+							txtNomePet.setText(nome);
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}*/
+		
+			
 		});
 		contentPane.add(btnBuscar);
 
-		
+		JButton btnAnterior = new JButton("");
+		btnAnterior.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnAnterior.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/3847912-128(1).png")));
+		btnAnterior.setBounds(432, 324, 46, 44);
+		btnAnterior.setBorderPainted(false);
+		btnAnterior.setContentAreaFilled(false);
+		contentPane.add(btnAnterior);
+
 		btnMacho.setBounds(448, 252, 72, 23);
 		btnMacho.setBorderPainted(false);
 		btnMacho.setContentAreaFilled(false);
@@ -344,7 +533,6 @@ public class PetAdotar extends JFrame {
 		buttonGroup.add(btnMacho);
 		contentPane.add(btnMacho);
 
-	
 		btnFemea.setBounds(532, 252, 78, 23);
 		btnFemea.setBorderPainted(false);
 		btnFemea.setContentAreaFilled(false);
@@ -354,8 +542,7 @@ public class PetAdotar extends JFrame {
 		buttonGroup.add(btnFemea);
 		contentPane.add(btnFemea);
 
-		
-		btnCao.setBounds(448, 302, 64, 16);
+		btnCao.setBounds(449, 284, 64, 16);
 		btnCao.setBorderPainted(false);
 		btnCao.setContentAreaFilled(false);
 		btnCao.setFocusPainted(false);
@@ -364,8 +551,7 @@ public class PetAdotar extends JFrame {
 		buttonGroup_1.add(btnCao);
 		contentPane.add(btnCao);
 
-		
-		btnGato.setBounds(532, 302, 64, 16);
+		btnGato.setBounds(533, 284, 64, 16);
 		btnGato.setBorderPainted(false);
 		btnGato.setContentAreaFilled(false);
 		btnGato.setFocusPainted(false);
@@ -380,7 +566,6 @@ public class PetAdotar extends JFrame {
 		contentPane.add(txtImagem);
 		txtImagem.setColumns(10);
 
-		
 		vacinadodb.setBounds(10, 301, 97, 23);
 		vacinadodb.setBackground(new Color(224, 255, 255));
 		vacinadodb.setBorderPainted(false);
@@ -390,7 +575,6 @@ public class PetAdotar extends JFrame {
 		vacinadodb.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(vacinadodb);
 
-		
 		castradodb.setBounds(112, 301, 97, 23);
 		castradodb.setBorderPainted(false);
 		castradodb.setContentAreaFilled(false);

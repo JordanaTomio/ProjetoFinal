@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.DefaultListModel;
+
 import br.com.idog.Configuration.MySQLConfiguration;
 
 public class AnimalDAO {
@@ -57,6 +59,7 @@ public class AnimalDAO {
 			return null;
 		}
 	}
+
 	public static ResultSet selectByTamanho(String tamanho) {
 		String q = "SELECT NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal where ANO_Animal like ?";
 		try {
@@ -69,6 +72,7 @@ public class AnimalDAO {
 			return null;
 		}
 	}
+
 	public static ResultSet selectBySexo(String sexo) {
 		String q = "SELECT NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal where SX_Animal like ?";
 		try {
@@ -80,5 +84,99 @@ public class AnimalDAO {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public static ResultSet selectByTipo(String tipo) {
+		String q = "SELECT NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal where TP_Animal like ?";
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setString(1, "%" + tipo + "%");
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Animal isn't found.");
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public static ResultSet selectByVacinas(String vacinas) {
+		String q = "SELECT NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal where VC_Animal like ?";
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setString(1, "%" + vacinas + "%");
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Animal isn't found.");
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public static ResultSet selectByAll(String nome, String castrado, String vacinas, String tipo, String sexo,
+			String tamanho, String raca, String ano) {
+		String q = "";
+		String w = "";
+
+
+		q = "SELECT NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal ";
+		if (!(tamanho.isEmpty())) {
+			w = " TM_Animal like '%" + tamanho + "%'";
+		}
+		if (!(raca.isEmpty())) {
+			if (w.isEmpty()) {
+				w = " RC_Animal Like '%" + raca + "%'";
+			} else {
+				w += " and RC_Animal like '%" + raca + "%'";
+			}
+		}
+		if (!(tipo.isEmpty())) {
+			if (w.isEmpty()) {
+				w = " TP_Animal Like '%" + tipo + "%'";
+			} else {
+				w += " and TP_Animal like '%" + tipo + "%'";
+			}
+		}
+		if (!(ano.isEmpty())) {
+			if (w.isEmpty()) {
+				w = " ANO_Animal Like '%" + ano + "%'";
+			} else {
+				w += " and ANO_Animal like '%" + ano + "%'";
+			}
+		}
+		if (!(castrado.isEmpty())) {
+			if (w.isEmpty()) {
+				w = " CS_Animal Like '%" + castrado + "%'";
+			} else {
+				w += " and CS_Animal like '%" + castrado + "%'";
+			}
+		}
+		if (!(vacinas.isEmpty())) {
+			if (w.isEmpty()) {
+				w = " VC_Animal Like '%" + vacinas + "%'";
+			} else {
+				w += " and VC_Animal like '%" + vacinas + "%'";
+			}
+		}
+		if (!(sexo.isEmpty())) {
+			if (w.isEmpty()) {
+				w = " SX_Animal Like '%" + sexo + "%'";
+			} else {
+				w += " and SX_Animal like '%" + sexo + "%'";
+			}
+
+		}
+		if (!w.isEmpty()) {
+			q += "where" + w;
+		}
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			return ps.executeQuery();
+		} catch (Exception ex) {
+			System.out.println("Erro no SQL");
+			ex.printStackTrace();
+		}
+
+		return null;
+
 	}
 }
