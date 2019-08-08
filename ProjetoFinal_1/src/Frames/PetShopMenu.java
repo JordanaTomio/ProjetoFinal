@@ -38,11 +38,6 @@ public class PetShopMenu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label_1 = new JLabel("New label");
-		label_1.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/877017-128(1).png")));
-		label_1.setBounds(461, 148, 140, 135);
-		contentPane.add(label_1);
-		
 		JButton btnVoltar = new JButton("");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -73,10 +68,16 @@ public class PetShopMenu extends JFrame {
 		button.setBounds(38, 141, 154, 142);
 		contentPane.add(button);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/3209260-128(1).png")));
-		lblNewLabel_2.setBounds(10, 345, 40, 45);
-		contentPane.add(lblNewLabel_2);
+		JButton btnPerfil = new JButton("");
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Perfil pfl = new Perfil();
+				pfl.setVisible(true);
+				dispose();
+			}
+		});
+		btnPerfil.setBounds(461, 148, 140, 135);
+		contentPane.add(btnPerfil);
 		
 		JButton btnLoja = new JButton("");
 		btnLoja.addActionListener(new ActionListener() {
@@ -92,6 +93,16 @@ public class PetShopMenu extends JFrame {
 		btnLoja.setFocusPainted(false);
 		btnLoja.setOpaque(false);
 		contentPane.add(btnLoja);
+		
+		JLabel label_1 = new JLabel("New label");
+		label_1.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/877017-128(1).png")));
+		label_1.setBounds(461, 148, 140, 135);
+		contentPane.add(label_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/3209260-128(1).png")));
+		lblNewLabel_2.setBounds(10, 345, 40, 45);
+		contentPane.add(lblNewLabel_2);
 		
 		JLabel label = new JLabel("New label");
 		label.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/877020-128-2-.png")));
@@ -113,5 +124,4 @@ public class PetShopMenu extends JFrame {
 		lblNewLabel.setBounds(0, 0, 644, 401);
 		contentPane.add(lblNewLabel);
 	}
-
 }

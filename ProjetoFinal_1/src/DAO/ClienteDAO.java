@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import Beans.Cliente;
 import Frames.Main;
 import br.com.idog.Configuration.MySQLConfiguration;
@@ -108,6 +110,40 @@ public class ClienteDAO {
 			System.err.println("Clientes aren't found.");
 			e.printStackTrace();
 			return null;
+		}
+	}
+	public static ResultSet findAllByID(int cdCodigo) {
+		String q = "SELECT CD_Cliente, PN_Cliente, SN_Cliente, TL_Cliente, EM_Cliente, CEP_Cliente, SX_Cliente, RZ_Cliente FROM cliente where CD_Cliente = ?";
+
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setInt(1, cdCodigo);
+			System.out.println(q);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Clientes aren't found by id.");
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public static void UpdateAllByID(int cdCodigo, String primeiroNome, String segundoNome, String sexo, String telefone, String cep, String razao, String email ) {
+		String q = "UPDATE cliente set EM_Cliente= ?, PN_Cliente= ?, SN_Cliente= ?, SX_Cliente= ?, TL_Cliente= ?, CEP_Cliente= ?, RZ_Cliente= ? WHERE CD_Cliente= ?";
+
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setString(1, email);
+			ps.setString(2, primeiroNome);
+			ps.setString(3, segundoNome);
+			ps.setString(4, sexo);
+			ps.setString(5, telefone);
+			ps.setString(6, cep);
+			ps.setString(7, razao);
+			ps.setInt(8, cdCodigo);
+			ps.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Confirmação", 1);
+		} catch (SQLException e) {
+			System.err.println("Error during update 'Produto'");
+			e.printStackTrace();
 		}
 	}
 }

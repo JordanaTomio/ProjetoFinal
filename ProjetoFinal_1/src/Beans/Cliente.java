@@ -34,6 +34,10 @@ public class Cliente {
 		this.razao = razao;
 	}
 
+	public Cliente(int adm, int cdCodigo) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCdCodigo() {
 		return cdCodigo;
 	}

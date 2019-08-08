@@ -16,6 +16,9 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import Beans.Cliente;
+import DAO.ClienteDAO;
 /*
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +29,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 */
 import br.com.idog.Configuration.MySQLConfiguration;
-import br.com.idog.DAO.PedidoDAO;
-import br.com.idog.Frames.Main;
-import br.com.idog.Models.Pedido;
 
 public class Perfil<EntityManager> extends JFrame {
 
@@ -42,10 +42,12 @@ public class Perfil<EntityManager> extends JFrame {
 	private JLabel lblGeneroPerfil;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField txtCPFPerfil;
-	JRadioButton rdbtnMasculinoPerfil = new JRadioButton("Masculino");
-	JRadioButton rdbtnFemininoPerfil = new JRadioButton("Feminino");
-	JRadioButton rdbtnOutroPerfil = new JRadioButton("Outro");
+	JRadioButton btnMasculino = new JRadioButton("Masculino");
+	JRadioButton btnFeminino = new JRadioButton("Feminino");
+	JRadioButton btnOutro = new JRadioButton("Outro");
 	private Object visualizaDadosUsuario;
+	private JButton btnBuscar;
+	private JButton btnAlterar;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -80,7 +82,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(lblNomePerfil);
 
 		txtNomePerfil = new JTextField();
-		txtNomePerfil.setBounds(59, 124, 231, 20);
+		txtNomePerfil.setBounds(120, 124, 170, 20);
 		contentPane.add(txtNomePerfil);
 		txtNomePerfil.setColumns(10);
 
@@ -91,7 +93,7 @@ public class Perfil<EntityManager> extends JFrame {
 
 		txtSobreNomePerfil = new JTextField();
 		txtSobreNomePerfil.setColumns(10);
-		txtSobreNomePerfil.setBounds(383, 124, 251, 20);
+		txtSobreNomePerfil.setBounds(422, 124, 212, 20);
 		contentPane.add(txtSobreNomePerfil);
 
 		JLabel lblTelefonePerfil = new JLabel("Telefone:");
@@ -101,7 +103,7 @@ public class Perfil<EntityManager> extends JFrame {
 
 		txtTelefonePerfil = new JTextField();
 		txtTelefonePerfil.setColumns(10);
-		txtTelefonePerfil.setBounds(76, 186, 214, 20);
+		txtTelefonePerfil.setBounds(120, 186, 170, 20);
 		contentPane.add(txtTelefonePerfil);
 
 		JLabel lblEmailPerfil = new JLabel("E-mail:");
@@ -111,17 +113,17 @@ public class Perfil<EntityManager> extends JFrame {
 
 		txtEmailPerfil = new JTextField();
 		txtEmailPerfil.setColumns(10);
-		txtEmailPerfil.setBounds(350, 186, 284, 20);
+		txtEmailPerfil.setBounds(422, 186, 212, 20);
 		contentPane.add(txtEmailPerfil);
 
-		JLabel lblEnderecoPerfil = new JLabel("Endere\u00E7o:");
+		JLabel lblEnderecoPerfil = new JLabel("Raz\u00E3o Social:");
 		lblEnderecoPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblEnderecoPerfil.setBounds(10, 247, 74, 14);
+		lblEnderecoPerfil.setBounds(10, 247, 87, 14);
 		contentPane.add(lblEnderecoPerfil);
 
 		txtEnderecoPerfil = new JTextField();
 		txtEnderecoPerfil.setColumns(10);
-		txtEnderecoPerfil.setBounds(83, 245, 207, 20);
+		txtEnderecoPerfil.setBounds(120, 245, 170, 20);
 		contentPane.add(txtEnderecoPerfil);
 
 		JLabel lblCepPerfil = new JLabel("CEP:");
@@ -131,7 +133,7 @@ public class Perfil<EntityManager> extends JFrame {
 
 		txtCEPPerfil = new JTextField();
 		txtCEPPerfil.setColumns(10);
-		txtCEPPerfil.setBounds(339, 245, 295, 20);
+		txtCEPPerfil.setBounds(422, 245, 212, 20);
 		contentPane.add(txtCEPPerfil);
 
 		lblGeneroPerfil = new JLabel("Gen\u00EAro:");
@@ -139,229 +141,152 @@ public class Perfil<EntityManager> extends JFrame {
 		lblGeneroPerfil.setBounds(300, 308, 63, 14);
 		contentPane.add(lblGeneroPerfil);
 
-		buttonGroup.add(rdbtnMasculinoPerfil);
-		rdbtnMasculinoPerfil.setBackground(new Color(224, 255, 255));
-		rdbtnMasculinoPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		rdbtnMasculinoPerfil.setBounds(352, 304, 93, 23);
-		contentPane.add(rdbtnMasculinoPerfil);
+		buttonGroup.add(btnMasculino);
+		btnMasculino.setBackground(new Color(224, 255, 255));
+		btnMasculino.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnMasculino.setBounds(352, 304, 93, 23);
+		contentPane.add(btnMasculino);
 
-		buttonGroup.add(rdbtnFemininoPerfil);
-		rdbtnFemininoPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		rdbtnFemininoPerfil.setBackground(new Color(224, 255, 255));
-		rdbtnFemininoPerfil.setBounds(441, 304, 87, 23);
-		contentPane.add(rdbtnFemininoPerfil);
+		buttonGroup.add(btnFeminino);
+		btnFeminino.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnFeminino.setBackground(new Color(224, 255, 255));
+		btnFeminino.setBounds(441, 304, 87, 23);
+		contentPane.add(btnFeminino);
 
-		buttonGroup.add(rdbtnOutroPerfil);
-		rdbtnOutroPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		rdbtnOutroPerfil.setBackground(new Color(224, 255, 255));
-		rdbtnOutroPerfil.setBounds(524, 304, 66, 23);
-		contentPane.add(rdbtnOutroPerfil);
-		
+		buttonGroup.add(btnOutro);
+		btnOutro.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnOutro.setBackground(new Color(224, 255, 255));
+		btnOutro.setBounds(524, 304, 66, 23);
+		contentPane.add(btnOutro);
+
+		btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int cdCodigo = Main.cliente.getCdCodigo();	
+				ResultSet rs = ClienteDAO.findAllByID(cdCodigo);
+					
+				try {
+					while (rs.next()) {
+						String primeiroNome = rs.getString("PN_Cliente");
+						String segundoNome = rs.getString("SN_Cliente");
+						String telefone = rs.getString("TL_Cliente");
+						String email = rs.getString("EM_Cliente");
+						String razao = rs.getString("RZ_Cliente");
+						String cep = rs.getString("CEP_Cliente");
+						String sexo = rs.getString("SX_Cliente");
+						
+						txtNomePerfil.setText(primeiroNome);
+						txtSobreNomePerfil.setText(segundoNome);
+						txtTelefonePerfil.setText(telefone);
+						txtEmailPerfil.setText(email);
+						txtEnderecoPerfil.setText(razao);
+						txtCEPPerfil.setText(cep);
+
+						if (sexo.equalsIgnoreCase("Masculino")) {
+							btnMasculino.setSelected(true);
+						} else if (sexo.equalsIgnoreCase("Feminino")) {
+							btnFeminino.setSelected(true);
+						} else {
+							btnOutro.setSelected(true);
+						}
+						
+						
+						
+					}
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnBuscar.setBounds(30, 338, 99, 23);
+		contentPane.add(btnBuscar);
+
+		btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int cdCodigo = Main.cliente.getCdCodigo();
+				String primeiroNome = txtNomePerfil.getText();
+				String segundoNome = txtSobreNomePerfil.getText();
+				String sexo = "";
+				String telefone = txtTelefonePerfil.getText();
+				String cep = txtCEPPerfil.getText();
+				String razao = txtEnderecoPerfil.getText();
+				String email = txtEmailPerfil.getText();
+				
+				if (btnMasculino.isSelected()){
+					sexo = "Masculino";
+				} else if (btnFeminino.isSelected()){
+					sexo = "Feminino";
+				} else {
+					sexo = "Outros";
+				}
+				ClienteDAO.UpdateAllByID(cdCodigo, primeiroNome, segundoNome, sexo, telefone, cep, razao, email);
+				ResultSet rs = ClienteDAO.findAllByID(cdCodigo);
+				try {
+					while (rs.next()) {
+
+						txtNomePerfil.setText(primeiroNome);
+						txtSobreNomePerfil.setText(segundoNome);
+						txtTelefonePerfil.setText(telefone);
+						txtEmailPerfil.setText(email);
+						txtEnderecoPerfil.setText(razao);
+						txtCEPPerfil.setText(cep);
+
+						if (sexo.equalsIgnoreCase("Masculino")) {
+							btnMasculino.setSelected(true);
+						} else if (sexo.equalsIgnoreCase("Feminino")) {
+							btnFeminino.setSelected(true);
+						} else {
+							btnOutro.setSelected(true);
+						}
+
+					}
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				
+			
+			}
+		});
+		btnAlterar.setBounds(149, 338, 99, 23);
+		contentPane.add(btnAlterar);
+
 		// PROCURANDO ALGUMA FORMA DE FAZER COM QUE QUANDO ABRIRMOS O PERFIL OS
 		// DADOS DA CONTA QUE ESTA "LOGADA" JA ESTEJAM NA TELA
-		//TESTANDO
-		
-		JButton btnBuscarPerfil = new JButton("Perfil");
-		btnBuscarPerfil.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-/*
-				String nome = txtNomePerfil.getText();
-				String sobrenome = txtSobreNomePerfil.getText();
-				String telefone = txtTelefonePerfil.getText();
-				String email = txtEmailPerfil.getText();
-				String endereco = txtEnderecoPerfil.getText();
-				String CEP = txtCEPPerfil.getText();
-				String CPF = txtCPFPerfil.getText();
+		// TESTANDO
 
-				String genero = "Masculino";
-				if (rdbtnMasculinoPerfil.isSelected()) {
-					genero = "Masculino";
-				} else {
-					genero = "Feminino";
-				}
 
-				if (!(nome.equals(null))) {
-					ResultSet rs = ClienteDAO.selectAll(nome);
-					try {
-						while (rs.next()) {
-							String pnome = rs.getString("PN_Cliente");
-							String snome = rs.getString("SN_Cliente");
-							String telefonep = rs.getString("TL_Cliente");
-							String CEPp = rs.getString("CEP_Cliente");
-							String emailp = rs.getString("EM_Cliente");
-							String ederecop = rs.getString("EN_Cliente");
-							String generop = rs.getString("SX_Cliente");
-							String CPFp = rs.getString("CPF_Cliente");
-						}
-					} catch (SQLException e) {
-						e.printStackTrace();
+
+				JButton btnVoltar = new JButton("Voltar");
+				btnVoltar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						PetShopMenu psm = new PetShopMenu();
+						psm.setVisible(true);
+						dispose();
 					}
-				}
-				// ----------------------------------------------------
+				});
+				btnVoltar.setFont(new Font("Times New Roman", Font.BOLD, 15));
+				btnVoltar.setBounds(275, 361, 93, 29);
+				contentPane.add(btnVoltar);
 
-				if (!(sobrenome.equals(null))) {
-					ResultSet rs = ClienteDAO.selectAll(sobrenome);
-					try {
-						while (rs.next()) {
-							String pnome = rs.getString("PN_Cliente");
-							String snome = rs.getString("SN_Cliente");
-							String telefonep = rs.getString("TL_Cliente");
-							String CEPp = rs.getString("CEP_Cliente");
-							String emailp = rs.getString("EM_Cliente");
-							String ederecop = rs.getString("EN_Cliente");
-							String generop = rs.getString("SX_Cliente");
-							String CPFp = rs.getString("CPF_Cliente");
-						}
-						txtNomePerfil.setText(nome);
-						txtSobreNomePerfil.setText(sobrenome);
-						txtEmailPerfil.setText(email);
-						txtTelefonePerfil.setText(telefone);
-						txtCEPPerfil.setText(CEP);
-						txtCPFPerfil.setText(CPF);
-						txtEnderecoPerfil.setText(endereco);
-
-					} catch (SQLException e) {
-						e.printStackTrace();
+				JButton btnSair = new JButton("Sair");
+				btnSair.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						dispose();
 					}
-				}
-				// -----------------------------------------------------
-				if (!(email.equals(null))) {
-					ResultSet rs = ClienteDAO.selectAll(sobrenome);
-					try {
-						while (rs.next()) {
-							String pnome = rs.getString("PN_Cliente");
-							String snome = rs.getString("SN_Cliente");
-							String telefonep = rs.getString("TL_Cliente");
-							String CEPp = rs.getString("CEP_Cliente");
-							String emailp = rs.getString("EM_Cliente");
-							String ederecop = rs.getString("EN_Cliente");
-							String generop = rs.getString("SX_Cliente");
-							String CPFp = rs.getString("CPF_Cliente");
-						}
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
+				});
+				btnSair.setFont(new Font("Times New Roman", Font.BOLD, 15));
+				btnSair.setBounds(378, 361, 93, 29);
+				contentPane.add(btnSair);
+
+				JLabel lblCPFPerfil = new JLabel("CPF:");
+				lblCPFPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
+				lblCPFPerfil.setBounds(10, 309, 46, 14);
+				contentPane.add(lblCPFPerfil);
+
+				txtCPFPerfil = new JTextField();
+				txtCPFPerfil.setColumns(10);
+				txtCPFPerfil.setBounds(47, 306, 243, 20);
+				contentPane.add(txtCPFPerfil);
 			}
-		});
-		*/
-		btnBuscarPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnBuscarPerfil.setBounds(172, 361, 93, 29);
-		contentPane.add(btnBuscarPerfil);
-
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				PetShopMenu psm = new PetShopMenu();
-				psm.setVisible(true);
-				dispose();
-			}
-		});
-		btnVoltar.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnVoltar.setBounds(275, 361, 93, 29);
-		contentPane.add(btnVoltar);
-
-		JButton btnSair = new JButton("Sair");
-		btnSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				dispose();
-			}
-		});
-		btnSair.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnSair.setBounds(378, 361, 93, 29);
-		contentPane.add(btnSair);
-
-		JLabel lblCPFPerfil = new JLabel("CPF:");
-		lblCPFPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblCPFPerfil.setBounds(10, 309, 46, 14);
-		contentPane.add(lblCPFPerfil);
-
-		txtCPFPerfil = new JTextField();
-		txtCPFPerfil.setColumns(10);
-		txtCPFPerfil.setBounds(47, 306, 243, 20);
-		contentPane.add(txtCPFPerfil);
-			}
-			});
-/*
- * 				Pedido pedido = new Pedido(0, Main.cliente.getCdCodigo());
-				PedidoDAO.save(pedido);
- * 
- * 
- * 
-	public static class ClienteDAO {
-		public static ResultSet selectAll(String pnome) {
-			MySQLConfiguration c = new MySQLConfiguration();
-			String q = "SELECT PS_Cliente, SN_Cliente, TL_Cliente, EM_Cliente, EN_Cliente, SX_Cliente, CEP_Cliente, CPF_Cliente FROM cliente where PN_Cliente ?";
-			try {
-				PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-				ps.setString(1, "%" + pnome + "%");
-			} catch (SQLException e) {
-				System.err.println("Perfil isn't found.");
-				e.printStackTrace();
-				
-			}
-			return null;
-		}
-
-		public void selectSnome(String snome) {
-			String q = "SELECT PS_Cliente, SN_Cliente, TL_Cliente, EM_Cliente, EN_Cliente, SX_Cliente, CEP_Cliente, CPF_Cliente FROM cliente where SN_Cliente ?";
-			try {
-				PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-				ps.setString(1, "%" + snome + "%");
-			} catch (SQLException e) {
-				System.err.println("Animal isn't found.");
-				e.printStackTrace();
-				return;
-			}
-		}
-
-		public ResultSet selectByEmail(String email) {
-			String q = "SELECT PS_Cliente, SN_Cliente, TL_Cliente, EM_Cliente, EN_Cliente, SX_Cliente, CEP_Cliente, CPF_Cliente FROM cliente where EM_Cliente ?";
-			try {
-				PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-				ps.setString(1, email);
-				return ps.executeQuery();
-			} catch (SQLException e) {
-				System.err.println("Perfil isn't found.");
-				e.printStackTrace();
-				return null;
-			}
-		}
-	}
-
-	// TESTANDO
-	
-	
-	
-	public class Persistence {
-		private Object visualizaDadosUsuario;
-
-		public <EntityManagerFactory> EntityManagerFactory createEntityManagerFactory(String unitName) {
-
-		}
-
-		public void createEntityManagerFactory(String nome, java.util.Map(properties)){
-			
-		}
-
-		// DAO
-		public Perfil buscarUsuairoPorLogin(String login) {
-			EntityManager em = EntityManagerUtil.getEM();
-			try {
-				System.out.println("Login: " + login);
-				return (Perfil) em.createNamedQuery("Cliente").setParameter("login", login).getSingleResult();
-			} catch (NoResultException nre) {
-				return null;
-			}
-		}
-
-		// BEAN
-		public String dadosUsuarioCadastrado() {
-			ClienteDAO usuarioDAO = new ClienteDAO();
-			this.visualizaDadosUsuario = usuarioDAO.buscarUsuairoPorLogin(visualizaDadosUsuario());
-			return "/usuario/usuario_dadosCadastrais.xhtml";
-		}*/
-	
-	}
 }
-
