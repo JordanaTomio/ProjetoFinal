@@ -29,6 +29,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 */
 import br.com.idog.Configuration.MySQLConfiguration;
+import javax.swing.ImageIcon;
 
 public class Perfil<EntityManager> extends JFrame {
 
@@ -41,7 +42,6 @@ public class Perfil<EntityManager> extends JFrame {
 	private JTextField txtCEPPerfil;
 	private JLabel lblGeneroPerfil;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private JTextField txtCPFPerfil;
 	JRadioButton btnMasculino = new JRadioButton("Masculino");
 	JRadioButton btnFeminino = new JRadioButton("Feminino");
 	JRadioButton btnOutro = new JRadioButton("Outro");
@@ -198,7 +198,7 @@ public class Perfil<EntityManager> extends JFrame {
 				}
 			}
 		});
-		btnBuscar.setBounds(30, 338, 99, 23);
+		btnBuscar.setBounds(36, 304, 99, 23);
 		contentPane.add(btnBuscar);
 
 		btnAlterar = new JButton("Alterar");
@@ -248,7 +248,7 @@ public class Perfil<EntityManager> extends JFrame {
 			
 			}
 		});
-		btnAlterar.setBounds(149, 338, 99, 23);
+		btnAlterar.setBounds(155, 304, 99, 23);
 		contentPane.add(btnAlterar);
 
 		// PROCURANDO ALGUMA FORMA DE FAZER COM QUE QUANDO ABRIRMOS O PERFIL OS
@@ -257,7 +257,7 @@ public class Perfil<EntityManager> extends JFrame {
 
 
 
-				JButton btnVoltar = new JButton("Voltar");
+				JButton btnVoltar = new JButton("");
 				btnVoltar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						PetShopMenu psm = new PetShopMenu();
@@ -266,27 +266,16 @@ public class Perfil<EntityManager> extends JFrame {
 					}
 				});
 				btnVoltar.setFont(new Font("Times New Roman", Font.BOLD, 15));
-				btnVoltar.setBounds(275, 361, 93, 29);
+				btnVoltar.setBounds(10, 348, 46, 50);
+				btnVoltar.setBorderPainted(false);
+				btnVoltar.setContentAreaFilled(false);
+				btnVoltar.setFocusPainted(false);
+				btnVoltar.setOpaque(false);
 				contentPane.add(btnVoltar);
-
-				JButton btnSair = new JButton("Sair");
-				btnSair.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						dispose();
-					}
-				});
-				btnSair.setFont(new Font("Times New Roman", Font.BOLD, 15));
-				btnSair.setBounds(378, 361, 93, 29);
-				contentPane.add(btnSair);
-
-				JLabel lblCPFPerfil = new JLabel("CPF:");
-				lblCPFPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-				lblCPFPerfil.setBounds(10, 309, 46, 14);
-				contentPane.add(lblCPFPerfil);
-
-				txtCPFPerfil = new JTextField();
-				txtCPFPerfil.setColumns(10);
-				txtCPFPerfil.setBounds(47, 306, 243, 20);
-				contentPane.add(txtCPFPerfil);
+				
+				JLabel lblNewLabel = new JLabel("");
+				lblNewLabel.setIcon(new ImageIcon(Perfil.class.getResource("/imagens/3209260-128(1).png")));
+				lblNewLabel.setBounds(11, 346, 46, 52);
+				contentPane.add(lblNewLabel);
 			}
 }

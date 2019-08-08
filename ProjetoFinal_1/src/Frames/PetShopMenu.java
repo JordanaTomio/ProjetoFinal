@@ -77,6 +77,10 @@ public class PetShopMenu extends JFrame {
 			}
 		});
 		btnPerfil.setBounds(461, 148, 140, 135);
+		btnPerfil.setBorderPainted(false);
+		btnPerfil.setContentAreaFilled(false);
+		btnPerfil.setFocusPainted(false);
+		btnPerfil.setOpaque(false);
 		contentPane.add(btnPerfil);
 		
 		JButton btnLoja = new JButton("");
