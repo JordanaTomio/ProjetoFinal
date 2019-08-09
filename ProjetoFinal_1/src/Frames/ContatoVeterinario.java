@@ -26,6 +26,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
+import javax.swing.ImageIcon;
 
 public class ContatoVeterinario extends JFrame {
 
@@ -133,6 +134,11 @@ public class ContatoVeterinario extends JFrame {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		
+		JLabel background = new JLabel("New label");
+		background.setIcon(new ImageIcon(ContatoVeterinario.class.getResource("/imagens/Background.jpg")));
+		background.setBounds(0, 0, 644, 401);
+		contentPane.add(background);
 		
 		
 		

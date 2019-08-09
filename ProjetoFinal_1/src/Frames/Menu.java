@@ -1,16 +1,16 @@
 package Frames;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Font;
 
 public class Menu extends JFrame {
 
@@ -64,15 +64,44 @@ public class Menu extends JFrame {
 		JButton btnPetShop = new JButton("pet shooop\r\n");
 		btnPetShop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				BanhoTosa bnt = new BanhoTosa();
+				bnt.setVisible(true);
 				dispose();
 			}
 		});
+		
+		JButton btnLogoff = new JButton("");
+		btnLogoff.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Login lgn = new Login();
+				lgn.setVisible(true);
+				dispose();
+			}
+		});
+		btnLogoff.setBounds(22, 323, 47, 56);
+		btnLogoff.setBorderPainted(false);
+		btnLogoff.setContentAreaFilled(false);
+		btnLogoff.setFocusPainted(false);
+		btnLogoff.setOpaque(false);
+		contentPane.add(btnLogoff);
+		
+		
 		btnPetShop.setBounds(256, 142, 136, 103);
 		btnPetShop.setBorderPainted(false);
 		btnPetShop.setContentAreaFilled(false);
 		btnPetShop.setFocusPainted(false);
 		btnPetShop.setOpaque(false);
 		contentPane.add(btnPetShop);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(Menu.class.getResource("/imagens/183189-128(1).png")));
+		lblNewLabel_1.setBounds(22, 328, 47, 50);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblMenu = new JLabel("Menu");
+		lblMenu.setFont(new Font("Bauhaus 93", Font.PLAIN, 50));
+		lblMenu.setBounds(266, 34, 186, 65);
+		contentPane.add(lblMenu);
 		
 		JLabel label = new JLabel("New label");
 		label.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Webp.net-resizeimage.png")));

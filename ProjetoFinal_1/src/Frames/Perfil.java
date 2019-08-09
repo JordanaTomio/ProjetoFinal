@@ -48,6 +48,7 @@ public class Perfil<EntityManager> extends JFrame {
 	private Object visualizaDadosUsuario;
 	private JButton btnBuscar;
 	private JButton btnAlterar;
+	private JLabel background;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -72,8 +73,8 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblPerfil = new JLabel("Perfil");
-		lblPerfil.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		lblPerfil.setBounds(275, 11, 69, 81);
+		lblPerfil.setFont(new Font("Bauhaus 93", Font.BOLD, 40));
+		lblPerfil.setBounds(268, 11, 123, 81);
 		contentPane.add(lblPerfil);
 
 		JLabel lblNomePerfil = new JLabel("Nome:");
@@ -88,12 +89,12 @@ public class Perfil<EntityManager> extends JFrame {
 
 		JLabel lblSobrenome = new JLabel("Sobrenome:");
 		lblSobrenome.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblSobrenome.setBounds(300, 126, 79, 14);
+		lblSobrenome.setBounds(333, 126, 79, 14);
 		contentPane.add(lblSobrenome);
 
 		txtSobreNomePerfil = new JTextField();
 		txtSobreNomePerfil.setColumns(10);
-		txtSobreNomePerfil.setBounds(422, 124, 212, 20);
+		txtSobreNomePerfil.setBounds(446, 126, 175, 20);
 		contentPane.add(txtSobreNomePerfil);
 
 		JLabel lblTelefonePerfil = new JLabel("Telefone:");
@@ -108,12 +109,12 @@ public class Perfil<EntityManager> extends JFrame {
 
 		JLabel lblEmailPerfil = new JLabel("E-mail:");
 		lblEmailPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblEmailPerfil.setBounds(300, 189, 53, 14);
+		lblEmailPerfil.setBounds(333, 189, 53, 14);
 		contentPane.add(lblEmailPerfil);
 
 		txtEmailPerfil = new JTextField();
 		txtEmailPerfil.setColumns(10);
-		txtEmailPerfil.setBounds(422, 186, 212, 20);
+		txtEmailPerfil.setBounds(446, 188, 175, 20);
 		contentPane.add(txtEmailPerfil);
 
 		JLabel lblEnderecoPerfil = new JLabel("Raz\u00E3o Social:");
@@ -128,43 +129,52 @@ public class Perfil<EntityManager> extends JFrame {
 
 		JLabel lblCepPerfil = new JLabel("CEP:");
 		lblCepPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblCepPerfil.setBounds(300, 248, 46, 14);
+		lblCepPerfil.setBounds(333, 248, 46, 14);
 		contentPane.add(lblCepPerfil);
 
 		txtCEPPerfil = new JTextField();
 		txtCEPPerfil.setColumns(10);
-		txtCEPPerfil.setBounds(422, 245, 212, 20);
+		txtCEPPerfil.setBounds(446, 247, 175, 20);
 		contentPane.add(txtCEPPerfil);
 
 		lblGeneroPerfil = new JLabel("Gen\u00EAro:");
 		lblGeneroPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblGeneroPerfil.setBounds(300, 308, 63, 14);
+		lblGeneroPerfil.setBounds(333, 308, 63, 14);
 		contentPane.add(lblGeneroPerfil);
 
 		buttonGroup.add(btnMasculino);
 		btnMasculino.setBackground(new Color(224, 255, 255));
 		btnMasculino.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnMasculino.setBounds(352, 304, 93, 23);
+		btnMasculino.setBounds(388, 304, 93, 23);
+		btnMasculino.setBorderPainted(false);
+		btnMasculino.setOpaque(false);
+		btnMasculino.setContentAreaFilled(false);
 		contentPane.add(btnMasculino);
 
 		buttonGroup.add(btnFeminino);
 		btnFeminino.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnFeminino.setBackground(new Color(224, 255, 255));
-		btnFeminino.setBounds(441, 304, 87, 23);
+		btnFeminino.setBounds(483, 304, 87, 23);
+		btnFeminino.setBorderPainted(false);
+		btnFeminino.setOpaque(false);
+		btnFeminino.setContentAreaFilled(false);
 		contentPane.add(btnFeminino);
 
 		buttonGroup.add(btnOutro);
 		btnOutro.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnOutro.setBackground(new Color(224, 255, 255));
-		btnOutro.setBounds(524, 304, 66, 23);
+		btnOutro.setBounds(572, 304, 66, 23);
+		btnOutro.setBorderPainted(false);
+		btnOutro.setOpaque(false);
+		btnOutro.setContentAreaFilled(false);
 		contentPane.add(btnOutro);
 
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int cdCodigo = Main.cliente.getCdCodigo();	
+				int cdCodigo = Main.cliente.getCdCodigo();
 				ResultSet rs = ClienteDAO.findAllByID(cdCodigo);
-					
+
 				try {
 					while (rs.next()) {
 						String primeiroNome = rs.getString("PN_Cliente");
@@ -174,7 +184,7 @@ public class Perfil<EntityManager> extends JFrame {
 						String razao = rs.getString("RZ_Cliente");
 						String cep = rs.getString("CEP_Cliente");
 						String sexo = rs.getString("SX_Cliente");
-						
+
 						txtNomePerfil.setText(primeiroNome);
 						txtSobreNomePerfil.setText(segundoNome);
 						txtTelefonePerfil.setText(telefone);
@@ -189,9 +199,7 @@ public class Perfil<EntityManager> extends JFrame {
 						} else {
 							btnOutro.setSelected(true);
 						}
-						
-						
-						
+
 					}
 				} catch (SQLException e1) {
 					e1.printStackTrace();
@@ -212,10 +220,10 @@ public class Perfil<EntityManager> extends JFrame {
 				String cep = txtCEPPerfil.getText();
 				String razao = txtEnderecoPerfil.getText();
 				String email = txtEmailPerfil.getText();
-				
-				if (btnMasculino.isSelected()){
+
+				if (btnMasculino.isSelected()) {
 					sexo = "Masculino";
-				} else if (btnFeminino.isSelected()){
+				} else if (btnFeminino.isSelected()) {
 					sexo = "Feminino";
 				} else {
 					sexo = "Outros";
@@ -244,38 +252,35 @@ public class Perfil<EntityManager> extends JFrame {
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
-				
-			
+
 			}
 		});
 		btnAlterar.setBounds(155, 304, 99, 23);
 		contentPane.add(btnAlterar);
-
-		// PROCURANDO ALGUMA FORMA DE FAZER COM QUE QUANDO ABRIRMOS O PERFIL OS
-		// DADOS DA CONTA QUE ESTA "LOGADA" JA ESTEJAM NA TELA
-		// TESTANDO
-
-
-
-				JButton btnVoltar = new JButton("");
-				btnVoltar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						PetShopMenu psm = new PetShopMenu();
-						psm.setVisible(true);
-						dispose();
-					}
-				});
-				btnVoltar.setFont(new Font("Times New Roman", Font.BOLD, 15));
-				btnVoltar.setBounds(10, 348, 46, 50);
-				btnVoltar.setBorderPainted(false);
-				btnVoltar.setContentAreaFilled(false);
-				btnVoltar.setFocusPainted(false);
-				btnVoltar.setOpaque(false);
-				contentPane.add(btnVoltar);
-				
-				JLabel lblNewLabel = new JLabel("");
-				lblNewLabel.setIcon(new ImageIcon(Perfil.class.getResource("/imagens/3209260-128(1).png")));
-				lblNewLabel.setBounds(11, 346, 46, 52);
-				contentPane.add(lblNewLabel);
+		JButton btnVoltar = new JButton("");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PetShopMenu psm = new PetShopMenu();
+				psm.setVisible(true);
+				dispose();
 			}
+		});
+		btnVoltar.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnVoltar.setBounds(10, 348, 46, 50);
+		btnVoltar.setBorderPainted(false);
+		btnVoltar.setContentAreaFilled(false);
+		btnVoltar.setFocusPainted(false);
+		btnVoltar.setOpaque(false);
+		contentPane.add(btnVoltar);
+
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Perfil.class.getResource("/imagens/3209260-128(1).png")));
+		lblNewLabel.setBounds(11, 346, 46, 52);
+		contentPane.add(lblNewLabel);
+
+		background = new JLabel("New label");
+		background.setIcon(new ImageIcon(Perfil.class.getResource("/imagens/Background.jpg")));
+		background.setBounds(0, 0, 644, 398);
+		contentPane.add(background);
+	}
 }

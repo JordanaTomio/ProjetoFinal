@@ -28,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 
 import br.com.idog.Configuration.MySQLConfiguration;
 import net.proteanit.sql.DbUtils;
+import javax.swing.ImageIcon;
 
 public class BanhoTosa extends JFrame {
 
@@ -48,6 +49,8 @@ public class BanhoTosa extends JFrame {
 	private JLabel lblDATA;
 	private JLabel lblHORA;
 	private JLabel lblCLIENTE;
+	private JLabel background;
+	private JLabel lblVoltar;
 
 	/**
 	 * Launch the application.
@@ -81,11 +84,11 @@ public class BanhoTosa extends JFrame {
 
 		JLabel lblBanhoETosa = new JLabel("Banho e Tosa");
 		lblBanhoETosa.setFont(new Font("Broadway", Font.BOLD, 30));
-		lblBanhoETosa.setBounds(180, 11, 251, 51);
+		lblBanhoETosa.setBounds(187, 11, 251, 51);
 		contentPane.add(lblBanhoETosa);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(294, 137, 301, 188);
+		scrollPane.setBounds(333, 121, 283, 188);
 		contentPane.add(scrollPane);
 
 		tblAGENDA = new JTable();
@@ -109,7 +112,7 @@ public class BanhoTosa extends JFrame {
 		rdbtnPequeno.setBorderPainted(false);
 		rdbtnPequeno.setContentAreaFilled(false);
 		rdbtnPequeno.setFocusPainted(false);
-		rdbtnPequeno.setBounds(6, 122, 100, 23);
+		rdbtnPequeno.setBounds(15, 202, 100, 23);
 		rdbtnPequeno.setOpaque(false);
 
 		contentPane.add(rdbtnPequeno);
@@ -122,7 +125,7 @@ public class BanhoTosa extends JFrame {
 		rdbtnMedio.setContentAreaFilled(false);
 		rdbtnMedio.setFocusPainted(false);
 		rdbtnMedio.setOpaque(false);
-		rdbtnMedio.setBounds(105, 122, 100, 23);
+		rdbtnMedio.setBounds(114, 202, 100, 23);
 		contentPane.add(rdbtnMedio);
 
 		rdbtnGrande = new JRadioButton("Grande");
@@ -133,7 +136,7 @@ public class BanhoTosa extends JFrame {
 		rdbtnGrande.setContentAreaFilled(false);
 		rdbtnGrande.setFocusPainted(false);
 		rdbtnGrande.setOpaque(false);
-		rdbtnGrande.setBounds(207, 122, 81, 23);
+		rdbtnGrande.setBounds(214, 201, 81, 23);
 		contentPane.add(rdbtnGrande);
 
 		JRadioButton rdbtnGato = new JRadioButton("Gato");
@@ -144,7 +147,7 @@ public class BanhoTosa extends JFrame {
 		rdbtnGato.setContentAreaFilled(false);
 		rdbtnGato.setFocusPainted(false);
 		rdbtnGato.setOpaque(false);
-		rdbtnGato.setBounds(6, 147, 80, 23);
+		rdbtnGato.setBounds(15, 176, 80, 23);
 		contentPane.add(rdbtnGato);
 
 		JRadioButton rdbtnCachorro = new JRadioButton("Cachorro");
@@ -155,7 +158,7 @@ public class BanhoTosa extends JFrame {
 		rdbtnCachorro.setContentAreaFilled(false);
 		rdbtnCachorro.setFocusPainted(false);
 		rdbtnCachorro.setOpaque(false);
-		rdbtnCachorro.setBounds(105, 147, 130, 23);
+		rdbtnCachorro.setBounds(114, 176, 130, 23);
 		contentPane.add(rdbtnCachorro);
 
 		JButton btnConfirmar = new JButton("Confirmar");
@@ -164,18 +167,29 @@ public class BanhoTosa extends JFrame {
 				Confirmar();
 			}
 		});
+		
+		lblVoltar = new JLabel("");
+		lblVoltar.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/3209260-128(1).png")));
+		lblVoltar.setBounds(13, 333, 52, 57);
+		contentPane.add(lblVoltar);
 		btnConfirmar.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		btnConfirmar.setBounds(23, 317, 113, 23);
+		btnConfirmar.setBounds(49, 281, 113, 23);
 		contentPane.add(btnConfirmar);
 
-		JButton btnVoltar = new JButton("Voltar");
+		JButton btnVoltar = new JButton("");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				PetShopMenu psm = new PetShopMenu();
+				psm.setVisible(true);
 				dispose();
 			}
 		});
 		btnVoltar.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		btnVoltar.setBounds(511, 367, 105, 23);
+		btnVoltar.setBounds(9, 335, 48, 52);
+		btnVoltar.setBorderPainted(false);
+		btnVoltar.setContentAreaFilled(false);
+		btnVoltar.setFocusPainted(false);
+		btnVoltar.setOpaque(false);
 		contentPane.add(btnVoltar);
 
 		rdbtnBanho = new JRadioButton("Banho");
@@ -186,7 +200,7 @@ public class BanhoTosa extends JFrame {
 		rdbtnBanho.setContentAreaFilled(false);
 		rdbtnBanho.setFocusPainted(false);
 		rdbtnBanho.setOpaque(false);
-		rdbtnBanho.setBounds(6, 173, 119, 23);
+		rdbtnBanho.setBounds(15, 230, 80, 23);
 		contentPane.add(rdbtnBanho);
 
 		rdbtnBanhoETosa = new JRadioButton("Banho e tosa");
@@ -197,19 +211,19 @@ public class BanhoTosa extends JFrame {
 		rdbtnBanhoETosa.setContentAreaFilled(false);
 		rdbtnBanhoETosa.setFocusPainted(false);
 		rdbtnBanhoETosa.setOpaque(false);
-		rdbtnBanhoETosa.setBounds(105, 173, 119, 23);
+		rdbtnBanhoETosa.setBounds(214, 228, 119, 23);
 		contentPane.add(rdbtnBanhoETosa);
 
 		txtDATA = new JTextField();
 		txtDATA.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		txtDATA.setBounds(20, 262, 48, 20);
+		txtDATA.setBounds(46, 137, 48, 20);
 		contentPane.add(txtDATA);
 		txtDATA.setColumns(10);
 
 		txtHORA = new JTextField();
 		txtHORA.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		txtHORA.setColumns(10);
-		txtHORA.setBounds(88, 262, 48, 20);
+		txtHORA.setBounds(114, 137, 52, 20);
 		contentPane.add(txtHORA);
 
 		txtCLIENTE = new JTextField();
@@ -220,22 +234,22 @@ public class BanhoTosa extends JFrame {
 		});
 		txtCLIENTE.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		txtCLIENTE.setColumns(10);
-		txtCLIENTE.setBounds(151, 261, 113, 20);
+		txtCLIENTE.setBounds(190, 136, 100, 20);
 		contentPane.add(txtCLIENTE);
 
 		lblDATA = new JLabel("Data");
 		lblDATA.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblDATA.setBounds(31, 237, 37, 14);
+		lblDATA.setBounds(55, 115, 37, 14);
 		contentPane.add(lblDATA);
 
 		lblHORA = new JLabel("Hora");
 		lblHORA.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblHORA.setBounds(96, 238, 35, 14);
+		lblHORA.setBounds(121, 114, 35, 14);
 		contentPane.add(lblHORA);
 
 		lblCLIENTE = new JLabel("Cliente");
 		lblCLIENTE.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblCLIENTE.setBounds(190, 238, 55, 14);
+		lblCLIENTE.setBounds(212, 112, 55, 14);
 		contentPane.add(lblCLIENTE);
 
 		JButton btnCarregar = new JButton("Atualizar");
@@ -245,8 +259,23 @@ public class BanhoTosa extends JFrame {
 			}
 		});
 		btnCarregar.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		btnCarregar.setBounds(151, 317, 113, 23);
+		btnCarregar.setBounds(177, 281, 113, 23);
 		contentPane.add(btnCarregar);
+		
+		JRadioButton btnTosa = new JRadioButton("Tosa");
+		btnTosa.setOpaque(false);
+		btnTosa.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnTosa.setFocusPainted(false);
+		btnTosa.setContentAreaFilled(false);
+		btnTosa.setBorderPainted(false);
+		btnTosa.setBackground(new Color(176, 224, 230));
+		btnTosa.setBounds(114, 230, 80, 23);
+		contentPane.add(btnTosa);
+		
+		background = new JLabel("New label");
+		background.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/Background.jpg")));
+		background.setBounds(0, 0, 644, 401);
+		contentPane.add(background);
 
 	}
 
