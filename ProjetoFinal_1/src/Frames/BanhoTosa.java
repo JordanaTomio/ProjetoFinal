@@ -263,6 +263,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(btnCarregar);
 		
 		JRadioButton btnTosa = new JRadioButton("Tosa");
+		buttonGroup_2.add(btnTosa);
 		btnTosa.setOpaque(false);
 		btnTosa.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnTosa.setFocusPainted(false);
