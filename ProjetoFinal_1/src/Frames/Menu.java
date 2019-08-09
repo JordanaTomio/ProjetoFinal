@@ -15,6 +15,7 @@ import java.awt.Font;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
+	private JButton btnVet;
 
 	/**
 	 * Launch the application.
@@ -84,6 +85,17 @@ public class Menu extends JFrame {
 		btnLogoff.setFocusPainted(false);
 		btnLogoff.setOpaque(false);
 		contentPane.add(btnLogoff);
+		
+		btnVet = new JButton("Veterin\u00E1rio");
+		btnVet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ContatoVeterinario cvt = new ContatoVeterinario();
+				cvt.setVisible(true);
+				dispose();
+			}
+		});
+		btnVet.setBounds(478, 301, 105, 77);
+		contentPane.add(btnVet);
 		
 		
 		btnPetShop.setBounds(256, 142, 136, 103);

@@ -84,11 +84,12 @@ public class ConsultarProdutos extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblNome.setBounds(177, 89, 65, 22);
+		lblNome.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		contentPane.add(lblNome);
 
 		txtNome = new JTextField();
+		txtNome.setBounds(254, 88, 206, 20);
 		txtNome.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
@@ -106,13 +107,12 @@ public class ConsultarProdutos extends JFrame {
 				//tabelaaaaaaaaaaaa
 			}
 		});
-		txtNome.setBounds(254, 88, 206, 20);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 		
 		JLabel lblPesquisarProdutos = new JLabel("Pesquisar Produtos");
-		lblPesquisarProdutos.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblPesquisarProdutos.setBounds(165, 11, 348, 54);
+		lblPesquisarProdutos.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		contentPane.add(lblPesquisarProdutos);
 
 		tblProdutos = new JScrollPane();
@@ -124,6 +124,7 @@ public class ConsultarProdutos extends JFrame {
 		table.setBackground(new Color(255, 240, 245));
 
 		JButton btnSair = new JButton("Voltar");
+		btnSair.setBounds(426, 343, 100, 23);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new PetShopMenu().setVisible(true);
@@ -133,10 +134,10 @@ public class ConsultarProdutos extends JFrame {
 		btnSair.setForeground(Color.BLACK);
 		btnSair.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnSair.setBackground(new Color(255, 240, 245));
-		btnSair.setBounds(426, 343, 100, 23);
 		contentPane.add(btnSair);
 
 		JButton button = new JButton("+");
+		button.setBounds(512, 138, 44, 35);
 		button.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		button.setForeground(Color.BLACK);
 		button.setBackground(new Color(255, 240, 245));
@@ -177,10 +178,10 @@ public class ConsultarProdutos extends JFrame {
 				}
 			}
 		});
-		button.setBounds(512, 138, 44, 35);
 		contentPane.add(button);
 
 		JButton btnNovoPedido = new JButton("Novo pedido");
+		btnNovoPedido.setBounds(100, 343, 144, 23);
 		btnNovoPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Pedido pedido = new Pedido(0, Main.cliente.getCdCodigo());
@@ -190,10 +191,10 @@ public class ConsultarProdutos extends JFrame {
 		btnNovoPedido.setForeground(Color.BLACK);
 		btnNovoPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnNovoPedido.setBackground(new Color(255, 240, 245));
-		btnNovoPedido.setBounds(100, 343, 144, 23);
 		contentPane.add(btnNovoPedido);
 
 		comboBox = new JComboBox();
+		comboBox.setBounds(254, 116, 206, 20);
 		comboBox.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		comboBox.addFocusListener(new FocusAdapter() {
 			@Override
@@ -213,12 +214,11 @@ public class ConsultarProdutos extends JFrame {
 
 			}
 		});
-		comboBox.setBounds(254, 116, 206, 20);
 		contentPane.add(comboBox);
 
 		JLabel lblPedido = new JLabel("Pedido:");
-		lblPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblPedido.setBounds(177, 114, 122, 22);
+		lblPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		contentPane.add(lblPedido);
 		
 		JLabel back = new JLabel("New label");

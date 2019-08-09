@@ -61,10 +61,31 @@ public class ContatoVeterinario extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JButton btnVoltar = new JButton("");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Menu mnu = new Menu();
+				mnu.setVisible(true);
+				dispose();
+			}
+		});
+		btnVoltar.setFont(new Font("Broadway", Font.PLAIN, 11));
+		btnVoltar.setBounds(10, 340, 43, 50);
+		btnVoltar.setBorderPainted(false);
+		btnVoltar.setContentAreaFilled(false);
+		btnVoltar.setOpaque(false);
+		btnVoltar.setFocusPainted(false);
+		contentPane.add(btnVoltar);
+		
 		JLabel lblNewLabel = new JLabel("Veterin\u00E1rio");
 		lblNewLabel.setFont(new Font("Broadway", Font.PLAIN, 30));
 		lblNewLabel.setBounds(226, 31, 203, 63);
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblVoltar = new JLabel("");
+		lblVoltar.setIcon(new ImageIcon(ContatoVeterinario.class.getResource("/imagens/3209260-128(1).png")));
+		lblVoltar.setBounds(13, 327, 65, 76);
+		contentPane.add(lblVoltar);
 		
 		JLabel lblBAIRRO = new JLabel("Digite o seu bairro:");
 		lblBAIRRO.setFont(new Font("Broadway", Font.PLAIN, 15));
@@ -81,13 +102,13 @@ public class ContatoVeterinario extends JFrame {
 				String q = "";
 				String w = "";
 				//-------------------------------------------------------------\\
-				q = "SELECT distinct NOME, TELEFONE, ENDEREÇO"
+				q = "SELECT NM_Veterinario, TL_Veterinario, LC_Veterinario"
 						+ " FROM contato_veterinario";
 				if (!txtBAIRRO.getText().isEmpty()){
 					if (w.isEmpty()){
 						w = "BR_Veterinario like '%" + txtBAIRRO.getText() + "%' ";
 					}else{
-						w += " and BR_Veterinario like '%" + txtBAIRRO.getText() + "%' ";
+						w += "and BR_Veterinario like '%" + txtBAIRRO.getText() + "%' ";
 					}
 				}
 				//-------------------------------------------------------------\\
@@ -118,18 +139,8 @@ public class ContatoVeterinario extends JFrame {
 		contentPane.add(txtBAIRRO);
 		txtBAIRRO.setColumns(10);
 		
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			dispose();
-			}
-		});
-		btnVoltar.setFont(new Font("Broadway", Font.PLAIN, 11));
-		btnVoltar.setBounds(545, 367, 89, 23);
-		contentPane.add(btnVoltar);
-		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(63, 163, 521, 181);
+		scrollPane.setBounds(63, 163, 521, 173);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
