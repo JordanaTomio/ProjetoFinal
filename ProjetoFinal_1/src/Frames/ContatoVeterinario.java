@@ -81,7 +81,7 @@ public class ContatoVeterinario extends JFrame {
 				String q = "";
 				String w = "";
 				//-------------------------------------------------------------\\
-				q = "SELECT distinct NM_Veterinario, TL_Veterinario, LC_Veterinario"
+				q = "SELECT distinct NOME, TELEFONE, ENDEREÇO"
 						+ " FROM contato_veterinario";
 				if (!txtBAIRRO.getText().isEmpty()){
 					if (w.isEmpty()){
