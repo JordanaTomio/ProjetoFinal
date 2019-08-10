@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Beans.Animal;
 import br.com.idog.Configuration.MySQLConfiguration;
 
 public class AnimalDAO {
@@ -110,87 +111,37 @@ public class AnimalDAO {
 		}
 	}
 
-	public static ResultSet selectByAll(String nome, String castrado, String vacinas, String tipo, String sexo,
-			String tamanho, String raca, String ano) {
-		String q = "";
-		String w = "";
-		System.out.println(castrado);
-
-		q = "SELECT NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal ";
-		if (!ano.isEmpty()) {
-			if (w.isEmpty()) {
-				w = " ANO_Animal Like '%" + ano + "%'";
-			} else {
-				w += " and ANO_Animal like '%" + ano + "%'";
-			}
-			
-		if (!tamanho.isEmpty()) {
-			w = " TM_Animal like '%" + tamanho + "%'";
-		} else {
-			w += " and TM_Animal like '%" + tamanho + "%'";
-		}
+	public static ResultSet BuscaAnimal(int one) {
 		
-		if (!raca.isEmpty()) {
-			if (w.isEmpty()) {
-				w = " RC_Animal Like '%" + raca + "%'";
-			} else {
-				w += " and RC_Animal like '%" + raca + "%'";
-			}
-		}
-		if (!tipo.isEmpty()) {
-			if (w.isEmpty()) {
-				w = " TP_Animal Like '%" + tipo + "%'";
-			} else {
-				w += " and TP_Animal like '%" + tipo + "%'";
-			}
-			
-		}
-		if (!sexo.isEmpty()) {
-			if (w.isEmpty()) {
-				w = " SX_Animal Like '%" + sexo + "%'";
-			} else {
-				w += " and SX_Animal like '%" + sexo + "%'";
-			}
-			
-		}
-		if (!vacinas.isEmpty()) {
-			if (w.isEmpty()) {
-				w = " VC_Animal Like '%" + vacinas + "%'";
-			} else {
-				w += " and VC_Animal like '%" + vacinas + "%'";
-			}
-			
-		}
-		if (!castrado.isEmpty()) {
-			if (w.isEmpty()) {
-				w = " CS_Animal Like '%" + castrado + "%'";
-			} else {
-				w += " and CS_Animal like '%" + castrado + "%'";
-			}
-		}
-	}
+		String q = "SELECT  NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal "
+				+ " WHERE CD_Animal > "+ one +" ORDER BY CD_Animal";
 		
-		if (!w.isEmpty()) {
-			q += "where" + w;
-		}
-		System.out.println(nome);
-		System.out.println(castrado);
-		System.out.println(vacinas);
-		System.out.println(tipo);
-		System.out.println(sexo);
-		System.out.println(tamanho);
-		System.out.println(raca);
-		System.out.println(ano);
 		System.out.println(q);
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			return ps.executeQuery();
+
 		} catch (Exception ex) {
 			System.out.println("Erro no SQL");
-			ex.printStackTrace();
+			System.out.println("aqui2");
+			// ex.printStackTrace();
+			return null;
 		}
 
-		return null;
-
 	}
+	/*
+	 * public static ResultSet BuscaAnimalMenor(int one) {
+	 * 
+	 * String q =
+	 * "SELECT  NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal "
+	 * + " WHERE CD_Animal > "+ one +" ORDER BY CD_Animal";
+	 * 
+	 * System.out.println(q); try { PreparedStatement ps =
+	 * MySQLConfiguration.conn.prepareStatement(q); return ps.executeQuery();
+	 * 
+	 * } catch (Exception ex) { System.out.println("Erro no SQL");
+	 * System.out.println("aqui2"); // ex.printStackTrace(); return null; }
+	 * 
+	 * }
+	 */
 }

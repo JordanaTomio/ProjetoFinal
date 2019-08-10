@@ -20,6 +20,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import Beans.Animal;
 import DAO.AnimalDAO;
 
 public class PetAdotar extends JFrame {
@@ -38,7 +39,8 @@ public class PetAdotar extends JFrame {
 	JRadioButton btnFemea = new JRadioButton("F\u00EAmea");
 	JCheckBox vacinadodb = new JCheckBox("Vacinado");
 	JCheckBox castradodb = new JCheckBox("Castrado");
-
+	Animal ani = new Animal();
+	int one = -1;
 
 	/**
 	 * Launch the application.
@@ -60,6 +62,7 @@ public class PetAdotar extends JFrame {
 	 * Create the frame.
 	 */
 	public PetAdotar() {
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();
@@ -81,45 +84,11 @@ public class PetAdotar extends JFrame {
 		JButton btnProximo = new JButton("");
 		btnProximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String Raca = txtRaca.getText();
-				String Ano = txtAno.getText();
-				String Tamanho = txtTamanho.getText(); 
-				String Sexo = "";
-				String Tipo = "";
-				String Vacinas = "";
-				String Castrado = "";
-				String Nome = "";
-				
-				if (castradodb.isSelected()) {
-					Castrado = "Sim";
-				} else {
-					Castrado = "Não";
-				}
+				one++;
+				ResultSet rs = AnimalDAO.BuscaAnimal(one);
 
-				if (vacinadodb.isSelected()) {
-					Vacinas = "Sim";
-				} else {
-					Vacinas = "Não";
-				}
-
-				if (btnMacho.isSelected()) {
-					Sexo = "Macho";
-				} else {
-					Sexo = "Fêmea";
-				}
-
-				if (btnCao.isSelected()) {
-					Tipo = "Cachorro";
-				} else {
-					Tipo = "Gato";
-				}
-
-				
-				
-				ResultSet rs = AnimalDAO.selectByAll(Nome, Castrado, Vacinas, Tipo, Sexo, Tamanho, Raca, Ano);
-				
 				try {
-					while (rs.next()) {
+					if (rs.next()) {
 						String nome = rs.getString("NM_Animal");
 						String ano = rs.getString("ANO_Animal");
 						String raca = rs.getString("RC_Animal");
@@ -157,6 +126,8 @@ public class PetAdotar extends JFrame {
 						txtRaca.setText(raca);
 						txtAno.setText(ano);
 						txtNomePet.setText(nome);
+					}else {
+						one = -1;
 						
 					}
 				} catch (SQLException e1) {
@@ -218,150 +189,16 @@ public class PetAdotar extends JFrame {
 		txtRaca.setColumns(10);
 		contentPane.add(txtRaca);
 
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setBounds(10, 352, 107, 31);
-		btnBuscar.setFont(new Font("Book Antiqua", Font.BOLD, 12));
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String Raca = txtRaca.getText();
-				String Ano = txtAno.getText();
-				String Tamanho = txtTamanho.getText(); 
-				String Sexo = "";
-				String Tipo = "";
-				String Vacinas = "";
-				String Castrado = "";
-				String Nome = "";
-				
-				if (castradodb.isSelected()) {
-					Castrado = "Sim";
-				} else {
-					Castrado = "Não";
-				}
-
-				if (vacinadodb.isSelected()) {
-					Vacinas = "Sim";
-				} else {
-					Vacinas = "Não";
-				}
-
-				if (btnMacho.isSelected()) {
-					Sexo = "Macho";
-				} else {
-					Sexo = "Fêmea";
-				}
-
-				if (btnCao.isSelected()) {
-					Tipo = "Cachorro";
-				} else {
-					Tipo = "Gato";
-				}
-
-				
-				
-				ResultSet rs = AnimalDAO.selectByAll(Nome, Castrado, Vacinas, Tipo, Sexo, Tamanho, Raca, Ano);
-				
-				try {
-					while (rs.next()) {
-						String nome = rs.getString("NM_Animal");
-						String ano = rs.getString("ANO_Animal");
-						String raca = rs.getString("RC_Animal");
-						String tamanho = rs.getString("TM_Animal");
-						String tipo = rs.getString("TP_Animal");
-						String sexo = rs.getString("SX_Animal");
-						String vacinas = rs.getString("VC_Animal");
-						String castrado = rs.getString("CS_Animal");
-
-						if (tipo.equals("Cachorro")) {
-							btnCao.setSelected(true);
-						} else {
-							btnGato.setSelected(true);
-						}
-
-						if (sexo.equals("Macho")) {
-							btnMacho.setSelected(true);
-						} else {
-							btnFemea.setSelected(true);
-						}
-
-						if (castrado.equals("Sim")) {
-							castradodb.setSelected(true);
-						} else {
-							castradodb.setSelected(false);
-						}
-
-						if (vacinas.equals("Sim")) {
-							vacinadodb.setSelected(true);
-						} else {
-							vacinadodb.setSelected(false);
-						}
-
-						txtTamanho.setText(tamanho);
-						txtRaca.setText(raca);
-						txtAno.setText(ano);
-						txtNomePet.setText(nome);
-						;
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				
-			}
-				
-		});
-		contentPane.add(btnBuscar);
-
 		JButton btnAnterior = new JButton("");
 		btnAnterior.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent arg0) {
-				String Raca = txtRaca.getText();
-				String Ano = txtAno.getText();
-				String Tamanho = txtTamanho.getText(); 
-				String Sexo = "";
-				String Tipo = "";
-				String Vacinas = "";
-				String Castrado = "";
-				String Nome = "";
-				
-				Raca = txtRaca.getText();
-				Ano = txtAno.getText();
-				Tamanho = txtTamanho.getText(); 
-				Sexo = "";
-				Tipo = "";
-				Vacinas = "";
-				Castrado = "";
-				Nome = "";
 
-				
-				if (castradodb.isSelected()) {
-					Castrado = "Sim";
-				} else {
-					Castrado = "Não";
-				}
+				one--;
+				ResultSet rs = AnimalDAO.BuscaAnimal(one);
 
-				if (vacinadodb.isSelected()) {
-					Vacinas = "Sim";
-				} else {
-					Vacinas = "Não";
-				}
-
-				if (btnMacho.isSelected()) {
-					Sexo = "Macho";
-				} else {
-					Sexo = "Fêmea";
-				}
-
-				if (btnCao.isSelected()) {
-					Tipo = "Cachorro";
-				} else {
-					Tipo = "Gato";
-				}
-
-				
-				
-				ResultSet rs = AnimalDAO.selectByAll(Nome, Castrado, Vacinas, Tipo, Sexo, Tamanho, Raca, Ano);
-				
 				try {
-					while (rs.next()) {
+					if (rs.next()) {
 						String nome = rs.getString("NM_Animal");
 						String ano = rs.getString("ANO_Animal");
 						String raca = rs.getString("RC_Animal");
@@ -399,14 +236,14 @@ public class PetAdotar extends JFrame {
 						txtRaca.setText(raca);
 						txtAno.setText(ano);
 						txtNomePet.setText(nome);
-						
+
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 
 			}
-				
+
 		});
 		btnAnterior.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/3847912-128(1).png")));
 		btnAnterior.setBounds(432, 324, 46, 44);
@@ -476,7 +313,7 @@ public class PetAdotar extends JFrame {
 		contentPane.add(castradodb);
 
 		JButton btnAdotar = new JButton("Adotar <3 ");
-		btnAdotar.setBounds(127, 352, 107, 31);
+		btnAdotar.setBounds(31, 352, 107, 31);
 		btnAdotar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -498,7 +335,7 @@ public class PetAdotar extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Book Antiqua", Font.BOLD, 12));
-		btnVoltar.setBounds(244, 352, 107, 31);
+		btnVoltar.setBounds(184, 352, 107, 31);
 		contentPane.add(btnVoltar);
 
 		JLabel lblNewLabel = new JLabel("New label");
