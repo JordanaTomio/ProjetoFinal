@@ -102,7 +102,7 @@ INSERT INTO `animal` (`CD_Animal`, `NM_Animal`, `ANO_Animal`, `TM_Animal`, `DS_A
 	(8, 'Kenny', '2017', 'Pequeno', 'Branco, bricalhão', 'Scottish Fold', 'Gato', 'Femea', 'Nao', 'Nao'),
 	(9, 'Pipoca', '2015', 'Medio', 'Preto, apegado a seu bichinho', 'Manx', 'Gato', 'Femea', 'Sim', 'Nao'),
 	(10, 'Elza', '2016', 'Pequeno', 'Castanho, dócil', 'SDR', 'Gato', 'Femea', 'Nao', 'Sim'),
-	(11, 'Floquinho', '2017', 'Pequeno', 'Branco, dócil', 'Burmês\r\nFonte: Canal do Pet - iG @ https://canaldopet.ig.com.br/curiosidades/racas/2016-09-02/gatos-', 'Gato', 'Macho', 'Sim', 'Sim'),
+	(11, 'Floquinho', '2017', 'Pequeno', 'Branco, dócil', 'Burmês', 'Gato', 'Macho', 'Sim', 'Sim'),
 	(12, 'Cookie', '2018', 'Grande', 'Preto, bricalhão', 'Savannah', 'Gato', 'Macho', 'Nao', 'Nao'),
 	(13, 'Mara', '2015', 'Medio', 'Preto, cão de guarda', 'Poodle', 'Cachorro', 'Femea', 'Sim', 'Sim'),
 	(14, 'Maraisa', '2019', 'Grande', 'Castanho, dócil', 'Fila Brasileiro', 'Cachorro', 'Femea', 'Nao', 'Nao'),
