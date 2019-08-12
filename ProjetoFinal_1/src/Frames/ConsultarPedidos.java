@@ -96,7 +96,7 @@ public class ConsultarPedidos extends JFrame {
 		btnFinalizar.setForeground(new Color(0, 0, 0));
 		btnFinalizar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnFinalizar.setBackground(new Color(255, 240, 245));
-		btnFinalizar.setBounds(124, 343, 110, 23);
+		btnFinalizar.setBounds(124, 331, 110, 23);
 		contentPane.add(btnFinalizar);
 
 		JButton btnSair = new JButton("Voltar");
@@ -109,7 +109,7 @@ public class ConsultarPedidos extends JFrame {
 		btnSair.setForeground(new Color(0, 0, 0));
 		btnSair.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnSair.setBackground(new Color(255, 240, 245));
-		btnSair.setBounds(395, 343, 117, 23);
+		btnSair.setBounds(395, 331, 117, 23);
 		contentPane.add(btnSair);
 
 		JScrollPane tblProdutos = new JScrollPane();
@@ -152,7 +152,7 @@ public class ConsultarPedidos extends JFrame {
 		comboBox.setForeground(Color.BLACK);
 		comboBox.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		comboBox.setBackground(Color.WHITE);
-		comboBox.setBounds(113, 77, 183, 20);
+		comboBox.setBounds(113, 72, 183, 25);
 		contentPane.add(comboBox);
 
 		JButton btnNewButton = new JButton("-");
