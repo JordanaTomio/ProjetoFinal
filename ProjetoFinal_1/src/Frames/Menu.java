@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Font;
+import java.awt.Color;
 
 public class Menu extends JFrame {
 
@@ -44,7 +45,7 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnAdocao = new JButton("botao");
+		JButton btnAdocao = new JButton("");
 		btnAdocao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PetAdotar pea = new PetAdotar();
@@ -53,7 +54,7 @@ public class Menu extends JFrame {
 			}
 		});
 		
-		JButton btnLoja = new JButton("lojaaaa");
+		JButton btnLoja = new JButton("");
 		btnLoja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PetShopMenu psm = new PetShopMenu();
@@ -62,7 +63,7 @@ public class Menu extends JFrame {
 			}
 		});
 		
-		JButton btnPetShop = new JButton("pet shooop\r\n");
+		JButton btnPetShop = new JButton("");
 		btnPetShop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BanhoTosa bnt = new BanhoTosa();
@@ -97,8 +98,14 @@ public class Menu extends JFrame {
 		btnVet.setBounds(478, 301, 105, 77);
 		contentPane.add(btnVet);
 		
+		JLabel lblLoja = new JLabel("Loja");
+		lblLoja.setForeground(new Color(0, 0, 0));
+		lblLoja.setBounds(119, 244, 37, 22);
+		contentPane.add(lblLoja);
+		lblLoja.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		
-		btnPetShop.setBounds(256, 142, 136, 103);
+		
+		btnPetShop.setBounds(253, 142, 136, 103);
 		btnPetShop.setBorderPainted(false);
 		btnPetShop.setContentAreaFilled(false);
 		btnPetShop.setFocusPainted(false);
@@ -117,8 +124,14 @@ public class Menu extends JFrame {
 		
 		JLabel label = new JLabel("New label");
 		label.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Webp.net-resizeimage.png")));
-		label.setBounds(254, 129, 138, 135);
+		label.setBounds(263, 129, 138, 135);
 		contentPane.add(label);
+		
+		JLabel lblPetShop = new JLabel("Pet Shop");
+		lblPetShop.setForeground(new Color(0, 0, 0));
+		lblPetShop.setBounds(296, 246, 75, 22);
+		contentPane.add(lblPetShop);
+		lblPetShop.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		btnLoja.setBounds(75, 142, 132, 103);
 		btnLoja.setBorderPainted(false);
 		btnLoja.setContentAreaFilled(false);
@@ -130,6 +143,12 @@ public class Menu extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Webp.net-resizeimage (1).png")));
 		lblNewLabel.setBounds(69, 129, 138, 135);
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblAdoo = new JLabel("Ado\u00E7\u00E3o");
+		lblAdoo.setBounds(499, 244, 65, 22);
+		contentPane.add(lblAdoo);
+		lblAdoo.setForeground(new Color(0, 0, 0));
+		lblAdoo.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 
 		btnAdocao.setBounds(478, 147, 105, 98);
 		btnAdocao.setBorderPainted(false);
@@ -142,6 +161,11 @@ public class Menu extends JFrame {
 		label_1.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Webp.net-resizeimage (2).png")));
 		label_1.setBounds(463, 129, 138, 135);
 		contentPane.add(label_1);
+		
+		JLabel cachorro = new JLabel("New label");
+		cachorro.setIcon(new ImageIcon(Menu.class.getResource("/imagens/dog(1).png")));
+		cachorro.setBounds(168, 84, 329, 309);
+		contentPane.add(cachorro);
 		
 		JLabel lblBackground = new JLabel("New label");
 		lblBackground.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Background.jpg")));

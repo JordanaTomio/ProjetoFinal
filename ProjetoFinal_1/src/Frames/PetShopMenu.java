@@ -123,6 +123,11 @@ public class PetShopMenu extends JFrame {
 		lblPetShop.setBounds(255, 30, 154, 57);
 		contentPane.add(lblPetShop);
 		
+		JLabel lblNewLabel_3 = new JLabel("New label");
+		lblNewLabel_3.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/302817012222211(1).png")));
+		lblNewLabel_3.setBounds(101, 41, 461, 318);
+		contentPane.add(lblNewLabel_3);
+		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/Background.jpg")));
 		lblNewLabel.setBounds(0, 0, 644, 401);

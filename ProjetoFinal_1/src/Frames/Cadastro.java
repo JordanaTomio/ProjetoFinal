@@ -95,7 +95,6 @@ public class Cadastro extends JFrame {
 		contentPane.add(lblNM_RAZAOSOCIAL);
 		
 		txtRZ_Social = new JTextField();
-		txtRZ_Social.setText("oi");
 		txtRZ_Social.setBounds(433, 143, 150, 20);
 		contentPane.add(txtRZ_Social);
 		txtRZ_Social.setColumns(10);
@@ -121,7 +120,6 @@ public class Cadastro extends JFrame {
 		contentPane.add(lblSobrenome);
 		
 		txtSN = new JTextField();
-		txtSN.setText("oi");
 		txtSN.setBounds(433, 99, 150, 20);
 		contentPane.add(txtSN);
 		txtSN.setColumns(10);
@@ -132,25 +130,21 @@ public class Cadastro extends JFrame {
 		contentPane.add(lblCIDADE);
 		
 		txtCPF_CNPJ = new JTextField();
-		txtCPF_CNPJ.setText("11111");
 		txtCPF_CNPJ.setBounds(129, 143, 150, 20);
 		contentPane.add(txtCPF_CNPJ);
 		txtCPF_CNPJ.setColumns(10);
 		
 		txtCEP = new JTextField();
-		txtCEP.setText("23243");
 		txtCEP.setBounds(129, 188, 150, 20);
 		contentPane.add(txtCEP);
 		txtCEP.setColumns(10);
 		
 		txtEM = new JTextField();
-		txtEM.setText("teste");
 		txtEM.setBounds(129, 236, 150, 20);
 		contentPane.add(txtEM);
 		txtEM.setColumns(10);
 		
 		txtTL = new JTextField();
-		txtTL.setText("123");
 		txtTL.setBounds(129, 286, 150, 20);
 		contentPane.add(txtTL);
 		txtTL.setColumns(10);
@@ -183,12 +177,6 @@ public class Cadastro extends JFrame {
 		btnFeminino.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		contentPane.add(btnFeminino);
 		
-		JRadioButton btnAdmin = new JRadioButton("Admin");
-		btnAdmin.setBounds(527, 340, 76, 23);
-		btnAdmin.setBackground(new Color(176, 224, 230));
-		btnAdmin.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		contentPane.add(btnAdmin);
-		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -212,9 +200,6 @@ public class Cadastro extends JFrame {
 					sexo = "Outros";
 				}
 
-				if (btnAdmin.isSelected()) {
-					admin = 1;
-				}
 
 				if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone, admin, CPF, CEP, pessoa, razao);
@@ -251,7 +236,6 @@ public class Cadastro extends JFrame {
 		contentPane.add(lbldadosObrigatrios);
 		
 		txtPN = new JTextField();
-		txtPN.setText("teste\r\n");
 		txtPN.setBounds(128, 98, 150, 22);
 		contentPane.add(txtPN);
 		txtPN.setColumns(10);
@@ -271,6 +255,16 @@ public class Cadastro extends JFrame {
 		rdbtnJu.setFocusPainted(false);
 		rdbtnJu.setOpaque(false);
 		contentPane.add(rdbtnJu);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/301738460207211(1).png")));
+		lblNewLabel_2.setBounds(110, -43, 180, 146);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel label = new JLabel("New label");
+		label.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/301738460207211(1).png")));
+		label.setBounds(383, -51, 180, 160);
+		contentPane.add(label);
 		
 		JRadioButton rdbtnFsica = new JRadioButton("F\u00EDsica");
 		buttonGroup_1.add(rdbtnFsica);

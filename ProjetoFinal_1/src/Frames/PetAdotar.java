@@ -279,6 +279,11 @@ public class PetAdotar extends JFrame {
 		btnCao.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		buttonGroup_1.add(btnCao);
 		contentPane.add(btnCao);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/302319657031211(1).png")));
+		lblNewLabel_1.setBounds(469, -27, 202, 198);
+		contentPane.add(lblNewLabel_1);
 
 		btnGato.setBounds(533, 284, 64, 16);
 		btnGato.setBorderPainted(false);

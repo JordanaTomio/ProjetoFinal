@@ -51,6 +51,9 @@ public class BanhoTosa extends JFrame {
 	private JLabel lblCLIENTE;
 	private JLabel background;
 	private JLabel lblVoltar;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel flor;
 
 	/**
 	 * Launch the application.
@@ -86,6 +89,16 @@ public class BanhoTosa extends JFrame {
 		lblBanhoETosa.setFont(new Font("Broadway", Font.BOLD, 30));
 		lblBanhoETosa.setBounds(187, 11, 251, 51);
 		contentPane.add(lblBanhoETosa);
+		
+		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/230588225055212(1).png")));
+		lblNewLabel_1.setBounds(403, 376, 213, -124);
+		contentPane.add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/230588225055212(1).png")));
+		lblNewLabel_2.setBounds(69, 376, 198, -177);
+		contentPane.add(lblNewLabel_2);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(333, 121, 283, 188);
@@ -251,16 +264,16 @@ public class BanhoTosa extends JFrame {
 		lblCLIENTE.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblCLIENTE.setBounds(212, 112, 55, 14);
 		contentPane.add(lblCLIENTE);
-
-		JButton btnCarregar = new JButton("Atualizar");
-		btnCarregar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Atualizar();
-			}
-		});
-		btnCarregar.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		btnCarregar.setBounds(177, 281, 113, 23);
-		contentPane.add(btnCarregar);
+		
+				JButton btnCarregar = new JButton("Atualizar");
+				btnCarregar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						Atualizar();
+					}
+				});
+				btnCarregar.setFont(new Font("Times New Roman", Font.BOLD, 13));
+				btnCarregar.setBounds(177, 281, 113, 23);
+				contentPane.add(btnCarregar);
 		
 		JRadioButton btnTosa = new JRadioButton("Tosa");
 		buttonGroup_2.add(btnTosa);
@@ -272,6 +285,11 @@ public class BanhoTosa extends JFrame {
 		btnTosa.setBackground(new Color(176, 224, 230));
 		btnTosa.setBounds(114, 230, 80, 23);
 		contentPane.add(btnTosa);
+		
+		flor = new JLabel("New label");
+		flor.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/230588225055212(1).png")));
+		flor.setBounds(277, 144, 429, 328);
+		contentPane.add(flor);
 		
 		background = new JLabel("New label");
 		background.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/Background.jpg")));
