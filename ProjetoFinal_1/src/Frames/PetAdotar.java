@@ -318,7 +318,8 @@ public class PetAdotar extends JFrame {
 		contentPane.add(castradodb);
 
 		JButton btnAdotar = new JButton("Adotar <3 ");
-		btnAdotar.setBounds(31, 352, 107, 31);
+		btnAdotar.setBackground(new Color(230, 230, 250));
+		btnAdotar.setBounds(24, 352, 117, 31);
 		btnAdotar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -328,10 +329,11 @@ public class PetAdotar extends JFrame {
 								+ "de avaliação e levar seu novo amigo!");
 			}
 		});
-		btnAdotar.setFont(new Font("Book Antiqua", Font.BOLD, 12));
+		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		contentPane.add(btnAdotar);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(new Color(230, 230, 250));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu mnu = new Menu();
@@ -339,7 +341,7 @@ public class PetAdotar extends JFrame {
 				dispose();
 			}
 		});
-		btnVoltar.setFont(new Font("Book Antiqua", Font.BOLD, 12));
+		btnVoltar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnVoltar.setBounds(184, 352, 107, 31);
 		contentPane.add(btnVoltar);
 

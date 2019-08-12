@@ -76,7 +76,7 @@ public class ConsultarProdutos extends JFrame {
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblNome.setBounds(135, 100, 65, 22);
+		lblNome.setBounds(187, 93, 65, 22);
 		contentPane.add(lblNome);
 
 		txtNome = new JTextField();
@@ -96,29 +96,21 @@ public class ConsultarProdutos extends JFrame {
 				table.setModel(DbUtils.resultSetToTableModel(rs));
 			}
 		});
-		txtNome.setBounds(212, 99, 206, 20);
+		txtNome.setBounds(264, 92, 206, 20);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 
 		tblProdutos = new JScrollPane();
-		tblProdutos.setBounds(103, 170, 378, 157);
+		tblProdutos.setBounds(135, 170, 378, 157);
 		contentPane.add(tblProdutos);
 
 		table = new JTable();
 		tblProdutos.setViewportView(table);
 		table.setBackground(new Color(255, 240, 245));
-
-		JButton btnSair = new JButton("Voltar");
-		btnSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				new PetShopMenu().setVisible(true);
-				dispose();
-			}
-		});
 		
 		JLabel lblConsultar = new JLabel("Consultar");
 		lblConsultar.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
-		lblConsultar.setBounds(196, 17, 216, 61);
+		lblConsultar.setBounds(213, 17, 216, 61);
 		contentPane.add(lblConsultar);
 		
 		JButton Carrinho = new JButton("Carrinho");
@@ -129,16 +121,33 @@ public class ConsultarProdutos extends JFrame {
 				dispose();
 			}
 		});
+		
+				JButton btnSair = new JButton("");
+				btnSair.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						new PetShopMenu().setVisible(true);
+						dispose();
+					}
+				});
+				btnSair.setForeground(new Color(0, 0, 0));
+				btnSair.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+				btnSair.setBackground(new Color(255, 240, 245));
+				btnSair.setBorderPainted(false);
+				btnSair.setFocusPainted(false);
+				btnSair.setOpaque(false);
+				btnSair.setContentAreaFilled(false);
+				btnSair.setBounds(8, 336, 51, 50);
+				contentPane.add(btnSair);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(ConsultarProdutos.class.getResource("/imagens/3209260-128(1).png")));
+		lblNewLabel.setBounds(12, 336, 59, 55);
+		contentPane.add(lblNewLabel);
 		Carrinho.setForeground(new Color(0, 0, 0));
 		Carrinho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		Carrinho.setBackground(new Color(255, 240, 245));
-		Carrinho.setBounds(64, 340, 135, 23);
+		Carrinho.setBounds(157, 340, 135, 23);
 		contentPane.add(Carrinho);
-		btnSair.setForeground(new Color(0, 0, 0));
-		btnSair.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		btnSair.setBackground(new Color(255, 240, 245));
-		btnSair.setBounds(446, 338, 100, 23);
-		contentPane.add(btnSair);
 
 		JButton button = new JButton("+");
 		button.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
@@ -181,7 +190,7 @@ public class ConsultarProdutos extends JFrame {
 				}
 			}
 		});
-		button.setBounds(491, 168, 44, 35);
+		button.setBounds(523, 168, 44, 35);
 		contentPane.add(button);
 
 		JButton btnNovoPedido = new JButton("Novo pedido");
@@ -194,7 +203,7 @@ public class ConsultarProdutos extends JFrame {
 		btnNovoPedido.setForeground(new Color(0, 0, 0));
 		btnNovoPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnNovoPedido.setBackground(new Color(255, 240, 245));
-		btnNovoPedido.setBounds(248, 338, 135, 23);
+		btnNovoPedido.setBounds(341, 338, 135, 23);
 		contentPane.add(btnNovoPedido);
 
 		comboBox = new JComboBox();
@@ -216,12 +225,12 @@ public class ConsultarProdutos extends JFrame {
 
 			}
 		});
-		comboBox.setBounds(212, 127, 206, 20);
+		comboBox.setBounds(267, 129, 206, 20);
 		contentPane.add(comboBox);
 
 		JLabel lblPedido = new JLabel("Pedido:");
 		lblPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblPedido.setBounds(135, 125, 122, 22);
+		lblPedido.setBounds(186, 129, 122, 22);
 		contentPane.add(lblPedido);
 		
 		JLabel background = new JLabel("New label");

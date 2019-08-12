@@ -96,10 +96,10 @@ public class ConsultarPedidos extends JFrame {
 		btnFinalizar.setForeground(new Color(0, 0, 0));
 		btnFinalizar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnFinalizar.setBackground(new Color(255, 240, 245));
-		btnFinalizar.setBounds(124, 331, 110, 23);
+		btnFinalizar.setBounds(269, 315, 110, 23);
 		contentPane.add(btnFinalizar);
 
-		JButton btnSair = new JButton("Voltar");
+		JButton btnSair = new JButton("");
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new PetShopMenu().setVisible(true);
@@ -109,7 +109,11 @@ public class ConsultarPedidos extends JFrame {
 		btnSair.setForeground(new Color(0, 0, 0));
 		btnSair.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnSair.setBackground(new Color(255, 240, 245));
-		btnSair.setBounds(395, 331, 117, 23);
+		btnSair.setBorderPainted(false);
+		btnSair.setContentAreaFilled(false);
+		btnSair.setFocusPainted(false);
+		btnSair.setOpaque(false);
+		btnSair.setBounds(10, 337, 53, 53);
 		contentPane.add(btnSair);
 
 		JScrollPane tblProdutos = new JScrollPane();
@@ -149,6 +153,11 @@ public class ConsultarPedidos extends JFrame {
 				}
 			}
 		});
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(ConsultarPedidos.class.getResource("/imagens/3209260-128(1).png")));
+		lblNewLabel.setBounds(14, 337, 53, 53);
+		contentPane.add(lblNewLabel);
 		comboBox.setForeground(Color.BLACK);
 		comboBox.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		comboBox.setBackground(Color.WHITE);

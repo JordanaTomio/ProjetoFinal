@@ -214,12 +214,12 @@ public class Cadastro extends JFrame {
 		});
 		
 		btnCadastrar.setBounds(149, 340, 109, 23);
-		btnCadastrar.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		btnCadastrar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(btnCadastrar);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(382, 340, 109, 23);
-		btnVoltar.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		btnVoltar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Login lgn = new Login();

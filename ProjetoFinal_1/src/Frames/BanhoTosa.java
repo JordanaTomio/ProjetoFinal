@@ -183,9 +183,9 @@ public class BanhoTosa extends JFrame {
 		
 		lblVoltar = new JLabel("");
 		lblVoltar.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/3209260-128(1).png")));
-		lblVoltar.setBounds(13, 333, 52, 57);
+		lblVoltar.setBounds(-14, 335, 52, 57);
 		contentPane.add(lblVoltar);
-		btnConfirmar.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		btnConfirmar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnConfirmar.setBounds(49, 281, 113, 23);
 		contentPane.add(btnConfirmar);
 
@@ -271,7 +271,7 @@ public class BanhoTosa extends JFrame {
 						Atualizar();
 					}
 				});
-				btnCarregar.setFont(new Font("Times New Roman", Font.BOLD, 13));
+				btnCarregar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 				btnCarregar.setBounds(177, 281, 113, 23);
 				contentPane.add(btnCarregar);
 		
