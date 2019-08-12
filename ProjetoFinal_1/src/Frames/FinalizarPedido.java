@@ -27,7 +27,7 @@ public class FinalizarPedido extends JFrame {
 	JRadioButton x2 = new JRadioButton("2x");
 	JLabel desconto = new JLabel("15% de desconto!");
 	JLabel totalFinal = new JLabel("  ");
-	String lbl = ConsultarProdutos.ValoresTotaisString;
+	String lbl = ConsultarPedidos.ValoresTotaisString;
 	/**
 	 * Launch the application.
 	 */
@@ -80,16 +80,16 @@ public class FinalizarPedido extends JFrame {
 		contentPane.add(lblSeuTotal);
 		
 		JLabel total = new JLabel("");
-		total.setForeground(new Color(255, 0, 51));
+		total.setForeground(new Color(0, 100, 0));
 		total.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		total.setBounds(216, 100, 95, 23);
-		String lbl = ConsultarProdutos.ValoresTotaisString;
+		total.setBounds(342, 103, 95, 23);
+		String lbl = ConsultarPedidos.ValoresTotaisString;
 		
 		JLabel lblVoltar = new JLabel("");
 		lblVoltar.setIcon(new ImageIcon(FinalizarPedido.class.getResource("/imagens/3209260-128(1).png")));
 		lblVoltar.setBounds(19, 308, 53, 69);
 		contentPane.add(lblVoltar);
-		total.setText(ConsultarProdutos.ValoresTotaisString);
+		total.setText(ConsultarPedidos.ValoresTotaisString);
 		contentPane.add(total);
 		
 		JLabel lblSelecioneOMtodo = new JLabel("Selecione o m\u00E9todo de pagamento:");
@@ -105,7 +105,6 @@ public class FinalizarPedido extends JFrame {
 					x2.setVisible(true);
 					x3.setVisible(true);
 					desconto.setVisible(true);
-
 				}
 			}
 		});
@@ -128,6 +127,7 @@ public class FinalizarPedido extends JFrame {
 				double TotalVistaD = Double.parseDouble(TotalVista);
 				double Avista = TotalVistaD - (TotalVistaD*0.15);
 				totalFinal.setText(df.format(Avista));
+
 			}
 		});
 		buttonGroup.add(avista);
@@ -146,6 +146,7 @@ public class FinalizarPedido extends JFrame {
 				double Total2xD = Double.parseDouble(Total2x);
 				double juros2x = (Total2xD*0.10) + Total2xD;
 				totalFinal.setText(df.format(juros2x));
+
 			}
 		});
 		buttonGroup_1.add(x2);
@@ -155,6 +156,7 @@ public class FinalizarPedido extends JFrame {
 		x2.setBorderPainted(false);
 		x2.setContentAreaFilled(false);
 		x2.setVisible(false);
+		x2.setFocusPainted(false);
 		contentPane.add(x2);
 		
 		x3 = new JRadioButton("3x");
@@ -165,6 +167,7 @@ public class FinalizarPedido extends JFrame {
 				double Total3xD = Double.parseDouble(Total3x);
 				double juros3x = (Total3xD*0.15) + Total3xD;
 				totalFinal.setText(df.format(juros3x));
+
 			}
 		});
 		buttonGroup_1.add(x3);
@@ -173,10 +176,12 @@ public class FinalizarPedido extends JFrame {
 		x3.setBounds(142, 238, 127, 25);
 		x3.setBorderPainted(false);
 		x3.setContentAreaFilled(false);
+		x3.setFocusPainted(false);
 		x3.setVisible(false);
 		contentPane.add(x3);
 		
 		desconto = new JLabel("15% de desconto!");
+		desconto.setForeground(new Color(0, 100, 0));
 		desconto.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		desconto.setBounds(361, 213, 117, 16);
 		desconto.setVisible(false);
@@ -187,10 +192,10 @@ public class FinalizarPedido extends JFrame {
 		lblTotal.setBounds(151, 313, 134, 32);
 		contentPane.add(lblTotal);
 		
-		totalFinal = new JLabel("  ");
-		totalFinal.setForeground(new Color(255, 0, 51));
+		totalFinal = new JLabel("");
+		totalFinal.setForeground(new Color(0, 100, 0));
 		totalFinal.setFont(new Font("Lucida Bright", Font.PLAIN, 22));
-		totalFinal.setBounds(245, 313, 106, 29);
+		totalFinal.setBounds(238, 313, 135, 37);
 		contentPane.add(totalFinal);
 		
 		JButton btnFinalizar = new JButton("Finalizar");
@@ -211,9 +216,9 @@ public class FinalizarPedido extends JFrame {
 		lblPagamento.setBounds(238, 11, 282, 62);
 		contentPane.add(lblPagamento);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(FinalizarPedido.class.getResource("/imagens/Background.jpg")));
-		lblNewLabel.setBounds(0, 0, 644, 401);
-		contentPane.add(lblNewLabel);
+		JLabel background = new JLabel("New label");
+		background.setIcon(new ImageIcon(FinalizarPedido.class.getResource("/imagens/Background.jpg")));
+		background.setBounds(0, 0, 644, 401);
+		contentPane.add(background);
 	}
 }

@@ -179,7 +179,7 @@ public class BanhoTosa extends JFrame {
 		JButton btnVoltar = new JButton("");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PetShopMenu psm = new PetShopMenu();
+				Menu psm = new Menu();
 				psm.setVisible(true);
 				dispose();
 			}

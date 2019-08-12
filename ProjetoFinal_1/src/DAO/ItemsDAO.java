@@ -19,4 +19,16 @@ public class ItemsDAO {
 			e.printStackTrace();
 		}
 	}
+	public static void remove(int idPedido, int idProduto) {
+		String q = "DELETE FROM item WHERE CD_Pedido = ? AND CD_Produto = ? LIMIT 1;";
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setInt(1, idPedido);
+			ps.setInt(2, idProduto);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
+

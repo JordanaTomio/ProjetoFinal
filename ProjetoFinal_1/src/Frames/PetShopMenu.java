@@ -56,7 +56,7 @@ public class PetShopMenu extends JFrame {
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FinalizarPedido frp = new FinalizarPedido();
+				ConsultarPedidos frp = new ConsultarPedidos();
 				frp.setVisible(true);
 				dispose();
 			}

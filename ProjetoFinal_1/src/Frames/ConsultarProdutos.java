@@ -12,9 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -30,7 +28,8 @@ import Beans.Items;
 import Beans.Pedido;
 import DAO.ItemsDAO;
 import DAO.PeedidoDAO;
-
+import net.proteanit.sql.DbUtils;
+import javax.swing.ImageIcon;
 
 public class ConsultarProdutos extends JFrame {
 
@@ -41,18 +40,11 @@ public class ConsultarProdutos extends JFrame {
 	private JScrollPane tblProdutos;
 	private JTable table;
 	private JComboBox comboBox;
-	public static String ValoresTotaisString;
-	public double ValoresTotais;
 
 	/**
 	 * Create the frame.
 	 */
 	public ConsultarProdutos() {
-		
-		DecimalFormat df = new DecimalFormat();
-		df.setMaximumFractionDigits(2);
-		
-		
 		setBackground(new Color(255, 228, 225));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
@@ -63,17 +55,16 @@ public class ConsultarProdutos extends JFrame {
 				if (comboBox.getItemCount() > 0) {
 					String item = comboBox.getSelectedItem().toString();
 
-					ResultSet rsValorTotal = PeedidoDAO.getPedidosItems(Integer.parseInt(item));
+					ResultSet rsValoTotal = PeedidoDAO.getPedidosItems(Integer.parseInt(item));
 					double valorTotalPedido = 0;
 					try {
-						while (rsValorTotal.next()) {
-							valorTotalPedido += rsValorTotal.getDouble("VL_Produto");
+						while (rsValoTotal.next()) {
+							valorTotalPedido += rsValoTotal.getDouble("VL_Produto");
 						}
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 					}
 
-					
 					PeedidoDAO.updateValorTotal(Integer.parseInt(item), valorTotalPedido);
 				}
 			}
@@ -84,18 +75,16 @@ public class ConsultarProdutos extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(177, 89, 65, 22);
 		lblNome.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		lblNome.setBounds(135, 100, 65, 22);
 		contentPane.add(lblNome);
 
 		txtNome = new JTextField();
-		txtNome.setBounds(254, 88, 206, 20);
-		txtNome.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
 				ResultSet rs = PeedidoDAO.findAllToTable();
-				//tabela aquiiiiiiiiiiiiiiiiiiiiiii
+				table.setModel(DbUtils.resultSetToTableModel(rs));
 			}
 		});
 		txtNome.addKeyListener(new KeyAdapter() {
@@ -104,19 +93,15 @@ public class ConsultarProdutos extends JFrame {
 				String nomeProduto = txtNome.getText();
 
 				ResultSet rs = PeedidoDAO.findByNameToTable(nomeProduto);
-				//tabelaaaaaaaaaaaa
+				table.setModel(DbUtils.resultSetToTableModel(rs));
 			}
 		});
+		txtNome.setBounds(212, 99, 206, 20);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
-		
-		JLabel lblPesquisarProdutos = new JLabel("Pesquisar Produtos");
-		lblPesquisarProdutos.setBounds(165, 11, 348, 54);
-		lblPesquisarProdutos.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
-		contentPane.add(lblPesquisarProdutos);
 
 		tblProdutos = new JScrollPane();
-		tblProdutos.setBounds(122, 161, 380, 157);
+		tblProdutos.setBounds(103, 170, 378, 157);
 		contentPane.add(tblProdutos);
 
 		table = new JTable();
@@ -124,22 +109,40 @@ public class ConsultarProdutos extends JFrame {
 		table.setBackground(new Color(255, 240, 245));
 
 		JButton btnSair = new JButton("Voltar");
-		btnSair.setBounds(426, 343, 100, 23);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new PetShopMenu().setVisible(true);
 				dispose();
 			}
 		});
-		btnSair.setForeground(Color.BLACK);
+		
+		JLabel lblConsultar = new JLabel("Consultar");
+		lblConsultar.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
+		lblConsultar.setBounds(196, 17, 216, 61);
+		contentPane.add(lblConsultar);
+		
+		JButton Carrinho = new JButton("Carrinho");
+		Carrinho.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ConsultarPedidos cpd = new ConsultarPedidos();
+				cpd.setVisible(true);
+				dispose();
+			}
+		});
+		Carrinho.setForeground(new Color(0, 0, 0));
+		Carrinho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		Carrinho.setBackground(new Color(255, 240, 245));
+		Carrinho.setBounds(64, 340, 135, 23);
+		contentPane.add(Carrinho);
+		btnSair.setForeground(new Color(0, 0, 0));
 		btnSair.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnSair.setBackground(new Color(255, 240, 245));
+		btnSair.setBounds(446, 338, 100, 23);
 		contentPane.add(btnSair);
 
 		JButton button = new JButton("+");
-		button.setBounds(512, 138, 44, 35);
 		button.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
-		button.setForeground(Color.BLACK);
+		button.setForeground(new Color(0, 0, 0));
 		button.setBackground(new Color(255, 240, 245));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -178,24 +181,23 @@ public class ConsultarProdutos extends JFrame {
 				}
 			}
 		});
+		button.setBounds(491, 168, 44, 35);
 		contentPane.add(button);
 
 		JButton btnNovoPedido = new JButton("Novo pedido");
-		btnNovoPedido.setBounds(100, 343, 144, 23);
 		btnNovoPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Pedido pedido = new Pedido(0, Main.cliente.getCdCodigo());
 				PeedidoDAO.save(pedido);
 			}
 		});
-		btnNovoPedido.setForeground(Color.BLACK);
+		btnNovoPedido.setForeground(new Color(0, 0, 0));
 		btnNovoPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnNovoPedido.setBackground(new Color(255, 240, 245));
+		btnNovoPedido.setBounds(248, 338, 135, 23);
 		contentPane.add(btnNovoPedido);
 
 		comboBox = new JComboBox();
-		comboBox.setBounds(254, 116, 206, 20);
-		comboBox.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		comboBox.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -214,16 +216,17 @@ public class ConsultarProdutos extends JFrame {
 
 			}
 		});
+		comboBox.setBounds(212, 127, 206, 20);
 		contentPane.add(comboBox);
 
 		JLabel lblPedido = new JLabel("Pedido:");
-		lblPedido.setBounds(177, 114, 122, 22);
 		lblPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		lblPedido.setBounds(135, 125, 122, 22);
 		contentPane.add(lblPedido);
 		
-		JLabel back = new JLabel("New label");
-		back.setBounds(0, 0, 643, 401);
-		contentPane.add(back);
-		back.setIcon(new ImageIcon(ConsultarProdutos.class.getResource("/imagens/Background.jpg")));
+		JLabel background = new JLabel("New label");
+		background.setIcon(new ImageIcon(ConsultarProdutos.class.getResource("/imagens/Background.jpg")));
+		background.setBounds(0, 0, 644, 401);
+		contentPane.add(background);
 	}
 }

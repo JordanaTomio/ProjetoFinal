@@ -109,5 +109,18 @@ public class PeedidoDAO {
 				return null;
 			}
 		}
+		public static void addIntoEstoque(int id, int numEstoque) {
+			String q = "UPDATE produto SET QT_Estoque_Produto = ? WHERE CD_Produto = ?";
+
+			try {
+				PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+				ps.setInt(1, (numEstoque + 1));
+				ps.setInt(2, id);
+				ps.executeUpdate();
+			} catch (SQLException e) {
+				System.err.println("Error during update 'Produto Estoque'");
+				e.printStackTrace();
+			}
+		}
+	}
 		
-}
