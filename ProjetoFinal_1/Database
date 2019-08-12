@@ -51,9 +51,7 @@ DELETE FROM `agenda`;
 INSERT INTO `agenda` (`CD_Servico`, `DT_Servico`, `HR_Servico`, `NM_Cliente`, `SV_Servico`, `VL_Servico`) VALUES
 	(1, '25/04', '10:00', 'teste', 'Banho e Tosa', NULL),
 	(2, '25/04', '10:00', 'teste', 'Banho e Tosa', NULL),
-	(3, '15/05', '10:00', 'teste', 'Banho e Tosa', NULL),
-	(4, '10/10', '10:45', 'Jordana', 'Banho', 15),
-	(5, '10/09', '10:09', 'Jordana', 'Banho e tosa', 40);
+	(3, '15/05', '10:00', 'teste', 'Banho e Tosa', NULL);
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
 
 
@@ -94,22 +92,22 @@ CREATE TABLE IF NOT EXISTS `animal` (
 DELETE FROM `animal`;
 /*!40000 ALTER TABLE `animal` DISABLE KEYS */;
 INSERT INTO `animal` (`CD_Animal`, `NM_Animal`, `ANO_Animal`, `TM_Animal`, `DS_Animal`, `RC_Animal`, `TP_Animal`, `SX_Animal`, `VC_Animal`, `CS_Animal`) VALUES
-	(1, 'teste1', '2000', 'medio', 'gordo', 'romario', 'Cachorro', 'Macho', 'Sim', 'Sim'),
-	(2, 'teste2', '2000', 'pequeno', 'magro', 'Orvalho', 'Cachorro', 'Macho', 'Sim', 'Nao'),
-	(3, 'teste3', '2000', 'grande', 'assalto', 'se fode', 'Cachorro', 'Macho', 'Nao', 'Sim'),
-	(4, 'teste4', '2000', 'pequeno', 'desconhecido', 'tamo-lá', 'Cachorro', 'Macho', 'Nao', 'Nao'),
-	(5, 'teste5', '2000', 'teste1', 'teste1', 'teste1', 'gato', 'Macho', 'Sim', 'Nao'),
-	(6, 'teste6', '2000', 'teste1', 'teste1', 'teste1', 'gato', 'Macho', 'Nao', 'Sim'),
-	(7, 'teste7', '2000', 'grande', 'assalto', 'se fode', 'gato', 'Femea', 'Sim', 'Sim'),
-	(8, 'teste8', '2000', 'grande', 'assalto', 'se fode', 'gato', 'Femea', 'Nao', 'Nao'),
-	(9, 'teste9', '2000', 'grande', 'assalto', 'se fode', 'gato', 'Femea', 'Sim', 'Nao'),
-	(10, 'teste10', '2000', 'grande', 'assalto', 'se fode', 'gato', 'Femea', 'Nao', 'Sim'),
-	(11, 'teste11', '2000', 'grande', 'assalto', 'se fode', 'gato', 'Macho', 'Sim', 'Sim'),
-	(12, 'teste12', '2000', 'grande', 'assalto', 'se fode', 'gato', 'Macho', 'Nao', 'Nao'),
-	(13, 'teste13', '2000', 'medio', 'gordo', 'romario', 'Cachorro', 'Femea', 'Sim', 'Sim'),
-	(14, 'teste14', '2000', 'medio', 'gordo', 'romario', 'Cachorro', 'Femea', 'Nao', 'Nao'),
-	(15, 'teste15', '2000', 'medio', 'gordo', 'romario', 'Cachorro', 'Femea', 'Sim', 'Nao'),
-	(16, 'teste16', '2000', 'medio', 'gordo', 'romario', 'Cachorro', 'Femea', 'Nao', 'Sim');
+	(1, 'Niki', '2015', 'Pequeno', 'Castanho, dócil', 'Yorkshire', 'Cachorro', 'Macho', 'Sim', 'Sim'),
+	(2, 'Bob', '2017', 'Medio', 'Preto, cão de guarda', 'Chow Chow', 'Cachorro', 'Macho', 'Sim', 'Nao'),
+	(3, 'Tisto', '2016', 'Grande', 'Branco, bricalhão', 'Dálmata', 'Cachorro', 'Macho', 'Nao', 'Sim'),
+	(4, 'Clike', '2019', 'Pequeno', 'Branco, dócil', 'Shih Tzu', 'Cachorro', 'Macho', 'Nao', 'Nao'),
+	(5, 'Luki', '2015', 'Medio', 'Preto, preguiçososo', 'Nebelung', 'Gato', 'Macho', 'Sim', 'Nao'),
+	(6, 'Sansão', '2016', 'Pequeno', 'Branco, dócil', 'Singapura', 'Gato', 'Macho', 'Nao', 'Sim'),
+	(7, 'Pepita', '2016', 'Grande', 'Castanho, cão de guarda', 'Chartreux', 'Gato', 'Femea', 'Sim', 'Sim'),
+	(8, 'Kenny', '2017', 'Pequeno', 'Branco, bricalhão', 'Scottish Fold', 'Gato', 'Femea', 'Nao', 'Nao'),
+	(9, 'Pipoca', '2015', 'Medio', 'Preto, apegado a seu bichinho', 'Manx', 'Gato', 'Femea', 'Sim', 'Nao'),
+	(10, 'Elza', '2016', 'Pequeno', 'Castanho, dócil', 'SDR', 'Gato', 'Femea', 'Nao', 'Sim'),
+	(11, 'Floquinho', '2017', 'Pequeno', 'Branco, dócil', 'Burmês\r\nFonte: Canal do Pet - iG @ https://canaldopet.ig.com.br/curiosidades/racas/2016-09-02/gatos-', 'Gato', 'Macho', 'Sim', 'Sim'),
+	(12, 'Cookie', '2018', 'Grande', 'Preto, bricalhão', 'Savannah', 'Gato', 'Macho', 'Nao', 'Nao'),
+	(13, 'Mara', '2015', 'Medio', 'Preto, cão de guarda', 'Poodle', 'Cachorro', 'Femea', 'Sim', 'Sim'),
+	(14, 'Maraisa', '2019', 'Grande', 'Castanho, dócil', 'Fila Brasileiro', 'Cachorro', 'Femea', 'Nao', 'Nao'),
+	(15, 'Kely', '2016', 'Medio', 'Preto, bricalhão', 'Shar Pei', 'Cachorro', 'Femea', 'Sim', 'Nao'),
+	(16, 'Leci', '2017', 'Pequeno', 'Branco, dócil', 'Poodle Toy', 'Cachorro', 'Femea', 'Nao', 'Sim');
 /*!40000 ALTER TABLE `animal` ENABLE KEYS */;
 
 
@@ -135,8 +133,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 DELETE FROM `cliente`;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` (`CD_Cliente`, `EM_Cliente`, `PS_Cliente`, `PN_Cliente`, `SN_Cliente`, `SX_Cliente`, `TL_Cliente`, `ADM_Cliente`, `CEP_Cliente`, `CPF_Cliente`, `PJF_Cliente`, `RZ_Cliente`) VALUES
-	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '123', 0, '11111', '23243', NULL, 'Jordana'),
-	(4, 'teste', '123', 'Jordana', 'Tomio', 'Outros', '46745', 0, '45654', '', NULL, 'João Pedro');
+	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '123', 0, '11111', '23243', NULL, 'oi');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 
@@ -187,20 +184,6 @@ INSERT INTO `contato_veterinario` (`CD_Veterinario`, `NM_Veterinario`, `TL_Veter
 /*!40000 ALTER TABLE `contato_veterinario` ENABLE KEYS */;
 
 
--- Copiando estrutura para tabela petshopdb.imagens
-DROP TABLE IF EXISTS `imagens`;
-CREATE TABLE IF NOT EXISTS `imagens` (
-  `CD_Ima` int(11) NOT NULL AUTO_INCREMENT,
-  `BB_Ima` mediumblob,
-  PRIMARY KEY (`CD_Ima`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Copiando dados para a tabela petshopdb.imagens: ~0 rows (aproximadamente)
-DELETE FROM `imagens`;
-/*!40000 ALTER TABLE `imagens` DISABLE KEYS */;
-/*!40000 ALTER TABLE `imagens` ENABLE KEYS */;
-
-
 -- Copiando estrutura para tabela petshopdb.item
 DROP TABLE IF EXISTS `item`;
 CREATE TABLE IF NOT EXISTS `item` (
@@ -229,13 +212,11 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   PRIMARY KEY (`CD_Pedido`),
   KEY `fk_Pedido_Cliente1_idx` (`CD_Cliente`),
   CONSTRAINT `fk_Pedido_Cliente1` FOREIGN KEY (`CD_Cliente`) REFERENCES `cliente` (`CD_Cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela petshopdb.pedido: ~0 rows (aproximadamente)
 DELETE FROM `pedido`;
 /*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
-INSERT INTO `pedido` (`CD_Pedido`, `VL_Total`, `DT_Pedido`, `AT_Pedido`, `CD_Cliente`) VALUES
-	(6, 0, '2019-08-09 17:11:06', '2019-08-09 17:11:06', 3);
 /*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
 
 
