@@ -1,0 +1,2 @@
+# ProjetoFinal - iPet
+Projeto final do programa Entra21, edição 2019. Nosso projeto foi criado visando a facilitação da vida de quem ama seus animais de estimação. Com recursos como loja virtual para compras de acessórios ou ração e agendamento de serviços de embelezamento como banho e tosa, o aplicativo iPet garante a maior otimização do tempo de quem ama seus amigos de quatro patas. Mas para quem ainda está buscando seu novo amigo, o aplicativo disponibiliza também uma aba de adoção onde se pode escolher entre vários cães e gatos que estão à procura de um novo lar.
