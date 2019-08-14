@@ -82,7 +82,7 @@ public class FinalizarPedido extends JFrame {
 		JLabel total = new JLabel("");
 		total.setForeground(new Color(0, 100, 0));
 		total.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		total.setBounds(342, 103, 95, 23);
+		total.setBounds(334, 100, 95, 24);
 		String lbl = ConsultarPedidos.ValoresTotaisString;
 		
 		JLabel lblVoltar = new JLabel("");
@@ -187,7 +187,7 @@ public class FinalizarPedido extends JFrame {
 		desconto.setVisible(false);
 		contentPane.add(desconto);
 		
-		JLabel lblTotal = new JLabel("Total:");
+		JLabel lblTotal = new JLabel("Total: R$");
 		lblTotal.setFont(new Font("Lucida Bright", Font.PLAIN, 25));
 		lblTotal.setBounds(151, 313, 134, 32);
 		contentPane.add(lblTotal);
@@ -195,7 +195,7 @@ public class FinalizarPedido extends JFrame {
 		totalFinal = new JLabel("");
 		totalFinal.setForeground(new Color(0, 100, 0));
 		totalFinal.setFont(new Font("Lucida Bright", Font.PLAIN, 22));
-		totalFinal.setBounds(238, 313, 135, 37);
+		totalFinal.setBounds(264, 310, 135, 37);
 		contentPane.add(totalFinal);
 		
 		JButton btnFinalizar = new JButton("Finalizar");

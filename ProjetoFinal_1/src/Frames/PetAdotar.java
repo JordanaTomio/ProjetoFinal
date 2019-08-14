@@ -32,7 +32,7 @@ public class PetAdotar extends JFrame {
 	private JTextField txtRaca;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
-	private JTextField txtImagem;
+	private JTextField txtDesc;
 	JRadioButton btnMacho = new JRadioButton("Macho");
 	JRadioButton btnCao = new JRadioButton("C\u00E3o");
 	JRadioButton btnGato = new JRadioButton("Gato");
@@ -97,6 +97,7 @@ public class PetAdotar extends JFrame {
 						String sexo = rs.getString("SX_Animal");
 						String vacinas = rs.getString("VC_Animal");
 						String castrado = rs.getString("CS_Animal");
+						String desc = rs.getString("DS_Animal");
 
 						if (tipo.equals("Cachorro")) {
 							btnCao.setSelected(true);
@@ -126,9 +127,10 @@ public class PetAdotar extends JFrame {
 						txtRaca.setText(raca);
 						txtAno.setText(ano);
 						txtNomePet.setText(nome);
-					}else {
+						txtDesc.setText(desc);
+					} else {
 						one = -1;
-						
+
 					}
 				} catch (SQLException e1) {
 					e1.printStackTrace();
@@ -155,7 +157,7 @@ public class PetAdotar extends JFrame {
 		contentPane.add(lblAno);
 
 		JLabel lblTipo = new JLabel("Tipo:");
-		lblTipo.setBounds(387, 283, 56, 17);
+		lblTipo.setBounds(388, 268, 56, 17);
 		lblTipo.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(lblTipo);
 
@@ -170,21 +172,24 @@ public class PetAdotar extends JFrame {
 		contentPane.add(lblTamanho);
 
 		JLabel lblGenero = new JLabel("G\u00EAnero:");
-		lblGenero.setBounds(386, 256, 56, 14);
+		lblGenero.setBounds(387, 241, 56, 14);
 		lblGenero.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(lblGenero);
 
 		txtAno = new JTextField();
+		txtAno.setEditable(false);
 		txtAno.setBounds(124, 146, 182, 20);
 		txtAno.setColumns(10);
 		contentPane.add(txtAno);
 
 		txtTamanho = new JTextField();
+		txtTamanho.setEditable(false);
 		txtTamanho.setBounds(124, 253, 182, 20);
 		txtTamanho.setColumns(10);
 		contentPane.add(txtTamanho);
 
 		txtRaca = new JTextField();
+		txtRaca.setEditable(false);
 		txtRaca.setBounds(124, 203, 182, 20);
 		txtRaca.setColumns(10);
 		contentPane.add(txtRaca);
@@ -207,6 +212,7 @@ public class PetAdotar extends JFrame {
 						String sexo = rs.getString("SX_Animal");
 						String vacinas = rs.getString("VC_Animal");
 						String castrado = rs.getString("CS_Animal");
+						String desc = rs.getString("DS_Animal");
 
 						if (tipo.equals("Cachorro")) {
 							btnCao.setSelected(true);
@@ -236,6 +242,8 @@ public class PetAdotar extends JFrame {
 						txtRaca.setText(raca);
 						txtAno.setText(ano);
 						txtNomePet.setText(nome);
+						txtDesc.setText(desc);
+						
 
 					}
 				} catch (SQLException e) {
@@ -253,7 +261,7 @@ public class PetAdotar extends JFrame {
 		btnAnterior.setOpaque(false);
 		contentPane.add(btnAnterior);
 
-		btnMacho.setBounds(448, 252, 72, 23);
+		btnMacho.setBounds(449, 237, 72, 23);
 		btnMacho.setBorderPainted(false);
 		btnMacho.setContentAreaFilled(false);
 		btnMacho.setFocusPainted(false);
@@ -262,7 +270,7 @@ public class PetAdotar extends JFrame {
 		buttonGroup.add(btnMacho);
 		contentPane.add(btnMacho);
 
-		btnFemea.setBounds(532, 252, 78, 23);
+		btnFemea.setBounds(533, 237, 78, 23);
 		btnFemea.setBorderPainted(false);
 		btnFemea.setContentAreaFilled(false);
 		btnFemea.setFocusPainted(false);
@@ -271,7 +279,7 @@ public class PetAdotar extends JFrame {
 		buttonGroup.add(btnFemea);
 		contentPane.add(btnFemea);
 
-		btnCao.setBounds(449, 284, 64, 16);
+		btnCao.setBounds(450, 269, 64, 16);
 		btnCao.setBorderPainted(false);
 		btnCao.setContentAreaFilled(false);
 		btnCao.setFocusPainted(false);
@@ -279,13 +287,35 @@ public class PetAdotar extends JFrame {
 		btnCao.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		buttonGroup_1.add(btnCao);
 		contentPane.add(btnCao);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/302319657031211(1).png")));
 		lblNewLabel_1.setBounds(469, -27, 202, 198);
 		contentPane.add(lblNewLabel_1);
 
-		btnGato.setBounds(533, 284, 64, 16);
+		JButton btnVoltar = new JButton("");
+		btnVoltar.setBackground(new Color(230, 230, 250));
+		btnVoltar.setBorderPainted(false);
+		btnVoltar.setContentAreaFilled(false);
+		btnVoltar.setFocusPainted(false);
+		btnVoltar.setOpaque(false);
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu mnu = new Menu();
+				mnu.setVisible(true);
+				dispose();
+			}
+		});
+		btnVoltar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		btnVoltar.setBounds(14, 343, 46, 50);
+		contentPane.add(btnVoltar);
+
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/3209260-128(1).png")));
+		lblNewLabel_2.setBounds(14, 344, 46, 50);
+		contentPane.add(lblNewLabel_2);
+
+		btnGato.setBounds(534, 269, 64, 16);
 		btnGato.setBorderPainted(false);
 		btnGato.setContentAreaFilled(false);
 		btnGato.setFocusPainted(false);
@@ -294,15 +324,14 @@ public class PetAdotar extends JFrame {
 		buttonGroup_1.add(btnGato);
 		contentPane.add(btnGato);
 
-		txtImagem = new JTextField();
-		txtImagem.setBounds(386, 94, 210, 140);
-		txtImagem.setEditable(false);
-		contentPane.add(txtImagem);
-		txtImagem.setColumns(10);
+		txtDesc = new JTextField();
+		txtDesc.setBounds(387, 99, 210, 115);
+		txtDesc.setEditable(false);
+		contentPane.add(txtDesc);
+		txtDesc.setColumns(10);
 
 		vacinadodb.setBounds(10, 301, 97, 23);
 		vacinadodb.setBackground(new Color(224, 255, 255));
-		vacinadodb.setBorderPainted(false);
 		vacinadodb.setContentAreaFilled(false);
 		vacinadodb.setFocusPainted(false);
 		vacinadodb.setOpaque(false);
@@ -310,16 +339,15 @@ public class PetAdotar extends JFrame {
 		contentPane.add(vacinadodb);
 
 		castradodb.setBounds(112, 301, 97, 23);
-		castradodb.setBorderPainted(false);
 		castradodb.setContentAreaFilled(false);
 		castradodb.setFocusPainted(false);
 		castradodb.setOpaque(false);
 		castradodb.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(castradodb);
 
-		JButton btnAdotar = new JButton("Adotar <3 ");
+		JButton btnAdotar = new JButton("Adotar ");
 		btnAdotar.setBackground(new Color(230, 230, 250));
-		btnAdotar.setBounds(24, 352, 117, 31);
+		btnAdotar.setBounds(163, 336, 117, 31);
 		btnAdotar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -331,19 +359,6 @@ public class PetAdotar extends JFrame {
 		});
 		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		contentPane.add(btnAdotar);
-
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBackground(new Color(230, 230, 250));
-		btnVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Menu mnu = new Menu();
-				mnu.setVisible(true);
-				dispose();
-			}
-		});
-		btnVoltar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-		btnVoltar.setBounds(184, 352, 107, 31);
-		contentPane.add(btnVoltar);
 
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/Background.jpg")));

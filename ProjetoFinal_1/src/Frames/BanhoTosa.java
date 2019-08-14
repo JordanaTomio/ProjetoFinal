@@ -175,6 +175,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(rdbtnCachorro);
 
 		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setBackground(new Color(240, 255, 255));
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Confirmar();
@@ -183,9 +184,9 @@ public class BanhoTosa extends JFrame {
 		
 		lblVoltar = new JLabel("");
 		lblVoltar.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/3209260-128(1).png")));
-		lblVoltar.setBounds(-14, 335, 52, 57);
+		lblVoltar.setBounds(15, 333, 52, 57);
 		contentPane.add(lblVoltar);
-		btnConfirmar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		btnConfirmar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnConfirmar.setBounds(49, 281, 113, 23);
 		contentPane.add(btnConfirmar);
 
@@ -198,7 +199,7 @@ public class BanhoTosa extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		btnVoltar.setBounds(9, 335, 48, 52);
+		btnVoltar.setBounds(15, 333, 48, 52);
 		btnVoltar.setBorderPainted(false);
 		btnVoltar.setContentAreaFilled(false);
 		btnVoltar.setFocusPainted(false);
@@ -229,14 +230,14 @@ public class BanhoTosa extends JFrame {
 
 		txtDATA = new JTextField();
 		txtDATA.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		txtDATA.setBounds(46, 137, 48, 20);
+		txtDATA.setBounds(26, 134, 48, 20);
 		contentPane.add(txtDATA);
 		txtDATA.setColumns(10);
 
 		txtHORA = new JTextField();
 		txtHORA.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		txtHORA.setColumns(10);
-		txtHORA.setBounds(114, 137, 52, 20);
+		txtHORA.setBounds(102, 135, 55, 20);
 		contentPane.add(txtHORA);
 
 		txtCLIENTE = new JTextField();
@@ -247,31 +248,32 @@ public class BanhoTosa extends JFrame {
 		});
 		txtCLIENTE.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		txtCLIENTE.setColumns(10);
-		txtCLIENTE.setBounds(190, 136, 100, 20);
+		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);
 
 		lblDATA = new JLabel("Data");
 		lblDATA.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblDATA.setBounds(55, 115, 37, 14);
+		lblDATA.setBounds(35, 112, 37, 14);
 		contentPane.add(lblDATA);
 
 		lblHORA = new JLabel("Hora");
 		lblHORA.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblHORA.setBounds(121, 114, 35, 14);
+		lblHORA.setBounds(112, 112, 35, 14);
 		contentPane.add(lblHORA);
 
 		lblCLIENTE = new JLabel("Cliente");
 		lblCLIENTE.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblCLIENTE.setBounds(212, 112, 55, 14);
+		lblCLIENTE.setBounds(205, 112, 55, 14);
 		contentPane.add(lblCLIENTE);
 		
 				JButton btnCarregar = new JButton("Atualizar");
+				btnCarregar.setBackground(new Color(240, 255, 255));
 				btnCarregar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						Atualizar();
 					}
 				});
-				btnCarregar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+				btnCarregar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 				btnCarregar.setBounds(177, 281, 113, 23);
 				contentPane.add(btnCarregar);
 		
