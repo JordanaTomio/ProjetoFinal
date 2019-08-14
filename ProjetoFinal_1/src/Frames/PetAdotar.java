@@ -71,6 +71,7 @@ public class PetAdotar extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblPetInformacoes = new JLabel("Pet Informa\u00E7\u00F5es");
 		lblPetInformacoes.setBounds(184, 23, 258, 44);

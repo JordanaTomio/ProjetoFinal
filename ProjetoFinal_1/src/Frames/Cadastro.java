@@ -66,6 +66,7 @@ public class Cadastro extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JRadioButton rdbtnOutros = new JRadioButton("Outros");
 		buttonGroup.add(rdbtnOutros);

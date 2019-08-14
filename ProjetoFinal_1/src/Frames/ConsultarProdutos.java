@@ -49,6 +49,7 @@ public class ConsultarProdutos extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();
+		setLocationRelativeTo(null);
 		contentPane.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
@@ -144,7 +145,7 @@ public class ConsultarProdutos extends JFrame {
 		lblNewLabel.setBounds(12, 336, 59, 55);
 		contentPane.add(lblNewLabel);
 		Carrinho.setForeground(new Color(0, 0, 0));
-		Carrinho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		Carrinho.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		Carrinho.setBackground(new Color(255, 240, 245));
 		Carrinho.setBounds(157, 340, 135, 23);
 		contentPane.add(Carrinho);
@@ -201,7 +202,7 @@ public class ConsultarProdutos extends JFrame {
 			}
 		});
 		btnNovoPedido.setForeground(new Color(0, 0, 0));
-		btnNovoPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		btnNovoPedido.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnNovoPedido.setBackground(new Color(255, 240, 245));
 		btnNovoPedido.setBounds(341, 338, 135, 23);
 		contentPane.add(btnNovoPedido);

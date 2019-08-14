@@ -54,6 +54,7 @@ public class ConsultarPedidos extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();
+		setLocationRelativeTo(null);
 		contentPane.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
@@ -94,7 +95,7 @@ public class ConsultarPedidos extends JFrame {
 			}
 		});
 		btnFinalizar.setForeground(new Color(0, 0, 0));
-		btnFinalizar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		btnFinalizar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnFinalizar.setBackground(new Color(255, 240, 245));
 		btnFinalizar.setBounds(269, 315, 110, 23);
 		contentPane.add(btnFinalizar);

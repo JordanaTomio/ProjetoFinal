@@ -48,6 +48,7 @@ public class FormularioAdocao extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JLabel lblTermoDeRespons = new JLabel("Veterin\u00E1rio");
 		lblTermoDeRespons.setBounds(209, 27, 176, 36);
