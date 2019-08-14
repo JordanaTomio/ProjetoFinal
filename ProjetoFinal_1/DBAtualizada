@@ -1,0 +1,315 @@
+-- --------------------------------------------------------
+-- Servidor:                     127.0.0.1
+-- Versão do servidor:           5.6.12-log - MySQL Community Server (GPL)
+-- OS do Servidor:               Win32
+-- HeidiSQL Versão:              9.3.0.4989
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Copiando estrutura do banco de dados para petshopdb
+DROP DATABASE IF EXISTS `petshopdb`;
+CREATE DATABASE IF NOT EXISTS `petshopdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `petshopdb`;
+
+
+-- Copiando estrutura para tabela petshopdb.adocao
+DROP TABLE IF EXISTS `adocao`;
+CREATE TABLE IF NOT EXISTS `adocao` (
+  `Animal_CD_Animal` int(11) NOT NULL,
+  `Cliente_CD_Cliente` int(11) NOT NULL,
+  KEY `fk_Animal_has_Cliente_Cliente1_idx` (`Cliente_CD_Cliente`),
+  KEY `fk_Animal_has_Cliente_Animal1_idx` (`Animal_CD_Animal`),
+  CONSTRAINT `fk_Animal_Cliente` FOREIGN KEY (`Animal_CD_Animal`) REFERENCES `animal` (`CD_Animal`),
+  CONSTRAINT `fk_Animal_has_Cliente_Cliente1` FOREIGN KEY (`Cliente_CD_Cliente`) REFERENCES `cliente` (`CD_Cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela petshopdb.adocao: ~0 rows (aproximadamente)
+DELETE FROM `adocao`;
+/*!40000 ALTER TABLE `adocao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `adocao` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela petshopdb.agenda
+DROP TABLE IF EXISTS `agenda`;
+CREATE TABLE IF NOT EXISTS `agenda` (
+  `CD_Servico` int(11) NOT NULL AUTO_INCREMENT,
+  `DT_Servico` varchar(5) DEFAULT NULL,
+  `HR_Servico` varchar(5) DEFAULT NULL,
+  `NM_Cliente` varchar(45) DEFAULT NULL,
+  `SV_Servico` varchar(45) DEFAULT NULL,
+  `VL_Servico` double DEFAULT NULL,
+  PRIMARY KEY (`CD_Servico`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela petshopdb.agenda: ~4 rows (aproximadamente)
+DELETE FROM `agenda`;
+/*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
+INSERT INTO `agenda` (`CD_Servico`, `DT_Servico`, `HR_Servico`, `NM_Cliente`, `SV_Servico`, `VL_Servico`) VALUES
+	(1, '25/04', '10:00', 'teste', 'Banho e Tosa', NULL),
+	(2, '25/04', '10:00', 'teste', 'Banho e Tosa', NULL),
+	(3, '15/05', '10:00', 'teste', 'Banho e Tosa', NULL),
+	(4, '14/09', '13:30', 'Jordana', 'Banho e tosa', 30);
+/*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela petshopdb.agendamento
+DROP TABLE IF EXISTS `agendamento`;
+CREATE TABLE IF NOT EXISTS `agendamento` (
+  `Agenda_CD_Servico` int(11) NOT NULL,
+  `Cliente_CD_Cliente` int(11) NOT NULL,
+  KEY `fk_Agenda_has_Cliente_Cliente1_idx` (`Cliente_CD_Cliente`),
+  KEY `fk_Agenda_has_Cliente_Agenda1_idx` (`Agenda_CD_Servico`),
+  CONSTRAINT `FK_agendamento_agenda` FOREIGN KEY (`Agenda_CD_Servico`) REFERENCES `agenda` (`CD_Servico`),
+  CONSTRAINT `fk_Agenda_has_Cliente_Cliente1` FOREIGN KEY (`Cliente_CD_Cliente`) REFERENCES `cliente` (`CD_Cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela petshopdb.agendamento: ~0 rows (aproximadamente)
+DELETE FROM `agendamento`;
+/*!40000 ALTER TABLE `agendamento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agendamento` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela petshopdb.animal
+DROP TABLE IF EXISTS `animal`;
+CREATE TABLE IF NOT EXISTS `animal` (
+  `CD_Animal` int(11) NOT NULL AUTO_INCREMENT,
+  `NM_Animal` varchar(45) DEFAULT NULL,
+  `ANO_Animal` varchar(50) DEFAULT NULL,
+  `TM_Animal` varchar(45) DEFAULT NULL,
+  `DS_Animal` varchar(300) DEFAULT NULL,
+  `RC_Animal` varchar(100) DEFAULT NULL,
+  `TP_Animal` varchar(45) DEFAULT NULL,
+  `SX_Animal` varchar(45) DEFAULT NULL,
+  `VC_Animal` varchar(3) DEFAULT NULL,
+  `CS_Animal` varchar(3) DEFAULT NULL,
+  PRIMARY KEY (`CD_Animal`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela petshopdb.animal: ~16 rows (aproximadamente)
+DELETE FROM `animal`;
+/*!40000 ALTER TABLE `animal` DISABLE KEYS */;
+INSERT INTO `animal` (`CD_Animal`, `NM_Animal`, `ANO_Animal`, `TM_Animal`, `DS_Animal`, `RC_Animal`, `TP_Animal`, `SX_Animal`, `VC_Animal`, `CS_Animal`) VALUES
+	(1, 'Niki', '2015', 'Pequeno', 'Castanho, dócil', 'Yorkshire', 'Cachorro', 'Macho', 'Sim', 'Sim'),
+	(2, 'Bob', '2017', 'Medio', 'Preto, cão de guarda', 'Chow Chow', 'Cachorro', 'Macho', 'Sim', 'Nao'),
+	(3, 'Tisto', '2016', 'Grande', 'Branco, bricalhão', 'Dálmata', 'Cachorro', 'Macho', 'Nao', 'Sim'),
+	(4, 'Clike', '2019', 'Pequeno', 'Branco, dócil', 'Shih Tzu', 'Cachorro', 'Macho', 'Nao', 'Nao'),
+	(5, 'Luki', '2015', 'Medio', 'Preto, preguiçososo', 'Nebelung', 'Gato', 'Macho', 'Sim', 'Nao'),
+	(6, 'Sansão', '2016', 'Pequeno', 'Branco, dócil', 'Singapura', 'Gato', 'Macho', 'Nao', 'Sim'),
+	(7, 'Pepita', '2016', 'Grande', 'Castanho, cão de guarda', 'Chartreux', 'Gato', 'Femea', 'Sim', 'Sim'),
+	(8, 'Kenny', '2017', 'Pequeno', 'Branco, bricalhão', 'Scottish Fold', 'Gato', 'Femea', 'Nao', 'Nao'),
+	(9, 'Pipoca', '2015', 'Medio', 'Preto, apegado a seu bichinho', 'Manx', 'Gato', 'Femea', 'Sim', 'Nao'),
+	(10, 'Elza', '2016', 'Pequeno', 'Castanho, dócil', 'SDR', 'Gato', 'Femea', 'Nao', 'Sim'),
+	(11, 'Floquinho', '2017', 'Pequeno', 'Branco, dócil', 'Burmês', 'Gato', 'Macho', 'Sim', 'Sim'),
+	(12, 'Cookie', '2018', 'Grande', 'Preto, bricalhão', 'Savannah', 'Gato', 'Macho', 'Nao', 'Nao'),
+	(13, 'Mara', '2015', 'Medio', 'Preto, cão de guarda', 'Poodle', 'Cachorro', 'Femea', 'Sim', 'Sim'),
+	(14, 'Maraisa', '2019', 'Grande', 'Castanho, dócil', 'Fila Brasileiro', 'Cachorro', 'Femea', 'Nao', 'Nao'),
+	(15, 'Kely', '2016', 'Medio', 'Preto, bricalhão', 'Shar Pei', 'Cachorro', 'Femea', 'Sim', 'Nao'),
+	(16, 'Leci', '2017', 'Pequeno', 'Branco, dócil', 'Poodle Toy', 'Cachorro', 'Femea', 'Nao', 'Sim');
+/*!40000 ALTER TABLE `animal` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela petshopdb.cliente
+DROP TABLE IF EXISTS `cliente`;
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `CD_Cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `EM_Cliente` varchar(255) NOT NULL,
+  `PS_Cliente` varchar(20) NOT NULL,
+  `PN_Cliente` varchar(80) NOT NULL,
+  `SN_Cliente` varchar(160) DEFAULT NULL,
+  `SX_Cliente` varchar(9) NOT NULL,
+  `TL_Cliente` varchar(17) NOT NULL,
+  `ADM_Cliente` int(11) NOT NULL,
+  `CEP_Cliente` varchar(50) NOT NULL,
+  `CPF_Cliente` varchar(50) NOT NULL,
+  `PJF_Cliente` varchar(15) DEFAULT NULL,
+  `RZ_Cliente` varchar(160) DEFAULT NULL,
+  PRIMARY KEY (`CD_Cliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela petshopdb.cliente: ~1 rows (aproximadamente)
+DELETE FROM `cliente`;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` (`CD_Cliente`, `EM_Cliente`, `PS_Cliente`, `PN_Cliente`, `SN_Cliente`, `SX_Cliente`, `TL_Cliente`, `ADM_Cliente`, `CEP_Cliente`, `CPF_Cliente`, `PJF_Cliente`, `RZ_Cliente`) VALUES
+	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '123', 0, '11111', '23243', NULL, 'Jordana');
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela petshopdb.contato_veterinario
+DROP TABLE IF EXISTS `contato_veterinario`;
+CREATE TABLE IF NOT EXISTS `contato_veterinario` (
+  `CD_Veterinario` int(11) NOT NULL AUTO_INCREMENT,
+  `NM_Veterinario` varchar(200) DEFAULT 'Clínica',
+  `TL_Veterinario` varchar(14) DEFAULT '47',
+  `LC_Veterinario` varchar(100) DEFAULT 'Rua',
+  `BR_Veterinario` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`CD_Veterinario`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela petshopdb.contato_veterinario: ~29 rows (aproximadamente)
+DELETE FROM `contato_veterinario`;
+/*!40000 ALTER TABLE `contato_veterinario` DISABLE KEYS */;
+INSERT INTO `contato_veterinario` (`CD_Veterinario`, `NM_Veterinario`, `TL_Veterinario`, `LC_Veterinario`, `BR_Veterinario`) VALUES
+	(1, 'Bicharada Clínica Veterinária', '47 3322-5101', 'Rua João Pessoa, 190 - 89012-473', 'CENTRO'),
+	(2, 'Clínica Veterinária Alemã', '47 3340-2193', 'Avenida Martin Luther, 390 - 89012-010', 'CENTRO'),
+	(3, 'Vanderley Paulo Schmidt', '47 3324-2715', 'Rua Goiás, 132 - 89021-300', 'GARCIA'),
+	(4, 'Juliana Schwab Clínica Veterinária', '47 99962-3227', 'Rua Amazona, 860 - 89020-000', 'GARCIA'),
+	(5, 'Cia dos Bichos Consultório Veterinário', '47 3037-5814', 'Rua Érico Hoffmann, 119 - 89020-050', 'GARCIA'),
+	(6, 'Clínica Veterinária Bicholândia', '47 3336-0648', 'Rua Almirante Tamandaré, 1490 - 89035-000', 'VILA NOVA'),
+	(7, 'Paraíso Clini-Pet', '47 3328-4700', 'Rua João Pessoa, 2996 - 89039-256', 'VELHA'),
+	(8, 'Bio Bichos Clínica Veterinária', '47 3328-1669', 'Rua João Pessoa, 2355 - 89036-005', 'VELHA'),
+	(9, 'Clínica Veterinária Saúde Animal', '47 3327-2582', 'Rua Benjamin Constant, 1582 - 89037-500', 'ESCOLA AGRÍCOLA'),
+	(10, 'Clínica Veterinária Dra. Jane Mary Voltolini', '47 3323-5575', 'Rua Benjamin Constant, 1582 - 89037-500', 'ESCOLA AGRÍCOLA'),
+	(11, 'Clínica Veterinária  Saúde Animal', '47 3340-2018', 'Rua Joinville, 128 - 89030-200', 'VELHA'),
+	(12, 'Clínica Veterinária Arca de Noé', '47 3338-2151', 'Rua Joinville, 746 - 89035-200', 'VILA NOVA'),
+	(13, 'Clínica Veterinária Dr. Utan', '47 3323-4171', 'Rua Benjamin Constant, 2433 - 89037-500', 'VILA NOVA'),
+	(14, 'Biovet Centro Médico Veterinário', '47 3351-7970', 'Rua São Leopoldo, 111 - 89035-050', 'VILA NOVA'),
+	(15, 'Hospital Veterinário Santa Catarina', '47 3037-1288', 'Rua Iguaçú, 177 - 89030-030', 'ITOUPAVA SECA'),
+	(16, 'Bluvet Clínica Veterinária e Pet Shop', '47 99617-0606', 'Rua Gustavo Salinger, 702 - 89030-310', 'ITOUPAVA SECA'),
+	(17, 'Centro Clínico Veterinário Alfredo Grahl', '47 3340-3776', 'Rua Heinrich Hosang, 95 - 89012-190', 'VICTOR KONDER'),
+	(18, 'Hospital Clínico Veterinário Blumenau', '47 3144-4300', 'Rua Paraíba, 217 - 89012-130', 'VICTOR KONDER'),
+	(19, 'Clínica Veterinária Mon Petit', '47 3041-4009', 'Rua Guatemala, 135 - 89050-110', 'PONTA AGUDA'),
+	(20, 'Hospital Veterinário São Francisco De Assis', '47 3322-3135', 'Rua República Argentina, 370 - 89050-100', 'PONTA AGUDA'),
+	(21, 'Pet Shop Amigão', '47 3035-5973', 'Rua 2 de Setembro, 2093 - 89052-001', 'ITOUPAVA NORTE'),
+	(22, 'Clínica Veterinária Fortaleza Animal', '47 3378-2624', 'Rua Solingen, 355 - 89053-314', 'ITOUPAVA NORTE'),
+	(23, 'Dr Pedro Paulo Consultório Veterinário', '47 99977-8545', 'Rua Francisco Vahldieck, 1803 - 89057-000', 'FORTALEZA'),
+	(24, 'Hospital Veterinário Furb', '47 3702-6500', 'Rua Samuel Morse, 768 - 89058-010', 'FORTALEZA'),
+	(25, 'Argos Clínica Veterinária', '47 99763-6123', 'Rua Gustavo Zimmermann, 5311 - 89063-001', 'ITOUPAVA CENTRAL'),
+	(26, 'Clínica Veterinária Luis Carlos Kriewall', '47 3053-2024', 'Rua Dr. Pedro Zimmermann, 7866 - 89069-000', 'ITOUPAVA CENTRAL'),
+	(27, 'Mundo Animal Pet Shop Snoopy', '47 3330-7735', 'Rua José Reuter, 50 - 89046-000', 'VELHA CENTRAL'),
+	(28, 'Consultório Veterinário Estação Animal', '47 3237-6202', 'Rua dos Caçadores, 2012 - 89040-002', 'VELHA CENTRAL'),
+	(29, 'Pet Shop Dog Show', '47 3338-4176', 'Rua Frederico Jensen,1720 - 89066-301', 'ITOUPAVAZINHA');
+/*!40000 ALTER TABLE `contato_veterinario` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela petshopdb.item
+DROP TABLE IF EXISTS `item`;
+CREATE TABLE IF NOT EXISTS `item` (
+  `CD_Pedido` int(11) NOT NULL,
+  `CD_Produto` int(11) NOT NULL,
+  KEY `fk_Item_Pedido1_idx` (`CD_Pedido`),
+  KEY `fk_Item_Produto1_idx` (`CD_Produto`),
+  CONSTRAINT `FK_item_pedido` FOREIGN KEY (`CD_Pedido`) REFERENCES `pedido` (`CD_Pedido`),
+  CONSTRAINT `fk_Item_Produto1` FOREIGN KEY (`CD_Produto`) REFERENCES `produto` (`CD_Produto`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela petshopdb.item: ~5 rows (aproximadamente)
+DELETE FROM `item`;
+/*!40000 ALTER TABLE `item` DISABLE KEYS */;
+INSERT INTO `item` (`CD_Pedido`, `CD_Produto`) VALUES
+	(3, 2),
+	(3, 3),
+	(3, 1),
+	(4, 1),
+	(4, 3);
+/*!40000 ALTER TABLE `item` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela petshopdb.pedido
+DROP TABLE IF EXISTS `pedido`;
+CREATE TABLE IF NOT EXISTS `pedido` (
+  `CD_Pedido` int(11) NOT NULL AUTO_INCREMENT,
+  `VL_Total` double NOT NULL DEFAULT '0',
+  `DT_Pedido` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `AT_Pedido` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `CD_Cliente` int(11) NOT NULL,
+  PRIMARY KEY (`CD_Pedido`),
+  KEY `fk_Pedido_Cliente1_idx` (`CD_Cliente`),
+  CONSTRAINT `fk_Pedido_Cliente1` FOREIGN KEY (`CD_Cliente`) REFERENCES `cliente` (`CD_Cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela petshopdb.pedido: ~2 rows (aproximadamente)
+DELETE FROM `pedido`;
+/*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
+INSERT INTO `pedido` (`CD_Pedido`, `VL_Total`, `DT_Pedido`, `AT_Pedido`, `CD_Cliente`) VALUES
+	(3, 190, '2019-08-14 14:11:44', '2019-08-14 14:24:38', 3),
+	(4, 190, '2019-08-14 14:20:13', '2019-08-14 14:24:38', 3);
+/*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela petshopdb.produto
+DROP TABLE IF EXISTS `produto`;
+CREATE TABLE IF NOT EXISTS `produto` (
+  `CD_Produto` int(11) NOT NULL AUTO_INCREMENT,
+  `NM_Produto` varchar(255) NOT NULL,
+  `DS_Produto` varchar(350) DEFAULT NULL,
+  `VL_Produto` double NOT NULL DEFAULT '0',
+  `UND_Produto` varchar(15) NOT NULL,
+  `DT_Validade` date DEFAULT NULL,
+  `QT_Estoque_Produto` int(11) NOT NULL DEFAULT '0',
+  `DT_Cadastro_Produto` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`CD_Produto`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+-- Copiando dados para a tabela petshopdb.produto: ~16 rows (aproximadamente)
+DELETE FROM `produto`;
+/*!40000 ALTER TABLE `produto` DISABLE KEYS */;
+INSERT INTO `produto` (`CD_Produto`, `NM_Produto`, `DS_Produto`, `VL_Produto`, `UND_Produto`, `DT_Validade`, `QT_Estoque_Produto`, `DT_Cadastro_Produto`) VALUES
+	(1, 'Whiskas Sachê ', 'Ração em pacotinho', 1.5, '85g', '2022-08-02', 11, '2019-08-02 16:13:11'),
+	(2, 'Coleira pequena', 'Disponível nas cores azul e rosa', 20.5, 'unidade', '2022-08-14', 33, '2019-08-14 14:10:21'),
+	(3, 'Coleira média', 'Disponível nas cores azul, rosa e amarelo', 25.5, 'unidade', '2022-08-14', 32, '2019-08-14 14:11:28'),
+	(4, 'Coleira grande', 'Disponível nas cores azul, azul escuro e preto', 30, 'unidade', '2022-08-14', 20, '2019-08-14 16:11:15'),
+	(5, 'Ração Whiskas', 'Ração para filhotes ', 19.99, '1kg', '2022-08-14', 40, '2019-08-14 16:18:19'),
+	(6, 'Ração Whiskas Gatos Castrados', 'Ração para gatos castrados, com menos sódio', 0, '500g', '2022-08-14', 20, '2019-08-14 16:20:48'),
+	(7, 'Ração Magnus Cães Adultos', 'Ração premium para cães adultos', 103.5, '25kg', '2022-08-14', 15, '2019-08-14 16:21:48'),
+	(8, 'Ração Pedigree', 'Ração para cães adultos, com nutrição para uma alimentação balanceada', 69.5, '15kg', '2022-08-14', 40, '2019-08-14 16:25:32'),
+	(9, 'Ração Premier Golden Special', 'A Ração Premier Golden Special Cães Adultos Frango e Carne é um alimento completo.', 104.9, '15kg', '2022-08-14', 21, '2019-08-14 16:27:24'),
+	(10, 'Ração Cachorro Premier Golden Formula Sênior', 'Indicada para cães acima de 7 anos de porte pequeno;', 91.9, '10kg', '2022-08-14', 15, '2019-08-14 16:28:17'),
+	(11, 'Petisco Doguitos Rodízio para Cães Adultos e Filhotes Sabor Carne', 'Petisco delicioso feito com carne fresca', 19.6, '65g', '2024-08-14', 42, '2019-08-14 16:31:39'),
+	(12, 'Biscoito em Pote Pet Dog', 'O Biscoito em Pote Pet Dog Sabores, contém um alto nível de vitaminas, minerais e ingredientes funcionais', 35.9, '800g', '2022-08-14', 15, '2019-08-14 16:32:39'),
+	(13, 'Biscoito Orgânico All Love Maça & Canela para Cães', 'Elaborado com ingredientes integrais, o Biscoito Orgânico All Love Maça & Canela para Cães é perfeito para mimar seu pet', 28.9, '200g', '2022-08-14', 17, '2019-08-14 16:33:04'),
+	(14, 'Petisco Dog Chow Carinhos para Cães Adultos e Filhotes Sabor Maçã e Banana', 'Hora da sobremesa! O Petisco Dog Chow Carinhos para Cães Adultos e Filhotes Sabor Maçã e Banana é petisco com delicioso com frutas de verdade', 5.99, '75g', '2019-08-14', 14, '2019-08-14 16:34:59'),
+	(15, 'Alimentador Automático iPet', 'Alimentador automático controlado por aplicativo, marca registrada do iPet', 356.5, 'unidade', '2019-08-14', 10, '2019-08-14 16:50:20'),
+	(16, 'Kit caminha e transporte', 'Kit com caminha e transporte para cães de porte pequeno', 254.6, 'unidade', '2019-08-14', 21, '2019-08-14 16:54:09');
+/*!40000 ALTER TABLE `produto` ENABLE KEYS */;
+
+
+-- Copiando estrutura para view petshopdb.v_cliente_itens_pedido
+DROP VIEW IF EXISTS `v_cliente_itens_pedido`;
+-- Criando tabela temporária para evitar erros de dependência de VIEW
+CREATE TABLE `v_cliente_itens_pedido` (
+	`CD_Cliente` INT(11) NOT NULL,
+	`CD_Pedido` INT(11) NOT NULL,
+	`NM_Produto` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
+	`VL_Produto` DOUBLE NOT NULL
+) ENGINE=MyISAM;
+
+
+-- Copiando estrutura para view petshopdb.v_cliente_pedido
+DROP VIEW IF EXISTS `v_cliente_pedido`;
+-- Criando tabela temporária para evitar erros de dependência de VIEW
+CREATE TABLE `v_cliente_pedido` (
+	`CD_Cliente` INT(11) NOT NULL,
+	`EM_Cliente` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
+	`PN_Cliente` VARCHAR(80) NOT NULL COLLATE 'utf8_general_ci',
+	`SN_Cliente` VARCHAR(160) NULL COLLATE 'utf8_general_ci',
+	`CD_Pedido` INT(11) NULL,
+	`NM_Produto` VARCHAR(255) NULL COLLATE 'utf8_general_ci',
+	`VL_Produto` DOUBLE NULL
+) ENGINE=MyISAM;
+
+
+-- Copiando estrutura para view petshopdb.v_cliente_itens_pedido
+DROP VIEW IF EXISTS `v_cliente_itens_pedido`;
+-- Removendo tabela temporária e criando a estrutura VIEW final
+DROP TABLE IF EXISTS `v_cliente_itens_pedido`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `v_cliente_itens_pedido` AS SELECT c.CD_Cliente, p.CD_Pedido, pr.NM_Produto, pr.VL_Produto FROM cliente c
+JOIN pedido p ON p.CD_Cliente = c.CD_Cliente
+JOIN item i ON i.CD_Pedido = p.CD_Pedido
+JOIN produto pr ON pr.CD_Produto = i.CD_Produto ;
+
+
+-- Copiando estrutura para view petshopdb.v_cliente_pedido
+DROP VIEW IF EXISTS `v_cliente_pedido`;
+-- Removendo tabela temporária e criando a estrutura VIEW final
+DROP TABLE IF EXISTS `v_cliente_pedido`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `v_cliente_pedido` AS SELECT c.CD_Cliente, c.EM_Cliente, c.PN_Cliente, c.SN_Cliente, p.CD_Pedido, pr.NM_Produto, pr.VL_Produto FROM cliente c
+LEFT JOIN pedido p ON p.CD_Cliente = c.CD_Cliente
+LEFT JOIN item i ON i.CD_Pedido = p.CD_Pedido
+LEFT JOIN produto pr ON pr.CD_Produto = i.CD_Produto ;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
