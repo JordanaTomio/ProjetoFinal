@@ -71,10 +71,8 @@ public class BanhoTosa extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public BanhoTosa() {
+		
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage("C:\\Users\\Alunos\\Downloads\\iconfinder_43_Duck_River_Canada_4783009.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

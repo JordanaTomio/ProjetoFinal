@@ -35,7 +35,7 @@ public class PeedidoDAO {
 	}
 		public static ResultSet findAllToTable() {
 			MySQLConfiguration s = new MySQLConfiguration();
-			String q = "SELECT CD_Produto, NM_Produto, VL_Produto FROM produto";
+			String q = "SELECT CD_Produto Código, NM_Produto Produto, VL_Produto Valor FROM produto";
 			try {
 				PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 				return ps.executeQuery();

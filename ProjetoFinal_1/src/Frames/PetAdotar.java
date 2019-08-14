@@ -22,6 +22,7 @@ import javax.swing.border.EmptyBorder;
 
 import Beans.Animal;
 import DAO.AnimalDAO;
+import javax.swing.SwingConstants;
 
 public class PetAdotar extends JFrame {
 
@@ -325,6 +326,7 @@ public class PetAdotar extends JFrame {
 		contentPane.add(btnGato);
 
 		txtDesc = new JTextField();
+		txtDesc.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDesc.setBounds(387, 99, 210, 115);
 		txtDesc.setEditable(false);
 		contentPane.add(txtDesc);

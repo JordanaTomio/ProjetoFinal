@@ -171,7 +171,7 @@ public class Perfil<EntityManager> extends JFrame {
 
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.setBackground(new Color(230, 230, 250));
-		btnBuscar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		btnBuscar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int cdCodigo = Main.cliente.getCdCodigo();
@@ -213,7 +213,7 @@ public class Perfil<EntityManager> extends JFrame {
 
 		btnAlterar = new JButton("Alterar");
 		btnAlterar.setBackground(new Color(230, 230, 250));
-		btnAlterar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		btnAlterar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int cdCodigo = Main.cliente.getCdCodigo();
