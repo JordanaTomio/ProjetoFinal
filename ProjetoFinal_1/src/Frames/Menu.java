@@ -89,6 +89,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnLogoff);
 		
 		btnVet = new JButton("Veterin\u00E1rio");
+		btnVet.setIcon(new ImageIcon(Menu.class.getResource("/imagens/3775242-128(1).png")));
 		btnVet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ContatoVeterinario cvt = new ContatoVeterinario();
@@ -96,17 +97,21 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnVet.setBounds(478, 301, 105, 77);
+		btnVet.setBounds(555, 307, 88, 76);
+		btnVet.setBorderPainted(false);
+		btnVet.setContentAreaFilled(false);
+		btnVet.setOpaque(false);
+		btnVet.setFocusPainted(false);
 		contentPane.add(btnVet);
 		
 		JLabel lblLoja = new JLabel("Loja");
 		lblLoja.setForeground(new Color(0, 0, 0));
-		lblLoja.setBounds(119, 244, 37, 22);
+		lblLoja.setBounds(114, 244, 37, 22);
 		contentPane.add(lblLoja);
 		lblLoja.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		
 		
-		btnPetShop.setBounds(253, 142, 136, 103);
+		btnPetShop.setBounds(248, 142, 136, 103);
 		btnPetShop.setBorderPainted(false);
 		btnPetShop.setContentAreaFilled(false);
 		btnPetShop.setFocusPainted(false);
@@ -125,7 +130,7 @@ public class Menu extends JFrame {
 		
 		JLabel label = new JLabel("New label");
 		label.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Webp.net-resizeimage.png")));
-		label.setBounds(263, 129, 138, 135);
+		label.setBounds(258, 129, 138, 135);
 		contentPane.add(label);
 		
 		JLabel lblPetShop = new JLabel("Pet Shop");
@@ -133,7 +138,7 @@ public class Menu extends JFrame {
 		lblPetShop.setBounds(296, 246, 75, 22);
 		contentPane.add(lblPetShop);
 		lblPetShop.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		btnLoja.setBounds(75, 142, 132, 103);
+		btnLoja.setBounds(70, 142, 132, 103);
 		btnLoja.setBorderPainted(false);
 		btnLoja.setContentAreaFilled(false);
 		btnLoja.setFocusPainted(false);
@@ -146,12 +151,12 @@ public class Menu extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblAdoo = new JLabel("Ado\u00E7\u00E3o");
-		lblAdoo.setBounds(499, 244, 65, 22);
+		lblAdoo.setBounds(494, 244, 65, 22);
 		contentPane.add(lblAdoo);
 		lblAdoo.setForeground(new Color(0, 0, 0));
 		lblAdoo.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 
-		btnAdocao.setBounds(478, 147, 105, 98);
+		btnAdocao.setBounds(473, 147, 105, 98);
 		btnAdocao.setBorderPainted(false);
 		btnAdocao.setContentAreaFilled(false);
 		btnAdocao.setFocusPainted(false);

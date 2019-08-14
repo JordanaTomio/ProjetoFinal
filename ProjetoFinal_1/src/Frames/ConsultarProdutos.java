@@ -112,7 +112,7 @@ public class ConsultarProdutos extends JFrame {
 		
 		JLabel lblConsultar = new JLabel("Consultar");
 		lblConsultar.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
-		lblConsultar.setBounds(213, 17, 216, 61);
+		lblConsultar.setBounds(240, 16, 216, 61);
 		contentPane.add(lblConsultar);
 		
 		JButton Carrinho = new JButton("Carrinho");

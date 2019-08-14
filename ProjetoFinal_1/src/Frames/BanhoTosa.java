@@ -224,7 +224,7 @@ public class BanhoTosa extends JFrame {
 		rdbtnBanhoETosa.setContentAreaFilled(false);
 		rdbtnBanhoETosa.setFocusPainted(false);
 		rdbtnBanhoETosa.setOpaque(false);
-		rdbtnBanhoETosa.setBounds(214, 228, 119, 23);
+		rdbtnBanhoETosa.setBounds(114, 230, 119, 23);
 		contentPane.add(rdbtnBanhoETosa);
 
 		txtDATA = new JTextField();
@@ -275,17 +275,6 @@ public class BanhoTosa extends JFrame {
 		btnCarregar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnCarregar.setBounds(177, 281, 113, 23);
 		contentPane.add(btnCarregar);
-
-		JRadioButton btnTosa = new JRadioButton("Tosa");
-		buttonGroup_2.add(btnTosa);
-		btnTosa.setOpaque(false);
-		btnTosa.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		btnTosa.setFocusPainted(false);
-		btnTosa.setContentAreaFilled(false);
-		btnTosa.setBorderPainted(false);
-		btnTosa.setBackground(new Color(176, 224, 230));
-		btnTosa.setBounds(114, 230, 80, 23);
-		contentPane.add(btnTosa);
 
 		flor = new JLabel("New label");
 		flor.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/230588225055212(1).png")));

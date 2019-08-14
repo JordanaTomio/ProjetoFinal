@@ -80,12 +80,12 @@ public class Perfil<EntityManager> extends JFrame {
 
 		JLabel lblNomePerfil = new JLabel("Nome:");
 		lblNomePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
-		lblNomePerfil.setBounds(13, 128, 46, 14);
+		lblNomePerfil.setBounds(20, 127, 46, 14);
 		contentPane.add(lblNomePerfil);
 
 		txtNomePerfil = new JTextField();
 		txtNomePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		txtNomePerfil.setBounds(120, 124, 170, 20);
+		txtNomePerfil.setBounds(127, 123, 170, 20);
 		contentPane.add(txtNomePerfil);
 		txtNomePerfil.setColumns(10);
 
@@ -102,13 +102,13 @@ public class Perfil<EntityManager> extends JFrame {
 
 		JLabel lblTelefonePerfil = new JLabel("Telefone:");
 		lblTelefonePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
-		lblTelefonePerfil.setBounds(13, 190, 79, 14);
+		lblTelefonePerfil.setBounds(20, 189, 79, 14);
 		contentPane.add(lblTelefonePerfil);
 
 		txtTelefonePerfil = new JTextField();
 		txtTelefonePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtTelefonePerfil.setColumns(10);
-		txtTelefonePerfil.setBounds(120, 186, 170, 20);
+		txtTelefonePerfil.setBounds(127, 185, 170, 20);
 		contentPane.add(txtTelefonePerfil);
 
 		JLabel lblEmailPerfil = new JLabel("E-mail:");
@@ -124,13 +124,13 @@ public class Perfil<EntityManager> extends JFrame {
 
 		JLabel lblEnderecoPerfil = new JLabel("Raz\u00E3o Social:");
 		lblEnderecoPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
-		lblEnderecoPerfil.setBounds(13, 249, 99, 14);
+		lblEnderecoPerfil.setBounds(20, 248, 99, 14);
 		contentPane.add(lblEnderecoPerfil);
 
 		txtEnderecoPerfil = new JTextField();
 		txtEnderecoPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtEnderecoPerfil.setColumns(10);
-		txtEnderecoPerfil.setBounds(120, 245, 170, 20);
+		txtEnderecoPerfil.setBounds(127, 244, 170, 20);
 		contentPane.add(txtEnderecoPerfil);
 
 		JLabel lblCepPerfil = new JLabel("CEP:");
