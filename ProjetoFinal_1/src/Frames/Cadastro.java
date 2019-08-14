@@ -37,6 +37,7 @@ public class Cadastro extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private JPasswordField txtPS;
+	private JLabel btnVoltar_icon;
 
 	/**
 	 * Launch the application.
@@ -87,72 +88,78 @@ public class Cadastro extends JFrame {
 		JLabel lblNOME = new JLabel("Nome*:");
 		lblNOME.setForeground(new Color(0, 0, 0));
 		lblNOME.setBounds(30, 99, 62, 22);
-		lblNOME.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNOME.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblNOME);
 		
 		JLabel lblNM_RAZAOSOCIAL = new JLabel("Raz\u00E3o social:");
-		lblNM_RAZAOSOCIAL.setBounds(335, 140, 93, 22);
-		lblNM_RAZAOSOCIAL.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNM_RAZAOSOCIAL.setBounds(335, 140, 104, 22);
+		lblNM_RAZAOSOCIAL.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblNM_RAZAOSOCIAL);
 		
 		txtRZ_Social = new JTextField();
+		txtRZ_Social.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtRZ_Social.setBounds(433, 143, 150, 20);
 		contentPane.add(txtRZ_Social);
 		txtRZ_Social.setColumns(10);
 		
 		JLabel lblCPF_CNPJ = new JLabel("CPF/CNPJ*:");
 		lblCPF_CNPJ.setBounds(28, 140, 91, 22);
-		lblCPF_CNPJ.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblCPF_CNPJ.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblCPF_CNPJ);
 		
 		JLabel lblCEP = new JLabel("CEP*:");
 		lblCEP.setBounds(27, 185, 65, 22);
-		lblCEP.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblCEP.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblCEP);
 		
 		JLabel lblENDERECO = new JLabel("Email*:");
 		lblENDERECO.setBounds(28, 233, 64, 22);
-		lblENDERECO.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblENDERECO.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblENDERECO);
 		
 		JLabel lblSobrenome = new JLabel("Sobrenome:");
 		lblSobrenome.setBounds(335, 99, 88, 22);
-		lblSobrenome.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblSobrenome.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblSobrenome);
 		
 		txtSN = new JTextField();
+		txtSN.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtSN.setBounds(433, 99, 150, 20);
 		contentPane.add(txtSN);
 		txtSN.setColumns(10);
 		
 		JLabel lblCIDADE = new JLabel("Telefone*:");
 		lblCIDADE.setBounds(28, 283, 88, 22);
-		lblCIDADE.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblCIDADE.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblCIDADE);
 		
 		txtCPF_CNPJ = new JTextField();
+		txtCPF_CNPJ.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtCPF_CNPJ.setBounds(129, 143, 150, 20);
 		contentPane.add(txtCPF_CNPJ);
 		txtCPF_CNPJ.setColumns(10);
 		
 		txtCEP = new JTextField();
+		txtCEP.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtCEP.setBounds(129, 188, 150, 20);
 		contentPane.add(txtCEP);
 		txtCEP.setColumns(10);
 		
 		txtEM = new JTextField();
+		txtEM.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtEM.setBounds(129, 236, 150, 20);
 		contentPane.add(txtEM);
 		txtEM.setColumns(10);
 		
 		txtTL = new JTextField();
+		txtTL.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtTL.setBounds(129, 286, 150, 20);
 		contentPane.add(txtTL);
 		txtTL.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Sexo*: ");
 		lblNewLabel.setBounds(337, 189, 63, 14);
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblNewLabel);
 		
 		JRadioButton btnMasculino = new JRadioButton("Masc");
@@ -179,6 +186,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(btnFeminino);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setBackground(new Color(240, 255, 255));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String primeiroNome = txtPN.getText();
@@ -214,13 +222,18 @@ public class Cadastro extends JFrame {
 			}
 		});
 		
-		btnCadastrar.setBounds(149, 340, 109, 23);
-		btnCadastrar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		btnCadastrar.setBounds(228, 346, 167, 23);
+		btnCadastrar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		contentPane.add(btnCadastrar);
 		
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(382, 340, 109, 23);
-		btnVoltar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		JButton btnVoltar = new JButton("");
+		btnVoltar.setBackground(new Color(240, 255, 255));
+		btnVoltar.setBounds(8, 345, 43, 43);
+		btnVoltar.setBorderPainted(false);
+		btnVoltar.setContentAreaFilled(false);
+		btnVoltar.setFocusPainted(false);
+		btnVoltar.setOpaque(false);
+		btnVoltar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Login lgn = new Login();
@@ -237,12 +250,13 @@ public class Cadastro extends JFrame {
 		contentPane.add(lbldadosObrigatrios);
 		
 		txtPN = new JTextField();
+		txtPN.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtPN.setBounds(128, 98, 150, 22);
 		contentPane.add(txtPN);
 		txtPN.setColumns(10);
 		
 		JLabel lblPessoa = new JLabel("Pessoa:");
-		lblPessoa.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblPessoa.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		lblPessoa.setBounds(335, 233, 65, 14);
 		contentPane.add(lblPessoa);
 		
@@ -277,12 +291,18 @@ public class Cadastro extends JFrame {
 		rdbtnFsica.setOpaque(false);
 		contentPane.add(rdbtnFsica);
 		
+		btnVoltar_icon = new JLabel("");
+		btnVoltar_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/3209260-128(1).png")));
+		btnVoltar_icon.setBounds(10, 346, 40, 44);
+		contentPane.add(btnVoltar_icon);
+		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblSenha.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		lblSenha.setBounds(335, 282, 93, 22);
 		contentPane.add(lblSenha);
 		
 		txtPS = new JPasswordField();
+		txtPS.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtPS.setBounds(433, 283, 150, 20);
 		contentPane.add(txtPS);
 		

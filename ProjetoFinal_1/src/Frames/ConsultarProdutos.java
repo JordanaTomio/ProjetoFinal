@@ -81,6 +81,7 @@ public class ConsultarProdutos extends JFrame {
 		contentPane.add(lblNome);
 
 		txtNome = new JTextField();
+		txtNome.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -152,7 +153,7 @@ public class ConsultarProdutos extends JFrame {
 
 		JButton button = new JButton("+");
 		button.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
-		button.setForeground(new Color(0, 0, 0));
+		button.setForeground(new Color(0, 100, 0));
 		button.setBackground(new Color(255, 240, 245));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -208,6 +209,7 @@ public class ConsultarProdutos extends JFrame {
 		contentPane.add(btnNovoPedido);
 
 		comboBox = new JComboBox();
+		comboBox.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		comboBox.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {

@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,7 +29,6 @@ import javax.swing.table.DefaultTableModel;
 
 import br.com.idog.Configuration.MySQLConfiguration;
 import net.proteanit.sql.DbUtils;
-import javax.swing.ImageIcon;
 
 public class BanhoTosa extends JFrame {
 
@@ -72,7 +72,7 @@ public class BanhoTosa extends JFrame {
 	}
 
 	public BanhoTosa() {
-		
+
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage("C:\\Users\\Alunos\\Downloads\\iconfinder_43_Duck_River_Canada_4783009.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,12 +88,12 @@ public class BanhoTosa extends JFrame {
 		lblBanhoETosa.setFont(new Font("Broadway", Font.BOLD, 30));
 		lblBanhoETosa.setBounds(187, 11, 251, 51);
 		contentPane.add(lblBanhoETosa);
-		
+
 		lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/230588225055212(1).png")));
 		lblNewLabel_1.setBounds(403, 376, 213, -124);
 		contentPane.add(lblNewLabel_1);
-		
+
 		lblNewLabel_2 = new JLabel("New label");
 		lblNewLabel_2.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/230588225055212(1).png")));
 		lblNewLabel_2.setBounds(69, 376, 198, -177);
@@ -120,7 +120,7 @@ public class BanhoTosa extends JFrame {
 
 		rdbtnPequeno = new JRadioButton("Pequeno");
 		buttonGroup.add(rdbtnPequeno);
-		rdbtnPequeno.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		rdbtnPequeno.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnPequeno.setBorderPainted(false);
 		rdbtnPequeno.setContentAreaFilled(false);
 		rdbtnPequeno.setFocusPainted(false);
@@ -131,7 +131,7 @@ public class BanhoTosa extends JFrame {
 
 		rdbtnMedio = new JRadioButton("M\u00E9dio");
 		buttonGroup.add(rdbtnMedio);
-		rdbtnMedio.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		rdbtnMedio.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnMedio.setBackground(new Color(176, 224, 230));
 		rdbtnMedio.setBorderPainted(false);
 		rdbtnMedio.setContentAreaFilled(false);
@@ -142,7 +142,7 @@ public class BanhoTosa extends JFrame {
 
 		rdbtnGrande = new JRadioButton("Grande");
 		buttonGroup.add(rdbtnGrande);
-		rdbtnGrande.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		rdbtnGrande.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnGrande.setBackground(new Color(176, 224, 230));
 		rdbtnGrande.setBorderPainted(false);
 		rdbtnGrande.setContentAreaFilled(false);
@@ -153,7 +153,7 @@ public class BanhoTosa extends JFrame {
 
 		JRadioButton rdbtnGato = new JRadioButton("Gato");
 		buttonGroup_1.add(rdbtnGato);
-		rdbtnGato.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		rdbtnGato.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnGato.setBackground(new Color(176, 224, 230));
 		rdbtnGato.setBorderPainted(false);
 		rdbtnGato.setContentAreaFilled(false);
@@ -164,7 +164,7 @@ public class BanhoTosa extends JFrame {
 
 		JRadioButton rdbtnCachorro = new JRadioButton("Cachorro");
 		buttonGroup_1.add(rdbtnCachorro);
-		rdbtnCachorro.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		rdbtnCachorro.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnCachorro.setBackground(new Color(176, 224, 230));
 		rdbtnCachorro.setBorderPainted(false);
 		rdbtnCachorro.setContentAreaFilled(false);
@@ -180,7 +180,7 @@ public class BanhoTosa extends JFrame {
 				Confirmar();
 			}
 		});
-		
+
 		lblVoltar = new JLabel("");
 		lblVoltar.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/3209260-128(1).png")));
 		lblVoltar.setBounds(15, 333, 52, 57);
@@ -207,7 +207,7 @@ public class BanhoTosa extends JFrame {
 
 		rdbtnBanho = new JRadioButton("Banho");
 		buttonGroup_2.add(rdbtnBanho);
-		rdbtnBanho.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		rdbtnBanho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnBanho.setBackground(new Color(176, 224, 230));
 		rdbtnBanho.setBorderPainted(false);
 		rdbtnBanho.setContentAreaFilled(false);
@@ -218,7 +218,7 @@ public class BanhoTosa extends JFrame {
 
 		rdbtnBanhoETosa = new JRadioButton("Banho e tosa");
 		buttonGroup_2.add(rdbtnBanhoETosa);
-		rdbtnBanhoETosa.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		rdbtnBanhoETosa.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnBanhoETosa.setBackground(new Color(176, 224, 230));
 		rdbtnBanhoETosa.setBorderPainted(false);
 		rdbtnBanhoETosa.setContentAreaFilled(false);
@@ -251,47 +251,47 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(txtCLIENTE);
 
 		lblDATA = new JLabel("Data");
-		lblDATA.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblDATA.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		lblDATA.setBounds(35, 112, 37, 14);
 		contentPane.add(lblDATA);
 
 		lblHORA = new JLabel("Hora");
-		lblHORA.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblHORA.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		lblHORA.setBounds(112, 112, 35, 14);
 		contentPane.add(lblHORA);
 
 		lblCLIENTE = new JLabel("Cliente");
-		lblCLIENTE.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblCLIENTE.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		lblCLIENTE.setBounds(205, 112, 55, 14);
 		contentPane.add(lblCLIENTE);
-		
-				JButton btnCarregar = new JButton("Atualizar");
-				btnCarregar.setBackground(new Color(240, 255, 255));
-				btnCarregar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						Atualizar();
-					}
-				});
-				btnCarregar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-				btnCarregar.setBounds(177, 281, 113, 23);
-				contentPane.add(btnCarregar);
-		
+
+		JButton btnCarregar = new JButton("Atualizar");
+		btnCarregar.setBackground(new Color(240, 255, 255));
+		btnCarregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Atualizar();
+			}
+		});
+		btnCarregar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		btnCarregar.setBounds(177, 281, 113, 23);
+		contentPane.add(btnCarregar);
+
 		JRadioButton btnTosa = new JRadioButton("Tosa");
 		buttonGroup_2.add(btnTosa);
 		btnTosa.setOpaque(false);
-		btnTosa.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnTosa.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		btnTosa.setFocusPainted(false);
 		btnTosa.setContentAreaFilled(false);
 		btnTosa.setBorderPainted(false);
 		btnTosa.setBackground(new Color(176, 224, 230));
 		btnTosa.setBounds(114, 230, 80, 23);
 		contentPane.add(btnTosa);
-		
+
 		flor = new JLabel("New label");
 		flor.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/230588225055212(1).png")));
 		flor.setBounds(277, 144, 429, 328);
 		contentPane.add(flor);
-		
+
 		background = new JLabel("New label");
 		background.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/Background.jpg")));
 		background.setBounds(0, 0, 644, 401);
@@ -300,14 +300,13 @@ public class BanhoTosa extends JFrame {
 	}
 
 	protected void Confirmar() {
-	
+
 		MySQLConfiguration c = new MySQLConfiguration();
 		String q = "";
-		
+
 		try {
 			Statement comando = c.conn.createStatement();
-			
-			
+
 			// --------------------------------------------------------------------------------------------
 			if (rdbtnPequeno.isSelected() && rdbtnBanho.isSelected()) {
 
@@ -318,13 +317,14 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
-					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
-							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho', '15.00')";
-				
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES" + " ('"
+							+ txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText()
+							+ "', 'Banho', '15.00')";
+
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
-			}else if (rdbtnPequeno.isSelected() && rdbtnBanhoETosa.isSelected()) {
+			} else if (rdbtnPequeno.isSelected() && rdbtnBanhoETosa.isSelected()) {
 				Object[] options = { "Confirmar", "Cancelar" };
 				int N = JOptionPane.showOptionDialog(null, "Valor: R$ 25,00", "Gostaria de confirmar horário?",
 						JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
@@ -332,8 +332,9 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
-					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
-							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho e Tosa', '25.00')";
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES" + " ('"
+							+ txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText()
+							+ "', 'Banho e Tosa', '25.00')";
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
@@ -346,8 +347,9 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
-					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
-							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho', '20.00')";
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES" + " ('"
+							+ txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText()
+							+ "', 'Banho', '20.00')";
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
@@ -359,8 +361,9 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
-					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
-							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho e tosa', '30.00')";
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES" + " ('"
+							+ txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText()
+							+ "', 'Banho e tosa', '30.00')";
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
@@ -372,8 +375,9 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
-					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
-							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho', '30.00')";
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES" + " ('"
+							+ txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText()
+							+ "', 'Banho', '30.00')";
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
@@ -385,17 +389,18 @@ public class BanhoTosa extends JFrame {
 				if (N == 0) {
 					JOptionPane.showMessageDialog(null,
 							"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
-					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES"
-							 + " ('" + txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText() + "', 'Banho e tosa', '40.00')";
+					q = "INSERT INTO agenda (DT_Servico, HR_Servico, NM_Cliente, SV_Servico, VL_Servico) VALUES" + " ('"
+							+ txtDATA.getText() + "', '" + txtHORA.getText() + "', '" + txtCLIENTE.getText()
+							+ "', 'Banho e tosa', '40.00')";
 				} else {
 					JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 				}
 			}
 			// --------------------------------------------------------------------------------------------
 
-				System.out.println(q);
-				comando.executeUpdate(q);
-			
+			System.out.println(q);
+			comando.executeUpdate(q);
+
 		} catch (Exception ex) {
 			System.err.println("FALHA NA no bang da CONFIRMAÇÃO");
 			ex.printStackTrace();
@@ -418,25 +423,19 @@ public class BanhoTosa extends JFrame {
 		String w = "";
 
 		q = "SELECT DT_Servico, HR_Servico, NM_Cliente FROM agenda ";
-	/*	if (!txtDATA.getText().isEmpty()) {
-			w = "DT_Servico = " + txtDATA.getText();
-		}
-		// -------------------------------------------------------------\\
-		if (!txtHORA.getText().isEmpty()) {
-			w = "HR_Servico = '" + txtHORA.getText() + "' ";
-		}
-		// -------------------------------------------------------------\\
-		if (!txtCLIENTE.getText().isEmpty()) {
-			if (w.isEmpty()) {
-				w = "NM_Cliente like '%" + txtCLIENTE.getText() + "%' ";
-			} else {
-				w += " and NM_Cliente like '%" + txtCLIENTE.getText() + "%' ";
-			}
-		}
-		// -------------------------------------------------------------\\
-		if (!w.isEmpty()) {
-			q += " WHERE " + w;
-		}*/
+		/*
+		 * if (!txtDATA.getText().isEmpty()) { w = "DT_Servico = " +
+		 * txtDATA.getText(); } //
+		 * -------------------------------------------------------------\\ if
+		 * (!txtHORA.getText().isEmpty()) { w = "HR_Servico = '" +
+		 * txtHORA.getText() + "' "; } //
+		 * -------------------------------------------------------------\\ if
+		 * (!txtCLIENTE.getText().isEmpty()) { if (w.isEmpty()) { w =
+		 * "NM_Cliente like '%" + txtCLIENTE.getText() + "%' "; } else { w +=
+		 * " and NM_Cliente like '%" + txtCLIENTE.getText() + "%' "; } } //
+		 * -------------------------------------------------------------\\ if
+		 * (!w.isEmpty()) { q += " WHERE " + w; }
+		 */
 		// -------------------------------------------------------------\\
 		try {
 			PreparedStatement comando = c.conn.prepareStatement(q);

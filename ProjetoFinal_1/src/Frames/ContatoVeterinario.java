@@ -89,11 +89,12 @@ public class ContatoVeterinario extends JFrame {
 		contentPane.add(lblVoltar);
 		
 		JLabel lblBAIRRO = new JLabel("Digite o seu bairro:");
-		lblBAIRRO.setFont(new Font("Broadway", Font.PLAIN, 15));
+		lblBAIRRO.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		lblBAIRRO.setBounds(158, 105, 162, 26);
 		contentPane.add(lblBAIRRO);
 		
 		txtBAIRRO = new JTextField();
+		txtBAIRRO.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtBAIRRO.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {

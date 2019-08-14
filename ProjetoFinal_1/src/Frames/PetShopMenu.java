@@ -99,10 +99,25 @@ public class PetShopMenu extends JFrame {
 		btnLoja.setOpaque(false);
 		contentPane.add(btnLoja);
 		
+		JLabel lblCarrinho = new JLabel("Pedidos");
+		lblCarrinho.setFont(new Font("Lucida Bright", Font.BOLD, 16));
+		lblCarrinho.setBounds(76, 118, 75, 25);
+		contentPane.add(lblCarrinho);
+		
 		JLabel label_1 = new JLabel("New label");
 		label_1.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/877017-128(1).png")));
 		label_1.setBounds(461, 148, 140, 135);
 		contentPane.add(label_1);
+		
+		JLabel lblProdutos = new JLabel("Produtos");
+		lblProdutos.setFont(new Font("Lucida Bright", Font.BOLD, 16));
+		lblProdutos.setBounds(281, 112, 75, 33);
+		contentPane.add(lblProdutos);
+		
+		JLabel lblPerfil = new JLabel("Perfil");
+		lblPerfil.setFont(new Font("Lucida Bright", Font.BOLD, 16));
+		lblPerfil.setBounds(508, 103, 48, 45);
+		contentPane.add(lblPerfil);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
 		lblNewLabel_2.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/3209260-128(1).png")));

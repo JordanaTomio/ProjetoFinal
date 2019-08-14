@@ -148,6 +148,7 @@ public class PetAdotar extends JFrame {
 		contentPane.add(btnProximo);
 
 		txtNomePet = new JTextField();
+		txtNomePet.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtNomePet.setEditable(false);
 		txtNomePet.setBounds(124, 92, 182, 20);
 		contentPane.add(txtNomePet);
@@ -179,18 +180,21 @@ public class PetAdotar extends JFrame {
 		contentPane.add(lblGenero);
 
 		txtAno = new JTextField();
+		txtAno.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtAno.setEditable(false);
 		txtAno.setBounds(124, 146, 182, 20);
 		txtAno.setColumns(10);
 		contentPane.add(txtAno);
 
 		txtTamanho = new JTextField();
+		txtTamanho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtTamanho.setEditable(false);
 		txtTamanho.setBounds(124, 253, 182, 20);
 		txtTamanho.setColumns(10);
 		contentPane.add(txtTamanho);
 
 		txtRaca = new JTextField();
+		txtRaca.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtRaca.setEditable(false);
 		txtRaca.setBounds(124, 203, 182, 20);
 		txtRaca.setColumns(10);
@@ -327,6 +331,7 @@ public class PetAdotar extends JFrame {
 		contentPane.add(btnGato);
 
 		txtDesc = new JTextField();
+		txtDesc.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtDesc.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDesc.setBounds(387, 99, 210, 115);
 		txtDesc.setEditable(false);

@@ -79,61 +79,67 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(lblPerfil);
 
 		JLabel lblNomePerfil = new JLabel("Nome:");
-		lblNomePerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNomePerfil.setBounds(10, 126, 46, 14);
+		lblNomePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		lblNomePerfil.setBounds(13, 128, 46, 14);
 		contentPane.add(lblNomePerfil);
 
 		txtNomePerfil = new JTextField();
+		txtNomePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtNomePerfil.setBounds(120, 124, 170, 20);
 		contentPane.add(txtNomePerfil);
 		txtNomePerfil.setColumns(10);
 
 		JLabel lblSobrenome = new JLabel("Sobrenome:");
-		lblSobrenome.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblSobrenome.setBounds(333, 126, 79, 14);
+		lblSobrenome.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		lblSobrenome.setBounds(357, 127, 79, 14);
 		contentPane.add(lblSobrenome);
 
 		txtSobreNomePerfil = new JTextField();
+		txtSobreNomePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtSobreNomePerfil.setColumns(10);
 		txtSobreNomePerfil.setBounds(446, 126, 175, 20);
 		contentPane.add(txtSobreNomePerfil);
 
 		JLabel lblTelefonePerfil = new JLabel("Telefone:");
-		lblTelefonePerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblTelefonePerfil.setBounds(10, 188, 63, 14);
+		lblTelefonePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		lblTelefonePerfil.setBounds(13, 190, 79, 14);
 		contentPane.add(lblTelefonePerfil);
 
 		txtTelefonePerfil = new JTextField();
+		txtTelefonePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtTelefonePerfil.setColumns(10);
 		txtTelefonePerfil.setBounds(120, 186, 170, 20);
 		contentPane.add(txtTelefonePerfil);
 
 		JLabel lblEmailPerfil = new JLabel("E-mail:");
-		lblEmailPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblEmailPerfil.setBounds(333, 189, 53, 14);
+		lblEmailPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		lblEmailPerfil.setBounds(357, 190, 53, 14);
 		contentPane.add(lblEmailPerfil);
 
 		txtEmailPerfil = new JTextField();
+		txtEmailPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtEmailPerfil.setColumns(10);
 		txtEmailPerfil.setBounds(446, 188, 175, 20);
 		contentPane.add(txtEmailPerfil);
 
 		JLabel lblEnderecoPerfil = new JLabel("Raz\u00E3o Social:");
-		lblEnderecoPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblEnderecoPerfil.setBounds(10, 247, 87, 14);
+		lblEnderecoPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		lblEnderecoPerfil.setBounds(13, 249, 99, 14);
 		contentPane.add(lblEnderecoPerfil);
 
 		txtEnderecoPerfil = new JTextField();
+		txtEnderecoPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtEnderecoPerfil.setColumns(10);
 		txtEnderecoPerfil.setBounds(120, 245, 170, 20);
 		contentPane.add(txtEnderecoPerfil);
 
 		JLabel lblCepPerfil = new JLabel("CEP:");
-		lblCepPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblCepPerfil.setBounds(333, 248, 46, 14);
+		lblCepPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		lblCepPerfil.setBounds(357, 249, 46, 14);
 		contentPane.add(lblCepPerfil);
 
 		txtCEPPerfil = new JTextField();
+		txtCEPPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtCEPPerfil.setColumns(10);
 		txtCEPPerfil.setBounds(446, 247, 175, 20);
 		contentPane.add(txtCEPPerfil);

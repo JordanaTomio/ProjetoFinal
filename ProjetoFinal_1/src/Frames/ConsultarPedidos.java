@@ -208,7 +208,7 @@ public class ConsultarPedidos extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setForeground(new Color(0, 0, 0));
+		btnNewButton.setForeground(new Color(0, 100, 0));
 		btnNewButton.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		btnNewButton.setBounds(538, 119, 42, 37);
 		contentPane.add(btnNewButton);

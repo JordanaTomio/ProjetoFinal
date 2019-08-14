@@ -67,14 +67,14 @@ public class Login extends JFrame {
 		contentPane.add(btnRegistrar);
 		
 		txtEmail = new JTextField();
-		txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtEmail.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		txtEmail.setBounds(392, 121, 183, 23);
 		txtEmail.setBorder(null);
 		contentPane.add(txtEmail);
 		txtEmail.setColumns(10);
 		
 		txtSenha = new JPasswordField();
-		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtSenha.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		txtSenha.setBounds(392, 157, 183, 23);
 		txtSenha.setBorder(null);
 		contentPane.add(txtSenha);
