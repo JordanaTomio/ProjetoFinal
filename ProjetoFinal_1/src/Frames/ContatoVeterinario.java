@@ -78,6 +78,11 @@ public class ContatoVeterinario extends JFrame {
 		btnVoltar.setFocusPainted(false);
 		contentPane.add(btnVoltar);
 		
+		JLabel label = new JLabel("New label");
+		label.setIcon(new ImageIcon(ContatoVeterinario.class.getResource("/imagens/clip-art-veterinarian-2(1).png")));
+		label.setBounds(477, 32, 137, 132);
+		contentPane.add(label);
+		
 		JLabel lblNewLabel = new JLabel("Veterin\u00E1rio");
 		lblNewLabel.setFont(new Font("Broadway", Font.PLAIN, 30));
 		lblNewLabel.setBounds(226, 31, 203, 63);

@@ -54,20 +54,20 @@ public class PetShopMenu extends JFrame {
 		btnVoltar.setOpaque(false);
 		contentPane.add(btnVoltar);
 		
-		JButton button = new JButton("");
-		button.addActionListener(new ActionListener() {
+		JButton btnPedidos = new JButton("");
+		btnPedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ConsultarPedidos frp = new ConsultarPedidos();
 				frp.setVisible(true);
 				dispose();
 			}
 		});
-		button.setOpaque(false);
-		button.setFocusPainted(false);
-		button.setContentAreaFilled(false);
-		button.setBorderPainted(false);
-		button.setBounds(38, 141, 154, 142);
-		contentPane.add(button);
+		btnPedidos.setOpaque(false);
+		btnPedidos.setFocusPainted(false);
+		btnPedidos.setContentAreaFilled(false);
+		btnPedidos.setBorderPainted(false);
+		btnPedidos.setBounds(38, 141, 154, 142);
+		contentPane.add(btnPedidos);
 		
 		JButton btnPerfil = new JButton("");
 		btnPerfil.addActionListener(new ActionListener() {
@@ -99,54 +99,54 @@ public class PetShopMenu extends JFrame {
 		btnLoja.setOpaque(false);
 		contentPane.add(btnLoja);
 		
-		JLabel lblCarrinho = new JLabel("Pedidos");
-		lblCarrinho.setFont(new Font("Lucida Bright", Font.BOLD, 16));
-		lblCarrinho.setBounds(76, 118, 75, 25);
-		contentPane.add(lblCarrinho);
-		
-		JLabel label_1 = new JLabel("New label");
-		label_1.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/877017-128(1).png")));
-		label_1.setBounds(461, 148, 140, 135);
-		contentPane.add(label_1);
-		
 		JLabel lblProdutos = new JLabel("Produtos");
 		lblProdutos.setFont(new Font("Lucida Bright", Font.BOLD, 16));
 		lblProdutos.setBounds(281, 112, 75, 33);
 		contentPane.add(lblProdutos);
+		
+		JLabel lblPedidos = new JLabel("Pedidos");
+		lblPedidos.setFont(new Font("Lucida Bright", Font.BOLD, 16));
+		lblPedidos.setBounds(76, 118, 75, 25);
+		contentPane.add(lblPedidos);
 		
 		JLabel lblPerfil = new JLabel("Perfil");
 		lblPerfil.setFont(new Font("Lucida Bright", Font.BOLD, 16));
 		lblPerfil.setBounds(508, 103, 48, 45);
 		contentPane.add(lblPerfil);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/3209260-128(1).png")));
-		lblNewLabel_2.setBounds(10, 345, 40, 45);
-		contentPane.add(lblNewLabel_2);
+		JLabel Perfil_icon = new JLabel("New label");
+		Perfil_icon.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/877017-128(1).png")));
+		Perfil_icon.setBounds(461, 148, 140, 135);
+		contentPane.add(Perfil_icon);
 		
-		JLabel label = new JLabel("New label");
-		label.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/877020-128-2-.png")));
-		label.setBounds(248, 148, 140, 135);
-		contentPane.add(label);
+		JLabel btnVoltar_icon = new JLabel("New label");
+		btnVoltar_icon.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/3209260-128(1).png")));
+		btnVoltar_icon.setBounds(10, 345, 40, 45);
+		contentPane.add(btnVoltar_icon);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/877015-128-2-.png")));
-		lblNewLabel_1.setBounds(40, 148, 140, 135);
-		contentPane.add(lblNewLabel_1);
+		JLabel Produtos_icon = new JLabel("New label");
+		Produtos_icon.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/877020-128-2-.png")));
+		Produtos_icon.setBounds(248, 148, 140, 135);
+		contentPane.add(Produtos_icon);
+		
+		JLabel Pedidos_icon = new JLabel("New label");
+		Pedidos_icon.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/877015-128-2-.png")));
+		Pedidos_icon.setBounds(40, 148, 140, 135);
+		contentPane.add(Pedidos_icon);
 		
 		JLabel lblPetShop = new JLabel("Pet Shop");
 		lblPetShop.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblPetShop.setBounds(255, 30, 154, 57);
 		contentPane.add(lblPetShop);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/302817012222211(1).png")));
-		lblNewLabel_3.setBounds(101, 41, 461, 318);
-		contentPane.add(lblNewLabel_3);
+		JLabel Flor_icon = new JLabel("New label");
+		Flor_icon.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/302817012222211(1).png")));
+		Flor_icon.setBounds(101, 41, 461, 318);
+		contentPane.add(Flor_icon);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/Background.jpg")));
-		lblNewLabel.setBounds(0, 0, 644, 401);
-		contentPane.add(lblNewLabel);
+		JLabel Background_icon = new JLabel("New label");
+		Background_icon.setIcon(new ImageIcon(PetShopMenu.class.getResource("/imagens/Background.jpg")));
+		Background_icon.setBounds(0, 0, 644, 401);
+		contentPane.add(Background_icon);
 	}
 }

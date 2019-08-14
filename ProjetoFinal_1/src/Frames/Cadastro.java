@@ -38,6 +38,8 @@ public class Cadastro extends JFrame {
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private JPasswordField txtPS;
 	private JLabel btnVoltar_icon;
+	JRadioButton btnFeminino = new JRadioButton("Fem");
+	JRadioButton btnMasculino = new JRadioButton("Masc");
 
 	/**
 	 * Launch the application.
@@ -69,27 +71,22 @@ public class Cadastro extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		
-		JRadioButton rdbtnOutros = new JRadioButton("Outros");
-		buttonGroup.add(rdbtnOutros);
-		rdbtnOutros.setBackground(new Color(204, 255, 204));
-		rdbtnOutros.setBorderPainted(false);
-		rdbtnOutros.setContentAreaFilled(false);
-		rdbtnOutros.setFocusPainted(false);
-		rdbtnOutros.setOpaque(false);
-		rdbtnOutros.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		rdbtnOutros.setBounds(538, 186, 65, 23);
-		contentPane.add(rdbtnOutros);
-		
-		JLabel lblCadastroDaInstituio = new JLabel("Dados Cadastrais");
-		lblCadastroDaInstituio.setBounds(210, 12, 272, 49);
-		lblCadastroDaInstituio.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
-		contentPane.add(lblCadastroDaInstituio);
+		txtPN = new JTextField();
+		txtPN.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		txtPN.setBounds(128, 98, 150, 22);
+		contentPane.add(txtPN);
+		txtPN.setColumns(10);
 		
 		JLabel lblNOME = new JLabel("Nome*:");
 		lblNOME.setForeground(new Color(0, 0, 0));
 		lblNOME.setBounds(30, 99, 62, 22);
 		lblNOME.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblNOME);
+		
+		JLabel lblCadastroDaInstituio = new JLabel("Dados Cadastrais");
+		lblCadastroDaInstituio.setBounds(210, 12, 272, 49);
+		lblCadastroDaInstituio.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+		contentPane.add(lblCadastroDaInstituio);
 		
 		JLabel lblNM_RAZAOSOCIAL = new JLabel("Raz\u00E3o social:");
 		lblNM_RAZAOSOCIAL.setBounds(335, 140, 104, 22);
@@ -157,33 +154,10 @@ public class Cadastro extends JFrame {
 		contentPane.add(txtTL);
 		txtTL.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Sexo*: ");
-		lblNewLabel.setBounds(337, 189, 63, 14);
-		lblNewLabel.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
-		contentPane.add(lblNewLabel);
-		
-		JRadioButton btnMasculino = new JRadioButton("Masc");
-		buttonGroup.add(btnMasculino);
-		btnMasculino.setBounds(467, 187, 65, 23);
-		btnMasculino.setBorderPainted(false);
-		btnMasculino.setContentAreaFilled(false);
-		btnMasculino.setFocusPainted(false);
-		btnMasculino.setOpaque(false);
-		btnMasculino.setBackground(new Color(204, 255, 204));
-		btnMasculino.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		contentPane.add(btnMasculino);
-		
-		JRadioButton btnFeminino = new JRadioButton("Fem");
-		btnFeminino.setSelected(true);
-		buttonGroup.add(btnFeminino);
-		btnFeminino.setBounds(406, 187, 62, 23);
-		btnFeminino.setBorderPainted(false);
-		btnFeminino.setContentAreaFilled(false);
-		btnFeminino.setFocusPainted(false);
-		btnFeminino.setOpaque(false);
-		btnFeminino.setBackground(new Color(204, 255, 204));
-		btnFeminino.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		contentPane.add(btnFeminino);
+		JLabel lblGenero = new JLabel("Sexo*: ");
+		lblGenero.setBounds(337, 189, 63, 14);
+		lblGenero.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		contentPane.add(lblGenero);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setBackground(new Color(240, 255, 255));
@@ -216,7 +190,8 @@ public class Cadastro extends JFrame {
 					new Login().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showConfirmDialog(null, "Informação faltando.", "Erro no cadastro", 1);
+					//JOptionPane.showConfirmDialog(null, "Informação faltando.", "Erro no cadastro", 1);
+					JOptionPane.showMessageDialog(null, "Informações faltando");
 				}
 
 			}
@@ -249,16 +224,58 @@ public class Cadastro extends JFrame {
 		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		contentPane.add(lbldadosObrigatrios);
 		
-		txtPN = new JTextField();
-		txtPN.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		txtPN.setBounds(128, 98, 150, 22);
-		contentPane.add(txtPN);
-		txtPN.setColumns(10);
-		
 		JLabel lblPessoa = new JLabel("Pessoa:");
 		lblPessoa.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		lblPessoa.setBounds(335, 233, 65, 14);
 		contentPane.add(lblPessoa);
+		
+		JLabel Flor1_icon = new JLabel("New label");
+		Flor1_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/301738460207211(1).png")));
+		Flor1_icon.setBounds(110, -43, 180, 146);
+		contentPane.add(Flor1_icon);
+		
+		JLabel Flor2_icon = new JLabel("New label");
+		Flor2_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/301738460207211(1).png")));
+		Flor2_icon.setBounds(383, -51, 180, 160);
+		contentPane.add(Flor2_icon);
+		
+		JLabel lblSenha = new JLabel("Senha:");
+		lblSenha.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		lblSenha.setBounds(335, 282, 93, 22);
+		contentPane.add(lblSenha);
+		
+		txtPS = new JPasswordField();
+		txtPS.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		txtPS.setBounds(433, 283, 150, 20);
+		contentPane.add(txtPS);
+		
+		btnVoltar_icon = new JLabel("");
+		btnVoltar_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/3209260-128(1).png")));
+		btnVoltar_icon.setBounds(10, 346, 40, 44);
+		contentPane.add(btnVoltar_icon);
+		
+		JRadioButton btnFeminino = new JRadioButton("Fem");
+		btnFeminino.setSelected(true);
+		buttonGroup.add(btnFeminino);
+		btnFeminino.setBounds(406, 187, 62, 23);
+		btnFeminino.setBorderPainted(false);
+		btnFeminino.setContentAreaFilled(false);
+		btnFeminino.setFocusPainted(false);
+		btnFeminino.setOpaque(false);
+		btnFeminino.setBackground(new Color(204, 255, 204));
+		btnFeminino.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		contentPane.add(btnFeminino);
+		
+		JRadioButton btnMasculino = new JRadioButton("Masc");
+		buttonGroup.add(btnMasculino);
+		btnMasculino.setBounds(467, 187, 65, 23);
+		btnMasculino.setBorderPainted(false);
+		btnMasculino.setContentAreaFilled(false);
+		btnMasculino.setFocusPainted(false);
+		btnMasculino.setOpaque(false);
+		btnMasculino.setBackground(new Color(204, 255, 204));
+		btnMasculino.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		contentPane.add(btnMasculino);
 		
 		JRadioButton rdbtnJu = new JRadioButton("Jur\u00EDdica");
 		rdbtnJu.setSelected(true);
@@ -271,16 +288,6 @@ public class Cadastro extends JFrame {
 		rdbtnJu.setOpaque(false);
 		contentPane.add(rdbtnJu);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/301738460207211(1).png")));
-		lblNewLabel_2.setBounds(110, -43, 180, 146);
-		contentPane.add(lblNewLabel_2);
-		
-		JLabel label = new JLabel("New label");
-		label.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/301738460207211(1).png")));
-		label.setBounds(383, -51, 180, 160);
-		contentPane.add(label);
-		
 		JRadioButton rdbtnFsica = new JRadioButton("F\u00EDsica");
 		buttonGroup_1.add(rdbtnFsica);
 		rdbtnFsica.setFont(new Font("Times New Roman", Font.PLAIN, 15));
@@ -291,24 +298,20 @@ public class Cadastro extends JFrame {
 		rdbtnFsica.setOpaque(false);
 		contentPane.add(rdbtnFsica);
 		
-		btnVoltar_icon = new JLabel("");
-		btnVoltar_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/3209260-128(1).png")));
-		btnVoltar_icon.setBounds(10, 346, 40, 44);
-		contentPane.add(btnVoltar_icon);
+		JRadioButton rdbtnOutros = new JRadioButton("Outros");
+		buttonGroup.add(rdbtnOutros);
+		rdbtnOutros.setBackground(new Color(204, 255, 204));
+		rdbtnOutros.setBorderPainted(false);
+		rdbtnOutros.setContentAreaFilled(false);
+		rdbtnOutros.setFocusPainted(false);
+		rdbtnOutros.setOpaque(false);
+		rdbtnOutros.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		rdbtnOutros.setBounds(538, 186, 65, 23);
+		contentPane.add(rdbtnOutros);
 		
-		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
-		lblSenha.setBounds(335, 282, 93, 22);
-		contentPane.add(lblSenha);
-		
-		txtPS = new JPasswordField();
-		txtPS.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		txtPS.setBounds(433, 283, 150, 20);
-		contentPane.add(txtPS);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/Background.jpg")));
-		lblNewLabel_1.setBounds(0, -2, 644, 401);
-		contentPane.add(lblNewLabel_1);
+		JLabel Background_icon = new JLabel("New label");
+		Background_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/Background.jpg")));
+		Background_icon.setBounds(0, -2, 644, 401);
+		contentPane.add(Background_icon);
 	}
 }
