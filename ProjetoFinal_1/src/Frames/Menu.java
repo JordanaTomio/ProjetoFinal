@@ -89,7 +89,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnLogoff);
 		
 		btnVet = new JButton("Veterin\u00E1rio");
-		btnVet.setIcon(new ImageIcon(Menu.class.getResource("/imagens/3775242-128(1).png")));
+		btnVet.setIcon(new ImageIcon(Menu.class.getResource("/imagens/vet.png")));
 		btnVet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ContatoVeterinario cvt = new ContatoVeterinario();
@@ -97,7 +97,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnVet.setBounds(555, 307, 88, 76);
+		btnVet.setBounds(545, 314, 77, 76);
 		btnVet.setBorderPainted(false);
 		btnVet.setContentAreaFilled(false);
 		btnVet.setOpaque(false);
