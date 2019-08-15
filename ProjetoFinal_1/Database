@@ -11,13 +11,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Copiando estrutura do banco de dados para petshopdb
-DROP DATABASE IF EXISTS `petshopdb`;
 CREATE DATABASE IF NOT EXISTS `petshopdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `petshopdb`;
 
 
 -- Copiando estrutura para tabela petshopdb.adocao
-DROP TABLE IF EXISTS `adocao`;
 CREATE TABLE IF NOT EXISTS `adocao` (
   `Animal_CD_Animal` int(11) NOT NULL,
   `Cliente_CD_Cliente` int(11) NOT NULL,
@@ -34,7 +32,6 @@ DELETE FROM `adocao`;
 
 
 -- Copiando estrutura para tabela petshopdb.agenda
-DROP TABLE IF EXISTS `agenda`;
 CREATE TABLE IF NOT EXISTS `agenda` (
   `CD_Servico` int(11) NOT NULL AUTO_INCREMENT,
   `DT_Servico` varchar(5) DEFAULT NULL,
@@ -56,7 +53,6 @@ INSERT INTO `agenda` (`CD_Servico`, `DT_Servico`, `HR_Servico`, `NM_Cliente`, `S
 
 
 -- Copiando estrutura para tabela petshopdb.agendamento
-DROP TABLE IF EXISTS `agendamento`;
 CREATE TABLE IF NOT EXISTS `agendamento` (
   `Agenda_CD_Servico` int(11) NOT NULL,
   `Cliente_CD_Cliente` int(11) NOT NULL,
@@ -73,7 +69,6 @@ DELETE FROM `agendamento`;
 
 
 -- Copiando estrutura para tabela petshopdb.animal
-DROP TABLE IF EXISTS `animal`;
 CREATE TABLE IF NOT EXISTS `animal` (
   `CD_Animal` int(11) NOT NULL AUTO_INCREMENT,
   `NM_Animal` varchar(45) DEFAULT NULL,
@@ -112,7 +107,6 @@ INSERT INTO `animal` (`CD_Animal`, `NM_Animal`, `ANO_Animal`, `TM_Animal`, `DS_A
 
 
 -- Copiando estrutura para tabela petshopdb.cliente
-DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE IF NOT EXISTS `cliente` (
   `CD_Cliente` int(11) NOT NULL AUTO_INCREMENT,
   `EM_Cliente` varchar(255) NOT NULL,
@@ -132,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   CONSTRAINT `` FOREIGN KEY (`CD_Pedido`) REFERENCES `pedido` (`CD_Pedido`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela petshopdb.cliente: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela petshopdb.cliente: ~1 rows (aproximadamente)
 DELETE FROM `cliente`;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` (`CD_Cliente`, `EM_Cliente`, `PS_Cliente`, `PN_Cliente`, `SN_Cliente`, `SX_Cliente`, `TL_Cliente`, `ADM_Cliente`, `CEP_Cliente`, `CPF_Cliente`, `PJF_Cliente`, `RZ_Cliente`, `CD_Pedido`) VALUES
@@ -141,7 +135,6 @@ INSERT INTO `cliente` (`CD_Cliente`, `EM_Cliente`, `PS_Cliente`, `PN_Cliente`, `
 
 
 -- Copiando estrutura para tabela petshopdb.contato_veterinario
-DROP TABLE IF EXISTS `contato_veterinario`;
 CREATE TABLE IF NOT EXISTS `contato_veterinario` (
   `CD_Veterinario` int(11) NOT NULL AUTO_INCREMENT,
   `NM_Veterinario` varchar(200) DEFAULT 'Clínica',
@@ -188,7 +181,6 @@ INSERT INTO `contato_veterinario` (`CD_Veterinario`, `NM_Veterinario`, `TL_Veter
 
 
 -- Copiando estrutura para tabela petshopdb.item
-DROP TABLE IF EXISTS `item`;
 CREATE TABLE IF NOT EXISTS `item` (
   `CD_Pedido` int(11) NOT NULL,
   `CD_Produto` int(11) NOT NULL,
@@ -205,7 +197,6 @@ DELETE FROM `item`;
 
 
 -- Copiando estrutura para tabela petshopdb.pedido
-DROP TABLE IF EXISTS `pedido`;
 CREATE TABLE IF NOT EXISTS `pedido` (
   `CD_Pedido` int(11) NOT NULL AUTO_INCREMENT,
   `VL_Total` double NOT NULL DEFAULT '0',
@@ -224,7 +215,6 @@ INSERT INTO `pedido` (`CD_Pedido`, `VL_Total`, `DT_Pedido`, `AT_Pedido`, `FN_Ped
 
 
 -- Copiando estrutura para tabela petshopdb.produto
-DROP TABLE IF EXISTS `produto`;
 CREATE TABLE IF NOT EXISTS `produto` (
   `CD_Produto` int(11) NOT NULL AUTO_INCREMENT,
   `NM_Produto` varchar(255) NOT NULL,
@@ -237,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   PRIMARY KEY (`CD_Produto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela petshopdb.produto: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela petshopdb.produto: ~16 rows (aproximadamente)
 DELETE FROM `produto`;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
 INSERT INTO `produto` (`CD_Produto`, `NM_Produto`, `DS_Produto`, `VL_Produto`, `UND_Produto`, `DT_Validade`, `QT_Estoque_Produto`, `DT_Cadastro_Produto`) VALUES
@@ -261,21 +251,18 @@ INSERT INTO `produto` (`CD_Produto`, `NM_Produto`, `DS_Produto`, `VL_Produto`, `
 
 
 -- Copiando estrutura para view petshopdb.v_cliente_itens_pedido
-DROP VIEW IF EXISTS `v_cliente_itens_pedido`;
 -- Criando tabela temporária para evitar erros de dependência de VIEW
 CREATE TABLE `v_cliente_itens_pedido` 
 ) ENGINE=MyISAM;
 
 
 -- Copiando estrutura para view petshopdb.v_cliente_pedido
-DROP VIEW IF EXISTS `v_cliente_pedido`;
 -- Criando tabela temporária para evitar erros de dependência de VIEW
 CREATE TABLE `v_cliente_pedido` 
 ) ENGINE=MyISAM;
 
 
 -- Copiando estrutura para view petshopdb.v_cliente_itens_pedido
-DROP VIEW IF EXISTS `v_cliente_itens_pedido`;
 -- Removendo tabela temporária e criando a estrutura VIEW final
 DROP TABLE IF EXISTS `v_cliente_itens_pedido`;
 CREATE DEFINER=`root`@`localhost` VIEW `v_cliente_itens_pedido` AS SELECT c.CD_Cliente, p.CD_Pedido, pr.NM_Produto, pr.VL_Produto FROM cliente c
@@ -285,7 +272,6 @@ JOIN produto pr ON pr.CD_Produto = i.CD_Produto ;
 
 
 -- Copiando estrutura para view petshopdb.v_cliente_pedido
-DROP VIEW IF EXISTS `v_cliente_pedido`;
 -- Removendo tabela temporária e criando a estrutura VIEW final
 DROP TABLE IF EXISTS `v_cliente_pedido`;
 CREATE DEFINER=`root`@`localhost` VIEW `v_cliente_pedido` AS SELECT c.CD_Cliente, c.EM_Cliente, c.PN_Cliente, c.SN_Cliente, p.CD_Pedido, pr.NM_Produto, pr.VL_Produto FROM cliente c
