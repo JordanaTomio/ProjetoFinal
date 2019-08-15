@@ -102,7 +102,7 @@ INSERT INTO `animal` (`CD_Animal`, `NM_Animal`, `ANO_Animal`, `TM_Animal`, `DS_A
 	(8, 'Kenny', '2017', 'Pequeno', 'Branco, bricalhão', 'Scottish Fold', 'Gato', 'Femea', 'Nao', 'Nao'),
 	(9, 'Pipoca', '2015', 'Medio', 'Preto, apegado a seu bichinho', 'Manx', 'Gato', 'Femea', 'Sim', 'Nao'),
 	(10, 'Elza', '2016', 'Pequeno', 'Castanho, dócil', 'SDR', 'Gato', 'Femea', 'Nao', 'Sim'),
-	(11, 'Floquinho', '2017', 'Pequeno', 'Branco, dócil', 'Burmês', 'Gato', 'Macho', 'Sim', 'Sim'),
+	(11, 'Floquinho', '2017', 'Pequeno', 'Branco, dócil', 'Burmês\r\nFonte: Canal do Pet - iG @ https://canaldopet.ig.com.br/curiosidades/racas/2016-09-02/gatos-', 'Gato', 'Macho', 'Sim', 'Sim'),
 	(12, 'Cookie', '2018', 'Grande', 'Preto, bricalhão', 'Savannah', 'Gato', 'Macho', 'Nao', 'Nao'),
 	(13, 'Mara', '2015', 'Medio', 'Preto, cão de guarda', 'Poodle', 'Cachorro', 'Femea', 'Sim', 'Sim'),
 	(14, 'Maraisa', '2019', 'Grande', 'Castanho, dócil', 'Fila Brasileiro', 'Cachorro', 'Femea', 'Nao', 'Nao'),
@@ -126,14 +126,17 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `CPF_Cliente` varchar(50) NOT NULL,
   `PJF_Cliente` varchar(15) DEFAULT NULL,
   `RZ_Cliente` varchar(160) DEFAULT NULL,
-  PRIMARY KEY (`CD_Cliente`)
+  `CD_Pedido` int(11) DEFAULT NULL,
+  PRIMARY KEY (`CD_Cliente`),
+  KEY `CD_Pedido` (`CD_Pedido`),
+  CONSTRAINT `` FOREIGN KEY (`CD_Pedido`) REFERENCES `pedido` (`CD_Pedido`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela petshopdb.cliente: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela petshopdb.cliente: ~0 rows (aproximadamente)
 DELETE FROM `cliente`;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` (`CD_Cliente`, `EM_Cliente`, `PS_Cliente`, `PN_Cliente`, `SN_Cliente`, `SX_Cliente`, `TL_Cliente`, `ADM_Cliente`, `CEP_Cliente`, `CPF_Cliente`, `PJF_Cliente`, `RZ_Cliente`) VALUES
-	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '123', 0, '11111', '23243', NULL, 'oi');
+INSERT INTO `cliente` (`CD_Cliente`, `EM_Cliente`, `PS_Cliente`, `PN_Cliente`, `SN_Cliente`, `SX_Cliente`, `TL_Cliente`, `ADM_Cliente`, `CEP_Cliente`, `CPF_Cliente`, `PJF_Cliente`, `RZ_Cliente`, `CD_Pedido`) VALUES
+	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '123', 0, '11111', '23243', NULL, 'oi', NULL);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 
@@ -208,15 +211,15 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `VL_Total` double NOT NULL DEFAULT '0',
   `DT_Pedido` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `AT_Pedido` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `CD_Cliente` int(11) NOT NULL,
-  PRIMARY KEY (`CD_Pedido`),
-  KEY `fk_Pedido_Cliente1_idx` (`CD_Cliente`),
-  CONSTRAINT `fk_Pedido_Cliente1` FOREIGN KEY (`CD_Cliente`) REFERENCES `cliente` (`CD_Cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `FN_Pedido` int(11) DEFAULT '0',
+  PRIMARY KEY (`CD_Pedido`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela petshopdb.pedido: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela petshopdb.pedido: ~1 rows (aproximadamente)
 DELETE FROM `pedido`;
 /*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
+INSERT INTO `pedido` (`CD_Pedido`, `VL_Total`, `DT_Pedido`, `AT_Pedido`, `FN_Pedido`) VALUES
+	(6, 0, '2019-08-15 15:32:04', '2019-08-15 15:32:04', 0);
 /*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
 
 
@@ -232,38 +235,42 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `QT_Estoque_Produto` int(11) NOT NULL DEFAULT '0',
   `DT_Cadastro_Produto` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`CD_Produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela petshopdb.produto: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela petshopdb.produto: ~0 rows (aproximadamente)
 DELETE FROM `produto`;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
 INSERT INTO `produto` (`CD_Produto`, `NM_Produto`, `DS_Produto`, `VL_Produto`, `UND_Produto`, `DT_Validade`, `QT_Estoque_Produto`, `DT_Cadastro_Produto`) VALUES
-	(1, 'whiskas', 'eh', 150, '13', '2019-08-02', 13, '2019-08-02 16:13:11');
+	(1, 'Whiskas Sachê ', 'Ração em pacotinho', 1.5, '85g', '2022-08-02', 11, '2019-08-02 16:13:11'),
+	(2, 'Coleira pequena', 'Disponível nas cores azul e rosa', 20.5, 'unidade', '2022-08-14', 33, '2019-08-14 14:10:21'),
+	(3, 'Coleira média', 'Disponível nas cores azul, rosa e amarelo', 25.5, 'unidade', '2022-08-14', 32, '2019-08-14 14:11:28'),
+	(4, 'Coleira grande', 'Disponível nas cores azul, azul escuro e preto', 30, 'unidade', '2022-08-14', 20, '2019-08-14 16:11:15'),
+	(5, 'Ração Whiskas', 'Ração para filhotes ', 19.99, '1kg', '2022-08-14', 40, '2019-08-14 16:18:19'),
+	(6, 'Ração Whiskas Gatos Castrados', 'Ração para gatos castrados, com menos sódio', 0, '500g', '2022-08-14', 20, '2019-08-14 16:20:48'),
+	(7, 'Ração Magnus Cães Adultos', 'Ração premium para cães adultos', 103.5, '25kg', '2022-08-14', 15, '2019-08-14 16:21:48'),
+	(8, 'Ração Pedigree', 'Ração para cães adultos, com nutrição para uma alimentação balanceada', 69.5, '15kg', '2022-08-14', 40, '2019-08-14 16:25:32'),
+	(9, 'Ração Premier Golden Special', 'A Ração Premier Golden Special Cães Adultos Frango e Carne é um alimento completo.', 104.9, '15kg', '2022-08-14', 21, '2019-08-14 16:27:24'),
+	(10, 'Ração Cachorro Premier Golden Formula Sênior', 'Indicada para cães acima de 7 anos de porte pequeno;', 91.9, '10kg', '2022-08-14', 15, '2019-08-14 16:28:17'),
+	(11, 'Petisco Doguitos Rodízio para Cães Adultos e Filhotes Sabor Carne', 'Petisco delicioso feito com carne fresca', 19.6, '65g', '2024-08-14', 42, '2019-08-14 16:31:39'),
+	(12, 'Biscoito em Pote Pet Dog', 'O Biscoito em Pote Pet Dog Sabores, contém um alto nível de vitaminas, minerais e ingredientes funcionais', 35.9, '800g', '2022-08-14', 15, '2019-08-14 16:32:39'),
+	(13, 'Biscoito Orgânico All Love Maça & Canela para Cães', 'Elaborado com ingredientes integrais, o Biscoito Orgânico All Love Maça & Canela para Cães é perfeito para mimar seu pet', 28.9, '200g', '2022-08-14', 17, '2019-08-14 16:33:04'),
+	(14, 'Petisco Dog Chow Carinhos para Cães Adultos e Filhotes Sabor Maçã e Banana', 'Hora da sobremesa! O Petisco Dog Chow Carinhos para Cães Adultos e Filhotes Sabor Maçã e Banana é petisco com delicioso com frutas de verdade', 5.99, '75g', '2019-08-14', 14, '2019-08-14 16:34:59'),
+	(15, 'Alimentador Automático iPet', 'Alimentador automático controlado por aplicativo, marca registrada do iPet', 356.5, 'unidade', '2019-08-14', 10, '2019-08-14 16:50:20'),
+	(16, 'Kit caminha e transporte', 'Kit com caminha e transporte para cães de porte pequeno', 254.6, 'unidade', '2019-08-14', 21, '2019-08-14 16:54:09');
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 
 
 -- Copiando estrutura para view petshopdb.v_cliente_itens_pedido
 DROP VIEW IF EXISTS `v_cliente_itens_pedido`;
 -- Criando tabela temporária para evitar erros de dependência de VIEW
-CREATE TABLE `v_cliente_itens_pedido` (
-	`CD_Cliente` INT(11) NOT NULL,
-	`CD_Pedido` INT(11) NOT NULL,
-	`NM_Produto` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
-	`VL_Produto` DOUBLE NOT NULL
+CREATE TABLE `v_cliente_itens_pedido` 
 ) ENGINE=MyISAM;
 
 
 -- Copiando estrutura para view petshopdb.v_cliente_pedido
 DROP VIEW IF EXISTS `v_cliente_pedido`;
 -- Criando tabela temporária para evitar erros de dependência de VIEW
-CREATE TABLE `v_cliente_pedido` (
-	`CD_Cliente` INT(11) NOT NULL,
-	`EM_Cliente` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
-	`PN_Cliente` VARCHAR(80) NOT NULL COLLATE 'utf8_general_ci',
-	`SN_Cliente` VARCHAR(160) NULL COLLATE 'utf8_general_ci',
-	`CD_Pedido` INT(11) NULL,
-	`NM_Produto` VARCHAR(255) NULL COLLATE 'utf8_general_ci',
-	`VL_Produto` DOUBLE NULL
+CREATE TABLE `v_cliente_pedido` 
 ) ENGINE=MyISAM;
 
 
@@ -271,7 +278,7 @@ CREATE TABLE `v_cliente_pedido` (
 DROP VIEW IF EXISTS `v_cliente_itens_pedido`;
 -- Removendo tabela temporária e criando a estrutura VIEW final
 DROP TABLE IF EXISTS `v_cliente_itens_pedido`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `v_cliente_itens_pedido` AS SELECT c.CD_Cliente, p.CD_Pedido, pr.NM_Produto, pr.VL_Produto FROM cliente c
+CREATE DEFINER=`root`@`localhost` VIEW `v_cliente_itens_pedido` AS SELECT c.CD_Cliente, p.CD_Pedido, pr.NM_Produto, pr.VL_Produto FROM cliente c
 JOIN pedido p ON p.CD_Cliente = c.CD_Cliente
 JOIN item i ON i.CD_Pedido = p.CD_Pedido
 JOIN produto pr ON pr.CD_Produto = i.CD_Produto ;
@@ -281,7 +288,7 @@ JOIN produto pr ON pr.CD_Produto = i.CD_Produto ;
 DROP VIEW IF EXISTS `v_cliente_pedido`;
 -- Removendo tabela temporária e criando a estrutura VIEW final
 DROP TABLE IF EXISTS `v_cliente_pedido`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `v_cliente_pedido` AS SELECT c.CD_Cliente, c.EM_Cliente, c.PN_Cliente, c.SN_Cliente, p.CD_Pedido, pr.NM_Produto, pr.VL_Produto FROM cliente c
+CREATE DEFINER=`root`@`localhost` VIEW `v_cliente_pedido` AS SELECT c.CD_Cliente, c.EM_Cliente, c.PN_Cliente, c.SN_Cliente, p.CD_Pedido, pr.NM_Produto, pr.VL_Produto FROM cliente c
 LEFT JOIN pedido p ON p.CD_Cliente = c.CD_Cliente
 LEFT JOIN item i ON i.CD_Pedido = p.CD_Pedido
 LEFT JOIN produto pr ON pr.CD_Produto = i.CD_Produto ;
