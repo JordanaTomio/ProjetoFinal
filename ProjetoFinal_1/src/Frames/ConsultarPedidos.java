@@ -42,6 +42,7 @@ public class ConsultarPedidos extends JFrame {
 	public static String ValorTotal;
 	public static String ValorTotalRd;
 	public static String ValoresTotaisString = null;
+	public static String[] pedido;
 
 	/**
 	 * Create the frame.
@@ -61,7 +62,7 @@ public class ConsultarPedidos extends JFrame {
 				if(comboBox.getItemCount() > 0) {
 					String item = comboBox.getSelectedItem().toString();
 					String itens[] = item.split(": ");
-
+					pedido = itens;
 					ResultSet rsValoTotal = PeedidoDAO.getPedidosItems(Integer.parseInt(itens[1]));
 					double valorTotalPedido = 0;
 					try {

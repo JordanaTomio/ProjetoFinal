@@ -16,6 +16,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
+
+import DAO.PeedidoDAO;
+
 import javax.swing.ImageIcon;
 
 public class FinalizarPedido extends JFrame {
@@ -75,15 +78,15 @@ public class FinalizarPedido extends JFrame {
 		btnVoltar.setContentAreaFilled(false);
 		contentPane.add(btnVoltar);
 		
-		JLabel lblSeuTotal = new JLabel("Seu total \u00E9 de");
+		JLabel lblSeuTotal = new JLabel("Seu total \u00E9 de R$");
 		lblSeuTotal.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-		lblSeuTotal.setBounds(194, 100, 141, 26);
+		lblSeuTotal.setBounds(194, 100, 179, 26);
 		contentPane.add(lblSeuTotal);
 		
 		JLabel total = new JLabel("");
 		total.setForeground(new Color(0, 100, 0));
 		total.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		total.setBounds(334, 100, 95, 24);
+		total.setBounds(364, 100, 95, 24);
 		String lbl = ConsultarPedidos.ValoresTotaisString;
 		
 		JLabel lblVoltar = new JLabel("");
@@ -202,6 +205,8 @@ public class FinalizarPedido extends JFrame {
 		JButton btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				/*String[] Pedidos = ConsultarPedidos.pedido;
+				PeedidoDAO.removePedido(Pedidos[1]);*/
 				new Menu().setVisible(true);
 				dispose();
 			}
