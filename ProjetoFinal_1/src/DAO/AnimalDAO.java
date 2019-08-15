@@ -3,6 +3,7 @@ package DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import Beans.Animal;
 import br.com.idog.Configuration.MySQLConfiguration;
@@ -128,6 +129,32 @@ public class AnimalDAO {
 			return null;
 		}
 
+	}
+	public static void AdotarBixim(String nomePet) {
+			
+		MySQLConfiguration c = new MySQLConfiguration();
+		
+		try {
+			
+			Statement comando = MySQLConfiguration.conn.createStatement();
+			String q = "";
+			q += "delete from animal where NM_Animal = ";
+			q += "'" + nomePet + "'";
+			comando.executeUpdate(q);
+
+		} catch (Exception ex) {
+			System.out.println("Falha na insercao");
+			ex.printStackTrace();
+		} finally {
+			if (c.conn != null) {
+				try {
+					c.conn.close();
+				} catch (Exception ex) {
+
+					System.out.println("Error in connection");
+				}
+			}
+		}
 	}
 	/*
 	 * public static ResultSet BuscaAnimalMenor(int one) {

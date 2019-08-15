@@ -347,6 +347,7 @@ public class PetAdotar extends JFrame {
 						"Parabéns! Você está perto de adotar um Pet." + "\n"
 								+ "Entraremos em contato para agendar a visita" + "\n"
 								+ "de avaliação e levar seu novo amigo!");
+				AnimalDAO.AdotarBixim(txtNomePet.getSelectedText());
 			}
 		});
 		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
