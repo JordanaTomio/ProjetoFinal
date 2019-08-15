@@ -338,7 +338,7 @@ public class PetAdotar extends JFrame {
 		contentPane.add(btnVoltar);
 
 		JButton btnAdotar = new JButton("Adotar ");
-		btnAdotar.setBackground(new Color(230, 230, 250));
+		btnAdotar.setBackground(new Color(255, 255, 255));
 		btnAdotar.setBounds(163, 336, 117, 31);
 		btnAdotar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

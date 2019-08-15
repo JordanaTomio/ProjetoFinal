@@ -147,14 +147,14 @@ public class ConsultarProdutos extends JFrame {
 		contentPane.add(lblNewLabel);
 		Carrinho.setForeground(new Color(0, 0, 0));
 		Carrinho.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-		Carrinho.setBackground(new Color(255, 240, 245));
+		Carrinho.setBackground(new Color(255, 255, 255));
 		Carrinho.setBounds(157, 340, 135, 23);
 		contentPane.add(Carrinho);
 
 		JButton button = new JButton("+");
 		button.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		button.setForeground(new Color(0, 100, 0));
-		button.setBackground(new Color(255, 240, 245));
+		button.setBackground(new Color(255, 255, 255));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (table.getRowCount() > 0) {
@@ -204,11 +204,12 @@ public class ConsultarProdutos extends JFrame {
 		});
 		btnNovoPedido.setForeground(new Color(0, 0, 0));
 		btnNovoPedido.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-		btnNovoPedido.setBackground(new Color(255, 240, 245));
+		btnNovoPedido.setBackground(new Color(255, 255, 255));
 		btnNovoPedido.setBounds(341, 338, 135, 23);
 		contentPane.add(btnNovoPedido);
 
 		comboBox = new JComboBox();
+		comboBox.setBackground(new Color(255, 255, 255));
 		comboBox.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		comboBox.addFocusListener(new FocusAdapter() {
 			@Override

@@ -201,7 +201,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(rdbtnBanhoETosa);
 
 		JButton btnCarregar = new JButton("Atualizar");
-		btnCarregar.setBackground(new Color(240, 255, 255));
+		btnCarregar.setBackground(new Color(255, 255, 255));
 		btnCarregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				tblAGENDA.setModel(DbUtils.resultSetToTableModel(AgendaDAO.Atualizar()));
@@ -209,7 +209,7 @@ public class BanhoTosa extends JFrame {
 		});
 
 		JButton btnConfirmar = new JButton("Confirmar");
-		btnConfirmar.setBackground(new Color(240, 255, 255));
+		btnConfirmar.setBackground(new Color(255, 255, 255));
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int variavel = 0;
@@ -352,5 +352,5 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(background);
 
 	}
-	
+
 }

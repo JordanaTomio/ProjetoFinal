@@ -97,7 +97,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnVet.setBounds(545, 314, 77, 76);
+		btnVet.setBounds(566, 323, 77, 76);
 		btnVet.setBorderPainted(false);
 		btnVet.setContentAreaFilled(false);
 		btnVet.setOpaque(false);
@@ -132,6 +132,11 @@ public class Menu extends JFrame {
 		label.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Webp.net-resizeimage.png")));
 		label.setBounds(258, 129, 138, 135);
 		contentPane.add(label);
+		
+		JLabel lblVeterinrio = new JLabel("Veterin\u00E1rio");
+		lblVeterinrio.setFont(new Font("Lucida Bright", Font.BOLD, 13));
+		lblVeterinrio.setBounds(561, 305, 77, 22);
+		contentPane.add(lblVeterinrio);
 		
 		JLabel lblPetShop = new JLabel("Pet Shop");
 		lblPetShop.setForeground(new Color(0, 0, 0));
@@ -175,7 +180,7 @@ public class Menu extends JFrame {
 		
 		JLabel lblBackground = new JLabel("New label");
 		lblBackground.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Background.jpg")));
-		lblBackground.setBounds(0, 0, 642, 393);
+		lblBackground.setBounds(4, 0, 642, 400);
 		contentPane.add(lblBackground);
 	}
 }

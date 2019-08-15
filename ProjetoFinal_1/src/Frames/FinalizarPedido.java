@@ -118,6 +118,8 @@ public class FinalizarPedido extends JFrame {
 		cartao.setBounds(122, 181, 127, 25);
 		cartao.setBorderPainted(false);
 		cartao.setContentAreaFilled(false);
+		cartao.setOpaque(false);
+		cartao.setFocusPainted(false);
 		contentPane.add(cartao);
 		
 		JRadioButton avista = new JRadioButton("\u00C0 vista");
@@ -140,6 +142,8 @@ public class FinalizarPedido extends JFrame {
 		avista.setBounds(363, 181, 127, 25);
 		avista.setBorderPainted(false);
 		avista.setContentAreaFilled(false);
+		avista.setFocusPainted(false);
+		avista.setOpaque(false);
 		contentPane.add(avista);
 		
 		x2 = new JRadioButton("2x");
@@ -211,7 +215,7 @@ public class FinalizarPedido extends JFrame {
 				dispose();
 			}
 		});
-		btnFinalizar.setBackground(new Color(255, 240, 245));
+		btnFinalizar.setBackground(new Color(255, 255, 255));
 		btnFinalizar.setForeground(Color.BLACK);
 		btnFinalizar.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		btnFinalizar.setBounds(491, 306, 119, 51);

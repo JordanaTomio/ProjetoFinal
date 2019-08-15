@@ -161,7 +161,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(lblGenero);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBackground(new Color(240, 255, 255));
+		btnCadastrar.setBackground(new Color(255, 255, 255));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String primeiroNome = txtPN.getText();

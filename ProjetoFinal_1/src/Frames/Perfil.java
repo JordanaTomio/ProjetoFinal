@@ -177,7 +177,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(btnOutro);
 
 		btnBuscar = new JButton("Buscar");
-		btnBuscar.setBackground(new Color(230, 230, 250));
+		btnBuscar.setBackground(new Color(255, 255, 255));
 		btnBuscar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -219,7 +219,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(btnBuscar);
 
 		btnAlterar = new JButton("Alterar");
-		btnAlterar.setBackground(new Color(230, 230, 250));
+		btnAlterar.setBackground(new Color(255, 255, 255));
 		btnAlterar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

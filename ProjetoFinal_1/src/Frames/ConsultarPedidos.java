@@ -97,7 +97,7 @@ public class ConsultarPedidos extends JFrame {
 		});
 		btnFinalizar.setForeground(new Color(0, 0, 0));
 		btnFinalizar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-		btnFinalizar.setBackground(new Color(255, 240, 245));
+		btnFinalizar.setBackground(new Color(255, 255, 255));
 		btnFinalizar.setBounds(269, 315, 110, 23);
 		contentPane.add(btnFinalizar);
 
@@ -162,7 +162,7 @@ public class ConsultarPedidos extends JFrame {
 		contentPane.add(lblNewLabel);
 		comboBox.setForeground(Color.BLACK);
 		comboBox.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
-		comboBox.setBackground(Color.WHITE);
+		comboBox.setBackground(new Color(255, 255, 255));
 		comboBox.setBounds(113, 72, 183, 25);
 		contentPane.add(comboBox);
 
