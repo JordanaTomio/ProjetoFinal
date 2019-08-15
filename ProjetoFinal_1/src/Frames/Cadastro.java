@@ -17,6 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
@@ -200,6 +201,7 @@ public class Cadastro extends JFrame {
 		btnCadastrar.setBounds(228, 346, 167, 23);
 		btnCadastrar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		contentPane.add(btnCadastrar);
+		btnCadastrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JButton btnVoltar = new JButton("");
 		btnVoltar.setBackground(new Color(240, 255, 255));
@@ -217,6 +219,7 @@ public class Cadastro extends JFrame {
 			}
 		});
 		contentPane.add(btnVoltar);
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigat\u00F3rios");
 		lbldadosObrigatrios.setBounds(30, 317, 95, 14);
@@ -265,6 +268,7 @@ public class Cadastro extends JFrame {
 		btnFeminino.setBackground(new Color(204, 255, 204));
 		btnFeminino.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		contentPane.add(btnFeminino);
+		btnFeminino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JRadioButton btnMasculino = new JRadioButton("Masc");
 		buttonGroup.add(btnMasculino);
@@ -276,6 +280,7 @@ public class Cadastro extends JFrame {
 		btnMasculino.setBackground(new Color(204, 255, 204));
 		btnMasculino.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		contentPane.add(btnMasculino);
+		btnMasculino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JRadioButton rdbtnJu = new JRadioButton("Jur\u00EDdica");
 		rdbtnJu.setSelected(true);
@@ -287,6 +292,7 @@ public class Cadastro extends JFrame {
 		rdbtnJu.setFocusPainted(false);
 		rdbtnJu.setOpaque(false);
 		contentPane.add(rdbtnJu);
+		rdbtnJu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JRadioButton rdbtnFsica = new JRadioButton("F\u00EDsica");
 		buttonGroup_1.add(rdbtnFsica);
@@ -297,6 +303,7 @@ public class Cadastro extends JFrame {
 		rdbtnFsica.setFocusPainted(false);
 		rdbtnFsica.setOpaque(false);
 		contentPane.add(rdbtnFsica);
+		rdbtnFsica.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JRadioButton rdbtnOutros = new JRadioButton("Outros");
 		buttonGroup.add(rdbtnOutros);
@@ -308,6 +315,7 @@ public class Cadastro extends JFrame {
 		rdbtnOutros.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		rdbtnOutros.setBounds(538, 186, 65, 23);
 		contentPane.add(rdbtnOutros);
+		rdbtnOutros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JLabel Background_icon = new JLabel("New label");
 		Background_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/Background.jpg")));
