@@ -17,12 +17,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import Beans.Animal;
 import DAO.AnimalDAO;
-import javax.swing.SwingConstants;
 
 public class PetAdotar extends JFrame {
 
@@ -31,9 +31,9 @@ public class PetAdotar extends JFrame {
 	private JTextField txtAno;
 	private JTextField txtTamanho;
 	private JTextField txtRaca;
+	private JTextArea txtDesc;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
-	private JTextField txtDesc;
 	JRadioButton btnMacho = new JRadioButton("Macho");
 	JRadioButton btnCao = new JRadioButton("C\u00E3o");
 	JRadioButton btnGato = new JRadioButton("Gato");
@@ -74,51 +74,6 @@ public class PetAdotar extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 
-		JLabel lblPetInformacoes = new JLabel("Pet Informa\u00E7\u00F5es");
-		lblPetInformacoes.setBounds(184, 23, 258, 44);
-		lblPetInformacoes.setFont(new Font("Bauhaus 93", Font.BOLD, 30));
-		contentPane.add(lblPetInformacoes);
-
-		JLabel lblNomePet = new JLabel("Nome do pet:");
-		lblNomePet.setBounds(25, 94, 107, 18);
-		lblNomePet.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		contentPane.add(lblNomePet);
-
-		JLabel lblAno = new JLabel("Ano:");
-		lblAno.setBounds(25, 148, 46, 14);
-		lblAno.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		contentPane.add(lblAno);
-
-		JLabel lblTipo = new JLabel("Tipo:");
-		lblTipo.setBounds(388, 268, 56, 17);
-		lblTipo.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		contentPane.add(lblTipo);
-
-		JLabel lblRaca = new JLabel("Ra\u00E7a:");
-		lblRaca.setBounds(25, 204, 51, 18);
-		lblRaca.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		contentPane.add(lblRaca);
-
-		JLabel lblTamanho = new JLabel("Tamanho:");
-		lblTamanho.setBounds(24, 255, 72, 14);
-		lblTamanho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		contentPane.add(lblTamanho);
-
-		JLabel lblGenero = new JLabel("G\u00EAnero:");
-		lblGenero.setBounds(387, 241, 56, 14);
-		lblGenero.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		contentPane.add(lblGenero);
-
-		JLabel Flor_icon = new JLabel("New label");
-		Flor_icon.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/302319657031211(1).png")));
-		Flor_icon.setBounds(469, -27, 202, 198);
-		contentPane.add(Flor_icon);
-
-		JLabel btnVoltar_icon = new JLabel("");
-		btnVoltar_icon.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/3209260-128(1).png")));
-		btnVoltar_icon.setBounds(14, 344, 46, 50);
-		contentPane.add(btnVoltar_icon);
-
 		txtNomePet = new JTextField();
 		txtNomePet.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtNomePet.setEditable(false);
@@ -146,14 +101,6 @@ public class PetAdotar extends JFrame {
 		txtRaca.setBounds(124, 203, 182, 20);
 		txtRaca.setColumns(10);
 		contentPane.add(txtRaca);
-
-		txtDesc = new JTextField();
-		txtDesc.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		txtDesc.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDesc.setBounds(387, 99, 210, 115);
-		txtDesc.setEditable(false);
-		contentPane.add(txtDesc);
-		txtDesc.setColumns(10);
 
 		btnMacho.setBounds(449, 237, 72, 23);
 		btnMacho.setBorderPainted(false);
@@ -320,6 +267,27 @@ public class PetAdotar extends JFrame {
 				}
 			}
 		});
+
+		txtDesc = new JTextArea();
+		txtDesc.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		txtDesc.setBounds(387, 99, 210, 115);
+		contentPane.add(txtDesc);
+		txtDesc.setColumns(10);
+
+		vacinadodb.setBounds(10, 301, 97, 23);
+		vacinadodb.setBackground(new Color(224, 255, 255));
+		vacinadodb.setContentAreaFilled(false);
+		vacinadodb.setFocusPainted(false);
+		vacinadodb.setOpaque(false);
+		vacinadodb.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		contentPane.add(vacinadodb);
+
+		castradodb.setBounds(112, 301, 97, 23);
+		castradodb.setContentAreaFilled(false);
+		castradodb.setFocusPainted(false);
+		castradodb.setOpaque(false);
+		castradodb.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		contentPane.add(castradodb);
 		btnProximo.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/3847912-128(2).png")));
 		btnProximo.setBounds(519, 324, 46, 44);
 		btnProximo.setFocusPainted(false);
@@ -354,20 +322,50 @@ public class PetAdotar extends JFrame {
 		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		contentPane.add(btnAdotar);
 
-		vacinadodb.setBounds(10, 301, 97, 23);
-		vacinadodb.setBackground(new Color(224, 255, 255));
-		vacinadodb.setContentAreaFilled(false);
-		vacinadodb.setFocusPainted(false);
-		vacinadodb.setOpaque(false);
-		vacinadodb.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		contentPane.add(vacinadodb);
+		JLabel lblPetInformacoes = new JLabel("Pet Informa\u00E7\u00F5es");
+		lblPetInformacoes.setBounds(184, 23, 258, 44);
+		lblPetInformacoes.setFont(new Font("Bauhaus 93", Font.BOLD, 30));
+		contentPane.add(lblPetInformacoes);
 
-		castradodb.setBounds(112, 301, 97, 23);
-		castradodb.setContentAreaFilled(false);
-		castradodb.setFocusPainted(false);
-		castradodb.setOpaque(false);
-		castradodb.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		contentPane.add(castradodb);
+		JLabel lblNomePet = new JLabel("Nome do pet:");
+		lblNomePet.setBounds(25, 94, 107, 18);
+		lblNomePet.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		contentPane.add(lblNomePet);
+
+		JLabel lblAno = new JLabel("Ano:");
+		lblAno.setBounds(25, 148, 46, 14);
+		lblAno.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		contentPane.add(lblAno);
+
+		JLabel lblTipo = new JLabel("Tipo:");
+		lblTipo.setBounds(388, 268, 56, 17);
+		lblTipo.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		contentPane.add(lblTipo);
+
+		JLabel lblRaca = new JLabel("Ra\u00E7a:");
+		lblRaca.setBounds(25, 204, 51, 18);
+		lblRaca.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		contentPane.add(lblRaca);
+
+		JLabel lblTamanho = new JLabel("Tamanho:");
+		lblTamanho.setBounds(24, 255, 72, 14);
+		lblTamanho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		contentPane.add(lblTamanho);
+
+		JLabel lblGenero = new JLabel("G\u00EAnero:");
+		lblGenero.setBounds(387, 241, 56, 14);
+		lblGenero.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		contentPane.add(lblGenero);
+
+		JLabel Flor_icon = new JLabel("New label");
+		Flor_icon.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/302319657031211(1).png")));
+		Flor_icon.setBounds(469, -27, 202, 198);
+		contentPane.add(Flor_icon);
+
+		JLabel btnVoltar_icon = new JLabel("");
+		btnVoltar_icon.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/3209260-128(1).png")));
+		btnVoltar_icon.setBounds(14, 344, 46, 50);
+		contentPane.add(btnVoltar_icon);
 
 		JLabel Background_icon = new JLabel("New label");
 		Background_icon.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/Background.jpg")));
