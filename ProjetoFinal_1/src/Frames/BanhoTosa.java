@@ -38,7 +38,6 @@ public class BanhoTosa extends JFrame {
 	private final JRadioButton rdbtnGrande;
 	private final JRadioButton rdbtnBanho;
 	private final JRadioButton rdbtnBanhoETosa;
-	private JLabel lblNewLabel;
 	private JTextField txtDATA;
 	private JTextField txtHORA;
 	private JTextField txtCLIENTE;

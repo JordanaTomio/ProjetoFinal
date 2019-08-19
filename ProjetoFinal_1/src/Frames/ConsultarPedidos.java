@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -27,7 +28,6 @@ import javax.swing.border.EmptyBorder;
 import DAO.ItemsDAO;
 import DAO.PeedidoDAO;
 import net.proteanit.sql.DbUtils;
-import javax.swing.ImageIcon;
 
 public class ConsultarPedidos extends JFrame {
 
@@ -118,6 +118,7 @@ public class ConsultarPedidos extends JFrame {
 		btnSair.setOpaque(false);
 		btnSair.setBounds(10, 337, 53, 53);
 		contentPane.add(btnSair);
+		
 
 		JScrollPane tblProdutos = new JScrollPane();
 		tblProdutos.setBounds(112, 117, 416, 187);
