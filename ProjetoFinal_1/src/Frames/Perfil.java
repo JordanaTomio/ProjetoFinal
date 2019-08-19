@@ -292,7 +292,7 @@ public class Perfil<EntityManager> extends JFrame {
 
 		background = new JLabel("New label");
 		background.setIcon(new ImageIcon(Perfil.class.getResource("/imagens/Background.jpg")));
-		background.setBounds(0, 0, 644, 398);
+		background.setBounds(0, 0, 660, 440);
 		contentPane.add(background);
 	}
 }

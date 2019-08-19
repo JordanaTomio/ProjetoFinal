@@ -320,7 +320,7 @@ public class Cadastro extends JFrame {
 		
 		JLabel Background_icon = new JLabel("New label");
 		Background_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/Background.jpg")));
-		Background_icon.setBounds(0, -2, 644, 401);
+		Background_icon.setBounds(0, -2, 660, 440);
 		contentPane.add(Background_icon);
 	}
 }

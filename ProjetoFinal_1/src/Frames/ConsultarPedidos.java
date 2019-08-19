@@ -234,7 +234,7 @@ public class ConsultarPedidos extends JFrame {
 		
 		JLabel background = new JLabel("New label");
 		background.setIcon(new ImageIcon(ConsultarPedidos.class.getResource("/imagens/Background.jpg")));
-		background.setBounds(0, 0, 644, 401);
+		background.setBounds(0, 0, 660, 440);
 		contentPane.add(background);
 	}
 }

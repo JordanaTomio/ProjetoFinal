@@ -371,7 +371,7 @@ public class PetAdotar extends JFrame {
 
 		JLabel Background_icon = new JLabel("New label");
 		Background_icon.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/Background.jpg")));
-		Background_icon.setBounds(0, 0, 644, 401);
+		Background_icon.setBounds(0, 0, 660, 440);
 		contentPane.add(Background_icon);
 	}
 }

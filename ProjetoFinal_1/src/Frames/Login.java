@@ -70,21 +70,21 @@ public class Login extends JFrame {
 		
 		txtEmail = new JTextField();
 		txtEmail.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
-		txtEmail.setBounds(392, 121, 183, 23);
+		txtEmail.setBounds(391, 129, 183, 23);
 		txtEmail.setBorder(null);
 		contentPane.add(txtEmail);
 		txtEmail.setColumns(10);
 		
 		txtSenha = new JPasswordField();
 		txtSenha.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
-		txtSenha.setBounds(392, 157, 183, 23);
+		txtSenha.setBounds(391, 169, 183, 23);
 		txtSenha.setBorder(null);
 		contentPane.add(txtSenha);
 		
 		JLabel lblLogar = new JLabel("Entrar");
 		lblLogar.setForeground(new Color(240, 255, 240));
 		lblLogar.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
-		lblLogar.setBounds(442, 216, 110, 28);
+		lblLogar.setBounds(441, 224, 110, 28);
 		contentPane.add(lblLogar);
 		
 		JButton btnEntrar = new JButton("");
@@ -118,7 +118,7 @@ public class Login extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/imagens/login v3.jpg")));
-		lblNewLabel.setBounds(0, 0, 642, 393);
+		lblNewLabel.setBounds(0, 0, 654, 411);
 		contentPane.add(lblNewLabel);
 		
 	}

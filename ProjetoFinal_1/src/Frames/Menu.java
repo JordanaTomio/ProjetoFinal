@@ -181,7 +181,7 @@ public class Menu extends JFrame {
 		
 		JLabel lblBackground = new JLabel("New label");
 		lblBackground.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Background.jpg")));
-		lblBackground.setBounds(4, 0, 642, 400);
+		lblBackground.setBounds(0, 0, 664, 440);
 		contentPane.add(lblBackground);
 	}
 }
