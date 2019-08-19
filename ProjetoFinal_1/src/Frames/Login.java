@@ -8,13 +8,17 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Login extends JFrame {
 
@@ -66,8 +70,20 @@ public class Login extends JFrame {
 		contentPane.add(txtSenha);
 
 		JButton btnEntrar = new JButton("");
-		btnEntrar.addActionListener(new ActionListener() {
+		btnEntrar.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
 
+				contentPane.getRootPane().setDefaultButton(btnEntrar);
+				
+				   if (e.getKeyCode()==KeyEvent.VK_ENTER){
+			         btnEntrar.doClick();
+			       
+			}
+			}
+		});
+		btnEntrar.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
 				String email = txtEmail.getText();
 				String senha = txtSenha.getText();
@@ -86,7 +102,7 @@ public class Login extends JFrame {
 		btnEntrar.setBounds(398, 223, 166, 28);
 		btnEntrar.setBorderPainted(false);
 		btnEntrar.setContentAreaFilled(false);
-		btnEntrar.setFocusPainted(false);
+		btnEntrar.setFocusPainted(true);
 		btnEntrar.setOpaque(false);
 		contentPane.add(btnEntrar);
 
