@@ -45,6 +45,7 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		
 		JButton btnAdocao = new JButton("");
 		btnAdocao.addActionListener(new ActionListener() {

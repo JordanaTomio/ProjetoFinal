@@ -71,6 +71,8 @@ public class BanhoTosa extends JFrame {
 				.getImage("C:\\Users\\Alunos\\Downloads\\iconfinder_43_Duck_River_Canada_4783009.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
+		setResizable(false);
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -348,7 +350,7 @@ public class BanhoTosa extends JFrame {
 
 		background = new JLabel("New label");
 		background.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/Background.jpg")));
-		background.setBounds(0, 0, 644, 401);
+		background.setBounds(0, 0, 654, 411);
 		contentPane.add(background);
 
 	}

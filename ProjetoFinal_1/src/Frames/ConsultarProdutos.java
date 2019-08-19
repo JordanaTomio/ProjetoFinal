@@ -48,6 +48,7 @@ public class ConsultarProdutos extends JFrame {
 		setBackground(new Color(255, 228, 225));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
+		setResizable(false);
 		contentPane = new JPanel();
 		setLocationRelativeTo(null);
 		contentPane.addMouseMotionListener(new MouseMotionAdapter() {

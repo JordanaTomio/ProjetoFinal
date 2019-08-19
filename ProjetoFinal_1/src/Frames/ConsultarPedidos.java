@@ -56,6 +56,7 @@ public class ConsultarPedidos extends JFrame {
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();
 		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {

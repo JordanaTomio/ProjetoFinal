@@ -59,6 +59,7 @@ public class ContatoVeterinario extends JFrame {
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setResizable(false);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		

@@ -62,6 +62,7 @@ public class FinalizarPedido extends JFrame {
 		contentPane.setBackground(new Color(255, 228, 225));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setResizable(false);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		

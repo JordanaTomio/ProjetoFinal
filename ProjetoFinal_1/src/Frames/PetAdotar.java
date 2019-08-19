@@ -70,6 +70,7 @@ public class PetAdotar extends JFrame {
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setResizable(false);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 

@@ -71,6 +71,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setResizable(false);
 		setLocationRelativeTo(null);
 
 		JLabel lblPerfil = new JLabel("Perfil");

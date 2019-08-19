@@ -48,8 +48,10 @@ public class Login extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setResizable(false);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		
 		JButton btnRegistrar = new JButton("");
 		btnRegistrar.addActionListener(new ActionListener() {
