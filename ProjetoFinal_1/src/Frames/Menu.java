@@ -176,7 +176,7 @@ public class Menu extends JFrame {
 		
 		JLabel cachorro = new JLabel("New label");
 		cachorro.setIcon(new ImageIcon(Menu.class.getResource("/imagens/dog(1).png")));
-		cachorro.setBounds(168, 84, 329, 309);
+		cachorro.setBounds(179, 97, 329, 315);
 		contentPane.add(cachorro);
 		
 		JLabel lblBackground = new JLabel("New label");

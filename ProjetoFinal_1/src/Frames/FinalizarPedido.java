@@ -13,6 +13,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
@@ -210,8 +211,8 @@ public class FinalizarPedido extends JFrame {
 		JButton btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/*String[] Pedidos = ConsultarPedidos.pedido;
-				PeedidoDAO.removePedido(Pedidos[1]);*/
+				JOptionPane.showMessageDialog(null, "Obrigada por comprar conosco, volte sempre!");
+				
 				new Menu().setVisible(true);
 				dispose();
 			}
