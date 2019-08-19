@@ -123,7 +123,7 @@ public class Perfil<EntityManager> extends JFrame {
 		txtEmailPerfil.setBounds(446, 188, 175, 20);
 		contentPane.add(txtEmailPerfil);
 
-		JLabel lblEnderecoPerfil = new JLabel("Raz\u00E3o Social:");
+		JLabel lblEnderecoPerfil = new JLabel("Nome Social:");
 		lblEnderecoPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		lblEnderecoPerfil.setBounds(20, 248, 99, 14);
 		contentPane.add(lblEnderecoPerfil);
@@ -145,9 +145,9 @@ public class Perfil<EntityManager> extends JFrame {
 		txtCEPPerfil.setBounds(446, 247, 175, 20);
 		contentPane.add(txtCEPPerfil);
 
-		lblGeneroPerfil = new JLabel("Gen\u00EAro:");
-		lblGeneroPerfil.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblGeneroPerfil.setBounds(333, 308, 63, 14);
+		lblGeneroPerfil = new JLabel("Sexo: ");
+		lblGeneroPerfil.setFont(new Font("Lucida Bright", Font.BOLD, 15));
+		lblGeneroPerfil.setBounds(348, 307, 63, 17);
 		contentPane.add(lblGeneroPerfil);
 
 		buttonGroup.add(btnMasculino);

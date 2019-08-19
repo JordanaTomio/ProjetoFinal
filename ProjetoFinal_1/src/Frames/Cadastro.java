@@ -85,8 +85,8 @@ public class Cadastro extends JFrame {
 		lblCadastroDaInstituio.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
 		contentPane.add(lblCadastroDaInstituio);
 		
-		JLabel lblNM_RAZAOSOCIAL = new JLabel("Raz\u00E3o social:");
-		lblNM_RAZAOSOCIAL.setBounds(335, 140, 104, 22);
+		JLabel lblNM_RAZAOSOCIAL = new JLabel("Nome social:");
+		lblNM_RAZAOSOCIAL.setBounds(333, 142, 104, 22);
 		lblNM_RAZAOSOCIAL.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblNM_RAZAOSOCIAL);
 		
@@ -96,7 +96,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(txtRZ_Social);
 		txtRZ_Social.setColumns(10);
 		
-		JLabel lblCPF_CNPJ = new JLabel("CPF/CNPJ*:");
+		JLabel lblCPF_CNPJ = new JLabel("CPF*:");
 		lblCPF_CNPJ.setBounds(28, 140, 91, 22);
 		lblCPF_CNPJ.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblCPF_CNPJ);
@@ -223,11 +223,6 @@ public class Cadastro extends JFrame {
 		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		contentPane.add(lbldadosObrigatrios);
 		
-		JLabel lblPessoa = new JLabel("Pessoa:");
-		lblPessoa.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
-		lblPessoa.setBounds(335, 233, 65, 14);
-		contentPane.add(lblPessoa);
-		
 		JLabel Flor1_icon = new JLabel("New label");
 		Flor1_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/301738460207211(1).png")));
 		Flor1_icon.setBounds(110, -43, 180, 146);
@@ -240,12 +235,12 @@ public class Cadastro extends JFrame {
 		
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
-		lblSenha.setBounds(335, 282, 93, 22);
+		lblSenha.setBounds(335, 233, 93, 22);
 		contentPane.add(lblSenha);
 		
 		txtPS = new JPasswordField();
 		txtPS.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		txtPS.setBounds(433, 283, 150, 20);
+		txtPS.setBounds(433, 234, 150, 20);
 		contentPane.add(txtPS);
 		
 		btnVoltar_icon = new JLabel("");
@@ -277,29 +272,6 @@ public class Cadastro extends JFrame {
 		btnMasculino.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		contentPane.add(btnMasculino);
 		btnMasculino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		JRadioButton rdbtnJu = new JRadioButton("Jur\u00EDdica");
-		rdbtnJu.setSelected(true);
-		buttonGroup_1.add(rdbtnJu);
-		rdbtnJu.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		rdbtnJu.setBounds(406, 234, 76, 23);
-		rdbtnJu.setBorderPainted(false);
-		rdbtnJu.setContentAreaFilled(false);
-		rdbtnJu.setFocusPainted(false);
-		rdbtnJu.setOpaque(false);
-		contentPane.add(rdbtnJu);
-		rdbtnJu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		JRadioButton rdbtnFsica = new JRadioButton("F\u00EDsica");
-		buttonGroup_1.add(rdbtnFsica);
-		rdbtnFsica.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		rdbtnFsica.setBounds(527, 234, 76, 23);
-		rdbtnFsica.setBorderPainted(false);
-		rdbtnFsica.setContentAreaFilled(false);
-		rdbtnFsica.setFocusPainted(false);
-		rdbtnFsica.setOpaque(false);
-		contentPane.add(rdbtnFsica);
-		rdbtnFsica.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JRadioButton rdbtnOutros = new JRadioButton("Outros");
 		buttonGroup.add(rdbtnOutros);
