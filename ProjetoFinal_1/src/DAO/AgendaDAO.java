@@ -5,22 +5,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.swing.JOptionPane;
-import javax.swing.table.TableModel;
-
 import br.com.idog.Configuration.MySQLConfiguration;
-import net.proteanit.sql.DbUtils;
+
+
+
 
 public class AgendaDAO {
 
 	public static ResultSet Atualizar() {
-		MySQLConfiguration c = new MySQLConfiguration();
 
 		String q = "";
 
 		q = "SELECT (DT_Servico)Dia, (HR_Servico)Hora, (NM_Cliente)Cliente FROM agenda ";
 		try {
-			PreparedStatement ps = c.conn.prepareStatement(q);
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			return ps.executeQuery();
 
 		} catch (SQLException e) {
@@ -40,41 +38,43 @@ public class AgendaDAO {
 			Statement comando = MySQLConfiguration.conn.createStatement();
 
 			// --------------------------------------------------------------------------------------------
-			if (N == 1) {
-
+			switch (N) {
+			case 1:
 				q += data + "', '" + hora + "', '" + cliente + "', 'Banho', '15.00')";
-
-			} else if (N == 2) {
+				break;
+			case 2:
 				q += data + "', '" + hora + "', '" + cliente + "', 'Banho e Tosa', '25.00')";
-
-			} else if (N == 3) {
+				break;
+			case 3:
 				q += data + "', '" + hora + "', '" + cliente + "', 'Banho', '20.00')";
-
-			} else if (N == 4) {
+				break;
+			case 4:
 				q += data + "', '" + hora + "', '" + cliente + "', 'Banho e tosa', '30.00')";
-
-			} else if (N == 5) {
+				break;
+			case 5:
 				q += data + "', '" + hora + "', '" + cliente + "', 'Banho', '30.00')";
-			} else if (N == 6) {
+				break;
+			case 6:
 				q += data + "', '" + hora + "', '" + cliente + "', 'Banho e tosa', '40.00')";
-
+				break;
 			}
+
 			// --------------------------------------------------------------------------------------------
 
 			System.out.println(q);
 			comando.executeUpdate(q);
 
-		} catch (
+		}catch (
 
 		Exception ex) {
-			System.err.println("FALHA NA no bang da CONFIRMAÇÃO");
+			System.err.println("FALHA NA no bang da CONFIRMAÃ‡ÃƒO");
 			ex.printStackTrace();
 		} finally {
 			if (MySQLConfiguration.conn != null) {
 				try {
 					MySQLConfiguration.conn.close();
 				} catch (Exception ex) {
-					System.err.println("ALGO ERRADO NÃO ESTÁ CERTO!");
+					System.err.println("ALGO ERRADO NÃƒO ESTÃ� CERTO!");
 				}
 			}
 		}
