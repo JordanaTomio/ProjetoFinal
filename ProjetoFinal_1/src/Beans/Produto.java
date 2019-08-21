@@ -1,34 +1,73 @@
 package Beans;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import br.com.idog.Configuration.MySQLConfiguration;
-
 public class Produto {
-	public static ResultSet findByName(String nome) {
-		String q = "SELECT CD_Produto, NM_Produto, DS_Produto, VL_Produto, UND_Produto, DT_Validade, QT_Estoque_Produto, DT_Cadastro_Produto FROM produto p WHERE p.NM_Produto LIKE ?";
-		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			ps.setString(1, "%" + nome + "%");
-			return ps.executeQuery();
-		} catch (SQLException e) {
-			System.err.println("Produto isn't found.");
-			e.printStackTrace();
-			return null;
-		}
+
+	private String nome;
+	private String descricao;
+	private double valor;
+	private String unidade;
+	private String validade;
+	private int quantidadeEstoque;
+
+	public Produto() {
 	}
-	public static ResultSet findByNameToTable(String nome) {
-		String q = "SELECT CD_Produto, NM_Produto, VL_Produto FROM produto p WHERE p.NM_Produto LIKE ?";
-		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			ps.setString(1, "%" + nome + "%");
-			return ps.executeQuery();
-		} catch (SQLException e) {
-			System.err.println("Produto isn't found.");
-			e.printStackTrace();
-			return null;
-		}
+
+	public Produto(String nome, String descricao, double valor, String unidade, String validade,
+			int quantidadeEstoque) {
+		super();
+		this.nome = nome;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.unidade = unidade;
+		this.validade = validade;
+		this.quantidadeEstoque = quantidadeEstoque;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+	public String getUnidade() {
+		return unidade;
+	}
+
+	public void setUnidade(String unidade) {
+		this.unidade = unidade;
+	}
+
+	public String getValidade() {
+		return validade;
+	}
+
+	public void setValidade(String validade) {
+		this.validade = validade;
+	}
+
+	public int getQuantidadeEstoque() {
+		return quantidadeEstoque;
+	}
+
+	public void setQuantidadeEstoque(int quantidadeEstoque) {
+		this.quantidadeEstoque = quantidadeEstoque;
 	}
 }
