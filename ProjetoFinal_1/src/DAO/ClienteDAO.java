@@ -37,7 +37,8 @@ public class ClienteDAO {
 		}
 	}
 	public static boolean giveAuth(String email, String senha) {
-		String q = "SELECT CD_Cliente, EM_Cliente, PS_Cliente, PN_Cliente, SN_Cliente, SX_Cliente, TL_Cliente, ADM_Cliente, PJF_Cliente, CPF_Cliente, CEP_Cliente, RZ_Cliente FROM cliente WHERE EM_Cliente = ?";
+		MySQLConfiguration s = new MySQLConfiguration();
+		String q = "SELECT CD_Cliente, EM_Cliente, PS_Cliente, PN_Cliente, SN_Cliente, SX_Cliente, TL_Cliente, ADM_Cliente FROM cliente WHERE EM_Cliente = ?";
 		ResultSet rs = null;
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
@@ -55,10 +56,6 @@ public class ClienteDAO {
 		String ultimoNome = null;
 		String sexo = null;
 		String telefone = null;
-		String pessoa = null;
-		String razao = null;
-		String cpf = null;
-		String cep = null;
 		int adm = 0;
 
 		try {
@@ -70,11 +67,7 @@ public class ClienteDAO {
 				ultimoNome = rs.getString("SN_Cliente");
 				sexo = rs.getString("SX_Cliente");
 				telefone = rs.getString("TL_Cliente");
-				pessoa = rs.getString("PJF_Cliente");
-				razao = rs.getString("RZ_Cliente");
-				cep = rs.getString("CEP_Cliente");
 				adm = rs.getInt("ADM_Cliente");
-				cpf = rs.getString("CPF_Cliente");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -90,9 +83,6 @@ public class ClienteDAO {
 			cliente.setSexo(sexo);
 			cliente.setTelefone(telefone);
 			cliente.setAdm(adm);
-			cliente.setCEP(cep);
-			cliente.setCPF(cpf);
-			cliente.setRazao(razao);
 			return true;
 		} else {
 			return false;

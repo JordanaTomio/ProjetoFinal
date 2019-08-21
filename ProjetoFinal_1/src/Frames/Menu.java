@@ -144,6 +144,21 @@ public class Menu extends JFrame {
 		lblPetShop.setBounds(296, 246, 75, 22);
 		contentPane.add(lblPetShop);
 		lblPetShop.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		
+		JButton btnAdm = new JButton("Adm");
+		btnAdm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Main.cliente.getAdm() == 1){
+					btnAdm.setVisible(true);
+				}
+				
+				Adm adm = new Adm();
+				adm.setVisible(true);
+				dispose();
+			}
+		});
+		btnAdm.setBounds(536, 34, 89, 23);
+		contentPane.add(btnAdm);
 		btnLoja.setBounds(70, 142, 132, 103);
 		btnLoja.setBorderPainted(false);
 		btnLoja.setContentAreaFilled(false);
