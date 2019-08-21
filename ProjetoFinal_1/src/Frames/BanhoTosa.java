@@ -6,8 +6,6 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -24,6 +22,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import DAO.AgendaDAO;
+import Utilidades.ExcluiCaracteres;
 import net.proteanit.sql.DbUtils;
 
 public class BanhoTosa extends JFrame {
@@ -107,19 +106,16 @@ public class BanhoTosa extends JFrame {
 		txtDATA.setBounds(26, 134, 48, 20);
 		contentPane.add(txtDATA);
 		txtDATA.setColumns(10);
+		txtDATA.setDocument(new ExcluiCaracteres("aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZçÇ'!@#$%¨&*()_+-=´`[{}]~^;:.>,<?|º"));
 
 		txtHORA = new JTextField();
 		txtHORA.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		txtHORA.setColumns(10);
 		txtHORA.setBounds(102, 135, 55, 20);
 		contentPane.add(txtHORA);
+		txtHORA.setDocument(new ExcluiCaracteres("aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZçÇ'!@#$%¨&*()_+-=´`[{}]~^;.>,<?|º"));
 
 		txtCLIENTE = new JTextField();
-		txtCLIENTE.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-			}
-		});
 		txtCLIENTE.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		txtCLIENTE.setColumns(10);
 		txtCLIENTE.setBounds(184, 134, 100, 20);
