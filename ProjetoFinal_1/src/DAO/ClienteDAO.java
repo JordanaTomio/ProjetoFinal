@@ -12,7 +12,6 @@ import br.com.idog.Configuration.MySQLConfiguration;
 
 public class ClienteDAO {
 	public static void save(Cliente cliente) {
-		MySQLConfiguration s = new MySQLConfiguration();
 		String q = "INSERT INTO cliente (EM_Cliente, PS_Cliente, PN_Cliente, SN_Cliente,"+
 				" SX_Cliente, TL_Cliente, ADM_Cliente, CEP_Cliente, CPF_Cliente, PJF_Cliente,"
 				+" RZ_Cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -38,7 +37,6 @@ public class ClienteDAO {
 		}
 	}
 	public static boolean giveAuth(String email, String senha) {
-		MySQLConfiguration s = new MySQLConfiguration();
 		String q = "SELECT CD_Cliente, EM_Cliente, PS_Cliente, PN_Cliente, SN_Cliente, SX_Cliente, TL_Cliente, ADM_Cliente, PJF_Cliente, CPF_Cliente, CEP_Cliente, RZ_Cliente FROM cliente WHERE EM_Cliente = ?";
 		ResultSet rs = null;
 		try {

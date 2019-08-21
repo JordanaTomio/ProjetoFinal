@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import Beans.Animal;
 import br.com.idog.Configuration.MySQLConfiguration;
 
 public class AnimalDAO {
@@ -130,10 +129,7 @@ public class AnimalDAO {
 		}
 
 	}
-	public static void AdotarBixim(String nomePet) {
-			
-		MySQLConfiguration c = new MySQLConfiguration();
-		
+	public static void AdotarBixim(String nomePet) {		
 		try {
 			
 			Statement comando = MySQLConfiguration.conn.createStatement();
@@ -146,9 +142,9 @@ public class AnimalDAO {
 			System.out.println("Falha na insercao");
 			ex.printStackTrace();
 		} finally {
-			if (c.conn != null) {
+			if (MySQLConfiguration.conn != null) {
 				try {
-					c.conn.close();
+					MySQLConfiguration.conn.close();
 				} catch (Exception ex) {
 
 					System.out.println("Error in connection");
@@ -156,19 +152,5 @@ public class AnimalDAO {
 			}
 		}
 	}
-	/*
-	 * public static ResultSet BuscaAnimalMenor(int one) {
-	 * 
-	 * String q =
-	 * "SELECT  NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal "
-	 * + " WHERE CD_Animal > "+ one +" ORDER BY CD_Animal";
-	 * 
-	 * System.out.println(q); try { PreparedStatement ps =
-	 * MySQLConfiguration.conn.prepareStatement(q); return ps.executeQuery();
-	 * 
-	 * } catch (Exception ex) { System.out.println("Erro no SQL");
-	 * System.out.println("aqui2"); // ex.printStackTrace(); return null; }
-	 * 
-	 * }
-	 */
+	
 }
