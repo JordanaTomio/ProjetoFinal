@@ -130,19 +130,32 @@ public class AnimalDAO {
 
 	}
 
-	public static ResultSet AdotarAnimal(String nomePet) {
+	public static void AdotarBixim(String nomePet) {
+		MySQLConfiguration c = new MySQLConfiguration();
+
 		try {
+			Statement ps = c.conn.createStatement();
+
 			String q = "";
 			q += "delete from animal where NM_Animal = ";
 			q += "'" + nomePet + "'";
-			Statement comando = MySQLConfiguration.conn.prepareStatement(q);
-			return comando.executeQuery(q);
+
+			System.out.println(q);
+			ps.executeUpdate(q);
 
 		} catch (Exception ex) {
 			System.out.println("Falha na insercao");
 			ex.printStackTrace();
+		} finally {
+			if (MySQLConfiguration.conn != null) {
+				try {
+					MySQLConfiguration.conn.close();
+				} catch (Exception ex) {
+
+					System.out.println("Error in connection");
+				}
+			}
 		}
-		return null;
 	}
 
 }
