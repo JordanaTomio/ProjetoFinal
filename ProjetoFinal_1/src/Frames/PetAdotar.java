@@ -315,10 +315,12 @@ public class PetAdotar extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				JOptionPane.showMessageDialog(null,
-						"Parabéns! Você está perto de adotar um Pet." + "\n"
+						"ParabÃ©ns! VocÃª estÃ¡ perto de adotar um Pet." + "\n"
 								+ "Entraremos em contato para agendar a visita" + "\n"
-								+ "de avaliação e levar seu novo amigo!");
-				AnimalDAO.AdotarAnimal(txtNomePet.getSelectedText());
+								+ "de avaliaÃ§Ã£o e levar seu novo amigo!");
+
+				AnimalDAO.AdotarBixim(txtNomePet.getText());
+
 			}
 		});
 		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
@@ -375,3 +377,4 @@ public class PetAdotar extends JFrame {
 		contentPane.add(Background_icon);
 	}
 }
+
