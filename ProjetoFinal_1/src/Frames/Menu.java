@@ -145,11 +145,13 @@ public class Menu extends JFrame {
 		contentPane.add(lblPetShop);
 		lblPetShop.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		
-		JButton btnAdm = new JButton("Adm");
+		JButton btnAdm = new JButton("");
 		btnAdm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (Main.cliente.getAdm() == 1){
 					btnAdm.setVisible(true);
+				} else {
+					btnAdm.setVisible(false);
 				}
 				
 				Adm adm = new Adm();
@@ -157,8 +159,14 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnAdm.setBounds(409, 26, 89, 23);
+		btnAdm.setBounds(548, 16, 77, 79);
+		btnAdm.setBorderPainted(false);
+		btnAdm.setContentAreaFilled(false);
+		btnAdm.setFocusPainted(false);
+		btnAdm.setOpaque(false);
 		contentPane.add(btnAdm);
+		
+		
 		btnLoja.setBounds(70, 142, 132, 103);
 		btnLoja.setBorderPainted(false);
 		btnLoja.setContentAreaFilled(false);
@@ -194,10 +202,26 @@ public class Menu extends JFrame {
 		cachorro.setBounds(179, 97, 329, 315);
 		contentPane.add(cachorro);
 		
-		JLabel lblManager = new JLabel("New label");
-		lblManager.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Manager.png")));
-		lblManager.setBounds(513, 21, 102, 94);
+		JLabel lblManager = new JLabel("");
+		lblManager.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Adm menor.png")));
+		lblManager.setBounds(542, 6, 89, 94);
+		if (Main.cliente.getAdm() == 1){
+			lblManager.setVisible(true);
+		} else {
+			lblManager.setVisible(false);
+		}
 		contentPane.add(lblManager);
+		
+		JLabel lblAdministrao = new JLabel("Administra\u00E7\u00E3o");
+		lblAdministrao.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		lblAdministrao.setBounds(539, 88, 103, 33);
+		
+		if (Main.cliente.getAdm() ==1){
+			lblAdministrao.setVisible(true);
+		} else {
+			lblAdministrao.setVisible(false);
+		}
+		contentPane.add(lblAdministrao);
 		
 		JLabel lblBackground = new JLabel("New label");
 		lblBackground.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Background.jpg")));
