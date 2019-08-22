@@ -150,13 +150,12 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (Main.cliente.getAdm() == 1){
 					btnAdm.setVisible(true);
+					Adm adm = new Adm();
+					adm.setVisible(true);
+					dispose();
 				} else {
 					btnAdm.setVisible(false);
 				}
-				
-				Adm adm = new Adm();
-				adm.setVisible(true);
-				dispose();
 			}
 		});
 		btnAdm.setBounds(548, 16, 77, 79);
