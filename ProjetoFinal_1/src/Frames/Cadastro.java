@@ -157,6 +157,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(lblGenero);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setForeground(new Color(0, 100, 0));
 		btnCadastrar.setBackground(new Color(255, 255, 255));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

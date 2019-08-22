@@ -146,7 +146,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(txtCEPPerfil);
 
 		lblGeneroPerfil = new JLabel("Sexo: ");
-		lblGeneroPerfil.setFont(new Font("Lucida Bright", Font.BOLD, 15));
+		lblGeneroPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		lblGeneroPerfil.setBounds(348, 307, 63, 17);
 		contentPane.add(lblGeneroPerfil);
 
@@ -178,6 +178,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(btnOutro);
 
 		btnBuscar = new JButton("Buscar");
+		btnBuscar.setForeground(new Color(0, 100, 0));
 		btnBuscar.setBackground(new Color(255, 255, 255));
 		btnBuscar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnBuscar.addActionListener(new ActionListener() {
@@ -216,10 +217,11 @@ public class Perfil<EntityManager> extends JFrame {
 				}
 			}
 		});
-		btnBuscar.setBounds(36, 304, 99, 23);
+		btnBuscar.setBounds(36, 304, 111, 23);
 		contentPane.add(btnBuscar);
 
 		btnAlterar = new JButton("Alterar");
+		btnAlterar.setForeground(new Color(0, 100, 0));
 		btnAlterar.setBackground(new Color(255, 255, 255));
 		btnAlterar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnAlterar.addActionListener(new ActionListener() {
@@ -267,7 +269,7 @@ public class Perfil<EntityManager> extends JFrame {
 
 			}
 		});
-		btnAlterar.setBounds(155, 304, 99, 23);
+		btnAlterar.setBounds(186, 304, 111, 23);
 		contentPane.add(btnAlterar);
 		JButton btnVoltar = new JButton("");
 		btnVoltar.addActionListener(new ActionListener() {

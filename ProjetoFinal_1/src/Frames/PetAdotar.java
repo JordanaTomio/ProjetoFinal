@@ -269,12 +269,13 @@ public class PetAdotar extends JFrame {
 		});
 
 		txtDesc = new JTextArea();
+		txtDesc.setEditable(false);
 		txtDesc.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtDesc.setBounds(387, 99, 210, 115);
 		contentPane.add(txtDesc);
 		txtDesc.setColumns(10);
 
-		vacinadodb.setBounds(10, 301, 97, 23);
+		vacinadodb.setBounds(25, 298, 97, 23);
 		vacinadodb.setBackground(new Color(224, 255, 255));
 		vacinadodb.setContentAreaFilled(false);
 		vacinadodb.setFocusPainted(false);
@@ -282,7 +283,7 @@ public class PetAdotar extends JFrame {
 		vacinadodb.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(vacinadodb);
 
-		castradodb.setBounds(112, 301, 97, 23);
+		castradodb.setBounds(127, 298, 97, 23);
 		castradodb.setContentAreaFilled(false);
 		castradodb.setFocusPainted(false);
 		castradodb.setOpaque(false);
@@ -307,6 +308,7 @@ public class PetAdotar extends JFrame {
 		contentPane.add(btnVoltar);
 
 		JButton btnAdotar = new JButton("Adotar ");
+		btnAdotar.setForeground(new Color(0, 100, 0));
 		btnAdotar.setBackground(new Color(255, 255, 255));
 		btnAdotar.setBounds(163, 336, 117, 31);
 		btnAdotar.addActionListener(new ActionListener() {

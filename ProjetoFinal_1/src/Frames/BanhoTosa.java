@@ -199,6 +199,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(rdbtnBanhoETosa);
 
 		JButton btnCarregar = new JButton("Atualizar");
+		btnCarregar.setForeground(new Color(0, 100, 0));
 		btnCarregar.setBackground(new Color(255, 255, 255));
 		btnCarregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -207,6 +208,7 @@ public class BanhoTosa extends JFrame {
 		});
 
 		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setForeground(new Color(0, 100, 0));
 		btnConfirmar.setBackground(new Color(255, 255, 255));
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -13,7 +13,7 @@ import br.com.idog.Configuration.MySQLConfiguration;
 public class AgendaDAO {
 
 	public static ResultSet Atualizar() {
-
+		MySQLConfiguration s = new MySQLConfiguration();
 		String q = "";
 
 		q = "SELECT (DT_Servico)Dia, (HR_Servico)Hora, (NM_Cliente)Cliente FROM agenda ";

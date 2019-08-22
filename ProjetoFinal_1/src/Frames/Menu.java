@@ -157,7 +157,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnAdm.setBounds(536, 34, 89, 23);
+		btnAdm.setBounds(409, 26, 89, 23);
 		contentPane.add(btnAdm);
 		btnLoja.setBounds(70, 142, 132, 103);
 		btnLoja.setBorderPainted(false);
@@ -193,6 +193,11 @@ public class Menu extends JFrame {
 		cachorro.setIcon(new ImageIcon(Menu.class.getResource("/imagens/dog(1).png")));
 		cachorro.setBounds(179, 97, 329, 315);
 		contentPane.add(cachorro);
+		
+		JLabel lblManager = new JLabel("New label");
+		lblManager.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Manager.png")));
+		lblManager.setBounds(513, 21, 102, 94);
+		contentPane.add(lblManager);
 		
 		JLabel lblBackground = new JLabel("New label");
 		lblBackground.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Background.jpg")));

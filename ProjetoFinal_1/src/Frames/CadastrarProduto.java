@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import Beans.Produto;
 import DAO.ProdutoDAO;
 import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 
 
@@ -62,27 +63,27 @@ public class CadastrarProduto extends JFrame {
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblNome.setBounds(49, 99, 69, 23);
+		lblNome.setBounds(34, 105, 69, 23);
 		contentPane.add(lblNome);
 
 		JLabel lblDescrio = new JLabel("Descri\u00E7\u00E3o:");
 		lblDescrio.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblDescrio.setBounds(49, 146, 92, 17);
+		lblDescrio.setBounds(34, 152, 92, 17);
 		contentPane.add(lblDescrio);
 
 		JLabel lblValor = new JLabel("Valor:");
 		lblValor.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblValor.setBounds(414, 109, 62, 14);
+		lblValor.setBounds(399, 115, 62, 14);
 		contentPane.add(lblValor);
 
 		JLabel lblValidade = new JLabel("Validade:");
 		lblValidade.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblValidade.setBounds(413, 240, 87, 24);
+		lblValidade.setBounds(398, 246, 87, 24);
 		contentPane.add(lblValidade);
 
 		JLabel lblEstoque = new JLabel("Estoque:");
 		lblEstoque.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblEstoque.setBounds(413, 170, 92, 23);
+		lblEstoque.setBounds(398, 176, 92, 23);
 		contentPane.add(lblEstoque);
 		
 		JLabel lblCadastroDeProdutos = new JLabel("Cadastro de Produtos");
@@ -92,7 +93,7 @@ public class CadastrarProduto extends JFrame {
 		
 				JLabel unidade_1 = new JLabel("Unidade:");
 				unidade_1.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-				unidade_1.setBounds(49, 241, 103, 23);
+				unidade_1.setBounds(34, 247, 103, 23);
 				contentPane.add(unidade_1);
 		
 		JLabel lblVoltar = new JLabel("");
@@ -103,31 +104,31 @@ public class CadastrarProduto extends JFrame {
 				txtEstoque = new JTextField();
 				txtEstoque.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 				txtEstoque.setColumns(10);
-				txtEstoque.setBounds(536, 172, 72, 20);
+				txtEstoque.setBounds(521, 178, 72, 20);
 				contentPane.add(txtEstoque);
 
 		txtValor = new JTextField();
 		txtValor.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtValor.setColumns(10);
-		txtValor.setBounds(537, 107, 71, 20);
+		txtValor.setBounds(522, 113, 71, 20);
 		contentPane.add(txtValor);
 
 		txtDia = new JTextField();
 		txtDia.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtDia.setColumns(10);
-		txtDia.setBounds(510, 242, 27, 22);
+		txtDia.setBounds(495, 248, 27, 22);
 		contentPane.add(txtDia);
 
 		txtDesc = new JTextField();
 		txtDesc.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		txtDesc.setBounds(161, 146, 185, 68);
+		txtDesc.setBounds(146, 152, 185, 68);
 		contentPane.add(txtDesc);
 		txtDesc.setColumns(10);
 
 		txtNome = new JTextField();
 		txtNome.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtNome.setColumns(10);
-		txtNome.setBounds(160, 103, 185, 20);
+		txtNome.setBounds(145, 109, 185, 20);
 		contentPane.add(txtNome);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
@@ -174,28 +175,28 @@ public class CadastrarProduto extends JFrame {
 				}
 			}
 		});
-		btnCadastrar.setForeground(Color.BLACK);
+		btnCadastrar.setForeground(new Color(0, 100, 0));
 		btnCadastrar.setBackground(new Color(255, 255, 255));
-		btnCadastrar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		btnCadastrar.setBounds(294, 316, 174, 23);
+		btnCadastrar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		btnCadastrar.setBounds(236, 324, 174, 23);
 		contentPane.add(btnCadastrar);
 
 		txtMes = new JTextField();
 		txtMes.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtMes.setColumns(10);
-		txtMes.setBounds(550, 242, 27, 22);
+		txtMes.setBounds(535, 248, 27, 22);
 		contentPane.add(txtMes);
 
 		txtAno = new JTextField();
 		txtAno.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtAno.setColumns(10);
-		txtAno.setBounds(589, 242, 27, 22);
+		txtAno.setBounds(574, 248, 27, 22);
 		contentPane.add(txtAno);
 
 		txtUnidade = new JTextField();
 		txtUnidade.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtUnidade.setColumns(10);
-		txtUnidade.setBounds(162, 243, 181, 20);
+		txtUnidade.setBounds(147, 249, 181, 20);
 		contentPane.add(txtUnidade);
 		
 		JLabel Background = new JLabel("New label");

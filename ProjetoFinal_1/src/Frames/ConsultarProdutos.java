@@ -146,7 +146,7 @@ public class ConsultarProdutos extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(ConsultarProdutos.class.getResource("/imagens/3209260-128(1).png")));
 		lblNewLabel.setBounds(12, 336, 59, 55);
 		contentPane.add(lblNewLabel);
-		Carrinho.setForeground(new Color(0, 0, 0));
+		Carrinho.setForeground(new Color(0, 100, 0));
 		Carrinho.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		Carrinho.setBackground(new Color(255, 255, 255));
 		Carrinho.setBounds(157, 340, 135, 23);
@@ -203,7 +203,7 @@ public class ConsultarProdutos extends JFrame {
 				PeedidoDAO.save(pedido);
 			}
 		});
-		btnNovoPedido.setForeground(new Color(0, 0, 0));
+		btnNovoPedido.setForeground(new Color(0, 100, 0));
 		btnNovoPedido.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnNovoPedido.setBackground(new Color(255, 255, 255));
 		btnNovoPedido.setBounds(341, 338, 135, 23);

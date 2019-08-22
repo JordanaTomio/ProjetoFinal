@@ -112,74 +112,74 @@ public class AlterarProduto extends JFrame {
 			}
 		});
 		comboBox.setBackground(new Color(255, 240, 245));
-		comboBox.setBounds(144, 79, 328, 30);
+		comboBox.setBounds(148, 64, 332, 30);
 		contentPane.add(comboBox);
 
 		JLabel label = new JLabel("Nome:");
 		label.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		label.setBounds(45, 128, 69, 23);
+		label.setBounds(30, 143, 69, 23);
 		contentPane.add(label);
 
 		txtNome = new JTextField();
 		txtNome.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtNome.setColumns(10);
-		txtNome.setBounds(152, 132, 189, 20);
+		txtNome.setBounds(137, 147, 189, 20);
 		contentPane.add(txtNome);
 
 		txtDesc = new JTextField();
 		txtDesc.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtDesc.setColumns(10);
-		txtDesc.setBounds(152, 174, 189, 51);
+		txtDesc.setBounds(137, 189, 189, 51);
 		contentPane.add(txtDesc);
 
 		JLabel label_1 = new JLabel("Descri\u00E7\u00E3o:");
 		label_1.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		label_1.setBounds(43, 191, 92, 14);
+		label_1.setBounds(30, 206, 92, 14);
 		contentPane.add(label_1);
 
 		JLabel label_2 = new JLabel("Valor:");
 		label_2.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		label_2.setBounds(393, 131, 62, 14);
+		label_2.setBounds(394, 142, 62, 14);
 		contentPane.add(label_2);
 
 		txtValor = new JTextField();
 		txtValor.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtValor.setColumns(10);
-		txtValor.setBounds(483, 130, 62, 20);
+		txtValor.setBounds(484, 141, 62, 20);
 		contentPane.add(txtValor);
 
 		JLabel label_3 = new JLabel("Validade:");
 		label_3.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		label_3.setBounds(393, 247, 87, 22);
+		label_3.setBounds(394, 258, 87, 22);
 		contentPane.add(label_3);
 
 		txtDia = new JTextField();
 		txtDia.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtDia.setColumns(10);
-		txtDia.setBounds(483, 249, 27, 20);
+		txtDia.setBounds(484, 260, 27, 20);
 		contentPane.add(txtDia);
 
 		txtMes = new JTextField();
 		txtMes.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtMes.setColumns(10);
-		txtMes.setBounds(523, 249, 27, 20);
+		txtMes.setBounds(524, 260, 27, 20);
 		contentPane.add(txtMes);
 
 		txtAno = new JTextField();
 		txtAno.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtAno.setColumns(10);
-		txtAno.setBounds(562, 249, 42, 20);
+		txtAno.setBounds(563, 260, 42, 20);
 		contentPane.add(txtAno);
 
 		JLabel label_4 = new JLabel("Estoque:");
 		label_4.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		label_4.setBounds(393, 185, 92, 23);
+		label_4.setBounds(394, 196, 92, 23);
 		contentPane.add(label_4);
 
 		txtEstoque = new JTextField();
 		txtEstoque.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtEstoque.setColumns(10);
-		txtEstoque.setBounds(483, 187, 62, 20);
+		txtEstoque.setBounds(484, 198, 62, 20);
 		contentPane.add(txtEstoque);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -232,14 +232,14 @@ public class AlterarProduto extends JFrame {
 		
 		
 		btnAlterar.setBackground(new Color(255, 255, 255));
-		btnAlterar.setForeground(new Color(0, 0, 0));
-		btnAlterar.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		btnAlterar.setBounds(233, 320, 164, 23);
+		btnAlterar.setForeground(new Color(0, 100, 0));
+		btnAlterar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		btnAlterar.setBounds(236, 330, 164, 23);
 		contentPane.add(btnAlterar);
 
 		JLabel lblUnidade = new JLabel("Unidade:");
 		lblUnidade.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblUnidade.setBounds(51, 251, 92, 14);
+		lblUnidade.setBounds(30, 266, 92, 14);
 		contentPane.add(lblUnidade);
 		
 		JLabel lblNewLabel = new JLabel("Alterar Produtos");
@@ -251,7 +251,7 @@ public class AlterarProduto extends JFrame {
 		txtUnidade = new JTextField();
 		txtUnidade.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtUnidade.setColumns(10);
-		txtUnidade.setBounds(152, 249, 189, 20);
+		txtUnidade.setBounds(137, 264, 189, 20);
 		contentPane.add(txtUnidade);
 		
 		JLabel lblNewLabel_1 = new JLabel("");

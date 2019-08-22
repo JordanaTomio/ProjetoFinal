@@ -220,7 +220,7 @@ public class FinalizarPedido extends JFrame {
 		btnFinalizar.setBackground(new Color(255, 255, 255));
 		btnFinalizar.setForeground(Color.BLACK);
 		btnFinalizar.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		btnFinalizar.setBounds(491, 306, 119, 51);
+		btnFinalizar.setBounds(492, 316, 119, 51);
 		contentPane.add(btnFinalizar);
 		
 		JLabel lblPagamento = new JLabel("Pagamento");
