@@ -213,6 +213,7 @@ public class FinalizarPedido extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane.showMessageDialog(null, "Obrigada por comprar conosco, volte sempre!");
 				
+				PeedidoDAO.updateATT(ConsultarPedidos.pedido[1]);
 				new Menu().setVisible(true);
 				dispose();
 			}

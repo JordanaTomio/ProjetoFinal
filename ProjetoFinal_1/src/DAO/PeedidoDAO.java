@@ -148,4 +148,28 @@ public class PeedidoDAO {
 			e.printStackTrace();
 		}
 	}
+	public static ResultSet getPedidosATT(String pedido) {
+		String q = "SELECT ATT_Pedido FROM pedido WHERE CD_Pedido = ?";
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setString(1, pedido);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Some error happen on get items from 'itens pedido cliente'");
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public static void updateATT(String pedido) {
+		String q = "UPDATE pedido SET ATT_Pedido = 1 WHERE CD_Pedido = ?";
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setString(1, pedido);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println("Error on update 'Valor Total'");
+			e.printStackTrace();
+		}
+	}
+
 }
