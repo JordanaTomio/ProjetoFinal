@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -40,6 +41,7 @@ public class PetAdotar extends JFrame {
 	JRadioButton btnFemea = new JRadioButton("F\u00EAmea");
 	JCheckBox vacinadodb = new JCheckBox("Vacinado");
 	JCheckBox castradodb = new JCheckBox("Castrado");
+	JLabel lblNigmviu;
 	Animal ani = new Animal();
 	int one = -1;
 
@@ -158,6 +160,7 @@ public class PetAdotar extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				one--;
+				ani.setOne(one);
 				ResultSet rs = AnimalDAO.BuscaAnimal(one);
 
 				try {
@@ -171,6 +174,9 @@ public class PetAdotar extends JFrame {
 						String vacinas = rs.getString("VC_Animal");
 						String castrado = rs.getString("CS_Animal");
 						String desc = rs.getString("DS_Animal");
+						int Cd = rs.getInt("CD_Animal");
+						
+						String CD = ""+Cd;
 
 						if (tipo.equals("Cachorro")) {
 							btnCao.setSelected(true);
@@ -201,6 +207,7 @@ public class PetAdotar extends JFrame {
 						txtAno.setText(ano);
 						txtNomePet.setText(nome);
 						txtDesc.setText(desc);
+						lblNigmviu.setText(CD);
 
 					}
 				} catch (SQLException e) {
@@ -215,6 +222,7 @@ public class PetAdotar extends JFrame {
 		btnProximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				one++;
+				ani.setOne(one);
 				ResultSet rs = AnimalDAO.BuscaAnimal(one);
 
 				try {
@@ -228,6 +236,9 @@ public class PetAdotar extends JFrame {
 						String vacinas = rs.getString("VC_Animal");
 						String castrado = rs.getString("CS_Animal");
 						String desc = rs.getString("DS_Animal");
+						int Cd = rs.getInt("CD_Animal");
+						
+						String CD = ""+Cd;
 
 						if (tipo.equals("Cachorro")) {
 							btnCao.setSelected(true);
@@ -258,9 +269,9 @@ public class PetAdotar extends JFrame {
 						txtAno.setText(ano);
 						txtNomePet.setText(nome);
 						txtDesc.setText(desc);
+						lblNigmviu.setText(CD);
 					} else {
 						one = -1;
-
 					}
 				} catch (SQLException e1) {
 					e1.printStackTrace();
@@ -289,6 +300,11 @@ public class PetAdotar extends JFrame {
 		castradodb.setOpaque(false);
 		castradodb.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(castradodb);
+		
+		lblNigmviu = new JLabel("");
+		lblNigmviu.setBounds(25, 44, 46, 14);
+		contentPane.add(lblNigmviu);
+		lblNigmviu.setVisible(false);
 		btnProximo.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/3847912-128(2).png")));
 		btnProximo.setBounds(519, 324, 46, 44);
 		btnProximo.setFocusPainted(false);
@@ -315,12 +331,78 @@ public class PetAdotar extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				JOptionPane.showMessageDialog(null,
-						"Parabéns! Você está perto de adotar um Pet." + "\n"
+						"ParabÃ©ns! VocÃª estÃ¡ perto de adotar um Pet." + "\n"
 								+ "Entraremos em contato para agendar a visita" + "\n"
-								+ "de avaliação e levar seu novo amigo!");
+								+ "de avaliaÃ§Ã£o e levar seu novo amigo!");
 
+				int passe;
+				passe = Integer.parseInt(lblNigmviu.getText());
 				AnimalDAO.AdotarBixim(txtNomePet.getText());
+				ResultSet rs = AnimalDAO.BuscaAnimaldelete(passe);
+				System.out.println(rs);
 
+				try {
+					if (rs.next()) {
+						String nome = rs.getString("NM_Animal");
+						String ano = rs.getString("ANO_Animal");
+						String raca = rs.getString("RC_Animal");
+						String tamanho = rs.getString("TM_Animal");
+						String tipo = rs.getString("TP_Animal");
+						String sexo = rs.getString("SX_Animal");
+						String vacinas = rs.getString("VC_Animal");
+						String castrado = rs.getString("CS_Animal");
+						String desc = rs.getString("DS_Animal");
+						int Cd = rs.getInt("CD_Animal");
+						
+						String CD = ""+Cd;
+
+						if (tipo.equals("Cachorro")) {
+							btnCao.setSelected(true);
+						} else {
+							btnGato.setSelected(true);
+						}
+
+						if (sexo.equals("Macho")) {
+							btnMacho.setSelected(true);
+						} else {
+							btnFemea.setSelected(true);
+						}
+
+						if (castrado.equals("Sim")) {
+							castradodb.setSelected(true);
+						} else {
+							castradodb.setSelected(false);
+						}
+
+						if (vacinas.equals("Sim")) {
+							vacinadodb.setSelected(true);
+						} else {
+							vacinadodb.setSelected(false);
+						}
+
+						txtTamanho.setText(tamanho);
+						txtRaca.setText(raca);
+						txtAno.setText(ano);
+						txtNomePet.setText(nome);
+						txtDesc.setText(desc);
+						lblNigmviu.setText(CD);
+					}else{
+						txtTamanho.setText("");
+						txtRaca.setText("");
+						txtAno.setText("");
+						txtNomePet.setText("");
+						txtDesc.setText("");
+						lblNigmviu.setText("");
+						vacinadodb.setSelected(false);
+						castradodb.setSelected(false);
+						btnFemea.setSelected(false);
+						btnMacho.setSelected(false);
+						btnCao.setSelected(false);
+						btnGato.setSelected(false);
+					}
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
@@ -377,4 +459,3 @@ public class PetAdotar extends JFrame {
 		contentPane.add(Background_icon);
 	}
 }
-
