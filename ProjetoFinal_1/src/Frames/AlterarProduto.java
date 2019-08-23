@@ -28,7 +28,7 @@ import javax.swing.JFormattedTextField;
 public class AlterarProduto extends JFrame {
 
 	private static final long serialVersionUID = 8419457666179579366L;
-	
+
 	private JPanel contentPane;
 	private JTextField txtNome;
 	private JTextField txtDesc;
@@ -37,7 +37,7 @@ public class AlterarProduto extends JFrame {
 	private JTextField txtUnidade;
 	private MaskFormatter validade;
 	private JTextField txtValidade;
-	
+
 	/**
 	 * Create the frame.
 	 */
@@ -108,11 +108,11 @@ public class AlterarProduto extends JFrame {
 					txtEstoque.setText(estoque);
 					txtUnidade.setText(unidade);
 					txtValidade.setText(data[0]);
-					
+
 				}
 			}
 		});
-	
+
 		txtValidade = new JTextField();
 		txtValidade.setBounds(484, 262, 114, 20);
 		contentPane.add(txtValidade);
@@ -187,7 +187,7 @@ public class AlterarProduto extends JFrame {
 				if (valorString.contains(",")) {
 					valorString = valorString.replace(",", ".");
 				} else {
-					
+
 				}
 				double valor = Double.parseDouble(valorString);
 				int estoque = Integer.parseInt(estoqueString);
@@ -195,7 +195,7 @@ public class AlterarProduto extends JFrame {
 				ProdutoDAO.update(cdCodigo, nome, descricao, valor, unidade, validade, estoque);
 			}
 		});
-		
+
 		JButton btnVoltar = new JButton("");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -210,10 +210,7 @@ public class AlterarProduto extends JFrame {
 		btnVoltar.setFocusPainted(false);
 		btnVoltar.setBorderPainted(false);
 		contentPane.add(btnVoltar);
-		
-		
-		
-		
+
 		btnAlterar.setBackground(new Color(255, 255, 255));
 		btnAlterar.setForeground(new Color(0, 100, 0));
 		btnAlterar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
@@ -224,7 +221,7 @@ public class AlterarProduto extends JFrame {
 		lblUnidade.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblUnidade.setBounds(30, 266, 92, 14);
 		contentPane.add(lblUnidade);
-		
+
 		JLabel lblNewLabel = new JLabel("Alterar Produtos");
 		lblNewLabel.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblNewLabel.setForeground(new Color(0, 0, 0));
@@ -236,12 +233,12 @@ public class AlterarProduto extends JFrame {
 		txtUnidade.setColumns(10);
 		txtUnidade.setBounds(137, 264, 189, 20);
 		contentPane.add(txtUnidade);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(AlterarProduto.class.getResource("/imagens/3209260-128(1).png")));
 		lblNewLabel_1.setBounds(14, 344, 55, 45);
 		contentPane.add(lblNewLabel_1);
-		
+
 		JLabel Background = new JLabel("New label");
 		Background.setIcon(new ImageIcon(AlterarProduto.class.getResource("/imagens/Background.jpg")));
 		Background.setBounds(0, 1, 654, 410);

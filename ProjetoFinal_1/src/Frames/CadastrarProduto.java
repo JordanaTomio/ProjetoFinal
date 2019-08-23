@@ -175,7 +175,7 @@ public class CadastrarProduto extends JFrame {
 			//		txtMes.setText("");
 			//		txtAno.setText("");
 				} else {
-					JOptionPane.showMessageDialog(null, "Informações faltando.", "Erro no cadastro", 1);
+					JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando.", "Erro no cadastro", 1);
 				}
 			}
 		});
