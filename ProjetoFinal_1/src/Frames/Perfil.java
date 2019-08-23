@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 
 import Beans.Cliente;
 import DAO.ClienteDAO;
@@ -30,16 +33,15 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 */
 import br.com.idog.Configuration.MySQLConfiguration;
 import javax.swing.ImageIcon;
+import javax.swing.JFormattedTextField;
 
 public class Perfil<EntityManager> extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtNomePerfil;
 	private JTextField txtSobreNomePerfil;
-	private JTextField txtTelefonePerfil;
 	private JTextField txtEmailPerfil;
 	private JTextField txtEnderecoPerfil;
-	private JTextField txtCEPPerfil;
 	private JLabel lblGeneroPerfil;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	JRadioButton btnMasculino = new JRadioButton("Masculino");
@@ -49,6 +51,10 @@ public class Perfil<EntityManager> extends JFrame {
 	private JButton btnBuscar;
 	private JButton btnAlterar;
 	private JLabel background;
+	private JFormattedTextField txtTelefonePerfil;
+	private MaskFormatter TelefonePerfil;
+	private JFormattedTextField txtCEPPerfil;
+	private MaskFormatter CEPPerfil;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -73,6 +79,26 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.setLayout(null);
 		setResizable(false);
 		setLocationRelativeTo(null);
+		
+		try{
+			TelefonePerfil = new MaskFormatter("(##) #####-####"); 
+		}catch(ParseException pe){
+			pe.printStackTrace();
+		}
+		
+		try{
+			CEPPerfil = new MaskFormatter("#####-###");
+		}catch(ParseException pe){
+			pe.printStackTrace();
+		}
+		
+		txtCEPPerfil = new JFormattedTextField(CEPPerfil);
+		txtCEPPerfil.setBounds(446, 248, 175, 19);
+		contentPane.add(txtCEPPerfil);
+		
+		txtTelefonePerfil = new JFormattedTextField(TelefonePerfil);
+		txtTelefonePerfil.setBounds(127, 189, 170, 19);
+		contentPane.add(txtTelefonePerfil);
 
 		JLabel lblPerfil = new JLabel("Perfil");
 		lblPerfil.setFont(new Font("Bauhaus 93", Font.BOLD, 40));
@@ -106,12 +132,6 @@ public class Perfil<EntityManager> extends JFrame {
 		lblTelefonePerfil.setBounds(20, 189, 79, 14);
 		contentPane.add(lblTelefonePerfil);
 
-		txtTelefonePerfil = new JTextField();
-		txtTelefonePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		txtTelefonePerfil.setColumns(10);
-		txtTelefonePerfil.setBounds(127, 185, 170, 20);
-		contentPane.add(txtTelefonePerfil);
-
 		JLabel lblEmailPerfil = new JLabel("E-mail:");
 		lblEmailPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		lblEmailPerfil.setBounds(357, 190, 53, 14);
@@ -138,12 +158,6 @@ public class Perfil<EntityManager> extends JFrame {
 		lblCepPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		lblCepPerfil.setBounds(357, 249, 46, 14);
 		contentPane.add(lblCepPerfil);
-
-		txtCEPPerfil = new JTextField();
-		txtCEPPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		txtCEPPerfil.setColumns(10);
-		txtCEPPerfil.setBounds(446, 247, 175, 20);
-		contentPane.add(txtCEPPerfil);
 
 		lblGeneroPerfil = new JLabel("Sexo: ");
 		lblGeneroPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));

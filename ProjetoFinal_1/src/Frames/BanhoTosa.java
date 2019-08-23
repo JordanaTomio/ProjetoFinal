@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -20,10 +21,12 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
 import DAO.AgendaDAO;
 import Utilidades.ExcluiCaracteres;
 import net.proteanit.sql.DbUtils;
+import javax.swing.JFormattedTextField;
 
 public class BanhoTosa extends JFrame {
 
@@ -37,8 +40,6 @@ public class BanhoTosa extends JFrame {
 	private final JRadioButton rdbtnGrande;
 	private final JRadioButton rdbtnBanho;
 	private final JRadioButton rdbtnBanhoETosa;
-	private JTextField txtDATA;
-	private JTextField txtHORA;
 	private JTextField txtCLIENTE;
 	private JLabel lblDATA;
 	private JLabel lblHORA;
@@ -47,6 +48,10 @@ public class BanhoTosa extends JFrame {
 	private JLabel lblVoltar;
 	private JLabel flor;
 	private JLabel lblInformaoesObrigtorias;
+	private JFormattedTextField txtData;
+	private MaskFormatter data;
+	private JFormattedTextField txtHORA;
+	private MaskFormatter hora;
 
 	/**
 	 * Launch the application.
@@ -78,6 +83,25 @@ public class BanhoTosa extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
+		
+		try{
+			data = new MaskFormatter("##/##");
+		}catch(ParseException pe){
+			pe.printStackTrace();
+		}
+		try{
+			hora = new MaskFormatter("##:##");
+		}catch(ParseException pe){
+			pe.printStackTrace();
+		}
+		
+		txtHORA = new JFormattedTextField(hora);
+		txtHORA.setBounds(104, 134, 49, 20);
+		contentPane.add(txtHORA);
+		
+		txtData = new JFormattedTextField(data);
+		txtData.setBounds(23, 134, 52, 20);
+		contentPane.add(txtData);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(333, 121, 283, 188);
@@ -100,20 +124,6 @@ public class BanhoTosa extends JFrame {
 
 		// puxa a informaÃ§Ã£o tabelha quando carrega Jframe
 		tblAGENDA.setModel(DbUtils.resultSetToTableModel(AgendaDAO.Atualizar()));
-
-		txtDATA = new JTextField();
-		txtDATA.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		txtDATA.setBounds(26, 134, 48, 20);
-		contentPane.add(txtDATA);
-		txtDATA.setColumns(10);
-		txtDATA.setDocument(new ExcluiCaracteres("aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZçÇ'!@#$%¨&*()_+-=´`[{}]~^;:.>,<?|º"));
-
-		txtHORA = new JTextField();
-		txtHORA.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		txtHORA.setColumns(10);
-		txtHORA.setBounds(102, 135, 55, 20);
-		contentPane.add(txtHORA);
-		txtHORA.setDocument(new ExcluiCaracteres("aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZçÇ'!@#$%¨&*()_+-=´`[{}]~^;.>,<?|º"));
 
 		txtCLIENTE = new JTextField();
 		txtCLIENTE.setFont(new Font("Times New Roman", Font.BOLD, 11));
@@ -217,7 +227,7 @@ public class BanhoTosa extends JFrame {
 
 				// Missing Informations
 
-				if (txtDATA.getText().isEmpty() || txtHORA.getText().isEmpty() || txtCLIENTE.getText().isEmpty()) {
+				if (txtData.getText().isEmpty() || txtHORA.getText().isEmpty() || txtCLIENTE.getText().isEmpty()) {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnPequeno.isSelected() && !rdbtnMedio.isSelected() && !rdbtnGrande.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
@@ -306,7 +316,7 @@ public class BanhoTosa extends JFrame {
 						}
 					}
 					if ((Confi == 0))
-						AgendaDAO.Confirmar(txtDATA.getText(), txtHORA.getText(), txtCLIENTE.getText(), variavel);
+						AgendaDAO.Confirmar(txtData.getText(), txtHORA.getText(), txtCLIENTE.getText(), variavel);
 				}
 			}
 		});

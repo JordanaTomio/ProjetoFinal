@@ -10,6 +10,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,8 +20,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 
 import DAO.ProdutoDAO;
+import javax.swing.JFormattedTextField;
 
 public class AlterarProduto extends JFrame {
 
@@ -30,12 +33,11 @@ public class AlterarProduto extends JFrame {
 	private JTextField txtNome;
 	private JTextField txtDesc;
 	private JTextField txtValor;
-	private JTextField txtDia;
-	private JTextField txtMes;
-	private JTextField txtAno;
 	private JTextField txtEstoque;
 	private JTextField txtUnidade;
-
+	private MaskFormatter validade;
+	private JFormattedTextField txtValidade;
+	
 	/**
 	 * Create the frame.
 	 */
@@ -105,12 +107,19 @@ public class AlterarProduto extends JFrame {
 					txtValor.setText(valor);
 					txtEstoque.setText(estoque);
 					txtUnidade.setText(unidade);
-					txtAno.setText(data[0]);
-					txtMes.setText(data[1]);
-					txtDia.setText(data[2]);
+					txtValidade.setText(data[0]);
+					
 				}
 			}
 		});
+		try{
+			validade = new MaskFormatter("##/##/####"); 
+		}catch(ParseException el){
+			el.printStackTrace();
+		}
+		txtValidade = new JFormattedTextField(validade);
+		txtValidade.setBounds(484, 262, 114, 20);
+		contentPane.add(txtValidade);
 		comboBox.setBackground(new Color(255, 240, 245));
 		comboBox.setBounds(148, 64, 332, 30);
 		contentPane.add(comboBox);
@@ -153,24 +162,6 @@ public class AlterarProduto extends JFrame {
 		label_3.setBounds(394, 258, 87, 22);
 		contentPane.add(label_3);
 
-		txtDia = new JTextField();
-		txtDia.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		txtDia.setColumns(10);
-		txtDia.setBounds(484, 260, 27, 20);
-		contentPane.add(txtDia);
-
-		txtMes = new JTextField();
-		txtMes.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		txtMes.setColumns(10);
-		txtMes.setBounds(524, 260, 27, 20);
-		contentPane.add(txtMes);
-
-		txtAno = new JTextField();
-		txtAno.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		txtAno.setColumns(10);
-		txtAno.setBounds(563, 260, 42, 20);
-		contentPane.add(txtAno);
-
 		JLabel label_4 = new JLabel("Estoque:");
 		label_4.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		label_4.setBounds(394, 196, 92, 23);
@@ -195,11 +186,7 @@ public class AlterarProduto extends JFrame {
 				String valorString = txtValor.getText();
 				String estoqueString = txtEstoque.getText();
 				String unidade = txtUnidade.getText();
-				String ano = txtAno.getText();
-				String mes = txtMes.getText();
-				String dia = txtDia.getText();
-
-				String data = ano + "-" + mes + "-" + dia;
+				String validade = txtValidade.getText();
 
 				if (valorString.contains(",")) {
 					valorString = valorString.replace(",", ".");
@@ -209,7 +196,7 @@ public class AlterarProduto extends JFrame {
 				double valor = Double.parseDouble(valorString);
 				int estoque = Integer.parseInt(estoqueString);
 
-				ProdutoDAO.update(cdCodigo, nome, descricao, valor, unidade, data, estoque);
+				ProdutoDAO.update(cdCodigo, nome, descricao, valor, unidade, validade, estoque);
 			}
 		});
 		

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,11 +13,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 
 import Beans.Produto;
 import DAO.ProdutoDAO;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.JFormattedTextField;
 
 
 
@@ -26,14 +29,13 @@ public class CadastrarProduto extends JFrame {
 	
 	private JPanel contentPane;
 	private JTextField txtValor;
-	private JTextField txtDia;
 	private JTextField txtEstoque;
 	private JTextField txtDesc;
 	private JTextField txtNome;
-	private JTextField txtMes;
-	private JTextField txtAno;
 	private JTextField txtUnidade;
-
+	private JFormattedTextField txtValidade;
+	private MaskFormatter validar;
+	
 	public CadastrarProduto() {
 		setTitle("Cadastro de Produtos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,6 +56,14 @@ public class CadastrarProduto extends JFrame {
 				dispose();
 			}
 		});
+		try{
+			validar = new MaskFormatter("##/##/####");
+		}catch(ParseException pe){
+			pe.printStackTrace();
+		}
+		txtValidade = new JFormattedTextField(validar);
+		txtValidade.setBounds(495, 251, 116, 20);
+		contentPane.add(txtValidade);
 		btnVoltar.setBounds(20, 331, 37, 59);
 		btnVoltar.setContentAreaFilled(false);
 		btnVoltar.setOpaque(false);
@@ -113,12 +123,6 @@ public class CadastrarProduto extends JFrame {
 		txtValor.setBounds(522, 113, 71, 20);
 		contentPane.add(txtValor);
 
-		txtDia = new JTextField();
-		txtDia.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		txtDia.setColumns(10);
-		txtDia.setBounds(495, 248, 27, 22);
-		contentPane.add(txtDia);
-
 		txtDesc = new JTextField();
 		txtDesc.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtDesc.setBounds(146, 152, 185, 68);
@@ -139,11 +143,11 @@ public class CadastrarProduto extends JFrame {
 				String valorString = txtValor.getText();
 				String unidade = txtUnidade.getText();
 				String estoqueString = txtEstoque.getText();
-				String dia = txtDia.getText();
-				String mes = txtMes.getText();
-				String ano = txtAno.getText();
+				String validade = txtValidade.getText();
+			//	String mes = txtMes.getText();
+			//	String ano = txtAno.getText();
 
-				String data = ano + "-" + mes + "-" + dia;
+			//	String data = ano + "-" + mes + "-" + dia;
 
 				if (valorString.contains(",")) {
 					valorString = valorString.replace(",", ".");
@@ -156,9 +160,9 @@ public class CadastrarProduto extends JFrame {
 				int estoque = Integer.parseInt(estoqueString);
 
 				if (!(nome.isEmpty() && valorString.isEmpty() && unidade.isEmpty() && estoqueString.isEmpty()
-						&& dia.isEmpty() && mes.isEmpty() && ano.isEmpty())) {
+						&& validade.isEmpty()/* && mes.isEmpty() && ano.isEmpty()*/)) {
 					// Cria e salva o produto.
-					Produto produto = new Produto(nome, descricao, valor, unidade, data, estoque);
+					Produto produto = new Produto(nome, descricao, valor, unidade, validade, estoque);
 					ProdutoDAO.save(produto);
 
 					// Limpa campos
@@ -167,9 +171,9 @@ public class CadastrarProduto extends JFrame {
 					txtValor.setText("");
 					txtUnidade.setText("");
 					txtEstoque.setText("");
-					txtDia.setText("");
-					txtMes.setText("");
-					txtAno.setText("");
+					txtValidade.setText("");
+			//		txtMes.setText("");
+			//		txtAno.setText("");
 				} else {
 					JOptionPane.showMessageDialog(null, "Informações faltando.", "Erro no cadastro", 1);
 				}
@@ -180,18 +184,6 @@ public class CadastrarProduto extends JFrame {
 		btnCadastrar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnCadastrar.setBounds(236, 324, 174, 23);
 		contentPane.add(btnCadastrar);
-
-		txtMes = new JTextField();
-		txtMes.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		txtMes.setColumns(10);
-		txtMes.setBounds(535, 248, 27, 22);
-		contentPane.add(txtMes);
-
-		txtAno = new JTextField();
-		txtAno.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		txtAno.setColumns(10);
-		txtAno.setBounds(574, 248, 27, 22);
-		contentPane.add(txtAno);
 
 		txtUnidade = new JTextField();
 		txtUnidade.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
