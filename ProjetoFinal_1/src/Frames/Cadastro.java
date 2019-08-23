@@ -182,7 +182,7 @@ public class Cadastro extends JFrame {
 				String email = txtEM.getText();
 				String senha = txtPS.getText();
 				String telefone = txtTelefone.getText();
-				String CPF = txtCEP.getText();
+				String CPF = txtCPF.getText();
 				String razao = txtRZ_Social.getText();
 				String pessoa = null;
 				String sexo = null;
@@ -197,16 +197,14 @@ public class Cadastro extends JFrame {
 					sexo = "Outros";
 				}
 
-				if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
+				if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())){
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
-							admin, CPF, CEP, pessoa, razao);
+							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
 					new Login().setVisible(true);
 					dispose();
 				} else {
-					// JOptionPane.showConfirmDialog(null, "Informação
-					// faltando.", "Erro no cadastro", 1);
-					JOptionPane.showMessageDialog(null, "Informações faltando");
+					JOptionPane.showMessageDialog(null, "Informac�es faltando!");
 				}
 
 			}

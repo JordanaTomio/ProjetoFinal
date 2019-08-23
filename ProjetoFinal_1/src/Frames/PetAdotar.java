@@ -160,7 +160,6 @@ public class PetAdotar extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				one--;
-				ani.setOne(one);
 				ResultSet rs = AnimalDAO.BuscaAnimal(one);
 
 				try {
@@ -222,7 +221,6 @@ public class PetAdotar extends JFrame {
 		btnProximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				one++;
-				ani.setOne(one);
 				ResultSet rs = AnimalDAO.BuscaAnimal(one);
 
 				try {
