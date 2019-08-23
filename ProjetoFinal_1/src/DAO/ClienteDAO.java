@@ -128,10 +128,22 @@ public class ClienteDAO {
 			ps.setString(7, razao);
 			ps.setInt(8, cdCodigo);
 			ps.executeUpdate();
-			JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Confirmação", 1);
+			JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "ConfirmaÃ§Ã£o", 1);
 		} catch (SQLException e) {
 			System.err.println("Error during update 'Produto'");
 			e.printStackTrace();
+		}
+	}
+	public static ResultSet findAllTyped(String nome) {
+		String q = "SELECT CD_Cliente, PN_Cliente, SN_Cliente FROM cliente where PN_Cliente like '%" + nome + "%'";
+
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Clientes aren't found.");
+			e.printStackTrace();
+			return null;
 		}
 	}
 }

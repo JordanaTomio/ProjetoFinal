@@ -21,6 +21,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import DAO.ClienteDAO;
 import br.com.idog.Configuration.MySQLConfiguration;
 import net.proteanit.sql.DbUtils;
 import javax.swing.ImageIcon;
@@ -56,14 +57,14 @@ public class ConsultarClientes extends JFrame {
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				ResultSet rs = findAllTyped();
+				ResultSet rs = ClienteDAO.findAllTyped(txtNome.getText());
 				table.setModel(DbUtils.resultSetToTableModel(rs));
 			}
 		});
 		txtNome.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				ResultSet rs = findAllTyped();
+				ResultSet rs = ClienteDAO.findAllTyped(txtNome.getText());
 				table.setModel(DbUtils.resultSetToTableModel(rs));
 			}
 		});
@@ -109,17 +110,5 @@ public class ConsultarClientes extends JFrame {
 		Backgroubd.setIcon(new ImageIcon(ConsultarClientes.class.getResource("/imagens/Background.jpg")));
 		Backgroubd.setBounds(0, 0, 654, 411);
 		contentPane.add(Backgroubd);
-	}
-	public ResultSet findAllTyped() {
-		String q = "SELECT CD_Cliente, PN_Cliente, SN_Cliente FROM cliente where PN_Cliente like '%" + txtNome.getText() + "%'";
-
-		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			return ps.executeQuery();
-		} catch (SQLException e) {
-			System.err.println("Clientes aren't found.");
-			e.printStackTrace();
-			return null;
-		}
 	}
 }
