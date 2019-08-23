@@ -57,7 +57,7 @@ public class CadastrarProduto extends JFrame {
 			}
 		});
 		try{
-			validar = new MaskFormatter("##/##/####");
+			validar = new MaskFormatter("####/##/##");
 		}catch(ParseException pe){
 			pe.printStackTrace();
 		}

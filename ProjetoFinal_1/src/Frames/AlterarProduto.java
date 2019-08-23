@@ -36,7 +36,7 @@ public class AlterarProduto extends JFrame {
 	private JTextField txtEstoque;
 	private JTextField txtUnidade;
 	private MaskFormatter validade;
-	private JFormattedTextField txtValidade;
+	private JTextField txtValidade;
 	
 	/**
 	 * Create the frame.
@@ -112,12 +112,8 @@ public class AlterarProduto extends JFrame {
 				}
 			}
 		});
-		try{
-			validade = new MaskFormatter("##/##/####"); 
-		}catch(ParseException el){
-			el.printStackTrace();
-		}
-		txtValidade = new JFormattedTextField(validade);
+	
+		txtValidade = new JTextField();
 		txtValidade.setBounds(484, 262, 114, 20);
 		contentPane.add(txtValidade);
 		comboBox.setBackground(new Color(255, 240, 245));
