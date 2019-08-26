@@ -30,6 +30,7 @@ import DAO.ItemsDAO;
 import DAO.PeedidoDAO;
 import net.proteanit.sql.DbUtils;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class ConsultarProdutos extends JFrame {
 
@@ -45,6 +46,8 @@ public class ConsultarProdutos extends JFrame {
 	 * Create the frame.
 	 */
 	public ConsultarProdutos() {
+		setTitle("Loja");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ConsultarProdutos.class.getResource("/imagens/3775232-16.png")));
 		setBackground(new Color(255, 228, 225));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);

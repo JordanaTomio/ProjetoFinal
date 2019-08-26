@@ -24,6 +24,7 @@ import javax.swing.border.EmptyBorder;
 
 import Beans.Animal;
 import DAO.AnimalDAO;
+import java.awt.Toolkit;
 
 public class PetAdotar extends JFrame {
 
@@ -65,6 +66,8 @@ public class PetAdotar extends JFrame {
 	 * Create the frame.
 	 */
 	public PetAdotar() {
+		setTitle("Ado\u00E7\u00E3o");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(PetAdotar.class.getResource("/imagens/3775232-16.png")));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);

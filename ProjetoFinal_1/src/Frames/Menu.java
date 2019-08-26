@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class Menu extends JFrame {
 
@@ -38,6 +39,8 @@ public class Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu() {
+		setTitle("Menu");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Menu.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 660, 440);
 		contentPane = new JPanel();

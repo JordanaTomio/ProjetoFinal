@@ -25,6 +25,7 @@ import DAO.ClienteDAO;
 import br.com.idog.Configuration.MySQLConfiguration;
 import net.proteanit.sql.DbUtils;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class ConsultarClientes extends JFrame {
 
@@ -38,6 +39,8 @@ public class ConsultarClientes extends JFrame {
 	 * Create the frame.
 	 */
 	public ConsultarClientes() {
+		setTitle("Consultar Clientes");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ConsultarClientes.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		setResizable(false);

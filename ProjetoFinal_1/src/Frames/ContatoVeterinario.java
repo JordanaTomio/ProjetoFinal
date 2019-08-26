@@ -27,6 +27,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class ContatoVeterinario extends JFrame {
 
@@ -53,6 +54,8 @@ public class ContatoVeterinario extends JFrame {
 	 * Create the frame.
 	 */
 	public ContatoVeterinario() {
+		setTitle("Veterin\u00E1rios");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ContatoVeterinario.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();
@@ -85,7 +88,7 @@ public class ContatoVeterinario extends JFrame {
 		contentPane.add(label);
 		
 		JLabel lblNewLabel = new JLabel("Veterin\u00E1rio");
-		lblNewLabel.setFont(new Font("Broadway", Font.PLAIN, 30));
+		lblNewLabel.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblNewLabel.setBounds(226, 31, 203, 63);
 		contentPane.add(lblNewLabel);
 		

@@ -12,6 +12,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class PetShopMenu extends JFrame {
 
@@ -31,6 +32,8 @@ public class PetShopMenu extends JFrame {
 	}
 
 	public PetShopMenu() {
+		setTitle("Menu Pet Shop");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(PetShopMenu.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();

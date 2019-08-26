@@ -20,6 +20,7 @@ import DAO.ProdutoDAO;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JFormattedTextField;
+import java.awt.Toolkit;
 
 
 
@@ -37,6 +38,7 @@ public class CadastrarProduto extends JFrame {
 	private MaskFormatter validar;
 	
 	public CadastrarProduto() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarProduto.class.getResource("/imagens/3775232-16.png")));
 		setTitle("Cadastro de Produtos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);

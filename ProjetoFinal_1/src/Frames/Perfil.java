@@ -34,6 +34,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import br.com.idog.Configuration.MySQLConfiguration;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
+import java.awt.Toolkit;
 
 public class Perfil<EntityManager> extends JFrame {
 
@@ -70,6 +71,8 @@ public class Perfil<EntityManager> extends JFrame {
 	}
 
 	public Perfil() {
+		setTitle("Perfil");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Perfil.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();

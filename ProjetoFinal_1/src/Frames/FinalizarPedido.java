@@ -21,6 +21,7 @@ import javax.swing.border.EmptyBorder;
 import DAO.PeedidoDAO;
 
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class FinalizarPedido extends JFrame {
 
@@ -52,6 +53,8 @@ public class FinalizarPedido extends JFrame {
 	 * Create the frame.
 	 */
 	public FinalizarPedido() {
+		setTitle("Finaliza\u00E7\u00E3o");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(FinalizarPedido.class.getResource("/imagens/3775232-16.png")));
 		DecimalFormat df = new DecimalFormat();
 		df.setMaximumFractionDigits(2);
 			

@@ -70,9 +70,9 @@ public class BanhoTosa extends JFrame {
 	}
 
 	public BanhoTosa() {
+		setTitle("Banho e Tosa");
 
-		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage("C:\\Users\\Alunos\\Downloads\\iconfinder_43_Duck_River_Canada_4783009.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(BanhoTosa.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		setResizable(false);

@@ -29,6 +29,7 @@ import DAO.ItemsDAO;
 import DAO.PeedidoDAO;
 import net.proteanit.sql.DbUtils;
 import javax.swing.JCheckBox;
+import java.awt.Toolkit;
 
 public class ConsultarPedidos extends JFrame {
 
@@ -48,6 +49,8 @@ public class ConsultarPedidos extends JFrame {
 	 * Create the frame.
 	 */
 	public ConsultarPedidos() {
+		setTitle("Carrinho");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ConsultarPedidos.class.getResource("/imagens/3775232-16.png")));
 		DecimalFormat df = new DecimalFormat();
 		df.setMaximumFractionDigits(2);
 
