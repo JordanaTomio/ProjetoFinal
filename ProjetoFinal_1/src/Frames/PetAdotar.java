@@ -339,6 +339,7 @@ public class PetAdotar extends JFrame {
 
 				int passe;
 				passe = Integer.parseInt(lblNigmviu.getText());
+				AnimalDAO.InsertAdotado(passe);
 				AnimalDAO.AdotarBixim(txtNomePet.getText());
 				ResultSet rs = AnimalDAO.BuscaAnimaldelete(passe);
 				System.out.println(rs);
