@@ -44,6 +44,7 @@ public class PetAdotar extends JFrame {
 	JLabel lblNigmviu;
 	Animal ani = new Animal();
 	int one = -1;
+	//1
 
 	/**
 	 * Launch the application.
@@ -329,9 +330,9 @@ public class PetAdotar extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				JOptionPane.showMessageDialog(null,
-						"ParabÃ©ns! VocÃª estÃ¡ perto de adotar um Pet." + "\n"
+						"ParabÃƒÂ©ns! VocÃƒÂª estÃƒÂ¡ perto de adotar um Pet." + "\n"
 								+ "Entraremos em contato para agendar a visita" + "\n"
-								+ "de avaliaÃ§Ã£o e levar seu novo amigo!");
+								+ "de avaliaÃƒÂ§ÃƒÂ£o e levar seu novo amigo!");
 
 				int passe;
 				passe = Integer.parseInt(lblNigmviu.getText());
