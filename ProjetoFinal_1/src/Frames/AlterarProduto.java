@@ -35,8 +35,8 @@ public class AlterarProduto extends JFrame {
 	private JTextField txtValor;
 	private JTextField txtEstoque;
 	private JTextField txtUnidade;
+	private JFormattedTextField txtValidade;
 	private MaskFormatter validade;
-	private JTextField txtValidade;
 
 	/**
 	 * Create the frame.
@@ -51,7 +51,17 @@ public class AlterarProduto extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		
+		try{
+			validade = new MaskFormatter("####/##/##");
+		}catch(ParseException el){
+			el.printStackTrace();
+		}
+		
+		txtValidade = new JFormattedTextField(validade);
+		txtValidade.setBounds(484, 262, 124, 20);
+		contentPane.add(txtValidade);
+		
 		JComboBox comboBox = new JComboBox();
 		comboBox.addFocusListener(new FocusAdapter() {
 			@Override
@@ -90,32 +100,23 @@ public class AlterarProduto extends JFrame {
 							valor = rs.getString("VL_Produto");
 							unidade = rs.getString("UND_Produto");
 							estoque = rs.getString("QT_Estoque_Produto");
-							try {
-								validade = rs.getString("DT_Validade");
-							} catch (SQLException e) {
-								validade = "0000-00-00";
-							}
+							validade = rs.getString("DT_Validade");
+						
 						}
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
-
-					String data[] = validade.split("-");
 
 					txtNome.setText(nome);
 					txtDesc.setText(descricao);
 					txtValor.setText(valor);
 					txtEstoque.setText(estoque);
 					txtUnidade.setText(unidade);
-					txtValidade.setText(data[0]);
-
+					txtValidade.setText(validade);
 				}
 			}
 		});
-
-		txtValidade = new JTextField();
-		txtValidade.setBounds(484, 262, 114, 20);
-		contentPane.add(txtValidade);
+		
 		comboBox.setBackground(new Color(255, 240, 245));
 		comboBox.setBounds(148, 64, 332, 30);
 		contentPane.add(comboBox);
