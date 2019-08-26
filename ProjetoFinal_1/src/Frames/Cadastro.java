@@ -31,7 +31,6 @@ public class Cadastro extends JFrame {
 	private JTextField txtSN;
 	private JTextField txtPN;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private JPasswordField txtPS;
 	private JLabel btnVoltar_icon;
 	private MaskFormatter CPF;
@@ -42,6 +41,7 @@ public class Cadastro extends JFrame {
 	private JFormattedTextField txtCPF;
 	JRadioButton btnFeminino = new JRadioButton("Fem");
 	JRadioButton btnMasculino = new JRadioButton("Masc");
+	JRadioButton rdbtnOutros = new JRadioButton("Outros");
 
 	/**
 	 * Launch the application.
@@ -191,13 +191,15 @@ public class Cadastro extends JFrame {
 
 				if (btnMasculino.isSelected()) {
 					sexo = "Masculino";
+					System.out.println("batata");
 				} else if (btnFeminino.isSelected()) {
 					sexo = "Feminino";
-				} else {
+					System.out.println("batata");
+				} else if (rdbtnOutros.isSelected()) {
 					sexo = "Outros";
 				}
 
-				if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())){
+				if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
@@ -264,7 +266,7 @@ public class Cadastro extends JFrame {
 		btnVoltar_icon.setBounds(10, 346, 40, 44);
 		contentPane.add(btnVoltar_icon);
 
-		JRadioButton btnFeminino = new JRadioButton("Fem");
+		btnFeminino = new JRadioButton("Fem");
 		btnFeminino.setSelected(true);
 		buttonGroup.add(btnFeminino);
 		btnFeminino.setBounds(406, 187, 62, 23);
@@ -277,7 +279,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(btnFeminino);
 		btnFeminino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		JRadioButton btnMasculino = new JRadioButton("Masc");
+		btnMasculino = new JRadioButton("Masc");
 		buttonGroup.add(btnMasculino);
 		btnMasculino.setBounds(467, 187, 65, 23);
 		btnMasculino.setBorderPainted(false);
@@ -289,7 +291,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(btnMasculino);
 		btnMasculino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		JRadioButton rdbtnOutros = new JRadioButton("Outros");
+		rdbtnOutros = new JRadioButton("Outros");
 		buttonGroup.add(rdbtnOutros);
 		rdbtnOutros.setBackground(new Color(204, 255, 204));
 		rdbtnOutros.setBorderPainted(false);
