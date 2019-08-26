@@ -24,7 +24,6 @@ import javax.swing.text.MaskFormatter;
 
 import DAO.ProdutoDAO;
 import javax.swing.JFormattedTextField;
-import java.awt.Toolkit;
 
 public class AlterarProduto extends JFrame {
 
@@ -43,8 +42,6 @@ public class AlterarProduto extends JFrame {
 	 * Create the frame.
 	 */
 	public AlterarProduto() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(AlterarProduto.class.getResource("/imagens/3775232-16.png")));
-		setTitle("Alterar Produto");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		setResizable(false);
@@ -54,17 +51,17 @@ public class AlterarProduto extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		try{
-			validade = new MaskFormatter("####/##/##");
-		}catch(ParseException el){
+
+		try {
+			validade = new MaskFormatter("####-##-##");
+		} catch (ParseException el) {
 			el.printStackTrace();
 		}
-		
+
 		txtValidade = new JFormattedTextField(validade);
 		txtValidade.setBounds(484, 262, 124, 20);
 		contentPane.add(txtValidade);
-		
+
 		JComboBox comboBox = new JComboBox();
 		comboBox.addFocusListener(new FocusAdapter() {
 			@Override
@@ -104,7 +101,7 @@ public class AlterarProduto extends JFrame {
 							unidade = rs.getString("UND_Produto");
 							estoque = rs.getString("QT_Estoque_Produto");
 							validade = rs.getString("DT_Validade");
-						
+
 						}
 					} catch (SQLException e) {
 						e.printStackTrace();
@@ -119,7 +116,7 @@ public class AlterarProduto extends JFrame {
 				}
 			}
 		});
-		
+
 		comboBox.setBackground(new Color(255, 240, 245));
 		comboBox.setBounds(148, 64, 332, 30);
 		contentPane.add(comboBox);
@@ -141,15 +138,15 @@ public class AlterarProduto extends JFrame {
 		txtDesc.setBounds(137, 189, 189, 51);
 		contentPane.add(txtDesc);
 
-		JLabel label_1 = new JLabel("Descri\u00E7\u00E3o:");
-		label_1.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		label_1.setBounds(30, 206, 92, 14);
-		contentPane.add(label_1);
+		JLabel lblDescricao = new JLabel("Descrição:");
+		lblDescricao.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		lblDescricao.setBounds(30, 206, 92, 14);
+		contentPane.add(lblDescricao);
 
-		JLabel label_2 = new JLabel("Valor:");
-		label_2.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		label_2.setBounds(394, 142, 62, 14);
-		contentPane.add(label_2);
+		JLabel lblValor = new JLabel("Valor:");
+		lblValor.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		lblValor.setBounds(394, 142, 62, 14);
+		contentPane.add(lblValor);
 
 		txtValor = new JTextField();
 		txtValor.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
@@ -157,15 +154,15 @@ public class AlterarProduto extends JFrame {
 		txtValor.setBounds(484, 141, 62, 20);
 		contentPane.add(txtValor);
 
-		JLabel label_3 = new JLabel("Validade:");
-		label_3.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		label_3.setBounds(394, 258, 87, 22);
-		contentPane.add(label_3);
+		JLabel lblValidade = new JLabel("Validade:");
+		lblValidade.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		lblValidade.setBounds(394, 258, 87, 22);
+		contentPane.add(lblValidade);
 
-		JLabel label_4 = new JLabel("Estoque:");
-		label_4.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		label_4.setBounds(394, 196, 92, 23);
-		contentPane.add(label_4);
+		JLabel lblEstoque = new JLabel("Estoque:");
+		lblEstoque.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		lblEstoque.setBounds(394, 196, 92, 23);
+		contentPane.add(lblEstoque);
 
 		txtEstoque = new JTextField();
 		txtEstoque.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
