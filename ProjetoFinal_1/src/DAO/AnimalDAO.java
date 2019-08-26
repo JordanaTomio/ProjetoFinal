@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Frames.Main;
 import br.com.idog.Configuration.MySQLConfiguration;
 
 public class AnimalDAO {
@@ -182,5 +183,32 @@ public class AnimalDAO {
 		}
 
 	}
+	public static void InsertAdotado(int cd){
+			
+		String q = "INSERT INTO adocao (Animal_CD_Animal, Cliente_CD_Cliente) VALUES";
+		q+="("+cd+","+Main.cliente.getCdCodigo()+ ")";
 
+		try {
+			Statement comando = MySQLConfiguration.conn.createStatement();
+
+			System.out.println(q);
+			comando.executeUpdate(q);
+
+		}catch (
+
+		Exception ex) {
+			System.err.println("FALHA NA no bang da CONFIRMAÃ‡ÃƒO");
+			ex.printStackTrace();
+		} finally {
+			if (MySQLConfiguration.conn != null) {
+				try {
+					MySQLConfiguration.conn.close();
+				} catch (Exception ex) {
+					System.err.println("ALGO ERRADO NÃƒO ESTÃ� CERTO!");
+				}
+			}
+		}
+	
+
+	}
 }
