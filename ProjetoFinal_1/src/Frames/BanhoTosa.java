@@ -96,10 +96,12 @@ public class BanhoTosa extends JFrame {
 		}
 		
 		txtHORA = new JFormattedTextField(hora);
+		txtHORA.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		txtHORA.setBounds(104, 134, 49, 20);
 		contentPane.add(txtHORA);
 		
 		txtData = new JFormattedTextField(data);
+		txtData.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		txtData.setBounds(23, 134, 52, 20);
 		contentPane.add(txtData);
 
@@ -126,7 +128,7 @@ public class BanhoTosa extends JFrame {
 		tblAGENDA.setModel(DbUtils.resultSetToTableModel(AgendaDAO.Atualizar()));
 
 		txtCLIENTE = new JTextField();
-		txtCLIENTE.setFont(new Font("Times New Roman", Font.BOLD, 11));
+		txtCLIENTE.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		txtCLIENTE.setColumns(10);
 		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);

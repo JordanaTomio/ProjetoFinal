@@ -12,6 +12,7 @@ import br.com.idog.Configuration.MySQLConfiguration;
 
 public class ClienteDAO {
 	public static void save(Cliente cliente) {
+		MySQLConfiguration s = new MySQLConfiguration();
 		String q = "INSERT INTO cliente (EM_Cliente, PS_Cliente, PN_Cliente, SN_Cliente,"+
 				" SX_Cliente, TL_Cliente, ADM_Cliente, CEP_Cliente, CPF_Cliente, PJF_Cliente,"
 				+" RZ_Cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
