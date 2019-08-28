@@ -9,7 +9,7 @@ import br.com.idog.Configuration.MySQLConfiguration;
 public class PeedidoDAO {
 
 	public static ResultSet getPedidosItems(int idPedido) {
-		String q = "SELECT v.NM_Produto, v.VL_Produto FROM v_cliente_itens_pedido v WHERE v.CD_Pedido = ?";
+		String q = "SELECT v.NM_Produto Produtos, v.VL_Produto Valor FROM v_cliente_itens_pedido v WHERE v.CD_Pedido = ?";
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			ps.setInt(1, idPedido);

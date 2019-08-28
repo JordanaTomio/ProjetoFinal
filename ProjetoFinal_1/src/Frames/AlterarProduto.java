@@ -24,6 +24,7 @@ import javax.swing.text.MaskFormatter;
 
 import DAO.ProdutoDAO;
 import javax.swing.JFormattedTextField;
+import java.awt.Toolkit;
 
 public class AlterarProduto extends JFrame {
 
@@ -42,6 +43,8 @@ public class AlterarProduto extends JFrame {
 	 * Create the frame.
 	 */
 	public AlterarProduto() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(AlterarProduto.class.getResource("/imagens/3775232-16.png")));
+		setTitle("Alterar Produtos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		setResizable(false);
