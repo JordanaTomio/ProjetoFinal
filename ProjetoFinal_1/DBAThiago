@@ -27,9 +27,11 @@ CREATE TABLE IF NOT EXISTS `adocao` (
   CONSTRAINT `fk_Animal_has_Cliente_Cliente1` FOREIGN KEY (`Cliente_CD_Cliente`) REFERENCES `cliente` (`CD_Cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela petshopdb.adocao: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela petshopdb.adocao: ~1 rows (aproximadamente)
 DELETE FROM `adocao`;
 /*!40000 ALTER TABLE `adocao` DISABLE KEYS */;
+INSERT INTO `adocao` (`Animal_CD_Animal`, `Cliente_CD_Cliente`) VALUES
+	(2, 3);
 /*!40000 ALTER TABLE `adocao` ENABLE KEYS */;
 
 
@@ -95,7 +97,7 @@ DELETE FROM `animal`;
 /*!40000 ALTER TABLE `animal` DISABLE KEYS */;
 INSERT INTO `animal` (`CD_Animal`, `NM_Animal`, `ANO_Animal`, `TM_Animal`, `DS_Animal`, `RC_Animal`, `TP_Animal`, `SX_Animal`, `VC_Animal`, `CS_Animal`, `AD_Animal`) VALUES
 	(1, 'Niki', '2015', 'Pequeno', 'Castanho, dócil', 'Yorkshire', 'Cachorro', 'Macho', 'Sim', 'Sim', 1),
-	(2, 'Bob', '2017', 'Medio', 'Preto, cão de guarda', 'Chow Chow', 'Cachorro', 'Macho', 'Sim', 'Nao', 0),
+	(2, 'Bob', '2017', 'Medio', 'Preto, cão de guarda', 'Chow Chow', 'Cachorro', 'Macho', 'Sim', 'Nao', 1),
 	(3, 'Tisto', '2016', 'Grande', 'Branco, bricalhão', 'Dálmata', 'Cachorro', 'Macho', 'Nao', 'Sim', 0),
 	(4, 'Clike', '2019', 'Pequeno', 'Branco, dócil', 'Shih Tzu', 'Cachorro', 'Macho', 'Nao', 'Nao', 0),
 	(5, 'Luki', '2015', 'Medio', 'Preto, preguiçososo', 'Nebelung', 'Gato', 'Macho', 'Sim', 'Nao', 0),
@@ -135,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 DELETE FROM `cliente`;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` (`CD_Cliente`, `EM_Cliente`, `PS_Cliente`, `PN_Cliente`, `SN_Cliente`, `SX_Cliente`, `TL_Cliente`, `ADM_Cliente`, `CEP_Cliente`, `CPF_Cliente`, `PJF_Cliente`, `RZ_Cliente`) VALUES
-	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '123', 0, '11111', '23243', NULL, 'Jordana');
+	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '(12) 3    -    ', 0, '11111-   ', '23243', NULL, 'Jordana');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 
@@ -217,6 +219,7 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `DT_Pedido` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `AT_Pedido` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `CD_Cliente` int(11) NOT NULL,
+  `ATT_Pedido` int(11) DEFAULT '0',
   PRIMARY KEY (`CD_Pedido`),
   KEY `fk_Pedido_Cliente1_idx` (`CD_Cliente`),
   CONSTRAINT `fk_Pedido_Cliente1` FOREIGN KEY (`CD_Cliente`) REFERENCES `cliente` (`CD_Cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -225,9 +228,9 @@ CREATE TABLE IF NOT EXISTS `pedido` (
 -- Copiando dados para a tabela petshopdb.pedido: ~2 rows (aproximadamente)
 DELETE FROM `pedido`;
 /*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
-INSERT INTO `pedido` (`CD_Pedido`, `VL_Total`, `DT_Pedido`, `AT_Pedido`, `CD_Cliente`) VALUES
-	(3, 190, '2019-08-14 14:11:44', '2019-08-14 14:24:38', 3),
-	(4, 190, '2019-08-14 14:20:13', '2019-08-14 14:24:38', 3);
+INSERT INTO `pedido` (`CD_Pedido`, `VL_Total`, `DT_Pedido`, `AT_Pedido`, `CD_Cliente`, `ATT_Pedido`) VALUES
+	(3, 47.5, '2019-08-14 14:11:44', '2019-08-28 16:15:13', 3, 0),
+	(4, 47.5, '2019-08-14 14:20:13', '2019-08-28 16:15:13', 3, 0);
 /*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
 
 
