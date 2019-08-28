@@ -11,6 +11,7 @@ import java.text.ParseException;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,9 +25,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
 import DAO.AgendaDAO;
-import Utilidades.ExcluiCaracteres;
-import net.proteanit.sql.DbUtils;
-import javax.swing.JFormattedTextField;
 
 public class BanhoTosa extends JFrame {
 
@@ -125,7 +123,7 @@ public class BanhoTosa extends JFrame {
 		tblAGENDA.getColumnModel().getColumn(1).setPreferredWidth(46);
 
 		// puxa a informação tabelha quando carrega Jframe
-		tblAGENDA.setModel(DbUtils.resultSetToTableModel(AgendaDAO.Atualizar()));
+		tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 
 		txtCLIENTE = new JTextField();
 		txtCLIENTE.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
@@ -215,7 +213,7 @@ public class BanhoTosa extends JFrame {
 		btnCarregar.setBackground(new Color(255, 255, 255));
 		btnCarregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				tblAGENDA.setModel(DbUtils.resultSetToTableModel(AgendaDAO.Atualizar()));
+				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 			}
 		});
 

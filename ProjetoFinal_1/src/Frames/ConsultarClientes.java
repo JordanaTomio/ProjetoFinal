@@ -2,16 +2,16 @@ package Frames;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,10 +22,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import DAO.ClienteDAO;
-import br.com.idog.Configuration.MySQLConfiguration;
-import net.proteanit.sql.DbUtils;
-import javax.swing.ImageIcon;
-import java.awt.Toolkit;
 
 public class ConsultarClientes extends JFrame {
 
@@ -61,14 +57,14 @@ public class ConsultarClientes extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				ResultSet rs = ClienteDAO.findAllTyped(txtNome.getText());
-				table.setModel(DbUtils.resultSetToTableModel(rs));
+				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
 		txtNome.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				ResultSet rs = ClienteDAO.findAllTyped(txtNome.getText());
-				table.setModel(DbUtils.resultSetToTableModel(rs));
+				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
 		txtNome.setFont(new Font("Lucida Bright", Font.PLAIN, 14));

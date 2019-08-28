@@ -2,6 +2,7 @@ package Frames;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -16,6 +17,7 @@ import java.text.DecimalFormat;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,9 +29,7 @@ import javax.swing.border.EmptyBorder;
 
 import DAO.ItemsDAO;
 import DAO.PeedidoDAO;
-import net.proteanit.sql.DbUtils;
-import javax.swing.JCheckBox;
-import java.awt.Toolkit;
+import Utilis.DbUtils;
 
 public class ConsultarPedidos extends JFrame {
 
@@ -50,7 +50,8 @@ public class ConsultarPedidos extends JFrame {
 	 */
 	public ConsultarPedidos() {
 		setTitle("Carrinho");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ConsultarPedidos.class.getResource("/imagens/3775232-16.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(ConsultarPedidos.class.getResource("/imagens/3775232-16.png")));
 		DecimalFormat df = new DecimalFormat();
 		df.setMaximumFractionDigits(2);
 
@@ -107,144 +108,144 @@ public class ConsultarPedidos extends JFrame {
 		chckbxFinalizado.setFocusPainted(false);
 		chckbxFinalizado.setContentAreaFilled(false);
 		contentPane.add(chckbxFinalizado);
-		
-				comboBox = new JComboBox();
-				comboBox.addItemListener(new ItemListener() {
-					public void itemStateChanged(ItemEvent e) {
+
+		comboBox = new JComboBox();
+		comboBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (comboBox.getItemCount() > 0) {
+					String item = comboBox.getSelectedItem().toString();
+					String itens[] = item.split(": ");
+					int att = 3;
+					ResultSet rs = PeedidoDAO.getPedidosItems(Integer.parseInt(itens[1]));
+					table.setModel(Utilis.DbUtils.resultSetTable(rs));
+					ResultSet rs2 = PeedidoDAO.getPedidosATT(itens[1]);
+					try {
+						while (rs2.next()) {
+							att = rs2.getInt("ATT_Pedido");
+							System.out.println(att);
+
+							if (att == 1) {
+								chckbxFinalizado.setSelected(true);
+								System.out.println("foi até aqui");
+								System.out.println(att);
+							} else {
+								chckbxFinalizado.setSelected(false);
+							}
+						}
+					} catch (Exception e4) {
+						System.out.println(e4);
+					}
+
+				}
+			}
+		});
+		comboBox.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				comboBox.removeAllItems();
+				ResultSet rs = PeedidoDAO.getAllPedidosFromCliente(Main.cliente.getCdCodigo());
+
+				int cdPedido;
+
+				try {
+					while (rs.next()) {
+						cdPedido = rs.getInt("CD_Pedido");
+						comboBox.addItem("Pedido: " + cdPedido);
+					}
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+
+		comboBox.setForeground(Color.BLACK);
+		comboBox.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
+		comboBox.setBackground(new Color(255, 255, 255));
+		comboBox.setBounds(113, 72, 183, 25);
+		contentPane.add(comboBox);
+
+		JButton btnFinalizar = new JButton("Finalizar");
+		btnFinalizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new FinalizarPedido().setVisible(true);
+				dispose();
+			}
+		});
+
+		JButton btnNewButton = new JButton("-");
+		btnNewButton.setBackground(new Color(255, 255, 255));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (table.getRowCount() > 0) {
+					String nomeProduto = null;
+					try {
+						nomeProduto = (String) table.getValueAt(table.getSelectedRow(), 0);
+					} catch (ArrayIndexOutOfBoundsException e2) {
+						JOptionPane.showMessageDialog(null, "Ocorreu um erro", "Erro!", 1);
+					}
+					ResultSet rs = PeedidoDAO.findByName(nomeProduto);
+
+					int idProduto = 0;
+					int numEstoque = 0;
+					try {
+						if (rs.next()) {
+							idProduto = rs.getInt("CD_Produto");
+							numEstoque = rs.getInt("QT_Estoque_Produto");
+						}
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+
+					if (comboBox.getItemCount() > 0) {
+						String item = comboBox.getSelectedItem().toString();
+						String itens[] = item.split(": ");
+
+						int idPedido = Integer.parseInt(itens[1]);
+
+						ItemsDAO.remove(idPedido, idProduto);
+						JOptionPane.showMessageDialog(null, "Item removido com sucesso.", "Sucesso!", 1);
+						PeedidoDAO.addIntoEstoque(idProduto, numEstoque);
+
 						if (comboBox.getItemCount() > 0) {
-							String item = comboBox.getSelectedItem().toString();
-							String itens[] = item.split(": ");
-							int att = 3;
-							ResultSet rs = PeedidoDAO.getPedidosItems(Integer.parseInt(itens[1]));
-							table.setModel(DbUtils.resultSetToTableModel(rs));
-							ResultSet rs2 = PeedidoDAO.getPedidosATT(itens[1]);
-							try {
-								while (rs2.next()) {
-									att = rs2.getInt("ATT_Pedido");
-									System.out.println(att);
-									
-									if (att == 1) {
-										chckbxFinalizado.setSelected(true);
-										System.out.println("foi até aqui");
-										System.out.println(att);
-									} else {
-										chckbxFinalizado.setSelected(false);
-									}
-								}
-							} catch (Exception e4) {
-								System.out.println(e4);
-							}
 
+							ResultSet rsPedidos = PeedidoDAO.getPedidosItems(Integer.parseInt(itens[1]));
+							table.setModel(Utilis.DbUtils.resultSetTable(rsPedidos));
 						}
 					}
-				});
-				comboBox.addFocusListener(new FocusAdapter() {
-					@Override
-					public void focusGained(FocusEvent e) {
-						comboBox.removeAllItems();
-						ResultSet rs = PeedidoDAO.getAllPedidosFromCliente(Main.cliente.getCdCodigo());
+				}
+			}
+		});
+		btnNewButton.setForeground(new Color(0, 100, 0));
+		btnNewButton.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
+		btnNewButton.setBounds(538, 119, 42, 37);
+		contentPane.add(btnNewButton);
+		btnFinalizar.setForeground(new Color(34, 139, 34));
+		btnFinalizar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		btnFinalizar.setBackground(new Color(255, 255, 255));
+		btnFinalizar.setBounds(268, 328, 110, 23);
+		contentPane.add(btnFinalizar);
 
-						int cdPedido;
+		JButton btnSair = new JButton("");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new PetShopMenu().setVisible(true);
+				dispose();
+			}
+		});
+		btnSair.setForeground(new Color(0, 0, 0));
+		btnSair.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		btnSair.setBackground(new Color(255, 240, 245));
+		btnSair.setBorderPainted(false);
+		btnSair.setContentAreaFilled(false);
+		btnSair.setFocusPainted(false);
+		btnSair.setOpaque(false);
+		btnSair.setBounds(10, 337, 53, 53);
+		contentPane.add(btnSair);
 
-						try {
-							while (rs.next()) {
-								cdPedido = rs.getInt("CD_Pedido");
-								comboBox.addItem("Pedido: " + cdPedido);
-							}
-						} catch (SQLException e1) {
-							e1.printStackTrace();
-						}
-					}
-				});
-				
-						comboBox.setForeground(Color.BLACK);
-						comboBox.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
-						comboBox.setBackground(new Color(255, 255, 255));
-						comboBox.setBounds(113, 72, 183, 25);
-						contentPane.add(comboBox);
-				
-						JButton btnFinalizar = new JButton("Finalizar");
-						btnFinalizar.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent arg0) {
-								new FinalizarPedido().setVisible(true);
-								dispose();
-							}
-						});
-						
-								JButton btnNewButton = new JButton("-");
-								btnNewButton.setBackground(new Color(255, 255, 255));
-								btnNewButton.addActionListener(new ActionListener() {
-									public void actionPerformed(ActionEvent e) {
-										if (table.getRowCount() > 0) {
-											String nomeProduto = null;
-											try {
-												nomeProduto = (String) table.getValueAt(table.getSelectedRow(), 0);
-											} catch (ArrayIndexOutOfBoundsException e2) {
-												JOptionPane.showMessageDialog(null, "Ocorreu um erro", "Erro!", 1);
-											}
-											ResultSet rs = PeedidoDAO.findByName(nomeProduto);
-
-											int idProduto = 0;
-											int numEstoque = 0;
-											try {
-												if (rs.next()) {
-													idProduto = rs.getInt("CD_Produto");
-													numEstoque = rs.getInt("QT_Estoque_Produto");
-												}
-											} catch (SQLException e1) {
-												e1.printStackTrace();
-											}
-
-											if (comboBox.getItemCount() > 0) {
-												String item = comboBox.getSelectedItem().toString();
-												String itens[] = item.split(": ");
-
-												int idPedido = Integer.parseInt(itens[1]);
-
-												ItemsDAO.remove(idPedido, idProduto);
-												JOptionPane.showMessageDialog(null, "Item removido com sucesso.", "Sucesso!", 1);
-												PeedidoDAO.addIntoEstoque(idProduto, numEstoque);
-
-												if (comboBox.getItemCount() > 0) {
-
-													ResultSet rsPedidos = PeedidoDAO.getPedidosItems(Integer.parseInt(itens[1]));
-													table.setModel(DbUtils.resultSetToTableModel(rsPedidos));
-												}
-											}
-										}
-									}
-								});
-								btnNewButton.setForeground(new Color(0, 100, 0));
-								btnNewButton.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
-								btnNewButton.setBounds(538, 119, 42, 37);
-								contentPane.add(btnNewButton);
-						btnFinalizar.setForeground(new Color(34, 139, 34));
-						btnFinalizar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-						btnFinalizar.setBackground(new Color(255, 255, 255));
-						btnFinalizar.setBounds(268, 328, 110, 23);
-						contentPane.add(btnFinalizar);
-				
-						JButton btnSair = new JButton("");
-						btnSair.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent e) {
-								new PetShopMenu().setVisible(true);
-								dispose();
-							}
-						});
-						btnSair.setForeground(new Color(0, 0, 0));
-						btnSair.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-						btnSair.setBackground(new Color(255, 240, 245));
-						btnSair.setBorderPainted(false);
-						btnSair.setContentAreaFilled(false);
-						btnSair.setFocusPainted(false);
-						btnSair.setOpaque(false);
-						btnSair.setBounds(10, 337, 53, 53);
-						contentPane.add(btnSair);
-		
-				JLabel lblNewLabel = new JLabel("");
-				lblNewLabel.setIcon(new ImageIcon(ConsultarPedidos.class.getResource("/imagens/3209260-128(1).png")));
-				lblNewLabel.setBounds(14, 337, 53, 53);
-				contentPane.add(lblNewLabel);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(ConsultarPedidos.class.getResource("/imagens/3209260-128(1).png")));
+		lblNewLabel.setBounds(14, 337, 53, 53);
+		contentPane.add(lblNewLabel);
 
 		JLabel lblCarrinho = new JLabel("Carrinho");
 		lblCarrinho.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));

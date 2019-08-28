@@ -2,6 +2,7 @@ package Frames;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -13,6 +14,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -28,9 +30,6 @@ import Beans.Items;
 import Beans.Pedido;
 import DAO.ItemsDAO;
 import DAO.PeedidoDAO;
-import net.proteanit.sql.DbUtils;
-import javax.swing.ImageIcon;
-import java.awt.Toolkit;
 
 public class ConsultarProdutos extends JFrame {
 
@@ -90,7 +89,7 @@ public class ConsultarProdutos extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				ResultSet rs = PeedidoDAO.findAllToTable();
-				table.setModel(DbUtils.resultSetToTableModel(rs));
+				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
 		txtNome.addKeyListener(new KeyAdapter() {
@@ -99,7 +98,7 @@ public class ConsultarProdutos extends JFrame {
 				String nomeProduto = txtNome.getText();
 
 				ResultSet rs = PeedidoDAO.findByNameToTable(nomeProduto);
-				table.setModel(DbUtils.resultSetToTableModel(rs));
+				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
 		txtNome.setBounds(264, 92, 206, 20);
