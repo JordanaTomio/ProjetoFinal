@@ -2,6 +2,7 @@ package Frames;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -116,6 +117,7 @@ public class PetAdotar extends JFrame {
 		btnMacho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		buttonGroup.add(btnMacho);
 		contentPane.add(btnMacho);
+		btnMacho.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnFemea.setBounds(533, 237, 78, 23);
 		btnFemea.setBorderPainted(false);
@@ -125,6 +127,7 @@ public class PetAdotar extends JFrame {
 		btnFemea.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		buttonGroup.add(btnFemea);
 		contentPane.add(btnFemea);
+		btnFemea.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnCao.setBounds(450, 269, 64, 16);
 		btnCao.setBorderPainted(false);
@@ -134,8 +137,11 @@ public class PetAdotar extends JFrame {
 		btnCao.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		buttonGroup_1.add(btnCao);
 		contentPane.add(btnCao);
+		btnCao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 
 		JButton btnVoltar = new JButton("");
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.setBackground(new Color(230, 230, 250));
 		btnVoltar.setBorderPainted(false);
 		btnVoltar.setContentAreaFilled(false);
@@ -157,8 +163,10 @@ public class PetAdotar extends JFrame {
 		btnGato.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		buttonGroup_1.add(btnGato);
 		contentPane.add(btnGato);
+		btnGato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		JButton btnAnterior = new JButton("");
+		btnAnterior.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAnterior.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
@@ -222,6 +230,7 @@ public class PetAdotar extends JFrame {
 		});
 
 		JButton btnProximo = new JButton("");
+		btnProximo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnProximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				one++;
@@ -295,6 +304,7 @@ public class PetAdotar extends JFrame {
 		vacinadodb.setOpaque(false);
 		vacinadodb.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(vacinadodb);
+		vacinadodb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		castradodb.setBounds(127, 298, 97, 23);
 		castradodb.setContentAreaFilled(false);
@@ -302,6 +312,7 @@ public class PetAdotar extends JFrame {
 		castradodb.setOpaque(false);
 		castradodb.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(castradodb);
+		castradodb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		lblNigmviu = new JLabel("");
 		lblNigmviu.setBounds(25, 44, 46, 14);
@@ -314,6 +325,9 @@ public class PetAdotar extends JFrame {
 		btnProximo.setBorderPainted(false);
 		btnProximo.setContentAreaFilled(false);
 		contentPane.add(btnProximo);
+		btnProximo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		
 		btnAnterior.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/3847912-128(1).png")));
 		btnAnterior.setBounds(432, 324, 46, 44);
 		btnAnterior.setBorderPainted(false);
@@ -324,8 +338,10 @@ public class PetAdotar extends JFrame {
 		btnVoltar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnVoltar.setBounds(14, 343, 46, 50);
 		contentPane.add(btnVoltar);
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		JButton btnAdotar = new JButton("Adotar ");
+		btnAdotar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAdotar.setForeground(new Color(0, 100, 0));
 		btnAdotar.setBackground(new Color(255, 255, 255));
 		btnAdotar.setBounds(163, 336, 117, 31);
