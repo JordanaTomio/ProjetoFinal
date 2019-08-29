@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.awt.Cursor;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -122,7 +123,7 @@ public class BanhoTosa extends JFrame {
 		tblAGENDA.getColumnModel().getColumn(0).setPreferredWidth(38);
 		tblAGENDA.getColumnModel().getColumn(1).setPreferredWidth(46);
 
-		// puxa a informa√ß√£o tabelha quando carrega Jframe
+		// puxa a informa√É¬ß√É¬£o tabelha quando carrega Jframe
 		tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 
 		txtCLIENTE = new JTextField();
@@ -132,6 +133,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(txtCLIENTE);
 
 		JRadioButton rdbtnGato = new JRadioButton("Gato");
+		rdbtnGato.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup_1.add(rdbtnGato);
 		rdbtnGato.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnGato.setBackground(new Color(176, 224, 230));
@@ -143,6 +145,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(rdbtnGato);
 
 		JRadioButton rdbtnCachorro = new JRadioButton("Cachorro");
+		rdbtnCachorro.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup_1.add(rdbtnCachorro);
 		rdbtnCachorro.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnCachorro.setBackground(new Color(176, 224, 230));
@@ -154,6 +157,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(rdbtnCachorro);
 
 		rdbtnPequeno = new JRadioButton("Pequeno");
+		rdbtnPequeno.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnPequeno);
 		rdbtnPequeno.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnPequeno.setBorderPainted(false);
@@ -164,7 +168,8 @@ public class BanhoTosa extends JFrame {
 
 		contentPane.add(rdbtnPequeno);
 
-		rdbtnMedio = new JRadioButton("M\u00E9dio");
+		rdbtnMedio = new JRadioButton("M√©dio");
+		rdbtnMedio.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnMedio);
 		rdbtnMedio.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnMedio.setBackground(new Color(176, 224, 230));
@@ -176,6 +181,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(rdbtnMedio);
 
 		rdbtnGrande = new JRadioButton("Grande");
+		rdbtnGrande.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnGrande);
 		rdbtnGrande.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnGrande.setBackground(new Color(176, 224, 230));
@@ -187,6 +193,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(rdbtnGrande);
 
 		rdbtnBanho = new JRadioButton("Banho");
+		rdbtnBanho.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup_2.add(rdbtnBanho);
 		rdbtnBanho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnBanho.setBackground(new Color(176, 224, 230));
@@ -198,6 +205,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(rdbtnBanho);
 
 		rdbtnBanhoETosa = new JRadioButton("Banho e tosa");
+		rdbtnBanhoETosa.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup_2.add(rdbtnBanhoETosa);
 		rdbtnBanhoETosa.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		rdbtnBanhoETosa.setBackground(new Color(176, 224, 230));
@@ -209,6 +217,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(rdbtnBanhoETosa);
 
 		JButton btnCarregar = new JButton("Atualizar");
+		btnCarregar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCarregar.setForeground(new Color(0, 100, 0));
 		btnCarregar.setBackground(new Color(255, 255, 255));
 		btnCarregar.addActionListener(new ActionListener() {
@@ -218,6 +227,7 @@ public class BanhoTosa extends JFrame {
 		});
 
 		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnConfirmar.setForeground(new Color(0, 100, 0));
 		btnConfirmar.setBackground(new Color(255, 255, 255));
 		btnConfirmar.addActionListener(new ActionListener() {
@@ -243,76 +253,76 @@ public class BanhoTosa extends JFrame {
 					if (rdbtnPequeno.isSelected() && rdbtnBanho.isSelected()) {
 
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 15,00", "Gostaria de confirmar Hor·rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 15,00", "Gostaria de confirmar Hor√°rio?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 1;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnPequeno.isSelected() && rdbtnBanhoETosa.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 25,00", "Gostaria de confirmar Hor·rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 25,00", "Gostaria de confirmar Hor√°rio?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio  confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio  confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 2;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 
 					} else if (rdbtnMedio.isSelected() && rdbtnBanho.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 20,00", "Gostaria de confirmar Hor·rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 20,00", "Gostaria de confirmar Hor√°rio?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 3;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnMedio.isSelected() && rdbtnBanhoETosa.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar Hor·rio ?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar Hor√°rio ?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio  confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio  confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 4;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnGrande.isSelected() && rdbtnBanho.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar Hor·rio ?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar Hor√°rio ?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio  confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio  confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 5;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnGrande.isSelected() && rdbtnBanhoETosa.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 40,00", "Gostaria de confirmar Hor·rio ?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 40,00", "Gostaria de confirmar Hor√°rio ?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio  confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio  confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 6;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 					}
 					if ((Confi == 0))
@@ -325,6 +335,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(btnConfirmar);
 
 		JButton btnVoltar = new JButton("");
+		btnVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Menu psm = new Menu();
