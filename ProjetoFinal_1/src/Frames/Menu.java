@@ -90,7 +90,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnLogoff.setBounds(22, 323, 47, 56);
+		btnLogoff.setBounds(22, 323, 52, 56);
 		btnLogoff.setBorderPainted(false);
 		btnLogoff.setContentAreaFilled(false);
 		btnLogoff.setFocusPainted(false);
@@ -121,7 +121,7 @@ public class Menu extends JFrame {
 		lblLoja.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		
 		
-		btnPetShop.setBounds(248, 142, 136, 103);
+		btnPetShop.setBounds(295, 142, 65, 103);
 		btnPetShop.setBorderPainted(false);
 		btnPetShop.setContentAreaFilled(false);
 		btnPetShop.setFocusPainted(false);
@@ -176,7 +176,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnAdm);
 		
 		
-		btnLoja.setBounds(70, 142, 132, 103);
+		btnLoja.setBounds(94, 142, 89, 103);
 		btnLoja.setBorderPainted(false);
 		btnLoja.setContentAreaFilled(false);
 		btnLoja.setFocusPainted(false);
@@ -194,7 +194,7 @@ public class Menu extends JFrame {
 		lblAdoo.setForeground(new Color(0, 0, 0));
 		lblAdoo.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 
-		btnAdocao.setBounds(473, 147, 105, 98);
+		btnAdocao.setBounds(483, 151, 95, 85);
 		btnAdocao.setBorderPainted(false);
 		btnAdocao.setContentAreaFilled(false);
 		btnAdocao.setFocusPainted(false);
