@@ -9,6 +9,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Cursor;
 import java.sql.ResultSet;
 
 import javax.swing.ImageIcon;
@@ -81,6 +82,7 @@ public class ConsultarClientes extends JFrame {
 		table.setFont(new Font("Lucida Bright", Font.PLAIN, 10));
 		
 		JButton btnVoltar = new JButton("");
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			Adm adm = new Adm();
