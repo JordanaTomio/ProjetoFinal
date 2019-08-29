@@ -3,6 +3,7 @@ package Frames;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Cursor;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -51,6 +52,7 @@ public class Menu extends JFrame {
 		setResizable(false);
 		
 		JButton btnAdocao = new JButton("");
+		btnAdocao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAdocao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PetAdotar pea = new PetAdotar();
@@ -60,6 +62,7 @@ public class Menu extends JFrame {
 		});
 		
 		JButton btnLoja = new JButton("");
+		btnLoja.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLoja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PetShopMenu psm = new PetShopMenu();
@@ -69,6 +72,7 @@ public class Menu extends JFrame {
 		});
 		
 		JButton btnPetShop = new JButton("");
+		btnPetShop.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPetShop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BanhoTosa bnt = new BanhoTosa();
@@ -78,6 +82,7 @@ public class Menu extends JFrame {
 		});
 		
 		JButton btnLogoff = new JButton("");
+		btnLogoff.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogoff.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Login lgn = new Login();
@@ -92,7 +97,8 @@ public class Menu extends JFrame {
 		btnLogoff.setOpaque(false);
 		contentPane.add(btnLogoff);
 		
-		btnVet = new JButton("Veterin\u00E1rio");
+		btnVet = new JButton("Veterinário");
+		btnVet.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVet.setIcon(new ImageIcon(Menu.class.getResource("/imagens/vet.png")));
 		btnVet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -149,6 +155,7 @@ public class Menu extends JFrame {
 		lblPetShop.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		
 		JButton btnAdm = new JButton("");
+		btnAdm.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAdm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (Main.cliente.getAdm() == 1){
@@ -193,16 +200,20 @@ public class Menu extends JFrame {
 		btnAdocao.setFocusPainted(false);
 		btnAdocao.setOpaque(false);
 		contentPane.add(btnAdocao);
+		btnAdocaosetCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		
 		JLabel label_1 = new JLabel("New label");
 		label_1.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Webp.net-resizeimage (2).png")));
 		label_1.setBounds(463, 129, 138, 135);
 		contentPane.add(label_1);
 		
+		
 		JLabel cachorro = new JLabel("New label");
 		cachorro.setIcon(new ImageIcon(Menu.class.getResource("/imagens/dog(1).png")));
 		cachorro.setBounds(179, 97, 329, 315);
 		contentPane.add(cachorro);
+		
 		
 		JLabel lblManager = new JLabel("");
 		lblManager.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Adm menor.png")));
@@ -214,6 +225,7 @@ public class Menu extends JFrame {
 		}
 		contentPane.add(lblManager);
 		
+		
 		JLabel lblAdministrao = new JLabel("Administra\u00E7\u00E3o");
 		lblAdministrao.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		lblAdministrao.setBounds(539, 88, 103, 33);
@@ -224,6 +236,7 @@ public class Menu extends JFrame {
 			lblAdministrao.setVisible(false);
 		}
 		contentPane.add(lblAdministrao);
+		
 		
 		JLabel lblBackground = new JLabel("New label");
 		lblBackground.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Background.jpg")));
