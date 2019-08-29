@@ -14,6 +14,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.awt.Cursor;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -126,7 +127,7 @@ public class ConsultarPedidos extends JFrame {
 
 							if (att == 1) {
 								chckbxFinalizado.setSelected(true);
-								System.out.println("foi até aqui");
+								System.out.println("foi atÃ© aqui");
 								System.out.println(att);
 							} else {
 								chckbxFinalizado.setSelected(false);
@@ -165,6 +166,7 @@ public class ConsultarPedidos extends JFrame {
 		contentPane.add(comboBox);
 
 		JButton btnFinalizar = new JButton("Finalizar");
+		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new FinalizarPedido().setVisible(true);
@@ -173,6 +175,7 @@ public class ConsultarPedidos extends JFrame {
 		});
 
 		JButton btnNewButton = new JButton("-");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -226,6 +229,7 @@ public class ConsultarPedidos extends JFrame {
 		contentPane.add(btnFinalizar);
 
 		JButton btnSair = new JButton("");
+		btnSair.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new PetShopMenu().setVisible(true);
