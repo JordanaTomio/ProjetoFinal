@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Cursor;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -62,6 +63,7 @@ public class ContatoVeterinario extends JFrame {
 		setLocationRelativeTo(null);
 		
 		JButton btnVoltar = new JButton("");
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Menu mnu = new Menu();
@@ -108,7 +110,7 @@ public class ContatoVeterinario extends JFrame {
 				String q = "";
 				String w = "";
 				//-------------------------------------------------------------\\
-				q = "SELECT NM_Veterinario Nome, TL_Veterinario Telefone, LC_Veterinario Endereço"
+				q = "SELECT NM_Veterinario Nome, TL_Veterinario Telefone, LC_Veterinario EndereÃ§o"
 						+ " FROM contato_veterinario";
 				if (!txtBAIRRO.getText().isEmpty()){
 					if (w.isEmpty()){
