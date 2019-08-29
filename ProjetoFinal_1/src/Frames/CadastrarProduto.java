@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.awt.Cursor;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -51,6 +52,7 @@ public class CadastrarProduto extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnVoltar = new JButton("");
+		btnVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Adm adm = new Adm();
@@ -103,21 +105,21 @@ public class CadastrarProduto extends JFrame {
 		lblCadastroDeProdutos.setBounds(151, 11, 416, 68);
 		contentPane.add(lblCadastroDeProdutos);
 		
-				JLabel unidade_1 = new JLabel("Unidade:");
-				unidade_1.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-				unidade_1.setBounds(34, 247, 103, 23);
-				contentPane.add(unidade_1);
+		JLabel unidade_1 = new JLabel("Unidade:");
+		unidade_1.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		unidade_1.setBounds(34, 247, 103, 23);
+		contentPane.add(unidade_1);
 		
 		JLabel lblVoltar = new JLabel("");
 		lblVoltar.setIcon(new ImageIcon(CadastrarProduto.class.getResource("/imagens/3209260-128(1).png")));
 		lblVoltar.setBounds(20, 331, 40, 59);
 		contentPane.add(lblVoltar);
 		
-				txtEstoque = new JTextField();
-				txtEstoque.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-				txtEstoque.setColumns(10);
-				txtEstoque.setBounds(521, 178, 72, 20);
-				contentPane.add(txtEstoque);
+		txtEstoque = new JTextField();
+		txtEstoque.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
+		txtEstoque.setColumns(10);
+		txtEstoque.setBounds(521, 178, 72, 20);
+		contentPane.add(txtEstoque);
 
 		txtValor = new JTextField();
 		txtValor.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
@@ -138,6 +140,7 @@ public class CadastrarProduto extends JFrame {
 		contentPane.add(txtNome);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = txtNome.getText();
