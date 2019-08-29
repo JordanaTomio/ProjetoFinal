@@ -97,7 +97,7 @@ public class Menu extends JFrame {
 		btnLogoff.setOpaque(false);
 		contentPane.add(btnLogoff);
 		
-		btnVet = new JButton("VeterinÃ¡rio");
+		btnVet = new JButton("Veterinário");
 		btnVet.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVet.setIcon(new ImageIcon(Menu.class.getResource("/imagens/vet.png")));
 		btnVet.addActionListener(new ActionListener() {
@@ -143,7 +143,7 @@ public class Menu extends JFrame {
 		label.setBounds(258, 129, 138, 135);
 		contentPane.add(label);
 		
-		JLabel lblVeterinrio = new JLabel("Veterin\u00E1rio");
+		JLabel lblVeterinrio = new JLabel("Veterinário");
 		lblVeterinrio.setFont(new Font("Lucida Bright", Font.BOLD, 13));
 		lblVeterinrio.setBounds(561, 305, 77, 22);
 		contentPane.add(lblVeterinrio);
@@ -188,7 +188,7 @@ public class Menu extends JFrame {
 		lblNewLabel.setBounds(69, 129, 138, 135);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblAdoo = new JLabel("Ado\u00E7\u00E3o");
+		JLabel lblAdoo = new JLabel("Adoção");
 		lblAdoo.setBounds(494, 244, 65, 22);
 		contentPane.add(lblAdoo);
 		lblAdoo.setForeground(new Color(0, 0, 0));
@@ -200,7 +200,7 @@ public class Menu extends JFrame {
 		btnAdocao.setFocusPainted(false);
 		btnAdocao.setOpaque(false);
 		contentPane.add(btnAdocao);
-		btnAdocaosetCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnAdocao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		
 		JLabel label_1 = new JLabel("New label");
@@ -226,7 +226,7 @@ public class Menu extends JFrame {
 		contentPane.add(lblManager);
 		
 		
-		JLabel lblAdministrao = new JLabel("Administra\u00E7\u00E3o");
+		JLabel lblAdministrao = new JLabel("Administração");
 		lblAdministrao.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		lblAdministrao.setBounds(539, 88, 103, 33);
 		

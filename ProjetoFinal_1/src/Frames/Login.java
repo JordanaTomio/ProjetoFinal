@@ -99,7 +99,7 @@ public class Login extends JFrame {
 					new Menu().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Email ou senha s√£o inv√°lidos.", "Erro no login.", 1);
+					JOptionPane.showMessageDialog(null, "Email ou senha s„o inv·lidos.", "Erro no login.", 1);
 				}
 
 			}

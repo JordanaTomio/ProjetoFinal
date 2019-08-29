@@ -54,7 +54,7 @@ public class FinalizarPedido extends JFrame {
 	 * Create the frame.
 	 */
 	public FinalizarPedido() {
-		setTitle("Finaliza\u00E7\u00E3o");
+		setTitle("Finalização");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(FinalizarPedido.class.getResource("/imagens/3775232-16.png")));
 		DecimalFormat df = new DecimalFormat();
 		df.setMaximumFractionDigits(2);
@@ -85,7 +85,7 @@ public class FinalizarPedido extends JFrame {
 		btnVoltar.setContentAreaFilled(false);
 		contentPane.add(btnVoltar);
 		
-		JLabel lblSeuTotal = new JLabel("Seu total \u00E9 de R$");
+		JLabel lblSeuTotal = new JLabel("Seu total é de R$");
 		lblSeuTotal.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		lblSeuTotal.setBounds(194, 100, 179, 26);
 		contentPane.add(lblSeuTotal);
@@ -103,12 +103,12 @@ public class FinalizarPedido extends JFrame {
 		total.setText(ConsultarPedidos.ValoresTotaisString);
 		contentPane.add(total);
 		
-		JLabel lblSelecioneOMtodo = new JLabel("Selecione o mÃ©todo de pagamento:");
+		JLabel lblSelecioneOMtodo = new JLabel("Selecione o método de pagamento:");
 		lblSelecioneOMtodo.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		lblSelecioneOMtodo.setBounds(171, 122, 282, 52);
 		contentPane.add(lblSelecioneOMtodo);
 		
-		JRadioButton cartao = new JRadioButton("CartÃ£o");
+		JRadioButton cartao = new JRadioButton("Cartão");
 		cartao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cartao.addMouseListener(new MouseAdapter() {
 			@Override
@@ -130,7 +130,7 @@ public class FinalizarPedido extends JFrame {
 		cartao.setFocusPainted(false);
 		contentPane.add(cartao);
 		
-		JRadioButton avista = new JRadioButton("Ã¡ vista");
+		JRadioButton avista = new JRadioButton("À vista");
 		avista.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		avista.addMouseListener(new MouseAdapter() {
 			@Override

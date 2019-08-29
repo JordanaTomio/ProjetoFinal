@@ -349,9 +349,9 @@ public class PetAdotar extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				JOptionPane.showMessageDialog(null,
-						"ParabÃƒÂ©ns! VocÃƒÂª estÃƒÂ¡ perto de adotar um Pet." + "\n"
+						"Parab�ns! Voc� est� muito perto de adotar um Pet." + "\n"
 								+ "Entraremos em contato para agendar a visita" + "\n"
-								+ "de avaliaÃƒÂ§ÃƒÂ£o e levar seu novo amigo!");
+								+ "de avalia��o para que voc� possa levar seu novo amigo!");
 
 				int passe;
 				passe = Integer.parseInt(lblNigmviu.getText());
@@ -427,7 +427,7 @@ public class PetAdotar extends JFrame {
 		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		contentPane.add(btnAdotar);
 
-		JLabel lblPetInformacoes = new JLabel("Pet Informa\u00E7\u00F5es");
+		JLabel lblPetInformacoes = new JLabel("Pet Informa��es");
 		lblPetInformacoes.setBounds(184, 23, 258, 44);
 		lblPetInformacoes.setFont(new Font("Bauhaus 93", Font.BOLD, 30));
 		contentPane.add(lblPetInformacoes);
@@ -447,7 +447,7 @@ public class PetAdotar extends JFrame {
 		lblTipo.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblTipo);
 
-		JLabel lblRaca = new JLabel("Ra\u00E7a:");
+		JLabel lblRaca = new JLabel("Ra�a:");
 		lblRaca.setBounds(25, 204, 51, 18);
 		lblRaca.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblRaca);
@@ -457,7 +457,7 @@ public class PetAdotar extends JFrame {
 		lblTamanho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblTamanho);
 
-		JLabel lblGenero = new JLabel("G\u00EAnero:");
+		JLabel lblGenero = new JLabel("G�nero:");
 		lblGenero.setBounds(387, 241, 56, 14);
 		lblGenero.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblGenero);

@@ -123,12 +123,11 @@ public class ConsultarPedidos extends JFrame {
 					try {
 						while (rs2.next()) {
 							att = rs2.getInt("ATT_Pedido");
-							System.out.println(att);
+							
 
 							if (att == 1) {
 								chckbxFinalizado.setSelected(true);
-								System.out.println("foi até aqui");
-								System.out.println(att);
+							
 							} else {
 								chckbxFinalizado.setSelected(false);
 							}

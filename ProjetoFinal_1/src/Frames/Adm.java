@@ -99,7 +99,7 @@ public class Adm extends JFrame {
 		lblConsultarClientes.setBounds(492, 276, 131, 45);
 		contentPane.add(lblConsultarClientes);
 		
-		JLabel lblCadastrar = new JLabel("Cadastrar Produtos\r\n");
+		JLabel lblCadastrar = new JLabel("Cadastrar Produtos");
 		lblCadastrar.setToolTipText("");
 		lblCadastrar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		lblCadastrar.setBounds(47, 275, 141, 45);
@@ -136,7 +136,7 @@ public class Adm extends JFrame {
 		btnCadastrar.setBounds(47, 148, 141, 135);
 		contentPane.add(btnCadastrar);
 		
-		JLabel lblAdministrao = new JLabel("Administra\u00E7\u00E3o");
+		JLabel lblAdministrao = new JLabel("Administração");
 		lblAdministrao.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblAdministrao.setBounds(215, 24, 281, 68);
 		contentPane.add(lblAdministrao);
@@ -146,7 +146,7 @@ public class Adm extends JFrame {
 		lblAlterar.setBounds(270, 143, 137, 144);
 		contentPane.add(lblAlterar);
 		
-		JLabel lblAlterarProdutos = new JLabel("Alterar Produtos\r\n");
+		JLabel lblAlterarProdutos = new JLabel("Alterar Produtos");
 		lblAlterarProdutos.setToolTipText("");
 		lblAlterarProdutos.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		lblAlterarProdutos.setBounds(285, 275, 131, 45);
