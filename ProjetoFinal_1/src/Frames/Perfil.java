@@ -1,6 +1,7 @@
 package Frames;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -168,6 +169,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(lblGeneroPerfil);
 
 		buttonGroup.add(btnMasculino);
+		btnMasculino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMasculino.setBackground(new Color(224, 255, 255));
 		btnMasculino.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnMasculino.setBounds(388, 304, 93, 23);
@@ -177,6 +179,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(btnMasculino);
 
 		buttonGroup.add(btnFeminino);
+		btnFeminino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFeminino.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnFeminino.setBackground(new Color(224, 255, 255));
 		btnFeminino.setBounds(483, 304, 87, 23);
@@ -186,6 +189,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(btnFeminino);
 
 		buttonGroup.add(btnOutro);
+		btnOutro.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnOutro.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnOutro.setBackground(new Color(224, 255, 255));
 		btnOutro.setBounds(572, 304, 66, 23);
@@ -195,6 +199,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(btnOutro);
 
 		btnBuscar = new JButton("Buscar");
+		btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBuscar.setForeground(new Color(0, 100, 0));
 		btnBuscar.setBackground(new Color(255, 255, 255));
 		btnBuscar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
@@ -238,6 +243,7 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.add(btnBuscar);
 
 		btnAlterar = new JButton("Alterar");
+		btnAlterar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAlterar.setForeground(new Color(0, 100, 0));
 		btnAlterar.setBackground(new Color(255, 255, 255));
 		btnAlterar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
@@ -288,7 +294,10 @@ public class Perfil<EntityManager> extends JFrame {
 		});
 		btnAlterar.setBounds(186, 304, 111, 23);
 		contentPane.add(btnAlterar);
+		
+		
 		JButton btnVoltar = new JButton("");
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PetShopMenu psm = new PetShopMenu();
