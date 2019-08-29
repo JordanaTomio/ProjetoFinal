@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Cursor;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -73,6 +74,7 @@ public class Login extends JFrame {
 		contentPane.add(txtSenha);
 
 		JButton btnEntrar = new JButton("");
+		btnEntrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEntrar.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -97,7 +99,7 @@ public class Login extends JFrame {
 					new Menu().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Email ou senha s„o inv·lidos.", "Erro no login.", 1);
+					JOptionPane.showMessageDialog(null, "Email ou senha s√£o inv√°lidos.", "Erro no login.", 1);
 				}
 
 			}
@@ -110,6 +112,7 @@ public class Login extends JFrame {
 		contentPane.add(btnEntrar);
 
 		JButton btnRegistrar = new JButton("");
+		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Cadastro CIC = new Cadastro();
