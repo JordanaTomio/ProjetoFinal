@@ -2,6 +2,7 @@ package Frames;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Cursor;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -50,6 +51,7 @@ public class Adm extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnVoltar = new JButton("");
+		btnVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu mnu = new Menu();
@@ -70,6 +72,7 @@ public class Adm extends JFrame {
 		contentPane.add(lblVoltar);
 		
 		JButton btnConsultar = new JButton("");
+		btnConsultar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnConsultar.setContentAreaFilled(false);
 		btnConsultar.setBorderPainted(false);
 		btnConsultar.setOpaque(false);
@@ -103,6 +106,7 @@ public class Adm extends JFrame {
 		contentPane.add(lblCadastrar);
 		
 		JButton btnCadastrar = new JButton("");
+		btnCadastrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CadastrarProduto cdp = new CadastrarProduto();
