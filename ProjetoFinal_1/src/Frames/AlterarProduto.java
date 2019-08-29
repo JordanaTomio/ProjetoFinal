@@ -25,6 +25,7 @@ import javax.swing.text.MaskFormatter;
 import DAO.ProdutoDAO;
 import javax.swing.JFormattedTextField;
 import java.awt.Toolkit;
+import java.awt.Cursor;
 
 public class AlterarProduto extends JFrame {
 
@@ -174,6 +175,7 @@ public class AlterarProduto extends JFrame {
 		contentPane.add(txtEstoque);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String item = comboBox.getSelectedItem().toString();
@@ -201,6 +203,7 @@ public class AlterarProduto extends JFrame {
 		});
 
 		JButton btnVoltar = new JButton("");
+		btnVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Adm adm = new Adm();
