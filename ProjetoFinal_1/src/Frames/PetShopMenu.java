@@ -2,6 +2,7 @@ package Frames;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Cursor;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -44,6 +45,7 @@ public class PetShopMenu extends JFrame {
 		setLocationRelativeTo(null);
 		
 		JButton btnVoltar = new JButton("");
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu mnu = new Menu();
@@ -59,6 +61,7 @@ public class PetShopMenu extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JButton btnPedidos = new JButton("");
+		btnPedidos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ConsultarPedidos frp = new ConsultarPedidos();
@@ -74,6 +77,7 @@ public class PetShopMenu extends JFrame {
 		contentPane.add(btnPedidos);
 		
 		JButton btnPerfil = new JButton("");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Perfil pfl = new Perfil();
@@ -89,6 +93,7 @@ public class PetShopMenu extends JFrame {
 		contentPane.add(btnPerfil);
 		
 		JButton btnLoja = new JButton("");
+		btnLoja.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLoja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ConsultarProdutos crp = new ConsultarProdutos();
