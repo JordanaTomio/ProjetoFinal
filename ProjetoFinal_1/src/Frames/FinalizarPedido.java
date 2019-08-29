@@ -2,6 +2,7 @@ package Frames;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -71,6 +72,7 @@ public class FinalizarPedido extends JFrame {
 		setLocationRelativeTo(null);
 		
 		JButton btnVoltar = new JButton("");
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PetShopMenu psm = new PetShopMenu();
@@ -101,12 +103,13 @@ public class FinalizarPedido extends JFrame {
 		total.setText(ConsultarPedidos.ValoresTotaisString);
 		contentPane.add(total);
 		
-		JLabel lblSelecioneOMtodo = new JLabel("Selecione o m\u00E9todo de pagamento:");
+		JLabel lblSelecioneOMtodo = new JLabel("Selecione o método de pagamento:");
 		lblSelecioneOMtodo.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		lblSelecioneOMtodo.setBounds(171, 122, 282, 52);
 		contentPane.add(lblSelecioneOMtodo);
 		
-		JRadioButton cartao = new JRadioButton("Cart\u00E3o");
+		JRadioButton cartao = new JRadioButton("Cartão");
+		cartao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cartao.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -127,7 +130,8 @@ public class FinalizarPedido extends JFrame {
 		cartao.setFocusPainted(false);
 		contentPane.add(cartao);
 		
-		JRadioButton avista = new JRadioButton("\u00C0 vista");
+		JRadioButton avista = new JRadioButton("á vista");
+		avista.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		avista.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -152,6 +156,7 @@ public class FinalizarPedido extends JFrame {
 		contentPane.add(avista);
 		
 		x2 = new JRadioButton("2x");
+		x2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		x2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -173,6 +178,7 @@ public class FinalizarPedido extends JFrame {
 		contentPane.add(x2);
 		
 		x3 = new JRadioButton("3x");
+		x3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		x3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -212,6 +218,7 @@ public class FinalizarPedido extends JFrame {
 		contentPane.add(totalFinal);
 		
 		JButton btnFinalizar = new JButton("Finalizar");
+		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane.showMessageDialog(null, "Obrigada por comprar conosco, volte sempre!");
