@@ -3,6 +3,7 @@ package Frames;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -119,6 +120,7 @@ public class ConsultarProdutos extends JFrame {
 		contentPane.add(lblConsultar);
 		
 		JButton Carrinho = new JButton("Carrinho");
+		Carrinho.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Carrinho.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ConsultarPedidos cpd = new ConsultarPedidos();
@@ -155,6 +157,7 @@ public class ConsultarProdutos extends JFrame {
 		contentPane.add(Carrinho);
 
 		JButton button = new JButton("+");
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		button.setForeground(new Color(0, 100, 0));
 		button.setBackground(new Color(255, 255, 255));
@@ -199,6 +202,7 @@ public class ConsultarProdutos extends JFrame {
 		contentPane.add(button);
 
 		JButton btnNovoPedido = new JButton("Novo pedido");
+		btnNovoPedido.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNovoPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Pedido pedido = new Pedido(0, Main.cliente.getCdCodigo());
