@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 import javax.swing.JFormattedTextField;
+import java.awt.Cursor;
 
 public class Cadastro extends JFrame {
 
@@ -174,6 +175,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(lblGenero);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCadastrar.setForeground(new Color(0, 100, 0));
 		btnCadastrar.setBackground(new Color(255, 255, 255));
 		btnCadastrar.addActionListener(new ActionListener() {
@@ -207,7 +209,7 @@ public class Cadastro extends JFrame {
 					new Login().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Informacıes faltando!");
+					JOptionPane.showMessageDialog(null, "Informac√µes faltando!");
 				}
 
 			}
