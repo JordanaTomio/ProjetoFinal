@@ -237,6 +237,31 @@ public class Menu extends JFrame {
 		}
 		contentPane.add(lblAdministrao);
 		
+		JButton btnHotel = new JButton("");
+		btnHotel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cuidadores cdd = new Cuidadores();
+				cdd.setVisible(true);
+				dispose();
+			}
+		});
+		btnHotel.setBounds(18, 19, 89, 79);
+		btnHotel.setContentAreaFilled(false);
+		btnHotel.setOpaque(false);
+		btnHotel.setFocusPainted(false);
+		btnHotel.setBorderPainted(false);
+		contentPane.add(btnHotel);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Hotel2.png")));
+		lblNewLabel_2.setBounds(22, 11, 89, 88);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblHotel = new JLabel("Hotel");
+		lblHotel.setFont(new Font("Lucida Bright", Font.BOLD, 15));
+		lblHotel.setBounds(57, 96, 52, 22);
+		contentPane.add(lblHotel);
+		
 		
 		JLabel lblBackground = new JLabel("New label");
 		lblBackground.setIcon(new ImageIcon(Menu.class.getResource("/imagens/Background.jpg")));

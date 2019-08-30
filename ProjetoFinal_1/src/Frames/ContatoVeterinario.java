@@ -1,6 +1,7 @@
 package Frames;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -8,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.Cursor;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -22,7 +22,6 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import Utilis.DbUtils;
 import br.com.idog.Configuration.MySQLConfiguration;
 
 public class ContatoVeterinario extends JFrame {
@@ -110,7 +109,7 @@ public class ContatoVeterinario extends JFrame {
 				String q = "";
 				String w = "";
 				//-------------------------------------------------------------\\
-				q = "SELECT NM_Veterinario Nome, TL_Veterinario Telefone, LC_Veterinario EndereÃ§o"
+				q = "SELECT NM_Veterinario Nome, TL_Veterinario Telefone, LC_Veterinario Endereço"
 						+ " FROM contato_veterinario";
 				if (!txtBAIRRO.getText().isEmpty()){
 					if (w.isEmpty()){
