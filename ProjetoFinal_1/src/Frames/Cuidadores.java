@@ -25,6 +25,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
 import DAO.HotelDAO;
+import java.awt.Color;
 
 public class Cuidadores extends JFrame {
 
@@ -76,6 +77,8 @@ public class Cuidadores extends JFrame {
 		JButton sair = new JButton("");
 		sair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Menu mnu = new Menu();
+				mnu.setVisible(true);
 				dispose();
 			}
 		});
@@ -117,7 +120,9 @@ public class Cuidadores extends JFrame {
 		cachorro.setBounds(243, 220, 89, 23);
 		contentPane.add(cachorro);
 
-		JButton btnFinalizar = new JButton("Finalizar");
+		JButton btnFinalizar = new JButton("Agendar");
+		btnFinalizar.setForeground(new Color(0, 100, 0));
+		btnFinalizar.setBackground(Color.WHITE);
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = txtNomeCliente.getText();
@@ -154,8 +159,8 @@ public class Cuidadores extends JFrame {
 		txtNome.setEditable(false);
 		scrollPane.setViewportView(txtNome);
 		txtNome.setColumns(10);
-		btnFinalizar.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		btnFinalizar.setBounds(182, 344, 101, 23);
+		btnFinalizar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		btnFinalizar.setBounds(182, 336, 101, 31);
 		contentPane.add(btnFinalizar);
 
 		btnVai = new JButton("");
@@ -265,8 +270,8 @@ public class Cuidadores extends JFrame {
 		sair.setOpaque(false);
 		sair.setFocusPainted(false);
 		sair.setBorderPainted(false);
-		sair.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/183189-128(1).png")));
-		sair.setBounds(10, 325, 63, 51);
+		sair.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/3209260-128(1).png")));
+		sair.setBounds(10, 336, 63, 51);
 		contentPane.add(sair);
 		
 		
