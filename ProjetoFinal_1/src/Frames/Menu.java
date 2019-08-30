@@ -259,7 +259,7 @@ public class Menu extends JFrame {
 		
 		JLabel lblHotel = new JLabel("Hotel");
 		lblHotel.setFont(new Font("Lucida Bright", Font.BOLD, 15));
-		lblHotel.setBounds(57, 96, 52, 22);
+		lblHotel.setBounds(57, 94, 52, 22);
 		contentPane.add(lblHotel);
 		
 		
