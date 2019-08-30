@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import br.com.idog.Configuration.MySQLConfiguration;
 import Beans.Produto;
+import Conexao.MySQLConfiguration;
 
 public class ProdutoDAO {
 	public static void save(Produto produto) {

@@ -22,7 +22,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import br.com.idog.Configuration.MySQLConfiguration;
+import Conexao.MySQLConfiguration;
 
 public class ContatoVeterinario extends JFrame {
 

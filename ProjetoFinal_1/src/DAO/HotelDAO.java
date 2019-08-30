@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.idog.Configuration.Conexao;
+import Conexao.Conexao;
 
 public class HotelDAO {
 	

@@ -1,4 +1,4 @@
-package br.com.idog.Configuration;
+package Conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

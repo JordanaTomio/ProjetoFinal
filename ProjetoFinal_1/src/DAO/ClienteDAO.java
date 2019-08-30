@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import Beans.Cliente;
+import Conexao.MySQLConfiguration;
 import Frames.Main;
-import br.com.idog.Configuration.MySQLConfiguration;
 
 public class ClienteDAO {
 	public static void save(Cliente cliente) {

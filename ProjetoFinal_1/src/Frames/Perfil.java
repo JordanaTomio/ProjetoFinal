@@ -22,17 +22,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
 import Beans.Cliente;
+import Conexao.MySQLConfiguration;
 import DAO.ClienteDAO;
-/*
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.orm.jpa.EntityManagerFactoryAccessor;
-import org.springframework.orm.jpa.EntityManagerFactoryUtils;
-import org.springframework.orm.jpa.EntityManagerHolder;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
-*/
-import br.com.idog.Configuration.MySQLConfiguration;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
 import java.awt.Toolkit;

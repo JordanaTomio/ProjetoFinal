@@ -1,7 +1,7 @@
 package Frames;
 
 import Beans.Cliente;
-import br.com.idog.Configuration.MySQLConfiguration;
+import Conexao.MySQLConfiguration;
 
 public class Main {
 

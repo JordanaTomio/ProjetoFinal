@@ -77,15 +77,6 @@ public class Cuidadores extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton sair = new JButton("");
-		sair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Menu mnu = new Menu();
-				mnu.setVisible(true);
-				dispose();
-			}
-		});
-
 		txtNomeCliente = new JTextField();
 		txtNomeCliente.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtNomeCliente.setText("Digite seu nome...");
@@ -196,41 +187,52 @@ public class Cuidadores extends JFrame {
 		btnVai.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/3847912-128(2).png")));
 		btnVai.setBounds(523, 325, 89, 51);
 		contentPane.add(btnVai);
+		
+				btnVolta = new JButton("");
+				btnVolta.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						one--;
+						ResultSet rs = HotelDAO.findAll(one);
 
-		btnVolta = new JButton("");
-		btnVolta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				one--;
-				ResultSet rs = HotelDAO.findAll(one);
+						try {
+							if (rs.next()) {
+								String nome = rs.getString("NM_Cuidador");
+								String ds = rs.getString("DS_Cuidador");
 
-				try {
-					if (rs.next()) {
-						String nome = rs.getString("NM_Cuidador");
-						String ds = rs.getString("DS_Cuidador");
+								txtNome.setText(nome);
+								txtDs.setText(ds);
+							}
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
 
-						txtNome.setText(nome);
-						txtDs.setText(ds);
 					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 
-			}
-
-		});
-		btnVolta.setContentAreaFilled(false);
-		btnVolta.setOpaque(false);
-		btnVolta.setFocusPainted(false);
-		btnVolta.setBorderPainted(false);
-
-		btnVolta.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/3847912-128(1).png")));
-		btnVolta.setBounds(424, 325, 89, 51);
-		contentPane.add(btnVolta);
-
-		JLabel lblCuidadores = new JLabel("Cuidadores");
-		lblCuidadores.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-		lblCuidadores.setBounds(461, 108, 117, 20);
-		contentPane.add(lblCuidadores);
+				});
+				btnVolta.setContentAreaFilled(false);
+				btnVolta.setOpaque(false);
+				btnVolta.setFocusPainted(false);
+				btnVolta.setBorderPainted(false);
+				
+						btnVolta.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/3847912-128(1).png")));
+						btnVolta.setBounds(424, 325, 89, 51);
+						contentPane.add(btnVolta);
+		
+				JButton sair = new JButton("");
+				sair.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Menu mnu = new Menu();
+						mnu.setVisible(true);
+						dispose();
+					}
+				});
+				sair.setContentAreaFilled(false);
+				sair.setOpaque(false);
+				sair.setFocusPainted(false);
+				sair.setBorderPainted(false);
+				sair.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/3209260-128(1).png")));
+				sair.setBounds(10, 336, 63, 51);
+				contentPane.add(sair);
 
 		data2 = new JFormattedTextField(mascaras);
 		data2.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
@@ -241,19 +243,29 @@ public class Cuidadores extends JFrame {
 		data.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		data.setBounds(202, 183, 54, 19);
 		contentPane.add(data);
-
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/Sem t\u00EDtulo.png")));
-		lblNewLabel.setBounds(399, 108, 2, 268);
-		contentPane.add(lblNewLabel);
+		
+		txtObs = new JTextField();
+		txtObs.setBounds(139, 280, 205, 20);
+		contentPane.add(txtObs);
+		txtObs.setColumns(10);
 		txtNomeCliente.setBounds(166, 130, 210, 23);
 		contentPane.add(txtNomeCliente);
 		txtNomeCliente.setColumns(10);
+		
+				JLabel lblTraco = new JLabel("New label");
+				lblTraco.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/Sem t\u00EDtulo.png")));
+				lblTraco.setBounds(399, 108, 2, 268);
+				contentPane.add(lblTraco);
 
-		JLabel lblAt = new JLabel("at\u00E9");
-		lblAt.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-		lblAt.setBounds(266, 182, 36, 20);
-		contentPane.add(lblAt);
+		JLabel lblAte = new JLabel("at\u00E9");
+		lblAte.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+		lblAte.setBounds(266, 182, 36, 20);
+		contentPane.add(lblAte);
+		
+				JLabel lblCuidadores = new JLabel("Cuidadores");
+				lblCuidadores.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+				lblCuidadores.setBounds(461, 108, 117, 20);
+				contentPane.add(lblCuidadores);
 
 		JLabel lblData = new JLabel("Data: ");
 		lblData.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
@@ -269,13 +281,6 @@ public class Cuidadores extends JFrame {
 		lblAlgumaObservao.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblAlgumaObservao.setBounds(150, 253, 205, 28);
 		contentPane.add(lblAlgumaObservao);
-		sair.setContentAreaFilled(false);
-		sair.setOpaque(false);
-		sair.setFocusPainted(false);
-		sair.setBorderPainted(false);
-		sair.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/3209260-128(1).png")));
-		sair.setBounds(10, 336, 63, 51);
-		contentPane.add(sair);
 		
 		
 
@@ -293,11 +298,6 @@ public class Cuidadores extends JFrame {
 		lblDe.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		lblDe.setBounds(165, 177, 46, 31);
 		contentPane.add(lblDe);
-		
-		txtObs = new JTextField();
-		txtObs.setBounds(139, 280, 205, 20);
-		contentPane.add(txtObs);
-		txtObs.setColumns(10);
 
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/Background.jpg")));

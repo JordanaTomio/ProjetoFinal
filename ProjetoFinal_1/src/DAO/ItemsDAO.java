@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import Beans.Items;
-import br.com.idog.Configuration.MySQLConfiguration;
+import Conexao.MySQLConfiguration;
 
 public class ItemsDAO {
 	public static void save(Items item) {

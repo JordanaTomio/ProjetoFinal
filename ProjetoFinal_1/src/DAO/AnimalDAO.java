@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Conexao.MySQLConfiguration;
 import Frames.Main;
-import br.com.idog.Configuration.MySQLConfiguration;
 
 public class AnimalDAO {
 
