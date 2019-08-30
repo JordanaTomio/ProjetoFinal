@@ -26,6 +26,7 @@ import javax.swing.text.MaskFormatter;
 
 import DAO.HotelDAO;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class Cuidadores extends JFrame {
 
@@ -65,6 +66,8 @@ public class Cuidadores extends JFrame {
 	 * Create the frame.
 	 */
 	public Cuidadores() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Cuidadores.class.getResource("/imagens/3775232-16.png")));
+		setTitle("Hotel iPet");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		setResizable(false);
