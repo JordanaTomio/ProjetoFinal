@@ -43,10 +43,10 @@ public class PetAdotar extends JFrame {
 	JRadioButton btnFemea = new JRadioButton("F\u00EAmea");
 	JCheckBox vacinadodb = new JCheckBox("Vacinado");
 	JCheckBox castradodb = new JCheckBox("Castrado");
-	JLabel lblNigmviu;
+	JLabel lblNigmviu = new JLabel("0");
 	Animal ani = new Animal();
-	int one = -1;
-	//1
+	// int one = -1;
+	// 1
 
 	/**
 	 * Launch the application.
@@ -139,7 +139,6 @@ public class PetAdotar extends JFrame {
 		contentPane.add(btnCao);
 		btnCao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-
 		JButton btnVoltar = new JButton("");
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.setBackground(new Color(230, 230, 250));
@@ -170,9 +169,7 @@ public class PetAdotar extends JFrame {
 		btnAnterior.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
-
-				one--;
-				ResultSet rs = AnimalDAO.BuscaAnimal(one);
+				ResultSet rs = AnimalDAO.BuscaAnimalMenor(lblNigmviu.getText());
 
 				try {
 					if (rs.next()) {
@@ -186,8 +183,8 @@ public class PetAdotar extends JFrame {
 						String castrado = rs.getString("CS_Animal");
 						String desc = rs.getString("DS_Animal");
 						int Cd = rs.getInt("CD_Animal");
-						
-						String CD = ""+Cd;
+
+						String CD = "" + Cd;
 
 						if (tipo.equals("Cachorro")) {
 							btnCao.setSelected(true);
@@ -221,6 +218,55 @@ public class PetAdotar extends JFrame {
 						lblNigmviu.setText(CD);
 
 					}
+					else{
+						lblNigmviu.setText("99999999999999999999");
+						ResultSet rs1 = AnimalDAO.BuscaAnimalMenor(lblNigmviu.getText());
+						if (rs.next()) {
+							String nome = rs1.getString("NM_Animal");
+							String ano = rs1.getString("ANO_Animal");
+							String raca = rs1.getString("RC_Animal");
+							String tamanho = rs1.getString("TM_Animal");
+							String tipo = rs1.getString("TP_Animal");
+							String sexo = rs1.getString("SX_Animal");
+							String vacinas = rs1.getString("VC_Animal");
+							String castrado = rs1.getString("CS_Animal");
+							String desc = rs1.getString("DS_Animal");
+							int Cd = rs1.getInt("CD_Animal");
+
+							String CD = "" + Cd;
+
+							if (tipo.equals("Cachorro")) {
+								btnCao.setSelected(true);
+							} else {
+								btnGato.setSelected(true);
+							}
+
+							if (sexo.equals("Macho")) {
+								btnMacho.setSelected(true);
+							} else {
+								btnFemea.setSelected(true);
+							}
+
+							if (castrado.equals("Sim")) {
+								castradodb.setSelected(true);
+							} else {
+								castradodb.setSelected(false);
+							}
+
+							if (vacinas.equals("Sim")) {
+								vacinadodb.setSelected(true);
+							} else {
+								vacinadodb.setSelected(false);
+							}
+
+							txtTamanho.setText(tamanho);
+							txtRaca.setText(raca);
+							txtAno.setText(ano);
+							txtNomePet.setText(nome);
+							txtDesc.setText(desc);
+							lblNigmviu.setText(CD);
+						}
+					}
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -233,9 +279,7 @@ public class PetAdotar extends JFrame {
 		btnProximo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnProximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				one++;
-				ResultSet rs = AnimalDAO.BuscaAnimal(one);
-
+				ResultSet rs = AnimalDAO.BuscaAnimalMaior(lblNigmviu.getText());
 				try {
 					if (rs.next()) {
 						String nome = rs.getString("NM_Animal");
@@ -248,8 +292,8 @@ public class PetAdotar extends JFrame {
 						String castrado = rs.getString("CS_Animal");
 						String desc = rs.getString("DS_Animal");
 						int Cd = rs.getInt("CD_Animal");
-						
-						String CD = ""+Cd;
+
+						String CD = "" + Cd;
 
 						if (tipo.equals("Cachorro")) {
 							btnCao.setSelected(true);
@@ -282,9 +326,56 @@ public class PetAdotar extends JFrame {
 						txtDesc.setText(desc);
 						lblNigmviu.setText(CD);
 					} else {
-						one = -1;
+						lblNigmviu.setText("0");
+						ResultSet rs1 = AnimalDAO.BuscaAnimalMaior(lblNigmviu.getText());
+							if (rs1.next()) {
+								String nome = rs1.getString("NM_Animal");
+								String ano = rs1.getString("ANO_Animal");
+								String raca = rs1.getString("RC_Animal");
+								String tamanho = rs1.getString("TM_Animal");
+								String tipo = rs1.getString("TP_Animal");
+								String sexo = rs1.getString("SX_Animal");
+								String vacinas = rs1.getString("VC_Animal");
+								String castrado = rs1.getString("CS_Animal");
+								String desc = rs1.getString("DS_Animal");
+								int Cd = rs1.getInt("CD_Animal");
+
+								String CD = "" + Cd;
+
+								if (tipo.equals("Cachorro")) {
+									btnCao.setSelected(true);
+								} else {
+									btnGato.setSelected(true);
+								}
+
+								if (sexo.equals("Macho")) {
+									btnMacho.setSelected(true);
+								} else {
+									btnFemea.setSelected(true);
+								}
+
+								if (castrado.equals("Sim")) {
+									castradodb.setSelected(true);
+								} else {
+									castradodb.setSelected(false);
+								}
+
+								if (vacinas.equals("Sim")) {
+									vacinadodb.setSelected(true);
+								} else {
+									vacinadodb.setSelected(false);
+								}
+
+								txtTamanho.setText(tamanho);
+								txtRaca.setText(raca);
+								txtAno.setText(ano);
+								txtNomePet.setText(nome);
+								txtDesc.setText(desc);
+								lblNigmviu.setText(CD);
+							}
 					}
 				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -313,8 +404,8 @@ public class PetAdotar extends JFrame {
 		castradodb.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(castradodb);
 		castradodb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		lblNigmviu = new JLabel("");
+
+		lblNigmviu = new JLabel("0");
 		lblNigmviu.setBounds(25, 44, 46, 14);
 		contentPane.add(lblNigmviu);
 		lblNigmviu.setVisible(false);
@@ -326,8 +417,7 @@ public class PetAdotar extends JFrame {
 		btnProximo.setContentAreaFilled(false);
 		contentPane.add(btnProximo);
 		btnProximo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		
+
 		btnAnterior.setIcon(new ImageIcon(PetAdotar.class.getResource("/imagens/3847912-128(1).png")));
 		btnAnterior.setBounds(432, 324, 46, 44);
 		btnAnterior.setBorderPainted(false);
@@ -349,15 +439,15 @@ public class PetAdotar extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				JOptionPane.showMessageDialog(null,
-						"Parabéns! Você está muito perto de adotar um Pet." + "\n"
+						"ParabÃ©ns! VocÃª estÃ¡ muito perto de adotar um Pet." + "\n"
 								+ "Entraremos em contato para agendar a visita" + "\n"
-								+ "de avaliação para que você possa levar seu novo amigo!");
+								+ "de avaliaÃ§Ã£o para que vocÃª possa levar seu novo amigo!");
 
 				int passe;
 				passe = Integer.parseInt(lblNigmviu.getText());
 				AnimalDAO.InsertAdotado(passe);
-				AnimalDAO.AdotarBixim(txtNomePet.getText());
-				ResultSet rs = AnimalDAO.BuscaAnimaldelete(passe);
+				AnimalDAO.AdotarAnimal(txtNomePet.getText());
+				ResultSet rs = AnimalDAO.BuscaAnimalUpdate(passe);
 				System.out.println(rs);
 
 				try {
@@ -372,8 +462,8 @@ public class PetAdotar extends JFrame {
 						String castrado = rs.getString("CS_Animal");
 						String desc = rs.getString("DS_Animal");
 						int Cd = rs.getInt("CD_Animal");
-						
-						String CD = ""+Cd;
+
+						String CD = "" + Cd;
 
 						if (tipo.equals("Cachorro")) {
 							btnCao.setSelected(true);
@@ -405,7 +495,7 @@ public class PetAdotar extends JFrame {
 						txtNomePet.setText(nome);
 						txtDesc.setText(desc);
 						lblNigmviu.setText(CD);
-					}else{
+					} else {
 						txtTamanho.setText("");
 						txtRaca.setText("");
 						txtAno.setText("");
@@ -427,7 +517,7 @@ public class PetAdotar extends JFrame {
 		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		contentPane.add(btnAdotar);
 
-		JLabel lblPetInformacoes = new JLabel("Pet Informações");
+		JLabel lblPetInformacoes = new JLabel("Pet InformaÃ§Ãµes");
 		lblPetInformacoes.setBounds(184, 23, 258, 44);
 		lblPetInformacoes.setFont(new Font("Bauhaus 93", Font.BOLD, 30));
 		contentPane.add(lblPetInformacoes);
@@ -447,7 +537,7 @@ public class PetAdotar extends JFrame {
 		lblTipo.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblTipo);
 
-		JLabel lblRaca = new JLabel("Raça:");
+		JLabel lblRaca = new JLabel("RaÃ§a:");
 		lblRaca.setBounds(25, 204, 51, 18);
 		lblRaca.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblRaca);
@@ -457,7 +547,7 @@ public class PetAdotar extends JFrame {
 		lblTamanho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblTamanho);
 
-		JLabel lblGenero = new JLabel("Gênero:");
+		JLabel lblGenero = new JLabel("GÃªnero:");
 		lblGenero.setBounds(387, 241, 56, 14);
 		lblGenero.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblGenero);
