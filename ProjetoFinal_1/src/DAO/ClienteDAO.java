@@ -11,7 +11,9 @@ import Conexao.MySQLConfiguration;
 import Frames.Main;
 
 public class ClienteDAO {
+	//save as informacoes no banco
 	public static void save(Cliente cliente) {
+		//cria conexao com o banco
 		MySQLConfiguration s = new MySQLConfiguration();
 		String q = "INSERT INTO cliente (EM_Cliente, PS_Cliente, PN_Cliente, SN_Cliente,"+
 				" SX_Cliente, TL_Cliente, ADM_Cliente, CEP_Cliente, CPF_Cliente, PJF_Cliente,"
@@ -37,7 +39,9 @@ public class ClienteDAO {
 			e.printStackTrace();
 		}
 	}
+	//puxa as informacoes de para login
 	public static boolean giveAuth(String email, String senha) {
+		//cria conexao com o banco
 		MySQLConfiguration s = new MySQLConfiguration();
 		String q = "SELECT CD_Cliente, EM_Cliente, PS_Cliente, PN_Cliente, SN_Cliente, SX_Cliente, TL_Cliente, ADM_Cliente FROM cliente WHERE EM_Cliente = ?";
 		ResultSet rs = null;
@@ -101,6 +105,7 @@ public class ClienteDAO {
 			return null;
 		}
 	}
+	//Puxa todas as informacoes do usuario
 	public static ResultSet findAllByID(int cdCodigo) {
 		String q = "SELECT CD_Cliente, PN_Cliente, SN_Cliente, TL_Cliente, EM_Cliente, CEP_Cliente, SX_Cliente, RZ_Cliente FROM cliente where CD_Cliente = ?";
 
@@ -115,6 +120,7 @@ public class ClienteDAO {
 			return null;
 		}
 	}
+	//Altera as informaçoes do usuario
 	public static void UpdateAllByID(int cdCodigo, String primeiroNome, String segundoNome, String sexo, String telefone, String cep, String razao, String email ) {
 		String q = "UPDATE cliente set EM_Cliente= ?, PN_Cliente= ?, SN_Cliente= ?, SX_Cliente= ?, TL_Cliente= ?, CEP_Cliente= ?, RZ_Cliente= ? WHERE CD_Cliente= ?";
 
@@ -135,8 +141,9 @@ public class ClienteDAO {
 			e.printStackTrace();
 		}
 	}
+	//Puxa as informaçoes pelo nome do cliente
 	public static ResultSet findAllTyped(String nome) {
-		String q = "SELECT CD_Cliente, PN_Cliente, SN_Cliente FROM cliente where PN_Cliente like '%" + nome + "%'";
+		String q = "SELECT CD_Cliente Cliente, PN_Cliente Nome, SN_Cliente Sobrenome FROM cliente where PN_Cliente like '%" + nome + "%'";
 
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);

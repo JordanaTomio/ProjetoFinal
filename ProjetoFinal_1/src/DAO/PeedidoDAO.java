@@ -9,7 +9,7 @@ import Conexao.MySQLConfiguration;
 public class PeedidoDAO {
 
 	public static ResultSet getPedidosItems(int idPedido) {
-		String q = "SELECT v.NM_Produto, v.VL_Produto FROM v_cliente_itens_pedido v WHERE v.CD_Pedido = ?";
+		String q = "SELECT (v.NM_Produto) Produto, (v.VL_Produto) Valor FROM v_cliente_itens_pedido v WHERE v.CD_Pedido = ?";
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			ps.setInt(1, idPedido);
@@ -47,7 +47,7 @@ public class PeedidoDAO {
 	}
 
 	public static ResultSet findByNameToTable(String nome) {
-		String q = "SELECT CD_Produto, NM_Produto, VL_Produto FROM produto p WHERE p.NM_Produto LIKE ?";
+		String q = "SELECT CD_Produto Código, NM_Produto Produto, VL_Produto Valor FROM produto p WHERE p.NM_Produto LIKE ?";
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			ps.setString(1, "%" + nome + "%");
@@ -99,7 +99,7 @@ public class PeedidoDAO {
 	}
 
 	public static ResultSet getAllPedidosFromCliente(int idCliente) {
-		String q = "SELECT CD_Pedido, VL_Total, DT_Pedido, AT_Pedido FROM pedido WHERE CD_Cliente = ?";
+		String q = "SELECT CD_Pedido, VL_Total, DT_Pedido, ATT_Pedido FROM pedido WHERE CD_Cliente = ? and ATT_Pedido = 0";
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			ps.setInt(1, idCliente);

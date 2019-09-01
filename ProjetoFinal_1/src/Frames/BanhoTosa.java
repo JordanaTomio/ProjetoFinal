@@ -123,7 +123,7 @@ public class BanhoTosa extends JFrame {
 		tblAGENDA.getColumnModel().getColumn(0).setPreferredWidth(38);
 		tblAGENDA.getColumnModel().getColumn(1).setPreferredWidth(46);
 
-		// puxa a informaÃ§Ã£o tabelha quando carrega Jframe
+		// puxa a informacao tabelha quando carrega Jframe
 		tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 
 		txtCLIENTE = new JTextField();
@@ -328,6 +328,7 @@ public class BanhoTosa extends JFrame {
 					if ((Confi == 0))
 						AgendaDAO.Confirmar(txtData.getText(), txtHORA.getText(), txtCLIENTE.getText(), variavel);
 				}
+				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 			}
 		});
 		btnConfirmar.setFont(new Font("Lucida Bright", Font.BOLD, 14));

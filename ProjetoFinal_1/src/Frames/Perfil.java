@@ -75,23 +75,23 @@ public class Perfil<EntityManager> extends JFrame {
 		contentPane.setLayout(null);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		
-		try{
-			TelefonePerfil = new MaskFormatter("(##) #####-####"); 
-		}catch(ParseException pe){
+
+		try {
+			TelefonePerfil = new MaskFormatter("(##) #####-####");
+		} catch (ParseException pe) {
 			pe.printStackTrace();
 		}
-		
-		try{
+
+		try {
 			CEPPerfil = new MaskFormatter("#####-###");
-		}catch(ParseException pe){
+		} catch (ParseException pe) {
 			pe.printStackTrace();
 		}
-		
+
 		txtCEPPerfil = new JFormattedTextField(CEPPerfil);
 		txtCEPPerfil.setBounds(446, 248, 175, 19);
 		contentPane.add(txtCEPPerfil);
-		
+
 		txtTelefonePerfil = new JFormattedTextField(TelefonePerfil);
 		txtTelefonePerfil.setBounds(127, 189, 170, 19);
 		contentPane.add(txtTelefonePerfil);
@@ -201,6 +201,16 @@ public class Perfil<EntityManager> extends JFrame {
 				ResultSet rs = ClienteDAO.findAllByID(cdCodigo);
 
 				try {
+					txtNomePerfil.setText("");
+					txtSobreNomePerfil.setText("");
+					txtTelefonePerfil.setText("");
+					txtEmailPerfil.setText("");
+					txtEnderecoPerfil.setText("");
+					txtCEPPerfil.setText("");
+					btnMasculino.setSelected(false);
+					btnFeminino.setSelected(false);
+					btnOutro.setSelected(false);
+
 					while (rs.next()) {
 						String primeiroNome = rs.getString("PN_Cliente");
 						String segundoNome = rs.getString("SN_Cliente");
@@ -286,8 +296,7 @@ public class Perfil<EntityManager> extends JFrame {
 		});
 		btnAlterar.setBounds(186, 304, 111, 23);
 		contentPane.add(btnAlterar);
-		
-		
+
 		JButton btnVoltar = new JButton("");
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {

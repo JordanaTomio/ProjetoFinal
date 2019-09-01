@@ -48,6 +48,7 @@ public class AnimalDAO {
 	}
 
 	public static void AdotarAnimal(String nomePet) {
+		//cria conexao com o banco
 		MySQLConfiguration c = new MySQLConfiguration();
 
 		try {
@@ -80,6 +81,7 @@ public class AnimalDAO {
 	}
 	public static ResultSet BuscaAnimalUpdate(int one) {
 		one++;
+		//recria conexao com o banco
 		MySQLConfiguration c = new MySQLConfiguration();
 
 		String q = "SELECT  CD_Animal, NM_Animal, ANO_Animal, TM_Animal, DS_Animal, RC_Animal, TP_Animal, SX_Animal, VC_Animal, CS_Animal FROM animal "

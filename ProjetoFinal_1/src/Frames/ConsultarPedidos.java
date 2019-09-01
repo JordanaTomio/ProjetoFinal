@@ -73,7 +73,7 @@ public class ConsultarPedidos extends JFrame {
 					double valorTotalPedido = 0;
 					try {
 						while (rsValoTotal.next()) {
-							valorTotalPedido += rsValoTotal.getDouble("VL_Produto");
+							valorTotalPedido += rsValoTotal.getDouble("Valor");
 						}
 					} catch (SQLException e1) {
 						e1.printStackTrace();
@@ -123,11 +123,9 @@ public class ConsultarPedidos extends JFrame {
 					try {
 						while (rs2.next()) {
 							att = rs2.getInt("ATT_Pedido");
-							
-
 							if (att == 1) {
 								chckbxFinalizado.setSelected(true);
-							
+
 							} else {
 								chckbxFinalizado.setSelected(false);
 							}

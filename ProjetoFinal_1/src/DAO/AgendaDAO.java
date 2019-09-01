@@ -13,7 +13,8 @@ import Conexao.MySQLConfiguration;
 public class AgendaDAO {
 
 	public static ResultSet Atualizar() {
-		MySQLConfiguration s = new MySQLConfiguration();
+		//cria conexao com o banco
+		MySQLConfiguration c = new MySQLConfiguration();
 		String q = "";
 
 		q = "SELECT (DT_Servico)Dia, (HR_Servico)Hora, (NM_Cliente)Cliente FROM agenda ";
@@ -67,14 +68,14 @@ public class AgendaDAO {
 		}catch (
 
 		Exception ex) {
-			System.err.println("FALHA NA no bang da CONFIRMAÃ‡ÃƒO");
+			System.err.println("FALHA NA no bang da CONFIRMACAO");
 			ex.printStackTrace();
 		} finally {
 			if (MySQLConfiguration.conn != null) {
 				try {
 					MySQLConfiguration.conn.close();
 				} catch (Exception ex) {
-					System.err.println("ALGO ERRADO NÃƒO ESTÃ� CERTO!");
+					System.err.println("ALGO ERRADO NAO ESTA CERTO!/n Fechar");
 				}
 			}
 		}

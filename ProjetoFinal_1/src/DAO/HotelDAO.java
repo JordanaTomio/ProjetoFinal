@@ -4,16 +4,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Conexao.Conexao;
+import Conexao.MySQLConfiguration;
 
 public class HotelDAO {
 	
 	public static ResultSet findAll(int one) {
-		Conexao c = new Conexao();
+		//cria conexao com o banco
+		MySQLConfiguration c = new MySQLConfiguration();
 		String q = "SELECT NM_CUIDADOR, DS_CUIDADOR, NS_CUIDADOR FROM cuidadores where CD_Cuidador > " + one + " order by CD_Cuidador";
 		try {
 			System.out.println(q);
-			PreparedStatement ps = Conexao.conn.prepareStatement(q);
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			return ps.executeQuery();
 		} catch (SQLException e) {
 			System.err.println("Cuidador não encontrado!");
@@ -22,10 +23,11 @@ public class HotelDAO {
 		}
 	}
 		public static void Agendar(String cliente, String data1, String data2, String cuidador, String obs, String tipo){
-		Conexao c = new Conexao();
+			//recria conexao com o banco
+			MySQLConfiguration c = new MySQLConfiguration();
 		String q = "INSERT INTO agendamento_cuidador (NM_CLIENTE, DT_EINS_AG_CUIDADOR, DT_ZWEI_AG_CUIDADOR, NM_CUIDADOR, OBS_Agendamento, TP_Agendamento) VALUES (?, ?, ?, ?, ?, ?)" ;
 			try {
-				PreparedStatement ps = Conexao.conn.prepareStatement(q);
+				PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 				ps.setString(1, cliente);
 				ps.setString(2, data1);
 				ps.setString(3, data2);

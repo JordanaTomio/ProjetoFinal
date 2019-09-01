@@ -63,8 +63,8 @@ public class ConsultarProdutos extends JFrame {
 					ResultSet rsValoTotal = PeedidoDAO.getPedidosItems(Integer.parseInt(item));
 					double valorTotalPedido = 0;
 					try {
-						while (rsValoTotal.next()) {
-							valorTotalPedido += rsValoTotal.getDouble("VL_Produto");
+						if (rsValoTotal.next()) {
+							valorTotalPedido += rsValoTotal.getDouble("Valor");
 						}
 					} catch (SQLException e1) {
 						e1.printStackTrace();
