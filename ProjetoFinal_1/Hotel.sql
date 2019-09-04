@@ -21,13 +21,19 @@ CREATE TABLE IF NOT EXISTS `agendamento_cuidador` (
   `NM_CLIENTE` varchar(50) DEFAULT '0',
   `DT_EINS_AG_CUIDADOR` varchar(5) DEFAULT '0',
   `DT_ZWEI_AG_CUIDADOR` varchar(5) DEFAULT '0',
+  `OBS_Agendamento` varchar(200) DEFAULT 'Nada',
+  `TP_Agendamento` varchar(50) DEFAULT 'Nada',
   `NM_CUIDADOR` varchar(50) NOT NULL,
-  PRIMARY KEY (`CD_AG_CUIDADOR`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`CD_AG_CUIDADOR`),
+  KEY `CD_CUIDADOR` (`NM_CUIDADOR`),
+  CONSTRAINT `FK_agendamento_cuidador_cuidadores` FOREIGN KEY (`NM_CUIDADOR`) REFERENCES `cuidadores` (`NM_CUIDADOR`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela hotel_ipet.agendamento_cuidador: ~0 rows (aproximadamente)
 DELETE FROM `agendamento_cuidador`;
 /*!40000 ALTER TABLE `agendamento_cuidador` DISABLE KEYS */;
+INSERT INTO `agendamento_cuidador` (`CD_AG_CUIDADOR`, `NM_CLIENTE`, `DT_EINS_AG_CUIDADOR`, `DT_ZWEI_AG_CUIDADOR`, `OBS_Agendamento`, `TP_Agendamento`, `NM_CUIDADOR`) VALUES
+	(31, 'Lady Miss De Bourgh', '04/09', '05/09', 'Não come ração Birbo!', 'Gato', 'Fitzwilliam Darcy');
 /*!40000 ALTER TABLE `agendamento_cuidador` ENABLE KEYS */;
 
 
@@ -37,7 +43,8 @@ CREATE TABLE IF NOT EXISTS `cuidadores` (
   `NM_CUIDADOR` varchar(50) DEFAULT NULL,
   `DS_CUIDADOR` varchar(200) DEFAULT NULL,
   `NS_CUIDADOR` varchar(2) DEFAULT NULL,
-  PRIMARY KEY (`CD_CUIDADOR`)
+  PRIMARY KEY (`CD_CUIDADOR`),
+  KEY `NM_CUIDADOR` (`NM_CUIDADOR`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela hotel_ipet.cuidadores: ~5 rows (aproximadamente)
