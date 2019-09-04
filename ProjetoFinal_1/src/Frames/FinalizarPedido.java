@@ -221,11 +221,16 @@ public class FinalizarPedido extends JFrame {
 		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(null, "Obrigada por comprar conosco, volte sempre!");
+			
+				if (!(avista.isSelected() || cartao.isSelected() || x2.isSelected() || x3.isSelected() )) {
+					JOptionPane.showMessageDialog(null, "Por favor, selecione um método de pagamento!");
+				} else {
+					JOptionPane.showMessageDialog(null, "Obrigada por comprar conosco, volte sempre!");
+					PeedidoDAO.updateATT(ConsultarPedidos.pedido[1]);
+					new Menu().setVisible(true);
+					dispose();
+				}
 				
-				PeedidoDAO.updateATT(ConsultarPedidos.pedido[1]);
-				new Menu().setVisible(true);
-				dispose();
 			}
 		});
 		btnFinalizar.setBackground(new Color(255, 255, 255));

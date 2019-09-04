@@ -123,7 +123,7 @@ public class BanhoTosa extends JFrame {
 		tblAGENDA.getColumnModel().getColumn(0).setPreferredWidth(38);
 		tblAGENDA.getColumnModel().getColumn(1).setPreferredWidth(46);
 
-		// puxa a informacao tabelha quando carrega Jframe
+		// puxa a informacao tabela quando carrega Jframe
 		tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 
 		txtCLIENTE = new JTextField();
