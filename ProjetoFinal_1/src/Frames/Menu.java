@@ -240,7 +240,7 @@ public class Menu extends JFrame {
 		JButton btnHotel = new JButton("");
 		btnHotel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Cuidadores cdd = new Cuidadores();
+				Hotel cdd = new Hotel();
 				cdd.setVisible(true);
 				dispose();
 			}

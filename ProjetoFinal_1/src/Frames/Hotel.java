@@ -28,7 +28,7 @@ import DAO.HotelDAO;
 import java.awt.Color;
 import java.awt.Toolkit;
 
-public class Cuidadores extends JFrame {
+public class Hotel extends JFrame {
 
 	private JPanel contentPane;
 	private JButton btnVai;
@@ -53,7 +53,7 @@ public class Cuidadores extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Cuidadores frame = new Cuidadores();
+					Hotel frame = new Hotel();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -65,8 +65,8 @@ public class Cuidadores extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Cuidadores() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Cuidadores.class.getResource("/imagens/3775232-16.png")));
+	public Hotel() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Hotel.class.getResource("/imagens/3775232-16.png")));
 		setTitle("Hotel iPet");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
@@ -184,7 +184,7 @@ public class Cuidadores extends JFrame {
 		btnVai.setFocusPainted(false);
 		btnVai.setBorderPainted(false);
 
-		btnVai.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/3847912-128(2).png")));
+		btnVai.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/3847912-128(2).png")));
 		btnVai.setBounds(523, 325, 89, 51);
 		contentPane.add(btnVai);
 		
@@ -214,7 +214,7 @@ public class Cuidadores extends JFrame {
 				btnVolta.setFocusPainted(false);
 				btnVolta.setBorderPainted(false);
 				
-						btnVolta.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/3847912-128(1).png")));
+						btnVolta.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/3847912-128(1).png")));
 						btnVolta.setBounds(424, 325, 89, 51);
 						contentPane.add(btnVolta);
 		
@@ -230,7 +230,7 @@ public class Cuidadores extends JFrame {
 				sair.setOpaque(false);
 				sair.setFocusPainted(false);
 				sair.setBorderPainted(false);
-				sair.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/3209260-128(1).png")));
+				sair.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/3209260-128(1).png")));
 				sair.setBounds(10, 336, 63, 51);
 				contentPane.add(sair);
 
@@ -253,7 +253,7 @@ public class Cuidadores extends JFrame {
 		txtNomeCliente.setColumns(10);
 		
 				JLabel lblTraco = new JLabel("New label");
-				lblTraco.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/Sem t\u00EDtulo.png")));
+				lblTraco.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/Sem t\u00EDtulo.png")));
 				lblTraco.setBounds(399, 108, 2, 268);
 				contentPane.add(lblTraco);
 
@@ -300,7 +300,7 @@ public class Cuidadores extends JFrame {
 		contentPane.add(lblDe);
 
 		JLabel background = new JLabel("");
-		background.setIcon(new ImageIcon(Cuidadores.class.getResource("/imagens/Background.jpg")));
+		background.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/Background.jpg")));
 		background.setBounds(0, 0, 660, 411);
 		contentPane.add(background);
 	}
