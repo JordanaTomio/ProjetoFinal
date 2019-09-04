@@ -1,0 +1,3 @@
+btn1=Enter
+btn2=Register
+
