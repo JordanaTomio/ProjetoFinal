@@ -376,7 +376,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(lblCLIENTE);
 
 		JLabel lblBanhoETosa = new JLabel("Banho e Tosa");
-		lblBanhoETosa.setFont(new Font("Broadway", Font.BOLD, 30));
+		lblBanhoETosa.setFont(new Font("Bauhaus 93", Font.BOLD, 30));
 		lblBanhoETosa.setBounds(187, 11, 251, 51);
 		contentPane.add(lblBanhoETosa);
 
