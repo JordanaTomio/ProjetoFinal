@@ -81,7 +81,7 @@ public class Login extends JFrame {
 		contentPane.add(txtSenha);
 
 		JButton btnEntrar = new JButton("");
-		btnEntrar.setBounds(398, 223, 166, 28);
+		btnEntrar.setBounds(401, 227, 166, 28);
 		btnEntrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEntrar.addKeyListener(new KeyAdapter() {
 			@Override
@@ -113,35 +113,50 @@ public class Login extends JFrame {
 			}
 		});
 		
-		JButton btnEN = new JButton("EN");
-		btnEN.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				lerEN();
-				
-			}
-		});
-		btnEN.setBounds(121, 348, 72, 52);
-		contentPane.add(btnEN);
-		
-		JButton btnPT = new JButton("PT");
+		JButton btnPT = new JButton("");
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lerPT();
 				
 			}
 		});
-		btnPT.setBounds(218, 348, 72, 52);
+		
+		JButton btnEN = new JButton("");
+		btnEN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lerEN();
+				
+			}
+		});
+		btnEN.setBounds(138, 358, 55, 38);
+		btnEN.setContentAreaFilled(false);
+		btnEN.setFocusPainted(false);
+		btnEN.setBorderPainted(false);
+		btnEN.setOpaque(false);
+		contentPane.add(btnEN);
+		
+		btnPT.setBounds(214, 355, 55, 43);
+		btnPT.setContentAreaFilled(false);
+		btnPT.setFocusPainted(false);
+		btnPT.setBorderPainted(false);
+		btnPT.setOpaque(false);
 		contentPane.add(btnPT);
 		
-		JButton btnAL = new JButton("AL");
+		JButton btnAL = new JButton("");
 		btnAL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				lerAL();
 				
 			}
 		});
-		btnAL.setBounds(22, 348, 72, 52);
+		btnAL.setBounds(51, 358, 59, 35);
+		btnAL.setBorderPainted(false);
+		btnAL.setContentAreaFilled(false);
+		btnAL.setFocusPainted(true);
+		btnAL.setOpaque(false);
 		contentPane.add(btnAL);
+		
+		
 		btnEntrar.setBorderPainted(false);
 		btnEntrar.setContentAreaFilled(false);
 		btnEntrar.setFocusPainted(true);
@@ -165,20 +180,35 @@ public class Login extends JFrame {
 		contentPane.add(btnRegistrar);
 
 
-		lblLogar.setBounds(441, 224, 110, 28);
+		lblLogar.setBounds(440, 227, 110, 28);
 		lblLogar.setForeground(new Color(240, 255, 240));
 		lblLogar.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
 		contentPane.add(lblLogar);
+		
+		JLabel English = new JLabel("");
+		English.setIcon(new ImageIcon(Login.class.getResource("/imagens/2634451-64.png")));
+		English.setBounds(138, 358, 53, 39);
+		contentPane.add(English);
+		
+		JLabel Deutsch = new JLabel("New label");
+		Deutsch.setIcon(new ImageIcon(Login.class.getResource("/imagens/2634422-64.png")));
+		Deutsch.setBounds(51, 358, 59, 37);
+		contentPane.add(Deutsch);
 
 		
 		lblRegistrese.setBounds(452, 286, 89, 23);
 		lblRegistrese.setFont(new Font("Cambria Math", Font.PLAIN, 14));
 		contentPane.add(lblRegistrese);
+		
+		JLabel pt = new JLabel("");
+		pt.setIcon(new ImageIcon(Login.class.getResource("/imagens/2634471-64.png")));
+		pt.setBounds(215, 358, 60, 38);
+		contentPane.add(pt);
 
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(0, 0, 654, 411);
-		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/imagens/login v3.jpg")));
-		contentPane.add(lblNewLabel);
+		JLabel Background = new JLabel("New label");
+		Background.setBounds(0, 0, 654, 411);
+		Background.setIcon(new ImageIcon(Login.class.getResource("/imagens/login v3.jpg")));
+		contentPane.add(Background);
 
 	}
 

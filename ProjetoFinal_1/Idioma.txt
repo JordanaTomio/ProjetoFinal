@@ -1,4 +1,4 @@
-#1
-#Wed Sep 04 15:06:32 BRT 2019
-btn2=Register
-btn1=Enter
+#3
+#Wed Sep 04 16:27:54 BRT 2019
+btn2=feijao
+btn1=Batata
