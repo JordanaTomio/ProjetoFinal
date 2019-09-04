@@ -100,8 +100,8 @@ public class Hotel extends JFrame {
 		gato.setBorderPainted(false);
 		gato.setOpaque(false);
 		gato.setFocusPainted(false);
-		gato.setFont(new Font("Lucida Bright", Font.BOLD, 13));
-		gato.setBounds(168, 220, 63, 23);
+		gato.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		gato.setBounds(168, 223, 63, 23);
 		contentPane.add(gato);
 		
 		JRadioButton cachorro = new JRadioButton("Cachorro");
@@ -110,8 +110,8 @@ public class Hotel extends JFrame {
 		cachorro.setBorderPainted(false);
 		cachorro.setOpaque(false);
 		cachorro.setFocusPainted(false);
-		cachorro.setFont(new Font("Lucida Bright", Font.BOLD, 13));
-		cachorro.setBounds(243, 220, 89, 23);
+		cachorro.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		cachorro.setBounds(243, 223, 101, 23);
 		contentPane.add(cachorro);
 
 		JButton btnFinalizar = new JButton("Agendar");
