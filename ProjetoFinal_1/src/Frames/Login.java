@@ -25,6 +25,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.awt.Toolkit;
+import javax.swing.SwingConstants;
 
 public class Login extends JFrame {
 
@@ -81,7 +82,7 @@ public class Login extends JFrame {
 		contentPane.add(txtSenha);
 
 		JButton btnEntrar = new JButton("");
-		btnEntrar.setBounds(401, 227, 166, 28);
+		btnEntrar.setBounds(376, 227, 210, 28);
 		btnEntrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEntrar.addKeyListener(new KeyAdapter() {
 			@Override
@@ -107,7 +108,7 @@ public class Login extends JFrame {
 					new Menu().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Email ou senha são inválidos.", "Erro no login.", 1);
+					JOptionPane.showMessageDialog(null, "Email ou senha sÃ£o invÃ¡lidos.", "Erro no login.", 1);
 				}
 
 			}
@@ -178,9 +179,10 @@ public class Login extends JFrame {
 		btnRegistrar.setFocusPainted(false);
 		btnRegistrar.setOpaque(false);
 		contentPane.add(btnRegistrar);
+		lblLogar.setHorizontalAlignment(SwingConstants.CENTER);
 
 
-		lblLogar.setBounds(440, 227, 110, 28);
+		lblLogar.setBounds(391, 227, 183, 28);
 		lblLogar.setForeground(new Color(240, 255, 240));
 		lblLogar.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
 		contentPane.add(lblLogar);
