@@ -4,13 +4,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Conexao.Conexao;
+import Conexao.MySQLConfiguration;
 
 public class HotelDAO {
 	
 	public static ResultSet findAll(int one) {
 		//cria conexao com o banco
-		Conexao c = new Conexao();
+		MySQLConfiguration c = new MySQLConfiguration();
 		String q = "SELECT NM_CUIDADOR, DS_CUIDADOR, NS_CUIDADOR FROM cuidadores where CD_Cuidador > " + one + " order by CD_Cuidador";
 		try {
 			System.out.println(q);
@@ -24,7 +24,7 @@ public class HotelDAO {
 	}
 		public static void Agendar(String cliente, String data1, String data2, String cuidador, String obs, String tipo){
 			//recria conexao com o banco
-			Conexao c = new Conexao();
+			MySQLConfiguration c = new MySQLConfiguration();
 		String q = "INSERT INTO agendamento_cuidador (NM_CLIENTE, DT_EINS_AG_CUIDADOR, DT_ZWEI_AG_CUIDADOR, NM_CUIDADOR, OBS_Agendamento, TP_Agendamento) VALUES (?, ?, ?, ?, ?, ?)" ;
 			try {
 				PreparedStatement ps = c.conn.prepareStatement(q);
