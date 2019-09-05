@@ -1,31 +1,32 @@
 package Frames;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Cursor;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.KeyStroke;
-import javax.swing.border.EmptyBorder;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.awt.Toolkit;
-import javax.swing.SwingConstants;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import Utilis.Translate;
 
 public class Login extends JFrame {
 
@@ -35,6 +36,8 @@ public class Login extends JFrame {
 	JButton btnRegistrar = new JButton("");
 	JLabel lblLogar = new JLabel("Entrar");
 	JLabel lblRegistrese = new JLabel("Registre-se");
+	Translate t= new Translate(); 
+	
 
 	/**
 	 * Launch the application.
@@ -56,6 +59,26 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {				
+				   if(t.equals("1")){
+					       
+				    
+				   }else if(t.equals("2")){
+					   
+				    
+				   }else if(t.equals("3")){
+					   
+				    
+				   }
+			}
+		});
+
+		
+		
+		
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/imagens/3775232-16.png")));
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,7 +105,7 @@ public class Login extends JFrame {
 		contentPane.add(txtSenha);
 
 		JButton btnEntrar = new JButton("");
-		btnEntrar.setBounds(376, 227, 210, 28);
+		btnEntrar.setBounds(401, 227, 166, 28);
 		btnEntrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEntrar.addKeyListener(new KeyAdapter() {
 			@Override
@@ -107,14 +130,21 @@ public class Login extends JFrame {
 				if (auth) {
 					new Menu().setVisible(true);
 					dispose();
-				} else {
-					JOptionPane.showMessageDialog(null, "Email ou senha sÃ£o invÃ¡lidos.", "Erro no login.", 1);
+				} else  {
+					if(t.equals(1)){
+					JOptionPane.showMessageDialog(null, "Email or password incorrect.", "Error in login.", 1);
+				}else if (t.equals(2)){
+					JOptionPane.showMessageDialog(null, "Email ou senha são inválidos.", "Erro no login.", 1);
+				}else if(t.equals(3)){
+					JOptionPane.showMessageDialog(null, "Email or passwort hinfällig.", ".", 1);
 				}
+					}
 
 			}
 		});
 		
 		JButton btnPT = new JButton("");
+		btnPT.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lerPT();
@@ -123,6 +153,7 @@ public class Login extends JFrame {
 		});
 		
 		JButton btnEN = new JButton("");
+		btnEN.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lerEN();
@@ -144,6 +175,7 @@ public class Login extends JFrame {
 		contentPane.add(btnPT);
 		
 		JButton btnAL = new JButton("");
+		btnAL.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				lerAL();
@@ -179,10 +211,9 @@ public class Login extends JFrame {
 		btnRegistrar.setFocusPainted(false);
 		btnRegistrar.setOpaque(false);
 		contentPane.add(btnRegistrar);
-		lblLogar.setHorizontalAlignment(SwingConstants.CENTER);
 
 
-		lblLogar.setBounds(391, 227, 183, 28);
+		lblLogar.setBounds(440, 227, 110, 28);
 		lblLogar.setForeground(new Color(240, 255, 240));
 		lblLogar.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
 		contentPane.add(lblLogar);
@@ -213,7 +244,7 @@ public class Login extends JFrame {
 		contentPane.add(Background);
 
 	}
-
+	// nao apagar 
 	protected void lerPT() {//2
 		Properties prop = new Properties();
 
