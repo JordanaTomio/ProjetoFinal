@@ -205,10 +205,11 @@ public class Cadastro extends JFrame {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
+					JOptionPane.showMessageDialog(null, "Cadastro finalizado!");
 					new Login().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Informacões faltando!");
+					JOptionPane.showMessageDialog(null, "InformacÃµes faltando!");
 				}
 
 			}
@@ -237,7 +238,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(btnVoltar);
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigat�rios");
+		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatórios");
 		lbldadosObrigatrios.setBounds(30, 317, 95, 14);
 		lbldadosObrigatrios.setForeground(Color.RED);
 		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));
