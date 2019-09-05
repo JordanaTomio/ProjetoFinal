@@ -30,6 +30,8 @@ CREATE TABLE IF NOT EXISTS `adocao` (
 -- Copiando dados para a tabela petshopdb.adocao: ~0 rows (aproximadamente)
 DELETE FROM `adocao`;
 /*!40000 ALTER TABLE `adocao` DISABLE KEYS */;
+INSERT INTO `adocao` (`Animal_CD_Animal`, `Cliente_CD_Cliente`) VALUES
+	(2, 3);
 /*!40000 ALTER TABLE `adocao` ENABLE KEYS */;
 
 
@@ -73,6 +75,29 @@ DELETE FROM `agendamento`;
 /*!40000 ALTER TABLE `agendamento` ENABLE KEYS */;
 
 
+-- Copiando estrutura para tabela petshopdb.agendamento_cuidador
+DROP TABLE IF EXISTS `agendamento_cuidador`;
+CREATE TABLE IF NOT EXISTS `agendamento_cuidador` (
+  `CD_AG_CUIDADOR` int(11) NOT NULL AUTO_INCREMENT,
+  `NM_CLIENTE` varchar(50) DEFAULT '0',
+  `DT_EINS_AG_CUIDADOR` varchar(5) DEFAULT '0',
+  `DT_ZWEI_AG_CUIDADOR` varchar(5) DEFAULT '0',
+  `OBS_Agendamento` varchar(200) DEFAULT 'Nada',
+  `TP_Agendamento` varchar(50) DEFAULT 'Nada',
+  `NM_CUIDADOR` varchar(50) NOT NULL,
+  PRIMARY KEY (`CD_AG_CUIDADOR`),
+  KEY `CD_CUIDADOR` (`NM_CUIDADOR`),
+  CONSTRAINT `FK_agendamento_cuidador_cuidadores` FOREIGN KEY (`NM_CUIDADOR`) REFERENCES `cuidadores` (`NM_CUIDADOR`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela petshopdb.agendamento_cuidador: ~0 rows (aproximadamente)
+DELETE FROM `agendamento_cuidador`;
+/*!40000 ALTER TABLE `agendamento_cuidador` DISABLE KEYS */;
+INSERT INTO `agendamento_cuidador` (`CD_AG_CUIDADOR`, `NM_CLIENTE`, `DT_EINS_AG_CUIDADOR`, `DT_ZWEI_AG_CUIDADOR`, `OBS_Agendamento`, `TP_Agendamento`, `NM_CUIDADOR`) VALUES
+	(31, 'Lady Miss De Bourgh', '04/09', '05/09', 'Não come ração Birbo!', 'Gato', 'Fitzwilliam Darcy');
+/*!40000 ALTER TABLE `agendamento_cuidador` ENABLE KEYS */;
+
+
 -- Copiando estrutura para tabela petshopdb.animal
 DROP TABLE IF EXISTS `animal`;
 CREATE TABLE IF NOT EXISTS `animal` (
@@ -86,29 +111,30 @@ CREATE TABLE IF NOT EXISTS `animal` (
   `SX_Animal` varchar(45) DEFAULT NULL,
   `VC_Animal` varchar(3) DEFAULT NULL,
   `CS_Animal` varchar(3) DEFAULT NULL,
+  `AD_Animal` int(1) DEFAULT '0',
   PRIMARY KEY (`CD_Animal`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela petshopdb.animal: ~16 rows (aproximadamente)
 DELETE FROM `animal`;
 /*!40000 ALTER TABLE `animal` DISABLE KEYS */;
-INSERT INTO `animal` (`CD_Animal`, `NM_Animal`, `ANO_Animal`, `TM_Animal`, `DS_Animal`, `RC_Animal`, `TP_Animal`, `SX_Animal`, `VC_Animal`, `CS_Animal`) VALUES
-	(1, 'Niki', '2015', 'Pequeno', 'Castanho, dócil', 'Yorkshire', 'Cachorro', 'Macho', 'Sim', 'Sim'),
-	(2, 'Bob', '2017', 'Medio', 'Preto, cão de guarda', 'Chow Chow', 'Cachorro', 'Macho', 'Sim', 'Nao'),
-	(3, 'Tisto', '2016', 'Grande', 'Branco, bricalhão', 'Dálmata', 'Cachorro', 'Macho', 'Nao', 'Sim'),
-	(4, 'Clike', '2019', 'Pequeno', 'Branco, dócil', 'Shih Tzu', 'Cachorro', 'Macho', 'Nao', 'Nao'),
-	(5, 'Luki', '2015', 'Medio', 'Preto, preguiçososo', 'Nebelung', 'Gato', 'Macho', 'Sim', 'Nao'),
-	(6, 'Sansão', '2016', 'Pequeno', 'Branco, dócil', 'Singapura', 'Gato', 'Macho', 'Nao', 'Sim'),
-	(7, 'Pepita', '2016', 'Grande', 'Castanho, cão de guarda', 'Chartreux', 'Gato', 'Femea', 'Sim', 'Sim'),
-	(8, 'Kenny', '2017', 'Pequeno', 'Branco, bricalhão', 'Scottish Fold', 'Gato', 'Femea', 'Nao', 'Nao'),
-	(9, 'Pipoca', '2015', 'Medio', 'Preto, apegado a seu bichinho', 'Manx', 'Gato', 'Femea', 'Sim', 'Nao'),
-	(10, 'Elza', '2016', 'Pequeno', 'Castanho, dócil', 'SDR', 'Gato', 'Femea', 'Nao', 'Sim'),
-	(11, 'Floquinho', '2017', 'Pequeno', 'Branco, dócil', 'Burmês', 'Gato', 'Macho', 'Sim', 'Sim'),
-	(12, 'Cookie', '2018', 'Grande', 'Preto, bricalhão', 'Savannah', 'Gato', 'Macho', 'Nao', 'Nao'),
-	(13, 'Mara', '2015', 'Medio', 'Preto, cão de guarda', 'Poodle', 'Cachorro', 'Femea', 'Sim', 'Sim'),
-	(14, 'Maraisa', '2019', 'Grande', 'Castanho, dócil', 'Fila Brasileiro', 'Cachorro', 'Femea', 'Nao', 'Nao'),
-	(15, 'Kely', '2016', 'Medio', 'Preto, bricalhão', 'Shar Pei', 'Cachorro', 'Femea', 'Sim', 'Nao'),
-	(16, 'Leci', '2017', 'Pequeno', 'Branco, dócil', 'Poodle Toy', 'Cachorro', 'Femea', 'Nao', 'Sim');
+INSERT INTO `animal` (`CD_Animal`, `NM_Animal`, `ANO_Animal`, `TM_Animal`, `DS_Animal`, `RC_Animal`, `TP_Animal`, `SX_Animal`, `VC_Animal`, `CS_Animal`, `AD_Animal`) VALUES
+	(1, 'Niki', '2015', 'Pequeno', 'Castanho, dócil', 'Yorkshire', 'Cachorro', 'Macho', 'Sim', 'Sim', 1),
+	(2, 'Bob', '2017', 'Medio', 'Preto, cão de guarda', 'Chow Chow', 'Cachorro', 'Macho', 'Sim', 'Nao', 1),
+	(3, 'Tisto', '2016', 'Grande', 'Branco, bricalhão', 'Dálmata', 'Cachorro', 'Macho', 'Nao', 'Sim', 0),
+	(4, 'Clike', '2019', 'Pequeno', 'Branco, dócil', 'Shih Tzu', 'Cachorro', 'Macho', 'Nao', 'Nao', 0),
+	(5, 'Luki', '2015', 'Medio', 'Preto, preguiçososo', 'Nebelung', 'Gato', 'Macho', 'Sim', 'Nao', 0),
+	(6, 'Sansão', '2016', 'Pequeno', 'Branco, dócil', 'Singapura', 'Gato', 'Macho', 'Nao', 'Sim', 0),
+	(7, 'Pepita', '2016', 'Grande', 'Castanho, cão de guarda', 'Chartreux', 'Gato', 'Femea', 'Sim', 'Sim', 0),
+	(8, 'Kenny', '2017', 'Pequeno', 'Branco, bricalhão', 'Scottish Fold', 'Gato', 'Femea', 'Nao', 'Nao', 0),
+	(9, 'Pipoca', '2015', 'Medio', 'Preto, apegado a seu bichinho', 'Manx', 'Gato', 'Femea', 'Sim', 'Nao', 1),
+	(10, 'Elza', '2016', 'Pequeno', 'Castanho, dócil', 'SDR', 'Gato', 'Femea', 'Nao', 'Sim', 0),
+	(11, 'Floquinho', '2017', 'Pequeno', 'Branco, dócil', 'Burmês', 'Gato', 'Macho', 'Sim', 'Sim', 0),
+	(12, 'Cookie', '2018', 'Grande', 'Preto, bricalhão', 'Savannah', 'Gato', 'Macho', 'Nao', 'Nao', 0),
+	(13, 'Mara', '2015', 'Medio', 'Preto, cão de guarda', 'Poodle', 'Cachorro', 'Femea', 'Sim', 'Sim', 0),
+	(14, 'Maraisa', '2019', 'Grande', 'Castanho, dócil', 'Fila Brasileiro', 'Cachorro', 'Femea', 'Nao', 'Nao', 0),
+	(15, 'Kely', '2016', 'Medio', 'Preto, bricalhão', 'Shar Pei', 'Cachorro', 'Femea', 'Sim', 'Nao', 1),
+	(16, 'Leci', '2017', 'Pequeno', 'Branco, dócil', 'Poodle Toy', 'Cachorro', 'Femea', 'Nao', 'Sim', 1);
 /*!40000 ALTER TABLE `animal` ENABLE KEYS */;
 
 
@@ -130,11 +156,11 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   PRIMARY KEY (`CD_Cliente`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela petshopdb.cliente: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela petshopdb.cliente: ~0 rows (aproximadamente)
 DELETE FROM `cliente`;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` (`CD_Cliente`, `EM_Cliente`, `PS_Cliente`, `PN_Cliente`, `SN_Cliente`, `SX_Cliente`, `TL_Cliente`, `ADM_Cliente`, `CEP_Cliente`, `CPF_Cliente`, `PJF_Cliente`, `RZ_Cliente`) VALUES
-	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '123', 0, '11111', '23243', NULL, 'Jordana');
+	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '(12) 3    -    ', 0, '11111-   ', '23243', NULL, 'Jordana');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 
@@ -185,6 +211,29 @@ INSERT INTO `contato_veterinario` (`CD_Veterinario`, `NM_Veterinario`, `TL_Veter
 /*!40000 ALTER TABLE `contato_veterinario` ENABLE KEYS */;
 
 
+-- Copiando estrutura para tabela petshopdb.cuidadores
+DROP TABLE IF EXISTS `cuidadores`;
+CREATE TABLE IF NOT EXISTS `cuidadores` (
+  `CD_CUIDADOR` int(11) NOT NULL AUTO_INCREMENT,
+  `NM_CUIDADOR` varchar(50) DEFAULT NULL,
+  `DS_CUIDADOR` varchar(200) DEFAULT NULL,
+  `NS_CUIDADOR` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`CD_CUIDADOR`),
+  KEY `NM_CUIDADOR` (`NM_CUIDADOR`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela petshopdb.cuidadores: ~5 rows (aproximadamente)
+DELETE FROM `cuidadores`;
+/*!40000 ALTER TABLE `cuidadores` DISABLE KEYS */;
+INSERT INTO `cuidadores` (`CD_CUIDADOR`, `NM_CUIDADOR`, `DS_CUIDADOR`, `NS_CUIDADOR`) VALUES
+	(1, 'Elizabeth Bennet', 'Sou completamente apaixonada por cães e gatos, responsável e mandarei constantes fotos e vídeos para mostrar-lhe como seu pet está, para que não haja preocupações. ', '23'),
+	(2, 'Charlotte Lucas', 'Amo cães e gatos, tenho um cão (dócil), moro em uma casa com quintal grande e bem cercado para seu pet poder brincar sem mais preocupações, também posso leva-lo para passear.', '27'),
+	(3, 'Fitzwilliam Darcy', 'Amo animais, tenho um cão, ele é dócil e gosta de brincar, seu pet terá companhia e estará bem cuidado, se preferir também posso levar seu pet para passear junto com o meu cãozinho.', '28'),
+	(4, 'Charles Bingley', 'Estou de férias do trabalho, moro com meu cãozinho(amigável) em uma casa com quintal grande e cercado, ele terá com quem brincar, enquanto registro tudo no celular e mando para o seu dono.', '25'),
+	(5, 'Lydia Wickham', 'Olá, estou desempregada, quero ajudar meus pais em casa finaceiramente,e amo animais,então me disponibilizo para cuidar, dar atenção e carinho para seu pet, vou registrar e enviar fotos para seu dono.', '18');
+/*!40000 ALTER TABLE `cuidadores` ENABLE KEYS */;
+
+
 -- Copiando estrutura para tabela petshopdb.item
 DROP TABLE IF EXISTS `item`;
 CREATE TABLE IF NOT EXISTS `item` (
@@ -216,6 +265,7 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `DT_Pedido` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `AT_Pedido` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `CD_Cliente` int(11) NOT NULL,
+  `ATT_Pedido` int(11) DEFAULT '0',
   PRIMARY KEY (`CD_Pedido`),
   KEY `fk_Pedido_Cliente1_idx` (`CD_Cliente`),
   CONSTRAINT `fk_Pedido_Cliente1` FOREIGN KEY (`CD_Cliente`) REFERENCES `cliente` (`CD_Cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -224,9 +274,9 @@ CREATE TABLE IF NOT EXISTS `pedido` (
 -- Copiando dados para a tabela petshopdb.pedido: ~2 rows (aproximadamente)
 DELETE FROM `pedido`;
 /*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
-INSERT INTO `pedido` (`CD_Pedido`, `VL_Total`, `DT_Pedido`, `AT_Pedido`, `CD_Cliente`) VALUES
-	(3, 190, '2019-08-14 14:11:44', '2019-08-14 14:24:38', 3),
-	(4, 190, '2019-08-14 14:20:13', '2019-08-14 14:24:38', 3);
+INSERT INTO `pedido` (`CD_Pedido`, `VL_Total`, `DT_Pedido`, `AT_Pedido`, `CD_Cliente`, `ATT_Pedido`) VALUES
+	(3, 47.5, '2019-08-14 14:11:44', '2019-08-28 16:15:13', 3, 0),
+	(4, 47.5, '2019-08-14 14:20:13', '2019-08-28 16:15:13', 3, 0);
 /*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
 
 
