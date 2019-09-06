@@ -22,7 +22,7 @@ public class Translate {
 				return dois;
 				// Alemao
 			} else if (prop.getProperty("#").equals(3)) {
-				String drei = "1";
+				String drei = "3";
 				return drei;
 			} else {
 				String duvi = "2";
