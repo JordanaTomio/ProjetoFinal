@@ -1,3 +1,0 @@
-btn1=Entrar
-btn2=Registre-se
-

@@ -27,6 +27,15 @@ public class Dbhiperbeans implements ResultSet {
 	private boolean empty;
 	
 	private static String VALUE = "OneAndOnlyValue";
+	
+	public boolean next() throws SQLException {
+		if (empty) {
+			return false;
+		} else {
+			empty = true;
+			return true;
+		}
+	}
 
 	public boolean absolute(int row) throws SQLException {
 		// TODO Auto-generated method stub
@@ -442,15 +451,6 @@ public class Dbhiperbeans implements ResultSet {
 	public void moveToInsertRow() throws SQLException {
 		// TODO Auto-generated method stub
 
-	}
-
-	public boolean next() throws SQLException {
-		if (empty) {
-			return false;
-		} else {
-			empty = true;
-			return true;
-		}
 	}
 
 	public boolean previous() throws SQLException {

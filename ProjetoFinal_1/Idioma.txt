@@ -1,4 +1,0 @@
-#1
-#Mon Sep 09 14:42:09 BRT 2019
-btn2=Register
-btn1=Enter

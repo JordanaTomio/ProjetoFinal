@@ -9,7 +9,7 @@ import javax.swing.text.PlainDocument;
 public class ExcluiCaracteres extends PlainDocument{
 	
     private CharSequence chars;
-
+//coloca os caracteres que nao quer receber
     public ExcluiCaracteres(CharSequence lockedChars) {
         chars = lockedChars;
     }

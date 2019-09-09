@@ -1,4 +1,0 @@
-btn1=Eintreten	
-btn2=Anmelden
-
-btn3=Email oder passwort hinfällig
