@@ -105,7 +105,7 @@ public class Perfil<EntityManager> extends JFrame {
 		lblNomePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		lblNomePerfil.setBounds(20, 127, 46, 14);
 		contentPane.add(lblNomePerfil);
-
+		
 		txtNomePerfil = new JTextField();
 		txtNomePerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtNomePerfil.setBounds(127, 123, 170, 20);
