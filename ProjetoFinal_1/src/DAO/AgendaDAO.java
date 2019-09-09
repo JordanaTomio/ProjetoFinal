@@ -13,7 +13,7 @@ import Conexao.MySQLConfiguration;
 public class AgendaDAO {
 
 	public static ResultSet Atualizar() {
-		//cria conexao com o banco
+		//cria conexao com o banc
 		MySQLConfiguration c = new MySQLConfiguration();
 		String q = "";
 
