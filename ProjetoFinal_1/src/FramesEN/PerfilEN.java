@@ -15,6 +15,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -293,7 +294,7 @@ public class PerfilEN<EntityManager> extends JFrame {
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
-
+				JOptionPane.showMessageDialog(null, "Success!", "Confirmation", 1);
 			}
 		});
 		btnAlterar.setBounds(186, 304, 111, 23);

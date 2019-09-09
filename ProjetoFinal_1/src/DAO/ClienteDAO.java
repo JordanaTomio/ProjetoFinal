@@ -135,7 +135,6 @@ public class ClienteDAO {
 			ps.setString(7, razao);
 			ps.setInt(8, cdCodigo);
 			ps.executeUpdate();
-			JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Confirmação", 1);
 		} catch (SQLException e) {
 			System.err.println("Error during update 'Produto'");
 			e.printStackTrace();
