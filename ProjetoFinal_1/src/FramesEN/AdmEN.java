@@ -96,13 +96,13 @@ public class AdmEN extends JFrame {
 		JLabel lblConsultarClientes = new JLabel("Search Clients");
 		lblConsultarClientes.setToolTipText("");
 		lblConsultarClientes.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-		lblConsultarClientes.setBounds(513, 275, 131, 45);
+		lblConsultarClientes.setBounds(505, 275, 131, 45);
 		contentPane.add(lblConsultarClientes);
 		
 		JLabel lblCadastrar = new JLabel("Register Products");
 		lblCadastrar.setToolTipText("");
 		lblCadastrar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-		lblCadastrar.setBounds(47, 275, 141, 45);
+		lblCadastrar.setBounds(54, 275, 141, 45);
 		contentPane.add(lblCadastrar);
 		
 		JButton btnCadastrar = new JButton("");

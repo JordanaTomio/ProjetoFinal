@@ -83,7 +83,7 @@ public class ConsultarProdutosEN extends JFrame {
 
 		JLabel lblNome = new JLabel("Product:");
 		lblNome.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblNome.setBounds(175, 90, 79, 22);
+		lblNome.setBounds(175, 90, 80, 22);
 		contentPane.add(lblNome);
 
 		txtNome = new JTextField();
@@ -104,7 +104,7 @@ public class ConsultarProdutosEN extends JFrame {
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
-		txtNome.setBounds(264, 92, 206, 20);
+		txtNome.setBounds(265, 92, 200, 20);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 
@@ -200,7 +200,7 @@ public class ConsultarProdutosEN extends JFrame {
 				}
 			}
 		});
-		button.setBounds(523, 168, 44, 35);
+		button.setBounds(523, 170, 44, 35);
 		contentPane.add(button);
 
 		JButton btnNovoPedido = new JButton("New Order");
@@ -238,12 +238,12 @@ public class ConsultarProdutosEN extends JFrame {
 
 			}
 		});
-		comboBox.setBounds(264, 129, 209, 20);
+		comboBox.setBounds(265, 129, 200, 20);
 		contentPane.add(comboBox);
 
 		JLabel lblPedido = new JLabel("Order:");
 		lblPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblPedido.setBounds(174, 126, 122, 22);
+		lblPedido.setBounds(175, 125, 80, 22);
 		contentPane.add(lblPedido);
 
 		JLabel background = new JLabel("New label");

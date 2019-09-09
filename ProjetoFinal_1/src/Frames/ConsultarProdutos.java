@@ -81,7 +81,7 @@ public class ConsultarProdutos extends JFrame {
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblNome.setBounds(187, 93, 65, 22);
+		lblNome.setBounds(185, 85, 65, 25);
 		contentPane.add(lblNome);
 
 		txtNome = new JTextField();
@@ -102,7 +102,7 @@ public class ConsultarProdutos extends JFrame {
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
-		txtNome.setBounds(264, 92, 206, 20);
+		txtNome.setBounds(265, 87, 200, 20);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 
@@ -153,7 +153,7 @@ public class ConsultarProdutos extends JFrame {
 		Carrinho.setForeground(new Color(0, 100, 0));
 		Carrinho.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		Carrinho.setBackground(new Color(255, 255, 255));
-		Carrinho.setBounds(157, 340, 135, 23);
+		Carrinho.setBounds(155, 340, 135, 23);
 		contentPane.add(Carrinho);
 
 		JButton button = new JButton("+");
@@ -198,7 +198,7 @@ public class ConsultarProdutos extends JFrame {
 				}
 			}
 		});
-		button.setBounds(523, 168, 44, 35);
+		button.setBounds(523, 170, 44, 35);
 		contentPane.add(button);
 
 		JButton btnNovoPedido = new JButton("Novo pedido");
@@ -212,7 +212,7 @@ public class ConsultarProdutos extends JFrame {
 		btnNovoPedido.setForeground(new Color(0, 100, 0));
 		btnNovoPedido.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnNovoPedido.setBackground(new Color(255, 255, 255));
-		btnNovoPedido.setBounds(341, 338, 135, 23);
+		btnNovoPedido.setBounds(355, 340, 135, 23);
 		contentPane.add(btnNovoPedido);
 
 		comboBox = new JComboBox();
@@ -236,12 +236,12 @@ public class ConsultarProdutos extends JFrame {
 
 			}
 		});
-		comboBox.setBounds(267, 129, 206, 20);
+		comboBox.setBounds(265, 127, 200, 20);
 		contentPane.add(comboBox);
 
 		JLabel lblPedido = new JLabel("Pedido:");
 		lblPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblPedido.setBounds(186, 129, 122, 22);
+		lblPedido.setBounds(185, 120, 80, 30);
 		contentPane.add(lblPedido);
 		
 		JLabel background = new JLabel("New label");
