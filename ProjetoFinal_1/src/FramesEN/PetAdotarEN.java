@@ -439,9 +439,9 @@ public class PetAdotarEN extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				JOptionPane.showMessageDialog(null,
-						"Parabéns! Você está muito perto de adotar um Pet." + "\n"
-								+ "Entraremos em contato para agendar a visita" + "\n"
-								+ "de avaliação para que você possa levar seu novo amigo!");
+						"Congratulations! You are very near of adopting a new pet." + "\n"
+								+ "We'll be in touch so we can schedule an appointment" + "\n"
+								+ "so you can take your new friend home!");
 
 				int passe;
 				passe = Integer.parseInt(lblNigmviu.getText());

@@ -66,7 +66,7 @@ public class ConsultarProdutosEN extends JFrame {
 					double valorTotalPedido = 0;
 					try {
 						if (rsValoTotal.next()) {
-							valorTotalPedido += rsValoTotal.getDouble("Valor");
+							valorTotalPedido += rsValoTotal.getDouble("Total");
 						}
 					} catch (SQLException e1) {
 						e1.printStackTrace();
@@ -170,7 +170,7 @@ public class ConsultarProdutosEN extends JFrame {
 					try {
 						nomeProduto = (String) table.getValueAt(table.getSelectedRow(), 1);
 					} catch (ArrayIndexOutOfBoundsException e2) {
-						JOptionPane.showMessageDialog(null, "Ocorreu um erro!", "Erro!", 1);
+						JOptionPane.showMessageDialog(null, "An error happened", "Error!", 1);
 					}
 					ResultSet rs = PeedidoDAO.findByName(nomeProduto);
 
@@ -191,10 +191,10 @@ public class ConsultarProdutosEN extends JFrame {
 							int cdPedido = Integer.parseInt(cdCodigoPedidoString);
 							Items item = new Items(cdPedido, cdCodigo);
 							ItemsDAO.save(item);
-							JOptionPane.showMessageDialog(null, "Item adicionado com sucesso!", "Sucesso!", 1);
+							JOptionPane.showMessageDialog(null, "Item successfully added!", "Success!", 1);
 							PeedidoDAO.removeFromEstoque(cdCodigo, numEstoque);
 						} else {
-							JOptionPane.showMessageDialog(null, "Item em falta!", "Falta de estoque!", 1);
+							JOptionPane.showMessageDialog(null, "Out of stock!", "Out of stock!", 1);
 						}
 					}
 				}

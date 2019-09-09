@@ -74,7 +74,7 @@ public class ConsultarPedidosEN extends JFrame {
 					double valorTotalPedido = 0;
 					try {
 						while (rsValoTotal.next()) {
-							valorTotalPedido += rsValoTotal.getDouble("Valor");
+							valorTotalPedido += rsValoTotal.getDouble("Total");
 						}
 					} catch (SQLException e1) {
 						e1.printStackTrace();
@@ -149,7 +149,7 @@ public class ConsultarPedidosEN extends JFrame {
 				try {
 					while (rs.next()) {
 						cdPedido = rs.getInt("CD_Pedido");
-						comboBox.addItem("Pedido: " + cdPedido);
+						comboBox.addItem("Order: " + cdPedido);
 					}
 				} catch (SQLException e1) {
 					e1.printStackTrace();
@@ -182,7 +182,7 @@ public class ConsultarPedidosEN extends JFrame {
 					try {
 						nomeProduto = (String) table.getValueAt(table.getSelectedRow(), 0);
 					} catch (ArrayIndexOutOfBoundsException e2) {
-						JOptionPane.showMessageDialog(null, "Ocorreu um erro", "Erro!", 1);
+						JOptionPane.showMessageDialog(null, "An error happened", "Error!", 1);
 					}
 					ResultSet rs = PeedidoDAO.findByName(nomeProduto);
 
@@ -204,7 +204,7 @@ public class ConsultarPedidosEN extends JFrame {
 						int idPedido = Integer.parseInt(itens[1]);
 
 						ItemsDAO.remove(idPedido, idProduto);
-						JOptionPane.showMessageDialog(null, "Item removido com sucesso.", "Sucesso!", 1);
+						JOptionPane.showMessageDialog(null, "Item successfully removed", "Sucesso!", 1);
 						PeedidoDAO.addIntoEstoque(idProduto, numEstoque);
 
 						if (comboBox.getItemCount() > 0) {

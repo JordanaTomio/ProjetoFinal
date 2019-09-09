@@ -180,7 +180,7 @@ public class CadastrarProdutoEN extends JFrame {
 			//		txtMes.setText("");
 			//		txtAno.setText("");
 				} else {
-					JOptionPane.showMessageDialog(null, "Informações faltando.", "Erro no cadastro", 1);
+					JOptionPane.showMessageDialog(null, "Missing information.", "Register error", 1);
 				}
 			}
 		});

@@ -208,7 +208,7 @@ public class CadastroEN extends JFrame {
 					new LoginEN().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Informacões faltando!");
+					JOptionPane.showMessageDialog(null, "Missing information!");
 				}
 
 			}

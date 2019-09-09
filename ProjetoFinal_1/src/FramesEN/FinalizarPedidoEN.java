@@ -223,9 +223,9 @@ public class FinalizarPedidoEN extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			
 				if (!(avista.isSelected() || cartao.isSelected() || x2.isSelected() || x3.isSelected() )) {
-					JOptionPane.showMessageDialog(null, "Por favor, selecione um método de pagamento!");
+					JOptionPane.showMessageDialog(null, "Please, select a payment method!");
 				} else {
-					JOptionPane.showMessageDialog(null, "Obrigada por comprar conosco, volte sempre!");
+					JOptionPane.showMessageDialog(null, "Thanks for the preference!");
 					PeedidoDAO.updateATT(ConsultarPedidosEN.pedido[1]);
 					new MenuEN().setVisible(true);
 					dispose();

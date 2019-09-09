@@ -1,13 +1,13 @@
 package FramesEN;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
-import java.awt.Cursor;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -82,23 +82,23 @@ public class BanhoTosaEN extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
-		
-		try{
+
+		try {
 			data = new MaskFormatter("##/##");
-		}catch(ParseException pe){
+		} catch (ParseException pe) {
 			pe.printStackTrace();
 		}
-		try{
+		try {
 			hora = new MaskFormatter("##:##");
-		}catch(ParseException pe){
+		} catch (ParseException pe) {
 			pe.printStackTrace();
 		}
-		
+
 		txtHORA = new JFormattedTextField(hora);
 		txtHORA.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		txtHORA.setBounds(104, 134, 49, 20);
 		contentPane.add(txtHORA);
-		
+
 		txtData = new JFormattedTextField(data);
 		txtData.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		txtData.setBounds(23, 134, 52, 20);
@@ -252,77 +252,77 @@ public class BanhoTosaEN extends JFrame {
 				else {
 					if (rdbtnPequeno.isSelected() && rdbtnBanho.isSelected()) {
 
-						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 15,00", "Gostaria de confirmar HorÃ¡rio?",
+						Object[] options = { "Confirm", "Cancel" };
+						Confi = JOptionPane.showOptionDialog(null, "Total: R$ 15,00", "Would you like to schedule an appointment?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
+									"Appointment scheduled! Please arrive in advance!");
 							variavel = 1;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "We are sorry we can't help you, thanks for the preference!");
 						}
 					} else if (rdbtnPequeno.isSelected() && rdbtnBanhoETosa.isSelected()) {
-						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 25,00", "Gostaria de confirmar Horário?",
+						Object[] options = { "Confirm", "Cancel" };
+						Confi = JOptionPane.showOptionDialog(null, "Total: R$ 25,00", "Would you like to schedule an appointment?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Horário  confirmado! Favor chegar com 15 minutos de antecedência!");
+									"Appointment scheduled! Please arrive in advance!");
 							variavel = 2;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "We are sorry we can't help you, thanks for the preference!");
 						}
 
 					} else if (rdbtnMedio.isSelected() && rdbtnBanho.isSelected()) {
-						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 20,00", "Gostaria de confirmar Horário?",
+						Object[] options = { "Confirm", "Cancel" };
+						Confi = JOptionPane.showOptionDialog(null, "Total: R$ 20,00", "Would you like to schedule an appointment?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
+									"Appointment scheduled! Please arrive in advance!");
 							variavel = 3;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "We are sorry we can't help you, thanks for the preference!");
 						}
 					} else if (rdbtnMedio.isSelected() && rdbtnBanhoETosa.isSelected()) {
-						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar Horário?",
+						Object[] options = { "Confirm", "Cancel" };
+						Confi = JOptionPane.showOptionDialog(null, "Total: R$ 30,00", "Would you like to schedule an appointment?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Horário  confirmado! Favor chegar com 15 minutos de antecedêcia!");
+									"Appointment scheduled! Please arrive in advance!");
 							variavel = 4;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "We are sorry we can't help you, thanks for the preference!");
 						}
 					} else if (rdbtnGrande.isSelected() && rdbtnBanho.isSelected()) {
-						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar Horário?",
+						Object[] options = { "Confirm", "Cancel" };
+						Confi = JOptionPane.showOptionDialog(null, "Total: R$ 30,00", "Would you like to schedule an appointment?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Horário  confirmado! Favor chegar com 15 minutos de antecedência!");
+									"Appointment scheduled! Please arrive in advance!");
 							variavel = 5;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "We are sorry we can't help you, thanks for the preference!");
 						}
 					} else if (rdbtnGrande.isSelected() && rdbtnBanhoETosa.isSelected()) {
-						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 40,00", "Gostaria de confirmar Horário?",
+						Object[] options = { "Confirm", "Cancel" };
+						Confi = JOptionPane.showOptionDialog(null, "Total: R$ 40,00", "Would you like to schedule an appointment?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Horário  confirmado! Favor chegar com 15 minutos de antecedência!");
+									"Appointment scheduled! Please arrive in advance!");
 							variavel = 6;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "We are sorry we can't help you, thanks for the preference!");
 						}
 					}
 					if ((Confi == 0))

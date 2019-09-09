@@ -100,7 +100,7 @@ public class MenuEN extends JFrame {
 		btnLogoff.setOpaque(false);
 		contentPane.add(btnLogoff);
 		
-		btnVet = new JButton("Veterinário");
+		btnVet = new JButton("Veterinarian");
 		btnVet.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVet.setIcon(new ImageIcon(MenuEN.class.getResource("/imagens/vet.png")));
 		btnVet.addActionListener(new ActionListener() {
@@ -191,7 +191,7 @@ public class MenuEN extends JFrame {
 		lblNewLabel.setBounds(69, 129, 138, 135);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblAdoo = new JLabel("Adotion");
+		JLabel lblAdoo = new JLabel("Adoption");
 		lblAdoo.setBounds(494, 244, 84, 22);
 		contentPane.add(lblAdoo);
 		lblAdoo.setForeground(new Color(0, 0, 0));
