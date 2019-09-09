@@ -74,7 +74,7 @@ public class ConsultarPedidosEN extends JFrame {
 					double valorTotalPedido = 0;
 					try {
 						while (rsValoTotal.next()) {
-							valorTotalPedido += rsValoTotal.getDouble("Total");
+							valorTotalPedido += rsValoTotal.getDouble("Valor");
 						}
 					} catch (SQLException e1) {
 						e1.printStackTrace();

@@ -262,7 +262,7 @@ public class HotelEN extends JFrame {
 		lblAte.setBounds(280, 182, 36, 20);
 		contentPane.add(lblAte);
 		
-				JLabel lblCuidadores = new JLabel("Caregivers");
+				JLabel lblCuidadores = new JLabel("Caretakers");
 				lblCuidadores.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 				lblCuidadores.setBounds(461, 108, 117, 20);
 				contentPane.add(lblCuidadores);
