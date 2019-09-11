@@ -47,8 +47,7 @@ public class Cadastro extends JFrame {
 	JRadioButton btnFeminino = new JRadioButton("Fem");
 	JRadioButton btnMasculino = new JRadioButton("Masc");
 	JRadioButton rdbtnOutros = new JRadioButton("Outros");
-	private String ver;
-	
+
 	/**
 	 * Launch the application.
 	 */
@@ -80,7 +79,7 @@ public class Cadastro extends JFrame {
 		contentPane.setLayout(null);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		
+
 		try {
 			telefone = new MaskFormatter("(##)#####-####");
 		} catch (ParseException pe) {
@@ -196,18 +195,6 @@ public class Cadastro extends JFrame {
 				String CEP = txtCEP.getText();
 				int admin = 0;
 
-				ResultSet rs = ClienteDAO.findAllCPF();
-				try {
-					if (rs.next()) {
-						ver = rs.getString("CPF_Cliente");
-					}
-					System.out.println(ver);
-				} catch (SQLException e) {
-					e.printStackTrace();
-					System.out.println(ver);
-				}
-				
-				
 				if (btnMasculino.isSelected()) {
 					sexo = "Masculino";
 					System.out.println("batata");
@@ -217,21 +204,33 @@ public class Cadastro extends JFrame {
 				} else if (rdbtnOutros.isSelected()) {
 					sexo = "Outros";
 				}
+				ResultSet rs = ClienteDAO.findAllCPF(CPF);
+				String ver = "";
+				try {
+					if (rs.next()) {
+						ver = rs.getString("CPF_Cliente");
 
-				if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
+					}
+					System.out.println(ver);
+				} catch (SQLException e) {
+					e.printStackTrace();
+					System.out.println(ver);
+				}
+
+				if ((CPF.equals(ver))) {
+					System.out.println(ver);
+					JOptionPane.showMessageDialog(null, "CPF jÃ¡ cadastrado!");
+
+				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
 					System.out.println("inseriu");
 					new Login().setVisible(true);
 					dispose();
-					
-				} else if (!(email.equals(ver))){
-					System.out.println(ver);
-					JOptionPane.showMessageDialog(null, "CPF já cadastrado!");
-					
+
 				} else {
-					JOptionPane.showMessageDialog(null, "Informações faltando!");
+					JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando!");
 				}
 
 			}
@@ -260,7 +259,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(btnVoltar);
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatórios");
+		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatÃ³rios");
 		lbldadosObrigatrios.setBounds(30, 317, 95, 14);
 		lbldadosObrigatrios.setForeground(Color.RED);
 		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));
