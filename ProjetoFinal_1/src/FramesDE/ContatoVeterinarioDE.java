@@ -49,7 +49,7 @@ public class ContatoVeterinarioDE extends JFrame {
 	 * Create the frame.
 	 */
 	public ContatoVeterinarioDE() {
-		setTitle("Veterin\u00E1rios");
+		setTitle("Tier\u00E4rtzlich");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ContatoVeterinarioDE.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
@@ -109,7 +109,7 @@ public class ContatoVeterinarioDE extends JFrame {
 				String q = "";
 				String w = "";
 				//-------------------------------------------------------------\\
-				q = "SELECT NM_Veterinario Nome, TL_Veterinario Telefone, LC_Veterinario Endereço"
+				q = "SELECT NM_Veterinario Nome, TL_Veterinario Telefone, LC_Veterinario EndereÃ§o"
 						+ " FROM contato_veterinario";
 				if (!txtBAIRRO.getText().isEmpty()){
 					if (w.isEmpty()){
