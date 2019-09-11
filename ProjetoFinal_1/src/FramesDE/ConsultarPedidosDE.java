@@ -51,7 +51,7 @@ public class ConsultarPedidosDE extends JFrame {
 	 * Create the frame.
 	 */
 	public ConsultarPedidosDE() {
-		setTitle("Carrinho");
+		setTitle("Einkaufswagen");
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(ConsultarPedidosDE.class.getResource("/imagens/3775232-16.png")));
 		DecimalFormat df = new DecimalFormat();
@@ -102,7 +102,7 @@ public class ConsultarPedidosDE extends JFrame {
 		table = new JTable();
 		tblProdutos.setViewportView(table);
 
-		JCheckBox chckbxFinalizado = new JCheckBox("Finalizado");
+		JCheckBox chckbxFinalizado = new JCheckBox("Fertig");
 		chckbxFinalizado.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		chckbxFinalizado.setBounds(534, 163, 114, 23);
 		chckbxFinalizado.setBorderPainted(false);
@@ -182,7 +182,7 @@ public class ConsultarPedidosDE extends JFrame {
 					try {
 						nomeProduto = (String) table.getValueAt(table.getSelectedRow(), 0);
 					} catch (ArrayIndexOutOfBoundsException e2) {
-						JOptionPane.showMessageDialog(null, "Ocorreu um erro", "Erro!", 1);
+						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten "," Fehler!", 1);
 					}
 					ResultSet rs = PeedidoDAO.findByName(nomeProduto);
 
@@ -204,7 +204,7 @@ public class ConsultarPedidosDE extends JFrame {
 						int idPedido = Integer.parseInt(itens[1]);
 
 						ItemsDAO.remove(idPedido, idProduto);
-						JOptionPane.showMessageDialog(null, "Item removido com sucesso.", "Sucesso!", 1);
+						JOptionPane.showMessageDialog(null, "Objekt erfolgreich entfernt. "," Erfolgreich!", 1);
 						PeedidoDAO.addIntoEstoque(idProduto, numEstoque);
 
 						if (comboBox.getItemCount() > 0) {
@@ -249,15 +249,15 @@ public class ConsultarPedidosDE extends JFrame {
 		lblNewLabel.setBounds(14, 337, 53, 53);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblCarrinho = new JLabel("Carrinho");
+		JLabel lblCarrinho = new JLabel("Einkaufswagen");
 		lblCarrinho.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
-		lblCarrinho.setBounds(226, 11, 237, 50);
+		lblCarrinho.setBounds(200, 11, 282, 50);
 		contentPane.add(lblCarrinho);
 
-		JLabel lblValorTotal = new JLabel("Valor Total: R$");
+		JLabel lblValorTotal = new JLabel("Gesamtbetrag: R$");
 		lblValorTotal.setForeground(new Color(0, 0, 0));
 		lblValorTotal.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-		lblValorTotal.setBounds(331, 77, 181, 20);
+		lblValorTotal.setBounds(306, 76, 181, 20);
 		contentPane.add(lblValorTotal);
 
 		lblValorTotalValue = new JLabel(" ");
