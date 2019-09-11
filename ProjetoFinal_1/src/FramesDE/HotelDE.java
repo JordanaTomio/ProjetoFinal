@@ -25,6 +25,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
 import DAO.HotelDAO;
+import Frames.Menu;
+
 import java.awt.Color;
 import java.awt.Toolkit;
 
@@ -93,7 +95,7 @@ public class HotelDE extends JFrame {
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
-		
+
 		JRadioButton gato = new JRadioButton("Katze");
 		buttonGroup.add(gato);
 		gato.setContentAreaFilled(false);
@@ -103,7 +105,7 @@ public class HotelDE extends JFrame {
 		gato.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		gato.setBounds(217, 224, 73, 23);
 		contentPane.add(gato);
-		
+
 		JRadioButton cachorro = new JRadioButton("Hund");
 		buttonGroup.add(cachorro);
 		cachorro.setContentAreaFilled(false);
@@ -124,18 +126,17 @@ public class HotelDE extends JFrame {
 				String dataFinal = data2.getText();
 				String cuidador = txtNome.getText();
 				String obs = txtObs.getText();
-				
-				if (cachorro.isSelected()){
+
+				if (cachorro.isSelected()) {
 					tipo = "Cachorro";
 					System.out.println("dog");
 				} else if (gato.isSelected()) {
 					tipo = "Gato";
 					System.out.println("cat");
 				}
-				
-				
+
 				DAO.HotelDAO.Agendar(nome, dataComeco, dataFinal, cuidador, obs, tipo);
-				
+
 			}
 		});
 
@@ -148,7 +149,7 @@ public class HotelDE extends JFrame {
 		txtDs.setContentType("");
 		txtDs.setBounds(424, 179, 191, 135);
 		contentPane.add(txtDs);
-		
+
 		txtNome = new JTextField();
 		txtNome.setEditable(false);
 		scrollPane.setViewportView(txtNome);
@@ -187,63 +188,63 @@ public class HotelDE extends JFrame {
 		btnVai.setIcon(new ImageIcon(HotelDE.class.getResource("/imagens/3847912-128(2).png")));
 		btnVai.setBounds(523, 325, 89, 51);
 		contentPane.add(btnVai);
-		
-				btnVolta = new JButton("");
-				btnVolta.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						one--;
-						ResultSet rs = HotelDAO.findAll(one);
 
-						try {
-							if (rs.next()) {
-								String nome = rs.getString("NM_Cuidador");
-								String ds = rs.getString("DS_Cuidador");
+		btnVolta = new JButton("");
+		btnVolta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				one--;
+				ResultSet rs = HotelDAO.findAll(one);
 
-								txtNome.setText(nome);
-								txtDs.setText(ds);
-							}
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}
+				try {
+					if (rs.next()) {
+						String nome = rs.getString("NM_Cuidador");
+						String ds = rs.getString("DS_Cuidador");
 
+						txtNome.setText(nome);
+						txtDs.setText(ds);
 					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 
-				});
-				btnVolta.setContentAreaFilled(false);
-				btnVolta.setOpaque(false);
-				btnVolta.setFocusPainted(false);
-				btnVolta.setBorderPainted(false);
-				
-						btnVolta.setIcon(new ImageIcon(HotelDE.class.getResource("/imagens/3847912-128(1).png")));
-						btnVolta.setBounds(424, 325, 89, 51);
-						contentPane.add(btnVolta);
-		
-				JButton sair = new JButton("");
-				sair.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						MenuDE mnu = new MenuDE();
-						mnu.setVisible(true);
-						dispose();
-					}
-				});
-				sair.setContentAreaFilled(false);
-				sair.setOpaque(false);
-				sair.setFocusPainted(false);
-				sair.setBorderPainted(false);
-				sair.setIcon(new ImageIcon(HotelDE.class.getResource("/imagens/3209260-128(1).png")));
-				sair.setBounds(10, 336, 63, 51);
-				contentPane.add(sair);
+			}
+
+		});
+		btnVolta.setContentAreaFilled(false);
+		btnVolta.setOpaque(false);
+		btnVolta.setFocusPainted(false);
+		btnVolta.setBorderPainted(false);
+
+		btnVolta.setIcon(new ImageIcon(HotelDE.class.getResource("/imagens/3847912-128(1).png")));
+		btnVolta.setBounds(424, 325, 89, 51);
+		contentPane.add(btnVolta);
+
+		JButton sair = new JButton("");
+		sair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuDE mnu = new MenuDE();
+				mnu.setVisible(true);
+				dispose();
+			}
+		});
+		sair.setContentAreaFilled(false);
+		sair.setOpaque(false);
+		sair.setFocusPainted(false);
+		sair.setBorderPainted(false);
+		sair.setIcon(new ImageIcon(HotelDE.class.getResource("/imagens/3209260-128(1).png")));
+		sair.setBounds(10, 336, 63, 51);
+		contentPane.add(sair);
 
 		data2 = new JFormattedTextField(mascaras);
 		data2.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		data2.setBounds(312, 183, 54, 19);
 		contentPane.add(data2);
-		
+
 		data = new JFormattedTextField(mascaras);
 		data.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		data.setBounds(202, 183, 54, 19);
 		contentPane.add(data);
-		
+
 		txtObs = new JTextField();
 		txtObs.setBounds(139, 280, 205, 20);
 		contentPane.add(txtObs);
@@ -251,21 +252,21 @@ public class HotelDE extends JFrame {
 		txtNomeCliente.setBounds(166, 130, 210, 23);
 		contentPane.add(txtNomeCliente);
 		txtNomeCliente.setColumns(10);
-		
-				JLabel lblTraco = new JLabel("New label");
-				lblTraco.setIcon(new ImageIcon(HotelDE.class.getResource("/imagens/Sem t\u00EDtulo.png")));
-				lblTraco.setBounds(399, 108, 2, 268);
-				contentPane.add(lblTraco);
+
+		JLabel lblTraco = new JLabel("New label");
+		lblTraco.setIcon(new ImageIcon(HotelDE.class.getResource("/imagens/Sem t\u00EDtulo.png")));
+		lblTraco.setBounds(399, 108, 2, 268);
+		contentPane.add(lblTraco);
 
 		JLabel lblAte = new JLabel("bis");
 		lblAte.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		lblAte.setBounds(266, 182, 36, 20);
 		contentPane.add(lblAte);
-		
-				JLabel lblCuidadores = new JLabel("Kinderm\u00E4dchen");
-				lblCuidadores.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-				lblCuidadores.setBounds(440, 108, 166, 20);
-				contentPane.add(lblCuidadores);
+
+		JLabel lblCuidadores = new JLabel("Kinderm\u00E4dchen");
+		lblCuidadores.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+		lblCuidadores.setBounds(440, 108, 166, 20);
+		contentPane.add(lblCuidadores);
 
 		JLabel lblData = new JLabel("Datum: ");
 		lblData.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
@@ -276,19 +277,17 @@ public class HotelDE extends JFrame {
 		lblName.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		lblName.setBounds(97, 131, 73, 20);
 		contentPane.add(lblName);
-		
+
 		JLabel lblAlgumaObservao = new JLabel("Alguma observa\u00E7\u00E3o?");
 		lblAlgumaObservao.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblAlgumaObservao.setBounds(150, 253, 205, 28);
 		contentPane.add(lblAlgumaObservao);
-		
-		
 
 		JLabel lblCuidador = new JLabel("Hotel IPet");
 		lblCuidador.setFont(new Font("Bauhaus 93", Font.PLAIN, 50));
 		lblCuidador.setBounds(231, 37, 247, 65);
 		contentPane.add(lblCuidador);
-		
+
 		JLabel lblTipo = new JLabel("Haustiere:");
 		lblTipo.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		lblTipo.setBounds(97, 224, 114, 23);

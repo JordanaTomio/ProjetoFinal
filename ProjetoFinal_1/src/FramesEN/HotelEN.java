@@ -238,7 +238,7 @@ public class HotelEN extends JFrame {
 		JButton sair = new JButton("");
 		sair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Menu mnu = new Menu();
+				MenuEN mnu = new MenuEN();
 				mnu.setVisible(true);
 				dispose();
 			}

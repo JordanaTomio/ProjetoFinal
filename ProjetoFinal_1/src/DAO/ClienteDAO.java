@@ -153,4 +153,18 @@ public class ClienteDAO {
 			return null;
 		}
 	}
+	public static ResultSet findAllCPF() {
+		String q = "SELECT CPF_Cliente FROM cliente where = ";
+
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			System.out.println(q);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Clientes aren't found.");
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 }

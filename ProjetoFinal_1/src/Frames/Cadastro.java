@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 
 import javax.swing.ButtonGroup;
@@ -21,8 +23,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
-import javax.swing.JFormattedTextField;
 
+import DAO.ClienteDAO;
+
+import javax.swing.JFormattedTextField;
 
 public class Cadastro extends JFrame {
 
@@ -43,7 +47,8 @@ public class Cadastro extends JFrame {
 	JRadioButton btnFeminino = new JRadioButton("Fem");
 	JRadioButton btnMasculino = new JRadioButton("Masc");
 	JRadioButton rdbtnOutros = new JRadioButton("Outros");
-
+	private String ver;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -75,7 +80,7 @@ public class Cadastro extends JFrame {
 		contentPane.setLayout(null);
 		setResizable(false);
 		setLocationRelativeTo(null);
-
+		
 		try {
 			telefone = new MaskFormatter("(##)#####-####");
 		} catch (ParseException pe) {
@@ -191,6 +196,18 @@ public class Cadastro extends JFrame {
 				String CEP = txtCEP.getText();
 				int admin = 0;
 
+				ResultSet rs = ClienteDAO.findAllCPF();
+				try {
+					if (rs.next()) {
+						ver = rs.getString("CPF_Cliente");
+					}
+					System.out.println(ver);
+				} catch (SQLException e) {
+					e.printStackTrace();
+					System.out.println(ver);
+				}
+				
+				
 				if (btnMasculino.isSelected()) {
 					sexo = "Masculino";
 					System.out.println("batata");
@@ -205,10 +222,16 @@ public class Cadastro extends JFrame {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
+					System.out.println("inseriu");
 					new Login().setVisible(true);
 					dispose();
+					
+				} else if (!(email.equals(ver))){
+					System.out.println(ver);
+					JOptionPane.showMessageDialog(null, "CPF já cadastrado!");
+					
 				} else {
-					JOptionPane.showMessageDialog(null, "InformacÃµes faltando!");
+					JOptionPane.showMessageDialog(null, "Informações faltando!");
 				}
 
 			}

@@ -153,7 +153,7 @@ public class MenuEN extends JFrame {
 		
 		JLabel lblPetShop = new JLabel("Pet Shop");
 		lblPetShop.setForeground(new Color(0, 0, 0));
-		lblPetShop.setBounds(296, 246, 75, 22);
+		lblPetShop.setBounds(290, 241, 75, 22);
 		contentPane.add(lblPetShop);
 		lblPetShop.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		
