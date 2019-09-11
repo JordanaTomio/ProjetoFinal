@@ -109,7 +109,7 @@ public class ContatoVeterinarioEN extends JFrame {
 				String q = "";
 				String w = "";
 				//-------------------------------------------------------------\\
-				q = "SELECT NM_Veterinario Nome, TL_Veterinario Telefone, LC_Veterinario Endereço"
+				q = "SELECT NM_Veterinario Name, TL_Veterinario Telephone, LC_Veterinario Address"
 						+ " FROM contato_veterinario";
 				if (!txtBAIRRO.getText().isEmpty()){
 					if (w.isEmpty()){
