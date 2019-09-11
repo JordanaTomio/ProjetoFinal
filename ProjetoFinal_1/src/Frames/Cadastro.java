@@ -1,192 +1,350 @@
-package DAO;
+package Frames;
 
-import java.sql.PreparedStatement;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 
-import Beans.Cliente;
-import Conexao.MySQLConfiguration;
-import Frames.Main;
+import DAO.ClienteDAO;
 
-public class ClienteDAO {
-	// save as informacoes no banco
-	public static void save(Cliente cliente) {
-		// cria conexao com o banco
-		MySQLConfiguration s = new MySQLConfiguration();
-		String q = "INSERT INTO cliente (EM_Cliente, PS_Cliente, PN_Cliente, SN_Cliente,"
-				+ " SX_Cliente, TL_Cliente, ADM_Cliente, CEP_Cliente, CPF_Cliente, PJF_Cliente,"
-				+ " RZ_Cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			ps.setString(1, cliente.getEmail());
-			ps.setString(2, cliente.getSenha());
-			ps.setString(3, cliente.getPrimeiroNome());
-			ps.setString(4, cliente.getUltimoNome());
-			ps.setString(5, cliente.getSexo());
-			ps.setString(6, cliente.getTelefone());
-			ps.setInt(7, cliente.getAdm());
-			ps.setString(8, cliente.getCPF());
-			ps.setString(9, cliente.getCEP());
-			ps.setString(10, cliente.getPessoa());
-			ps.setString(11, cliente.getRazao());
-			ps.executeUpdate();
-			System.out.println("Cliente was insert.");
+import javax.swing.JFormattedTextField;
 
-		} catch (SQLException e) {
-			System.err.println("Some error happen in inserting 'Cliente'");
-			e.printStackTrace();
-		}
-	}
+public class Cadastro extends JFrame {
 
-	// puxa as informacoes de para login
-	public static boolean giveAuth(String email, String senha) {
-		// cria conexao com o banco
-		MySQLConfiguration s = new MySQLConfiguration();
-		String q = "SELECT CD_Cliente, EM_Cliente, PS_Cliente, PN_Cliente, SN_Cliente, SX_Cliente, TL_Cliente, ADM_Cliente FROM cliente WHERE EM_Cliente = ?";
-		ResultSet rs = null;
-		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			ps.setString(1, email);
-			rs = ps.executeQuery();
-		} catch (SQLException e) {
-			System.err.println("Cliente isn't found. (Email is wrong)");
-			e.printStackTrace();
-		}
+	private JPanel contentPane;
+	private JTextField txtRZ_Social;
+	private JTextField txtEM;
+	private JTextField txtSN;
+	private JTextField txtPN;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JPasswordField txtPS;
+	private JLabel btnVoltar_icon;
+	private MaskFormatter CPF;
+	private MaskFormatter CEP;
+	private MaskFormatter telefone;
+	private JFormattedTextField txtTelefone;
+	private JFormattedTextField txtCEP;
+	private JFormattedTextField txtCPF;
+	JRadioButton btnFeminino = new JRadioButton("Fem");
+	JRadioButton btnMasculino = new JRadioButton("Masc");
+	JRadioButton rdbtnOutros = new JRadioButton("Outros");
 
-		int cdCodigo = 0;
-		String emailValido = null;
-		String senhaValida = null;
-		String primeiroNome = null;
-		String ultimoNome = null;
-		String sexo = null;
-		String telefone = null;
-		int adm = 0;
-
-		try {
-			if (rs.next()) {
-				cdCodigo = rs.getInt("CD_Cliente");
-				emailValido = rs.getString("EM_Cliente");
-				senhaValida = rs.getString("PS_Cliente");
-				primeiroNome = rs.getString("PN_Cliente");
-				ultimoNome = rs.getString("SN_Cliente");
-				sexo = rs.getString("SX_Cliente");
-				telefone = rs.getString("TL_Cliente");
-				adm = rs.getInt("ADM_Cliente");
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Cadastro frame = new Cadastro();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		if ((emailValido != null) && emailValido.equals(email) && (senhaValida != null) && senhaValida.equals(senha)) {
-			Cliente cliente = Main.cliente;
-			cliente.setCdCodigo(cdCodigo);
-			cliente.setEmail(emailValido);
-			cliente.setSenha(senhaValida);
-			cliente.setPrimeiroNome(primeiroNome);
-			cliente.setUltimoNome(ultimoNome);
-			cliente.setSexo(sexo);
-			cliente.setTelefone(telefone);
-			cliente.setAdm(adm);
-			return true;
-		} else {
-			return false;
-		}
+		});
 	}
 
-	public static ResultSet findAll() {
-		String q = "SELECT CD_Cliente, PN_Cliente, SN_Cliente, TL_Cliente, EM_Cliente FROM cliente";
+	/**
+	 * Create the frame.
+	 */
+	public Cadastro() {
+		setTitle("Cadastrar");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Cadastro.class.getResource("/imagens/3775232-16.png")));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 660, 440);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(176, 224, 230));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		setResizable(false);
+		setLocationRelativeTo(null);
 
 		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			return ps.executeQuery();
-		} catch (SQLException e) {
-			System.err.println("Clientes aren't found.");
-			e.printStackTrace();
-			return null;
+			telefone = new MaskFormatter("(##)#####-####");
+		} catch (ParseException pe) {
+			pe.printStackTrace();
 		}
-	}
-
-	// Puxa todas as informacoes do usuario
-	public static ResultSet findAllByID(int cdCodigo) {
-		String q = "SELECT CD_Cliente, PN_Cliente, SN_Cliente, TL_Cliente, EM_Cliente, CEP_Cliente, SX_Cliente, RZ_Cliente FROM cliente where CD_Cliente = ?";
+		txtTelefone = new JFormattedTextField(telefone);
+		txtTelefone.setBounds(128, 286, 150, 23);
+		contentPane.add(txtTelefone);
 
 		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			ps.setInt(1, cdCodigo);
-			System.out.println(q);
-			return ps.executeQuery();
-		} catch (SQLException e) {
-			System.err.println("Clientes aren't found by id.");
-			e.printStackTrace();
-			return null;
+			CEP = new MaskFormatter("#####-###");
+		} catch (ParseException pe) {
+			pe.printStackTrace();
 		}
-	}
 
-	// Altera as informaçoes do usuario
-	public static void UpdateAllByID(int cdCodigo, String primeiroNome, String segundoNome, String sexo,
-			String telefone, String cep, String razao, String email) {
-		String q = "UPDATE cliente set EM_Cliente= ?, PN_Cliente= ?, SN_Cliente= ?, SX_Cliente= ?, TL_Cliente= ?, CEP_Cliente= ?, RZ_Cliente= ? WHERE CD_Cliente= ?";
+		txtCEP = new JFormattedTextField(CEP);
+		txtCEP.setBounds(128, 184, 150, 23);
+		contentPane.add(txtCEP);
 
 		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			ps.setString(1, email);
-			ps.setString(2, primeiroNome);
-			ps.setString(3, segundoNome);
-			ps.setString(4, sexo);
-			ps.setString(5, telefone);
-			ps.setString(6, cep);
-			ps.setString(7, razao);
-			ps.setInt(8, cdCodigo);
-			ps.executeUpdate();
-		} catch (SQLException e) {
-			System.err.println("Error during update 'Produto'");
-			e.printStackTrace();
+			CPF = new MaskFormatter("###.###.###-##");
+		} catch (ParseException pe) {
+			pe.printStackTrace();
 		}
-	}
+		txtCPF = new JFormattedTextField(CPF);
+		txtCPF.setBounds(128, 145, 150, 22);
+		contentPane.add(txtCPF);
 
-	// Puxa as informaçoes pelo nome do cliente
-	public static ResultSet findAllTyped(String nome) {
-		String q = "SELECT CD_Cliente Cliente, PN_Cliente Nome, SN_Cliente Sobrenome FROM cliente where PN_Cliente like '%"
-				+ nome + "%'";
+		txtPN = new JTextField();
+		txtPN.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		txtPN.setBounds(128, 98, 150, 22);
+		contentPane.add(txtPN);
+		txtPN.setColumns(10);
 
-		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			return ps.executeQuery();
-		} catch (SQLException e) {
-			System.err.println("Clientes aren't found.");
-			e.printStackTrace();
-			return null;
-		}
-	}
+		JLabel lblNOME = new JLabel("Nome*:");
+		lblNOME.setForeground(new Color(0, 0, 0));
+		lblNOME.setBounds(30, 99, 62, 22);
+		lblNOME.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		contentPane.add(lblNOME);
 
-	public static ResultSet findAllCPF(String cpf) {
-		String q = "SELECT CPF_Cliente FROM cliente WHERE CPF_Cliente = ?";
+		JLabel lblCadastroDaInstituio = new JLabel("Dados Cadastrais");
+		lblCadastroDaInstituio.setBounds(210, 12, 272, 49);
+		lblCadastroDaInstituio.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+		contentPane.add(lblCadastroDaInstituio);
 
-		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			ps.setString(1, cpf);
-			System.out.println(q);
-			return ps.executeQuery();
-		} catch (SQLException e) {
-			System.err.println("Clientes aren't found.");
-			e.printStackTrace();
-			return null;
-		}
+		JLabel lblNM_RAZAOSOCIAL = new JLabel("Nome social:");
+		lblNM_RAZAOSOCIAL.setBounds(333, 142, 104, 22);
+		lblNM_RAZAOSOCIAL.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		contentPane.add(lblNM_RAZAOSOCIAL);
+
+		txtRZ_Social = new JTextField();
+		txtRZ_Social.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		txtRZ_Social.setBounds(433, 143, 150, 20);
+		contentPane.add(txtRZ_Social);
+		txtRZ_Social.setColumns(10);
+
+		JLabel lblCPF_CNPJ = new JLabel("CPF*:");
+		lblCPF_CNPJ.setBounds(28, 140, 91, 22);
+		lblCPF_CNPJ.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		contentPane.add(lblCPF_CNPJ);
+
+		JLabel lblCEP = new JLabel("CEP*:");
+		lblCEP.setBounds(27, 185, 65, 22);
+		lblCEP.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		contentPane.add(lblCEP);
+
+		JLabel lblENDERECO = new JLabel("Email*:");
+		lblENDERECO.setBounds(28, 233, 64, 22);
+		lblENDERECO.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		contentPane.add(lblENDERECO);
+
+		JLabel lblSobrenome = new JLabel("Sobrenome:");
+		lblSobrenome.setBounds(335, 99, 88, 22);
+		lblSobrenome.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		contentPane.add(lblSobrenome);
+
+		txtSN = new JTextField();
+		txtSN.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		txtSN.setBounds(433, 99, 150, 20);
+		contentPane.add(txtSN);
+		txtSN.setColumns(10);
+
+		JLabel lblCIDADE = new JLabel("Telefone*:");
+		lblCIDADE.setBounds(28, 283, 88, 22);
+		lblCIDADE.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		contentPane.add(lblCIDADE);
+
+		txtEM = new JTextField();
+		txtEM.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		txtEM.setBounds(129, 236, 150, 20);
+		contentPane.add(txtEM);
+		txtEM.setColumns(10);
+
+		JLabel lblGenero = new JLabel("Sexo*: ");
+		lblGenero.setBounds(337, 189, 63, 14);
+		lblGenero.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		contentPane.add(lblGenero);
+
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setForeground(new Color(0, 100, 0));
+		btnCadastrar.setBackground(new Color(255, 255, 255));
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String primeiroNome = txtPN.getText();
+				String ultimoNome = txtSN.getText();
+				String email = txtEM.getText();
+				String senha = txtPS.getText();
+				String telefone = txtTelefone.getText();
+				String CPF = txtCPF.getText();
+				String razao = txtRZ_Social.getText();
+				String pessoa = null;
+				String sexo = null;
+				String CEP = txtCEP.getText();
+				int admin = 0;
+
+				if (btnMasculino.isSelected()) {
+					sexo = "Masculino";
+					System.out.println("batata");
+				} else if (btnFeminino.isSelected()) {
+					sexo = "Feminino";
+					System.out.println("batata");
+				} else if (rdbtnOutros.isSelected()) {
+					sexo = "Outros";
+				}
+				ResultSet rs = ClienteDAO.findAllCPF(CPF);
+				String CPFConf = "";
+				
+				try {
+					if (rs.next()) {
+						CPFConf = rs.getString("CPF_Cliente");
+
+					}
+					System.out.println(CPFConf);
+				} catch (SQLException e) {
+					e.printStackTrace();
+					System.out.println(CPFConf);
+				}
+				ResultSet rs1 = ClienteDAO.findEmail(email);
+				String emailConf = "";
+				try {
+					if (rs1.next()) {
+						emailConf = rs1.getString("EM_Cliente");
+					}
+					System.out.println(CPFConf);
+				} catch (SQLException e) {
+					e.printStackTrace();
+					System.out.println(CPFConf);
+				}
+				if (CPF.equals(CPFConf)) {
+					System.out.println(CPFConf);
+					JOptionPane.showMessageDialog(null, "CPF já cadastrado!");
+				
+				}else if(email.equals(emailConf)){
+					System.out.println(emailConf);
+					JOptionPane.showMessageDialog(null, "E-mail já cadastrado!");
+				
+				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
+					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
+							admin, CEP, CPF, pessoa, razao);
+					DAO.ClienteDAO.save(cliente);
+					System.out.println("inseriu");
+					new Login().setVisible(true);
+					dispose();
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Informações faltando!");
+				}
+
+			}
+		});
+
+		btnCadastrar.setBounds(228, 346, 167, 23);
+		btnCadastrar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		contentPane.add(btnCadastrar);
+		btnCadastrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		JButton btnVoltar = new JButton("");
+		btnVoltar.setBackground(new Color(240, 255, 255));
+		btnVoltar.setBounds(8, 345, 43, 43);
+		btnVoltar.setBorderPainted(false);
+		btnVoltar.setContentAreaFilled(false);
+		btnVoltar.setFocusPainted(false);
+		btnVoltar.setOpaque(false);
+		btnVoltar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Login lgn = new Login();
+				lgn.setVisible(true);
+				dispose();
+			}
+		});
+		contentPane.add(btnVoltar);
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatórios");
+		lbldadosObrigatrios.setBounds(30, 317, 95, 14);
+		lbldadosObrigatrios.setForeground(Color.RED);
+		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		contentPane.add(lbldadosObrigatrios);
+
+		JLabel Flor1_icon = new JLabel("New label");
+		Flor1_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/301738460207211(1).png")));
+		Flor1_icon.setBounds(110, -43, 180, 146);
+		contentPane.add(Flor1_icon);
+
+		JLabel Flor2_icon = new JLabel("New label");
+		Flor2_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/301738460207211(1).png")));
+		Flor2_icon.setBounds(383, -51, 180, 160);
+		contentPane.add(Flor2_icon);
+
+		JLabel lblSenha = new JLabel("Senha:");
+		lblSenha.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
+		lblSenha.setBounds(335, 233, 93, 22);
+		contentPane.add(lblSenha);
+
+		txtPS = new JPasswordField();
+		txtPS.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		txtPS.setBounds(433, 234, 150, 20);
+		contentPane.add(txtPS);
+
+		btnVoltar_icon = new JLabel("");
+		btnVoltar_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/3209260-128(1).png")));
+		btnVoltar_icon.setBounds(10, 346, 40, 44);
+		contentPane.add(btnVoltar_icon);
+
+		btnFeminino = new JRadioButton("Fem");
+		btnFeminino.setSelected(true);
+		buttonGroup.add(btnFeminino);
+		btnFeminino.setBounds(406, 187, 62, 23);
+		btnFeminino.setBorderPainted(false);
+		btnFeminino.setContentAreaFilled(false);
+		btnFeminino.setFocusPainted(false);
+		btnFeminino.setOpaque(false);
+		btnFeminino.setBackground(new Color(204, 255, 204));
+		btnFeminino.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		contentPane.add(btnFeminino);
+		btnFeminino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		btnMasculino = new JRadioButton("Masc");
+		buttonGroup.add(btnMasculino);
+		btnMasculino.setBounds(467, 187, 65, 23);
+		btnMasculino.setBorderPainted(false);
+		btnMasculino.setContentAreaFilled(false);
+		btnMasculino.setFocusPainted(false);
+		btnMasculino.setOpaque(false);
+		btnMasculino.setBackground(new Color(204, 255, 204));
+		btnMasculino.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		contentPane.add(btnMasculino);
+		btnMasculino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		rdbtnOutros = new JRadioButton("Outros");
+		buttonGroup.add(rdbtnOutros);
+		rdbtnOutros.setBackground(new Color(204, 255, 204));
+		rdbtnOutros.setBorderPainted(false);
+		rdbtnOutros.setContentAreaFilled(false);
+		rdbtnOutros.setFocusPainted(false);
+		rdbtnOutros.setOpaque(false);
+		rdbtnOutros.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		rdbtnOutros.setBounds(538, 186, 65, 23);
+		contentPane.add(rdbtnOutros);
+		rdbtnOutros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		JLabel Background_icon = new JLabel("New label");
+		Background_icon.setIcon(new ImageIcon(Cadastro.class.getResource("/imagens/Background.jpg")));
+		Background_icon.setBounds(0, -2, 660, 440);
+		contentPane.add(Background_icon);
 	}
-	public static ResultSet findEmail(String email) {
-		String q = "SELECT EM_Cliente FROM cliente WHERE EM_Cliente = '" + email + "'";
-		
-		try {
-			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
-			System.out.println(q);
-			return ps.executeQuery();
-		} catch (SQLException e) {
-			System.err.println("Clientes aren't found.");
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
 }
