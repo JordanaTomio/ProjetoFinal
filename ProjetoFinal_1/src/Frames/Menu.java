@@ -238,6 +238,7 @@ public class Menu extends JFrame {
 		contentPane.add(lblAdministrao);
 		
 		JButton btnHotel = new JButton("");
+		btnHotel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHotel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Hotel cdd = new Hotel();
