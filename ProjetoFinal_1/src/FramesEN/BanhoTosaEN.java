@@ -124,7 +124,7 @@ public class BanhoTosaEN extends JFrame {
 		tblAGENDA.getColumnModel().getColumn(1).setPreferredWidth(46);
 
 		// puxa a informacao tabela quando carrega Jframe
-		tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
+		tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.AtualizarEN()));
 
 		txtCLIENTE = new JTextField();
 		txtCLIENTE.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
@@ -222,7 +222,7 @@ public class BanhoTosaEN extends JFrame {
 		btnCarregar.setBackground(new Color(255, 255, 255));
 		btnCarregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
+				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.AtualizarEN()));
 			}
 		});
 
@@ -326,9 +326,9 @@ public class BanhoTosaEN extends JFrame {
 						}
 					}
 					if ((Confi == 0))
-						AgendaDAO.Confirmar(txtData.getText(), txtHORA.getText(), txtCLIENTE.getText(), variavel);
+						AgendaDAO.ConfirmarEN(txtData.getText(), txtHORA.getText(), txtCLIENTE.getText(), variavel);
 				}
-				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
+				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.AtualizarEN()));
 			}
 		});
 		btnConfirmar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
