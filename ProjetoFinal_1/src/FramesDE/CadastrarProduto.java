@@ -25,7 +25,7 @@ import java.awt.Toolkit;
 
 
 
-public class CadastrarProduto extends JFrame {
+public class CadastrarProdutoDE extends JFrame {
 
 	private static final long serialVersionUID = -5472934021092490724L;
 	
@@ -38,9 +38,9 @@ public class CadastrarProduto extends JFrame {
 	private JFormattedTextField txtValidade;
 	private MaskFormatter validar;
 	
-	public CadastrarProduto() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarProduto.class.getResource("/imagens/3775232-16.png")));
-		setTitle("Cadastro de Produtos");
+	public CadastrarProdutoDE() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarProdutoDE.class.getResource("/imagens/3775232-16.png")));
+		setTitle("Produktregistrierung");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();
@@ -100,7 +100,7 @@ public class CadastrarProduto extends JFrame {
 		lblEstoque.setBounds(398, 176, 92, 23);
 		contentPane.add(lblEstoque);
 		
-		JLabel lblCadastroDeProdutos = new JLabel("Cadastro de Produtos");
+		JLabel lblCadastroDeProdutos = new JLabel("Produktregistrierung");
 		lblCadastroDeProdutos.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblCadastroDeProdutos.setBounds(151, 11, 416, 68);
 		contentPane.add(lblCadastroDeProdutos);
@@ -111,7 +111,7 @@ public class CadastrarProduto extends JFrame {
 		contentPane.add(unidade_1);
 		
 		JLabel lblVoltar = new JLabel("");
-		lblVoltar.setIcon(new ImageIcon(CadastrarProduto.class.getResource("/imagens/3209260-128(1).png")));
+		lblVoltar.setIcon(new ImageIcon(CadastrarProdutoDE.class.getResource("/imagens/3209260-128(1).png")));
 		lblVoltar.setBounds(20, 331, 40, 59);
 		contentPane.add(lblVoltar);
 		
@@ -180,7 +180,7 @@ public class CadastrarProduto extends JFrame {
 			//		txtMes.setText("");
 			//		txtAno.setText("");
 				} else {
-					JOptionPane.showMessageDialog(null, "Informações faltando.", "Erro no cadastro", 1);
+					JOptionPane.showMessageDialog(null, "Fehlende Informationen. "," Registrierungsfehler", 1);
 				}
 			}
 		});
@@ -197,7 +197,7 @@ public class CadastrarProduto extends JFrame {
 		contentPane.add(txtUnidade);
 		
 		JLabel Background = new JLabel("New label");
-		Background.setIcon(new ImageIcon(CadastrarProduto.class.getResource("/imagens/Background.jpg")));
+		Background.setIcon(new ImageIcon(CadastrarProdutoDE.class.getResource("/imagens/Background.jpg")));
 		Background.setBounds(0, 0, 654, 411);
 		contentPane.add(Background);
 	}
