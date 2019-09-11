@@ -39,8 +39,8 @@ public class PerfilDE<EntityManager> extends JFrame {
 	private JTextField txtEnderecoPerfil;
 	private JLabel lblGeneroPerfil;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	JRadioButton btnMasculino = new JRadioButton("H\u00E4nn");
-	JRadioButton btnFeminino = new JRadioButton("WeiB");
+	JRadioButton btnMasculino = new JRadioButton("Mann");
+	JRadioButton btnFeminino = new JRadioButton("Frau");
 	JRadioButton btnOutro = new JRadioButton("Andere");
 	private Object visualizaDadosUsuario;
 	private JButton btnBuscar;
@@ -65,7 +65,7 @@ public class PerfilDE<EntityManager> extends JFrame {
 	}
 
 	public PerfilDE() {
-		setTitle("Perfil");
+		setTitle("Profil");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PerfilDE.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
@@ -97,7 +97,7 @@ public class PerfilDE<EntityManager> extends JFrame {
 		txtTelefonePerfil.setBounds(142, 188, 155, 19);
 		contentPane.add(txtTelefonePerfil);
 
-		JLabel lblPerfil = new JLabel("Perfil");
+		JLabel lblPerfil = new JLabel("Profil");
 		lblPerfil.setFont(new Font("Bauhaus 93", Font.BOLD, 40));
 		lblPerfil.setBounds(268, 11, 123, 81);
 		contentPane.add(lblPerfil);
@@ -140,15 +140,15 @@ public class PerfilDE<EntityManager> extends JFrame {
 		txtEmailPerfil.setBounds(446, 188, 175, 20);
 		contentPane.add(txtEmailPerfil);
 
-		JLabel lblEnderecoPerfil = new JLabel("Nome Social:");
+		JLabel lblEnderecoPerfil = new JLabel("Sozialer Name:");
 		lblEnderecoPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
-		lblEnderecoPerfil.setBounds(20, 248, 99, 14);
+		lblEnderecoPerfil.setBounds(20, 248, 127, 14);
 		contentPane.add(lblEnderecoPerfil);
 
 		txtEnderecoPerfil = new JTextField();
 		txtEnderecoPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtEnderecoPerfil.setColumns(10);
-		txtEnderecoPerfil.setBounds(127, 244, 170, 20);
+		txtEnderecoPerfil.setBounds(142, 244, 155, 20);
 		contentPane.add(txtEnderecoPerfil);
 
 		JLabel lblCepPerfil = new JLabel("PLZ:");
