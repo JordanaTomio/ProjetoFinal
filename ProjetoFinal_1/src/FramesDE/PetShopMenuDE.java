@@ -157,5 +157,6 @@ public class PetShopMenuDE extends JFrame {
 		Background_icon.setIcon(new ImageIcon(PetShopMenuDE.class.getResource("/imagens/Background.jpg")));
 		Background_icon.setBounds(0, 0, 660, 440);
 		contentPane.add(Background_icon);
+		
 	}
 }
