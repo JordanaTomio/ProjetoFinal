@@ -206,11 +206,11 @@ public class CadastroEN extends JFrame {
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
 					new LoginEN().setVisible(true);
+					JOptionPane.showMessageDialog(null, "Registration completed");
 					dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "Missing information!");
 				}
-
 			}
 		});
 
