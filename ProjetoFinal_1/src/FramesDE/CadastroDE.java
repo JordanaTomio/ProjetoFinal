@@ -205,8 +205,8 @@ public class CadastroDE extends JFrame {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
-					new LoginDE().setVisible(true);
 					JOptionPane.showMessageDialog(null, "Registrierung abgeschlossen!");
+					new LoginDE().setVisible(true);
 					dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "Fehlende Informationen !");
