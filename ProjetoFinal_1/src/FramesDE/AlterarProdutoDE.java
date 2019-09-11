@@ -45,7 +45,7 @@ public class AlterarProdutoDE extends JFrame {
 	 */
 	public AlterarProdutoDE() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(AlterarProdutoDE.class.getResource("/imagens/3775232-16.png")));
-		setTitle("Alteração de Produtos");
+		setTitle("Produkte \u00E4ndern");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		setResizable(false);
@@ -229,7 +229,7 @@ public class AlterarProdutoDE extends JFrame {
 		lblUnidade.setBounds(30, 266, 92, 14);
 		contentPane.add(lblUnidade);
 
-		JLabel lblNewLabel = new JLabel("Alterar Produtos");
+		JLabel lblNewLabel = new JLabel("Produkte \u00E4ndern");
 		lblNewLabel.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setBounds(174, 7, 317, 61);
