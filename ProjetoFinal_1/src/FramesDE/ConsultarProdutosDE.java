@@ -47,7 +47,7 @@ public class ConsultarProdutosDE extends JFrame {
 	 * Create the frame.
 	 */
 	public ConsultarProdutosDE() {
-		setTitle("Loja");
+		setTitle("Shop");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ConsultarProdutosDE.class.getResource("/imagens/3775232-16.png")));
 		setBackground(new Color(255, 228, 225));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,7 +82,7 @@ public class ConsultarProdutosDE extends JFrame {
 
 		JLabel lblNome = new JLabel("Name:");
 		lblNome.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblNome.setBounds(185, 85, 65, 22);
+		lblNome.setBounds(187, 93, 65, 22);
 		contentPane.add(lblNome);
 
 		txtNome = new JTextField();
@@ -103,7 +103,7 @@ public class ConsultarProdutosDE extends JFrame {
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
-		txtNome.setBounds(265, 87, 200, 20);
+		txtNome.setBounds(264, 92, 206, 20);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 
@@ -154,7 +154,7 @@ public class ConsultarProdutosDE extends JFrame {
 		Carrinho.setForeground(new Color(0, 100, 0));
 		Carrinho.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		Carrinho.setBackground(new Color(255, 255, 255));
-		Carrinho.setBounds(155, 340, 150, 23);
+		Carrinho.setBounds(157, 340, 151, 23);
 		contentPane.add(Carrinho);
 
 		JButton button = new JButton("+");
@@ -169,7 +169,7 @@ public class ConsultarProdutosDE extends JFrame {
 					try {
 						nomeProduto = (String) table.getValueAt(table.getSelectedRow(), 1);
 					} catch (ArrayIndexOutOfBoundsException e2) {
-						JOptionPane.showMessageDialog(null, "Ocorreu um erro!", "Erro!", 1);
+						JOptionPane.showMessageDialog(null, "Ein Fehler ist aufgetreten! "," Fehler!", 1);
 					}
 					ResultSet rs = PeedidoDAO.findByName(nomeProduto);
 
@@ -190,16 +190,16 @@ public class ConsultarProdutosDE extends JFrame {
 							int cdPedido = Integer.parseInt(cdCodigoPedidoString);
 							Items item = new Items(cdPedido, cdCodigo);
 							ItemsDAO.save(item);
-							JOptionPane.showMessageDialog(null, "Item adicionado com sucesso!", "Sucesso!", 1);
+							JOptionPane.showMessageDialog(null, "Artikel erfolgreich hinzugefügt! "," Erfolgreich!", 1);
 							PeedidoDAO.removeFromEstoque(cdCodigo, numEstoque);
 						} else {
-							JOptionPane.showMessageDialog(null, "Item em falta!", "Falta de estoque!", 1);
+							JOptionPane.showMessageDialog(null, "Fehlender Artikel! "," Nicht lieferbar!", 1);
 						}
 					}
 				}
 			}
 		});
-		button.setBounds(523, 170, 44, 35);
+		button.setBounds(523, 168, 44, 35);
 		contentPane.add(button);
 
 		JButton btnNovoPedido = new JButton("Neue anligen");
@@ -213,7 +213,7 @@ public class ConsultarProdutosDE extends JFrame {
 		btnNovoPedido.setForeground(new Color(0, 100, 0));
 		btnNovoPedido.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnNovoPedido.setBackground(new Color(255, 255, 255));
-		btnNovoPedido.setBounds(345, 340, 150, 23);
+		btnNovoPedido.setBounds(341, 338, 135, 23);
 		contentPane.add(btnNovoPedido);
 
 		comboBox = new JComboBox();
@@ -237,12 +237,12 @@ public class ConsultarProdutosDE extends JFrame {
 
 			}
 		});
-		comboBox.setBounds(265, 127, 200, 20);
+		comboBox.setBounds(267, 129, 206, 20);
 		contentPane.add(comboBox);
 
 		JLabel lblPedido = new JLabel("Anligen:");
 		lblPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblPedido.setBounds(185, 125, 100, 22);
+		lblPedido.setBounds(186, 129, 122, 22);
 		contentPane.add(lblPedido);
 		
 		JLabel background = new JLabel("New label");
