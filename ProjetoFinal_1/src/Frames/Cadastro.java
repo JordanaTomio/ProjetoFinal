@@ -207,8 +207,8 @@ public class Cadastro extends JFrame {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
-					new Login().setVisible(true);
 					JOptionPane.showMessageDialog(null, "Cadastro finalizado!");
+					new Login().setVisible(true);
 					dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "Informações faltando!");
