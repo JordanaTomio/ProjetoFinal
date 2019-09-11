@@ -27,6 +27,7 @@ import javax.swing.text.MaskFormatter;
 
 import DAO.HotelDAO;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Toolkit;
 
 public class Hotel extends JFrame {
@@ -97,6 +98,7 @@ public class Hotel extends JFrame {
 		}
 
 		JRadioButton gato = new JRadioButton("Gato");
+		gato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(gato);
 		gato.setContentAreaFilled(false);
 		gato.setBorderPainted(false);
@@ -107,6 +109,7 @@ public class Hotel extends JFrame {
 		contentPane.add(gato);
 
 		JRadioButton cachorro = new JRadioButton("Cachorro");
+		cachorro.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(cachorro);
 		cachorro.setContentAreaFilled(false);
 		cachorro.setBorderPainted(false);
@@ -117,6 +120,7 @@ public class Hotel extends JFrame {
 		contentPane.add(cachorro);
 
 		JButton btnFinalizar = new JButton("Agendar");
+		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.setForeground(new Color(0, 100, 0));
 		btnFinalizar.setBackground(Color.WHITE);
 		btnFinalizar.addActionListener(new ActionListener() {
@@ -173,6 +177,7 @@ public class Hotel extends JFrame {
 		contentPane.add(btnFinalizar);
 
 		btnVai = new JButton("");
+		btnVai.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				one++;
@@ -204,6 +209,7 @@ public class Hotel extends JFrame {
 		contentPane.add(btnVai);
 
 		btnVolta = new JButton("");
+		btnVolta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVolta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				one--;
@@ -234,6 +240,7 @@ public class Hotel extends JFrame {
 		contentPane.add(btnVolta);
 
 		JButton sair = new JButton("");
+		sair.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		sair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu mnu = new Menu();
