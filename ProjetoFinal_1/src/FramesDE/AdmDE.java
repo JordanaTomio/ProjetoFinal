@@ -40,7 +40,7 @@ public class AdmDE extends JFrame {
 	 */
 	public AdmDE() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(AdmDE.class.getResource("/imagens/3775232-16.png")));
-		setTitle("Administra\u00E7\u00E3o");
+		setTitle("Verwaltung");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();
@@ -93,23 +93,23 @@ public class AdmDE extends JFrame {
 		lblClientes.setBounds(488, 143, 137, 144);
 		contentPane.add(lblClientes);
 		
-		JLabel lblConsultarClientes = new JLabel("Consultar Clientes");
+		JLabel lblConsultarClientes = new JLabel("Kunden befragen");
 		lblConsultarClientes.setToolTipText("");
 		lblConsultarClientes.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		lblConsultarClientes.setBounds(492, 276, 131, 45);
 		contentPane.add(lblConsultarClientes);
 		
-		JLabel lblCadastrar = new JLabel("Cadastrar Produtos");
+		JLabel lblCadastrar = new JLabel("Produktregistrierung");
 		lblCadastrar.setToolTipText("");
 		lblCadastrar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-		lblCadastrar.setBounds(47, 275, 141, 45);
+		lblCadastrar.setBounds(40, 276, 158, 45);
 		contentPane.add(lblCadastrar);
 		
 		JButton btnCadastrar = new JButton("");
 		btnCadastrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CadastrarProduto cdp = new CadastrarProduto();
+				CadastrarProdutoDE cdp = new CadastrarProdutoDE();
 				cdp.setVisible(true);
 				dispose();
 			}
@@ -136,9 +136,9 @@ public class AdmDE extends JFrame {
 		btnCadastrar.setBounds(47, 148, 141, 135);
 		contentPane.add(btnCadastrar);
 		
-		JLabel lblAdministrao = new JLabel("F\u00FChrung");
+		JLabel lblAdministrao = new JLabel("Verwaltung");
 		lblAdministrao.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
-		lblAdministrao.setBounds(274, 27, 158, 68);
+		lblAdministrao.setBounds(244, 27, 217, 68);
 		contentPane.add(lblAdministrao);
 		
 		JLabel lblAlterar = new JLabel("New label");
@@ -146,7 +146,7 @@ public class AdmDE extends JFrame {
 		lblAlterar.setBounds(270, 143, 137, 144);
 		contentPane.add(lblAlterar);
 		
-		JLabel lblAlterarProdutos = new JLabel("Alterar Produtos");
+		JLabel lblAlterarProdutos = new JLabel("Produkte \u00E4ndern");
 		lblAlterarProdutos.setToolTipText("");
 		lblAlterarProdutos.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		lblAlterarProdutos.setBounds(285, 275, 131, 45);
