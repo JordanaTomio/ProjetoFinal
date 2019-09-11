@@ -68,7 +68,7 @@ public class PetAdotarDE extends JFrame {
 	 * Create the frame.
 	 */
 	public PetAdotarDE() {
-		setTitle("Ado\u00E7\u00E3o");
+		setTitle("Adoptieren");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PetAdotarDE.class.getResource("/imagens/3775232-16.png")));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -406,7 +406,7 @@ public class PetAdotarDE extends JFrame {
 		castradodb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		lblNigmviu = new JLabel("0");
-		lblNigmviu.setBounds(25, 44, 46, 14);
+		lblNigmviu.setBounds(25, 44, -17, 14);
 		contentPane.add(lblNigmviu);
 		lblNigmviu.setVisible(false);
 		btnProximo.setIcon(new ImageIcon(PetAdotarDE.class.getResource("/imagens/3847912-128(2).png")));
@@ -439,9 +439,9 @@ public class PetAdotarDE extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				JOptionPane.showMessageDialog(null,
-						"Parabéns! Você está muito perto de adotar um Pet." + "\n"
-								+ "Entraremos em contato para agendar a visita" + "\n"
-								+ "de avaliação para que você possa levar seu novo amigo!");
+						"Herzlichen Glückwunsch! Sie sind sehr nahe daran, ein Haustier zu adoptieren."+ "\n" 
+						+ " Wir werden uns mit Ihnen in Verbindung setzen, um den Probebesuch zu vereinbaren,"+ "\n" 
+						+ " damit Sie Ihren neuen Freund mitbringen können!");
 
 				int passe;
 				passe = Integer.parseInt(lblNigmviu.getText());
@@ -517,8 +517,8 @@ public class PetAdotarDE extends JFrame {
 		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		contentPane.add(btnAdotar);
 
-		JLabel lblPetInformacoes = new JLabel("Pet Informações");
-		lblPetInformacoes.setBounds(184, 23, 258, 44);
+		JLabel lblPetInformacoes = new JLabel("Haustierinformationen");
+		lblPetInformacoes.setBounds(141, 23, 356, 44);
 		lblPetInformacoes.setFont(new Font("Bauhaus 93", Font.BOLD, 30));
 		contentPane.add(lblPetInformacoes);
 
