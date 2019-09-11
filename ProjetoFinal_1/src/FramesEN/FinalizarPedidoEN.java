@@ -112,7 +112,7 @@ public class FinalizarPedidoEN extends JFrame {
 		cartao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cartao.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mouseReleased(MouseEvent e) {
 				if (cartao.isSelected()) {
 					x2.setVisible(true);
 					x3.setVisible(true);
