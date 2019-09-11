@@ -36,7 +36,7 @@ public class ConsultarClientesDE extends JFrame {
 	 * Create the frame.
 	 */
 	public ConsultarClientesDE() {
-		setTitle("Consultar Clientes");
+		setTitle("Kunden befragen");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ConsultarClientesDE.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
@@ -97,9 +97,9 @@ public class ConsultarClientesDE extends JFrame {
 		btnVoltar.setFocusPainted(false);
 		contentPane.add(btnVoltar);
 		
-		JLabel lblConsultarClientes = new JLabel("Consultar Clientes");
+		JLabel lblConsultarClientes = new JLabel("Kunden befragen");
 		lblConsultarClientes.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
-		lblConsultarClientes.setBounds(162, 25, 367, 66);
+		lblConsultarClientes.setBounds(169, 21, 325, 66);
 		contentPane.add(lblConsultarClientes);
 		
 		JLabel lblVoltar = new JLabel("");
