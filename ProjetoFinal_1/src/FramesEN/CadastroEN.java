@@ -205,8 +205,8 @@ public class CadastroEN extends JFrame {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
-					new LoginEN().setVisible(true);
 					JOptionPane.showMessageDialog(null, "Registration completed");
+					new LoginEN().setVisible(true);
 					dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "Missing information!");
