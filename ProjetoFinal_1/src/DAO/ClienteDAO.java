@@ -120,7 +120,7 @@ public class ClienteDAO {
 			return null;
 		}
 	}
-	//Altera as informaçoes do usuario
+	//Altera as informaÃ§oes do usuario
 	public static void UpdateAllByID(int cdCodigo, String primeiroNome, String segundoNome, String sexo, String telefone, String cep, String razao, String email ) {
 		String q = "UPDATE cliente set EM_Cliente= ?, PN_Cliente= ?, SN_Cliente= ?, SX_Cliente= ?, TL_Cliente= ?, CEP_Cliente= ?, RZ_Cliente= ? WHERE CD_Cliente= ?";
 
@@ -140,7 +140,7 @@ public class ClienteDAO {
 			e.printStackTrace();
 		}
 	}
-	//Puxa as informaçoes pelo nome do cliente
+	//Puxa as informaÃ§oes pelo nome do cliente
 	public static ResultSet findAllTyped(String nome) {
 		String q = "SELECT CD_Cliente Cliente, PN_Cliente Nome, SN_Cliente Sobrenome FROM cliente where PN_Cliente like '%" + nome + "%'";
 
@@ -158,6 +158,20 @@ public class ClienteDAO {
 
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			System.out.println(q);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Clientes aren't found.");
+			e.printStackTrace();
+			return null;
+		}
+	}
+		public static ResultSet findAllCPF(String cpf) {
+		String q = "SELECT CPF_Cliente FROM cliente WHERE CPF_Cliente = ?";
+
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setString(1, cpf);
 			System.out.println(q);
 			return ps.executeQuery();
 		} catch (SQLException e) {
