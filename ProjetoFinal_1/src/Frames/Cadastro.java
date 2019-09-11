@@ -7,8 +7,8 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.ParseException;
 
 import javax.swing.ButtonGroup;
@@ -23,10 +23,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
-
-import DAO.ClienteDAO;
-
 import javax.swing.JFormattedTextField;
+
 
 public class Cadastro extends JFrame {
 
@@ -204,35 +202,25 @@ public class Cadastro extends JFrame {
 				} else if (rdbtnOutros.isSelected()) {
 					sexo = "Outros";
 				}
-				ResultSet rs = ClienteDAO.findAllCPF(CPF);
-				String ver = "";
-				try {
-					if (rs.next()) {
-						ver = rs.getString("CPF_Cliente");
 
-					}
-					System.out.println(ver);
-				} catch (SQLException e) {
-					e.printStackTrace();
-					System.out.println(ver);
-				}
-
-				if ((CPF.equals(ver))) {
-					System.out.println(ver);
-					JOptionPane.showMessageDialog(null, "CPF já cadastrado!");
-
-				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
+				if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
-					System.out.println("inseriu");
 					new Login().setVisible(true);
+					JOptionPane.showMessageDialog(null, "Cadastro finalizado!");
 					dispose();
-
 				} else {
 					JOptionPane.showMessageDialog(null, "Informações faltando!");
 				}
-
+				try{
+					if(!CPF.equals(txtCPF)){
+						CPF = txtCPF.getText();
+					}
+				} catch (Exception ex) {
+				System.err.println("ERRO NO 'SQL_CPF'");
+				ex.printStackTrace();
+				}
 			}
 		});
 
