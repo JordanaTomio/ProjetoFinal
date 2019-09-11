@@ -100,7 +100,7 @@ public class MenuDE extends JFrame {
 		btnLogoff.setOpaque(false);
 		contentPane.add(btnLogoff);
 		
-		btnVet = new JButton("Veterin·rio");
+		btnVet = new JButton("Veterin√°rio");
 		btnVet.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVet.setIcon(new ImageIcon(MenuDE.class.getResource("/imagens/vet.png")));
 		btnVet.addActionListener(new ActionListener() {
@@ -270,5 +270,6 @@ public class MenuDE extends JFrame {
 		lblBackground.setIcon(new ImageIcon(MenuDE.class.getResource("/imagens/Background.jpg")));
 		lblBackground.setBounds(0, 0, 664, 440);
 		contentPane.add(lblBackground);
+		
 	}
 }
