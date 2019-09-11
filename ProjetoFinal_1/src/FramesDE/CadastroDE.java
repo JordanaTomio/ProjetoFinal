@@ -64,7 +64,7 @@ public class CadastroDE extends JFrame {
 	 * Create the frame.
 	 */
 	public CadastroDE() {
-		setTitle("Cadastrar");
+		setTitle("Registrieren");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastroDE.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
@@ -116,19 +116,19 @@ public class CadastroDE extends JFrame {
 		lblNOME.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblNOME);
 
-		JLabel lblCadastroDaInstituio = new JLabel("Dados Cadastrais");
+		JLabel lblCadastroDaInstituio = new JLabel("Registrierungsdaten");
 		lblCadastroDaInstituio.setBounds(210, 12, 272, 49);
 		lblCadastroDaInstituio.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
 		contentPane.add(lblCadastroDaInstituio);
 
-		JLabel lblNM_RAZAOSOCIAL = new JLabel("Name social:");
-		lblNM_RAZAOSOCIAL.setBounds(333, 142, 104, 22);
+		JLabel lblNM_RAZAOSOCIAL = new JLabel("Sozialer Name:");
+		lblNM_RAZAOSOCIAL.setBounds(333, 142, 117, 22);
 		lblNM_RAZAOSOCIAL.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblNM_RAZAOSOCIAL);
 
 		txtRZ_Social = new JTextField();
 		txtRZ_Social.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		txtRZ_Social.setBounds(433, 143, 150, 20);
+		txtRZ_Social.setBounds(444, 144, 139, 20);
 		contentPane.add(txtRZ_Social);
 		txtRZ_Social.setColumns(10);
 
@@ -208,7 +208,7 @@ public class CadastroDE extends JFrame {
 					new LoginDE().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "InformacÃµes faltando!");
+					JOptionPane.showMessageDialog(null, "Fehlende Informationen!");
 				}
 
 			}
@@ -237,8 +237,8 @@ public class CadastroDE extends JFrame {
 		contentPane.add(btnVoltar);
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatórios");
-		lbldadosObrigatrios.setBounds(30, 317, 95, 14);
+		JLabel lbldadosObrigatrios = new JLabel("* Erforderliche Daten");
+		lbldadosObrigatrios.setBounds(30, 317, 110, 14);
 		lbldadosObrigatrios.setForeground(Color.RED);
 		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		contentPane.add(lbldadosObrigatrios);
@@ -268,7 +268,7 @@ public class CadastroDE extends JFrame {
 		btnVoltar_icon.setBounds(10, 346, 40, 44);
 		contentPane.add(btnVoltar_icon);
 
-		btnFeminino = new JRadioButton("Weib");
+		btnFeminino = new JRadioButton("Frau");
 		btnFeminino.setSelected(true);
 		buttonGroup.add(btnFeminino);
 		btnFeminino.setBounds(406, 187, 62, 23);
@@ -281,7 +281,7 @@ public class CadastroDE extends JFrame {
 		contentPane.add(btnFeminino);
 		btnFeminino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		btnMasculino = new JRadioButton("H\u00E4nn");
+		btnMasculino = new JRadioButton("Mann");
 		buttonGroup.add(btnMasculino);
 		btnMasculino.setBounds(467, 187, 65, 23);
 		btnMasculino.setBorderPainted(false);
@@ -301,7 +301,7 @@ public class CadastroDE extends JFrame {
 		rdbtnOutros.setFocusPainted(false);
 		rdbtnOutros.setOpaque(false);
 		rdbtnOutros.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		rdbtnOutros.setBounds(538, 186, 65, 23);
+		rdbtnOutros.setBounds(538, 186, 88, 23);
 		contentPane.add(rdbtnOutros);
 		rdbtnOutros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
