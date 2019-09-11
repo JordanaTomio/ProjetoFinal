@@ -29,6 +29,7 @@ import DAO.HotelDAO;
 import Frames.Menu;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Toolkit;
 
 public class HotelEN extends JFrame {
@@ -99,6 +100,7 @@ public class HotelEN extends JFrame {
 		}
 
 		JRadioButton gato = new JRadioButton("Cat");
+		gato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(gato);
 		gato.setContentAreaFilled(false);
 		gato.setBorderPainted(false);
@@ -109,6 +111,7 @@ public class HotelEN extends JFrame {
 		contentPane.add(gato);
 
 		JRadioButton cachorro = new JRadioButton("Dog");
+		cachorro.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(cachorro);
 		cachorro.setContentAreaFilled(false);
 		cachorro.setBorderPainted(false);
@@ -119,6 +122,7 @@ public class HotelEN extends JFrame {
 		contentPane.add(cachorro);
 
 		JButton btnFinalizar = new JButton("Schedule");
+		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.setForeground(new Color(0, 100, 0));
 		btnFinalizar.setBackground(Color.WHITE);
 		btnFinalizar.addActionListener(new ActionListener() {
@@ -175,6 +179,7 @@ public class HotelEN extends JFrame {
 		contentPane.add(btnFinalizar);
 
 		btnVai = new JButton("");
+		gato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				one++;
@@ -206,6 +211,7 @@ public class HotelEN extends JFrame {
 		contentPane.add(btnVai);
 
 		btnVolta = new JButton("");
+		btnVolta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVolta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				one--;
@@ -236,6 +242,7 @@ public class HotelEN extends JFrame {
 		contentPane.add(btnVolta);
 
 		JButton sair = new JButton("");
+		sair.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		sair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MenuEN mnu = new MenuEN();
