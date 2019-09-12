@@ -100,7 +100,7 @@ public class MenuDE extends JFrame {
 		btnLogoff.setOpaque(false);
 		contentPane.add(btnLogoff);
 		
-		btnVet = new JButton("Veterinário");
+		btnVet = new JButton("VeterinÃ¡rio");
 		btnVet.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVet.setIcon(new ImageIcon(MenuDE.class.getResource("/imagens/vet.png")));
 		btnVet.addActionListener(new ActionListener() {
@@ -229,9 +229,9 @@ public class MenuDE extends JFrame {
 		contentPane.add(lblManager);
 		
 		
-		JLabel lblAdministrao = new JLabel("F\u00FChrung");
+		JLabel lblAdministrao = new JLabel("Verwaltung");
 		lblAdministrao.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		lblAdministrao.setBounds(558, 89, 103, 33);
+		lblAdministrao.setBounds(548, 85, 86, 33);
 		
 		if (Main.cliente.getAdm() ==1){
 			lblAdministrao.setVisible(true);
