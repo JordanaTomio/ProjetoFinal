@@ -179,6 +179,7 @@ public class CadastrarProduto extends JFrame {
 					txtValidade.setText("");
 			//		txtMes.setText("");
 			//		txtAno.setText("");
+					JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 				} else {
 					JOptionPane.showMessageDialog(null, "Informações faltando.", "Erro no cadastro", 1);
 				}

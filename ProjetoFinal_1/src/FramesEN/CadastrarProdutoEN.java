@@ -177,6 +177,7 @@ public class CadastrarProdutoEN extends JFrame {
 					txtUnidade.setText("");
 					txtEstoque.setText("");
 					txtValidade.setText("");
+					JOptionPane.showMessageDialog(null, "Product successfully registered!");
 			//		txtMes.setText("");
 			//		txtAno.setText("");
 				} else {
