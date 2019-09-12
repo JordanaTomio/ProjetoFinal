@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 
 import javax.swing.ButtonGroup;
@@ -21,6 +23,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
+
+import DAO.ClienteDAO;
+import Frames.Login;
+
 import javax.swing.JFormattedTextField;
 
 
@@ -200,16 +206,48 @@ public class CadastroDE extends JFrame {
 				} else if (rdbtnOutros.isSelected()) {
 					sexo = "Outros";
 				}
+				ResultSet rs = ClienteDAO.findAllCPF(CPF);
+				String CPFConf = "";
+				
+				try {
+					if (rs.next()) {
+						CPFConf = rs.getString("CPF_Cliente");
 
-				if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
+					}
+					System.out.println(CPFConf);
+				} catch (SQLException e) {
+					e.printStackTrace();
+					System.out.println(CPFConf);
+				}
+				ResultSet rs1 = ClienteDAO.findEmail(email);
+				String emailConf = "";
+				try {
+					if (rs1.next()) {
+						emailConf = rs1.getString("EM_Cliente");
+					}
+					System.out.println(CPFConf);
+				} catch (SQLException e) {
+					e.printStackTrace();
+					System.out.println(CPFConf);
+				}
+				if (CPF.equals(CPFConf)) {
+					System.out.println(CPFConf);
+					JOptionPane.showMessageDialog(null, "CPF jÃ¡ cadastrado!");
+				
+				}else if(email.equals(emailConf)){
+					System.out.println(emailConf);
+					JOptionPane.showMessageDialog(null, "E-mail jÃ¡ cadastrado!");
+				
+				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
-					JOptionPane.showMessageDialog(null, "Registrierung abgeschlossen!");
-					new LoginDE().setVisible(true);
+					System.out.println("inseriu");
+					new Login().setVisible(true);
 					dispose();
+
 				} else {
-					JOptionPane.showMessageDialog(null, "Fehlende Informationen !");
+					JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando!");
 				}
 
 			}
@@ -238,7 +276,7 @@ public class CadastroDE extends JFrame {
 		contentPane.add(btnVoltar);
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatórios");
+		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatÃ³rios");
 		lbldadosObrigatrios.setBounds(30, 317, 95, 14);
 		lbldadosObrigatrios.setForeground(Color.RED);
 		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));
