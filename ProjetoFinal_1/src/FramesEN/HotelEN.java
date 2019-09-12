@@ -182,19 +182,18 @@ public class HotelEN extends JFrame {
 		gato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				one++;
-				ResultSet rs = HotelDAO.findAll(one);
+				ResultSet rs = HotelDAO.findmaior(one);
 
 				try {
 					if (rs.next()) {
 						String nome = rs.getString("NM_Cuidador");
 						String ds = rs.getString("DS_Cuidador");
-
+						one = rs.getInt("CD_CUIDADOR");
 						txtNome.setText(nome);
 						txtDs.setText(ds);
 
 					} else {
-						one = -1;
+						one = 0;
 					}
 				} catch (SQLException e1) {
 					e1.printStackTrace();
@@ -214,16 +213,17 @@ public class HotelEN extends JFrame {
 		btnVolta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVolta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				one--;
-				ResultSet rs = HotelDAO.findAll(one);
+				ResultSet rs = HotelDAO.Findmenor(one);
 
 				try {
 					if (rs.next()) {
 						String nome = rs.getString("NM_Cuidador");
 						String ds = rs.getString("DS_Cuidador");
-
+						one = rs.getInt("CD_CUIDADOR");
 						txtNome.setText(nome);
 						txtDs.setText(ds);
+					} else {
+						one = 999999;
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
