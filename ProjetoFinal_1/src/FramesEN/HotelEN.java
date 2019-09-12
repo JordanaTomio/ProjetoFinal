@@ -149,7 +149,7 @@ public class HotelEN extends JFrame {
 					Beans.HotelBeans hotel = new Beans.HotelBeans();
 					DAO.HotelDAO.Agendar(nome, dataComeco, dataFinal, cuidador, obs, tipo);
 					DAO.HotelDAO.save(hotel);
-					new Menu().setVisible(true);
+					new MenuEN().setVisible(true);
 					dispose();
 					JOptionPane.showMessageDialog(null, "Appointment scheduled!");
 				} else {
