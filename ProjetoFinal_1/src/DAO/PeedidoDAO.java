@@ -70,6 +70,18 @@ public class PeedidoDAO {
 			return null;
 		}
 	}
+	public static ResultSet findAllToTableEN() {
+		String q = "SELECT CD_Produto Code, NM_Produto Product, VL_Produto Value FROM produto";
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Produto isn't found.");
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	public static ResultSet findAllToTableDE() {
 		String q = "SELECT CD_Produto Code, NM_Produto Produkt, VL_Produto Wert FROM produto";
 		try {
@@ -94,6 +106,19 @@ public class PeedidoDAO {
 			return null;
 		}
 	}
+	public static ResultSet findByNameToTableEN(String nome) {
+		String q = "SELECT CD_Produto Code, NM_Produto Product, VL_Produto Value FROM produto p WHERE p.NM_Produto LIKE ?";
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setString(1, "%" + nome + "%");
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Produto isn't found.");
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	public static ResultSet findByNameToTableDE(String nome) {
 		String q = "SELECT CD_Produto Code, NM_Produto Produkt, VL_Produto Wert FROM produto p WHERE p.NM_Produto LIKE ?";
 		try {
