@@ -222,7 +222,7 @@ public class FinalizarPedidoEN extends JFrame {
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			
-				if (!(avista.isSelected() || cartao.isSelected() || x2.isSelected() || x3.isSelected() )) {
+				if (!(avista.isSelected() || x2.isSelected() || x3.isSelected() )) {
 					JOptionPane.showMessageDialog(null, "Please, select a payment method!");
 				} else {
 					JOptionPane.showMessageDialog(null, "Thanks for the preference!");
