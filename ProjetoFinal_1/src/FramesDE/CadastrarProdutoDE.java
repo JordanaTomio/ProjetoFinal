@@ -90,9 +90,9 @@ public class CadastrarProdutoDE extends JFrame {
 		lblValor.setBounds(399, 115, 62, 14);
 		contentPane.add(lblValor);
 
-		JLabel lblValidade = new JLabel("Haltbarkeit:");
+		JLabel lblValidade = new JLabel("G\u00FCltigkeit:");
 		lblValidade.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblValidade.setBounds(380, 246, 105, 24);
+		lblValidade.setBounds(398, 246, 92, 24);
 		contentPane.add(lblValidade);
 
 		JLabel lblEstoque = new JLabel("Vorr\u00E4tig:");
