@@ -118,7 +118,7 @@ public class ConsultarPedidosDE extends JFrame {
 					String item = comboBox.getSelectedItem().toString();
 					String itens[] = item.split(": ");
 					int att = 3;
-					ResultSet rs = PeedidoDAO.getPedidosItems(Integer.parseInt(itens[1]));
+					ResultSet rs = PeedidoDAO.getPedidosItemsDE(Integer.parseInt(itens[1]));
 					table.setModel(Utilis.DbUtils.resultSetTable(rs));
 					ResultSet rs2 = PeedidoDAO.getPedidosATT(itens[1]);
 					try {
@@ -223,7 +223,7 @@ public class ConsultarPedidosDE extends JFrame {
 		btnFinalizar.setForeground(new Color(34, 139, 34));
 		btnFinalizar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnFinalizar.setBackground(new Color(255, 255, 255));
-		btnFinalizar.setBounds(257, 328, 121, 23);
+		btnFinalizar.setBounds(257, 328, 147, 23);
 		contentPane.add(btnFinalizar);
 
 		JButton btnSair = new JButton("");
