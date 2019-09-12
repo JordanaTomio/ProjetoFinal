@@ -87,13 +87,13 @@ public class FinalizarPedidoEN extends JFrame {
 		
 		JLabel lblSeuTotal = new JLabel("Your total is: R$");
 		lblSeuTotal.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-		lblSeuTotal.setBounds(227, 100, 179, 26);
+		lblSeuTotal.setBounds(206, 98, 179, 26);
 		contentPane.add(lblSeuTotal);
 		
 		JLabel total = new JLabel("");
 		total.setForeground(new Color(0, 100, 0));
 		total.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		total.setBounds(364, 100, 95, 24);
+		total.setBounds(366, 98, 95, 24);
 		String lbl = ConsultarPedidosEN.ValoresTotaisString;
 		
 		JLabel lblVoltar = new JLabel("");
