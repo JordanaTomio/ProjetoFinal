@@ -42,7 +42,7 @@ public class Hotel extends JFrame {
 	private JTextField txtNome;
 
 	JTextPane txtDs = new JTextPane();
-	int one = -1;
+	private int one = -1;
 	private JTextField txtObs;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	JRadioButton gato = new JRadioButton("Gato");
@@ -151,7 +151,7 @@ public class Hotel extends JFrame {
 					dispose();
 					JOptionPane.showMessageDialog(null, "Agendamento finalizado!");
 				} else {
-					JOptionPane.showMessageDialog(null, "Informações faltando!");
+					JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando!");
 				}
 
 				// JOptionPane.showMessageDialog(null, "Data marcada.");
@@ -180,19 +180,18 @@ public class Hotel extends JFrame {
 		btnVai.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				one++;
-				ResultSet rs = HotelDAO.findAll(one);
+				ResultSet rs = HotelDAO.findmaior(one);
 
 				try {
 					if (rs.next()) {
 						String nome = rs.getString("NM_Cuidador");
 						String ds = rs.getString("DS_Cuidador");
-
+						one = rs.getInt("CD_CUIDADOR");
 						txtNome.setText(nome);
 						txtDs.setText(ds);
 
 					} else {
-						one = -1;
+						one = 0;
 					}
 				} catch (SQLException e1) {
 					e1.printStackTrace();
@@ -212,16 +211,17 @@ public class Hotel extends JFrame {
 		btnVolta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVolta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				one--;
-				ResultSet rs = HotelDAO.findAll(one);
+				ResultSet rs = HotelDAO.Findmenor(one);
 
 				try {
 					if (rs.next()) {
 						String nome = rs.getString("NM_Cuidador");
 						String ds = rs.getString("DS_Cuidador");
-
-						txtNome.setText(nome);
+						one = rs.getInt("CD_CUIDADOR");
+								txtNome.setText(nome);
 						txtDs.setText(ds);
+					} else {
+						one = 999999;
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
