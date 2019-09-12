@@ -20,6 +20,19 @@ public class PeedidoDAO {
 			return null;
 		}
 	}
+	public static ResultSet getPedidosItemsEN(int idPedido) {
+		String q = "SELECT (v.NM_Produto) Product, (v.VL_Produto) Value FROM v_cliente_itens_pedido v WHERE v.CD_Pedido = ?";
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setInt(1, idPedido);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Some error happen on get items from 'itens pedido cliente'");
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	public static ResultSet getPedidosItemsDE(int idPedido) {
 		String q = "SELECT (v.NM_Produto) Produkt, (v.VL_Produto) Wert FROM v_cliente_itens_pedido v WHERE v.CD_Pedido = ?";
 		try {
