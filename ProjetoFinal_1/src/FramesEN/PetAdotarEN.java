@@ -513,7 +513,7 @@ public class PetAdotarEN extends JFrame {
 						e1.printStackTrace();
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "Nao há bixos disponiveis para adoçao");
+					JOptionPane.showMessageDialog(null, "There isn't any pet for adoption");
 				}
 			}
 		});
