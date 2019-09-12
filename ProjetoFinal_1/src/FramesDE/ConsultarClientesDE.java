@@ -57,14 +57,14 @@ public class ConsultarClientesDE extends JFrame {
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				ResultSet rs = ClienteDAO.findAllTyped(txtNome.getText());
+				ResultSet rs = ClienteDAO.findAllTypedDE(txtNome.getText());
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
 		txtNome.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				ResultSet rs = ClienteDAO.findAllTyped(txtNome.getText());
+				ResultSet rs = ClienteDAO.findAllTypedDE(txtNome.getText());
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
