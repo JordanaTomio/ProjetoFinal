@@ -70,7 +70,7 @@ public class CadastroDE extends JFrame {
 	 * Create the frame.
 	 */
 	public CadastroDE() {
-		setTitle("Cadastrar");
+		setTitle("Registrieren");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastroDE.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
@@ -122,12 +122,12 @@ public class CadastroDE extends JFrame {
 		lblNOME.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblNOME);
 
-		JLabel lblCadastroDaInstituio = new JLabel("Dados Cadastrais");
+		JLabel lblCadastroDaInstituio = new JLabel("Registrierungsdaten");
 		lblCadastroDaInstituio.setBounds(210, 12, 272, 49);
 		lblCadastroDaInstituio.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
 		contentPane.add(lblCadastroDaInstituio);
 
-		JLabel lblNM_RAZAOSOCIAL = new JLabel("Name social:");
+		JLabel lblNM_RAZAOSOCIAL = new JLabel("Soziale name:");
 		lblNM_RAZAOSOCIAL.setBounds(333, 142, 104, 22);
 		lblNM_RAZAOSOCIAL.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblNM_RAZAOSOCIAL);
@@ -232,11 +232,11 @@ public class CadastroDE extends JFrame {
 				}
 				if (CPF.equals(CPFConf)) {
 					System.out.println(CPFConf);
-					JOptionPane.showMessageDialog(null, "CPF jÃ¡ cadastrado!");
+					JOptionPane.showMessageDialog(null, "CPF jÃƒÂ¡ cadastrado!");
 				
 				}else if(email.equals(emailConf)){
 					System.out.println(emailConf);
-					JOptionPane.showMessageDialog(null, "E-mail jÃ¡ cadastrado!");
+					JOptionPane.showMessageDialog(null, "E-mail jÃƒÂ¡ cadastrado!");
 				
 				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
@@ -247,7 +247,7 @@ public class CadastroDE extends JFrame {
 					dispose();
 
 				} else {
-					JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando!");
+					JOptionPane.showMessageDialog(null, "InformaÃƒÂ§ÃƒÂµes faltando!");
 				}
 
 			}
@@ -276,8 +276,8 @@ public class CadastroDE extends JFrame {
 		contentPane.add(btnVoltar);
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatÃ³rios");
-		lbldadosObrigatrios.setBounds(30, 317, 95, 14);
+		JLabel lbldadosObrigatrios = new JLabel("* Erforderliche Daten");
+		lbldadosObrigatrios.setBounds(30, 317, 129, 14);
 		lbldadosObrigatrios.setForeground(Color.RED);
 		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		contentPane.add(lbldadosObrigatrios);
@@ -307,7 +307,7 @@ public class CadastroDE extends JFrame {
 		btnVoltar_icon.setBounds(10, 346, 40, 44);
 		contentPane.add(btnVoltar_icon);
 
-		btnFeminino = new JRadioButton("Weib");
+		btnFeminino = new JRadioButton("Frau");
 		btnFeminino.setSelected(true);
 		buttonGroup.add(btnFeminino);
 		btnFeminino.setBounds(406, 187, 62, 23);
@@ -320,7 +320,7 @@ public class CadastroDE extends JFrame {
 		contentPane.add(btnFeminino);
 		btnFeminino.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		btnMasculino = new JRadioButton("H\u00E4nn");
+		btnMasculino = new JRadioButton("Mann");
 		buttonGroup.add(btnMasculino);
 		btnMasculino.setBounds(467, 187, 65, 23);
 		btnMasculino.setBorderPainted(false);
@@ -340,7 +340,7 @@ public class CadastroDE extends JFrame {
 		rdbtnOutros.setFocusPainted(false);
 		rdbtnOutros.setOpaque(false);
 		rdbtnOutros.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		rdbtnOutros.setBounds(538, 186, 65, 23);
+		rdbtnOutros.setBounds(538, 186, 77, 23);
 		contentPane.add(rdbtnOutros);
 		rdbtnOutros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
