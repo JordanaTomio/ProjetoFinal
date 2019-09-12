@@ -61,7 +61,7 @@ public class ConsultarProdutosDE extends JFrame {
 				if (comboBox.getItemCount() > 0) {
 					String item = comboBox.getSelectedItem().toString();
 
-					ResultSet rsValoTotal = PeedidoDAO.getPedidosItems(Integer.parseInt(item));
+					ResultSet rsValoTotal = PeedidoDAO.getPedidosItemsDE(Integer.parseInt(item));
 					double valorTotalPedido = 0;
 					try {
 						if (rsValoTotal.next()) {
@@ -90,7 +90,7 @@ public class ConsultarProdutosDE extends JFrame {
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				ResultSet rs = PeedidoDAO.findAllToTable();
+				ResultSet rs = PeedidoDAO.findAllToTableDE();
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
@@ -99,7 +99,7 @@ public class ConsultarProdutosDE extends JFrame {
 			public void keyTyped(KeyEvent arg0) {
 				String nomeProduto = txtNome.getText();
 
-				ResultSet rs = PeedidoDAO.findByNameToTable(nomeProduto);
+				ResultSet rs = PeedidoDAO.findByNameToTableDE(nomeProduto);
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
@@ -190,7 +190,7 @@ public class ConsultarProdutosDE extends JFrame {
 							int cdPedido = Integer.parseInt(cdCodigoPedidoString);
 							Items item = new Items(cdPedido, cdCodigo);
 							ItemsDAO.save(item);
-							JOptionPane.showMessageDialog(null, "Artikel erfolgreich hinzugefügt! "," Erfolgreich!", 1);
+							JOptionPane.showMessageDialog(null, "Artikel erfolgreich hinzugefÃ¼gt! "," Erfolgreich!", 1);
 							PeedidoDAO.removeFromEstoque(cdCodigo, numEstoque);
 						} else {
 							JOptionPane.showMessageDialog(null, "Fehlender Artikel! "," Nicht lieferbar!", 1);
