@@ -158,9 +158,9 @@ public class AlterarProdutoDE extends JFrame {
 		txtValor.setBounds(484, 141, 62, 20);
 		contentPane.add(txtValor);
 
-		JLabel lblValidade = new JLabel("Haltbarkeit:");
+		JLabel lblValidade = new JLabel("G\u00FCltigkeit:");
 		lblValidade.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
-		lblValidade.setBounds(370, 258, 111, 22);
+		lblValidade.setBounds(383, 258, 97, 22);
 		contentPane.add(lblValidade);
 
 		JLabel lblEstoque = new JLabel("Vorr\u00E4tig:");
