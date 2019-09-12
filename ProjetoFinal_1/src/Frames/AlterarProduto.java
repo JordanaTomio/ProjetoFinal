@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -199,6 +200,7 @@ public class AlterarProduto extends JFrame {
 				int estoque = Integer.parseInt(estoqueString);
 
 				ProdutoDAO.update(cdCodigo, nome, descricao, valor, unidade, validade, estoque);
+				JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Confirmação", 1);
 			}
 		});
 

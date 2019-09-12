@@ -64,7 +64,7 @@ public class ProdutoDAO {
 			ps.setInt(6, estoque);
 			ps.setInt(7, id);
 			ps.executeUpdate();
-			JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Confirmação", 1);
+			
 		} catch (SQLException e) {
 			System.err.println("Error during update 'Produto'");
 			e.printStackTrace();
