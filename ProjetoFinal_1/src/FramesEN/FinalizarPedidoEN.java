@@ -87,7 +87,7 @@ public class FinalizarPedidoEN extends JFrame {
 		
 		JLabel lblSeuTotal = new JLabel("Your total is: R$");
 		lblSeuTotal.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-		lblSeuTotal.setBounds(194, 100, 179, 26);
+		lblSeuTotal.setBounds(227, 100, 179, 26);
 		contentPane.add(lblSeuTotal);
 		
 		JLabel total = new JLabel("");
@@ -105,7 +105,7 @@ public class FinalizarPedidoEN extends JFrame {
 		
 		JLabel lblSelecioneOMtodo = new JLabel("Select a payment method");
 		lblSelecioneOMtodo.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		lblSelecioneOMtodo.setBounds(171, 122, 282, 52);
+		lblSelecioneOMtodo.setBounds(214, 122, 282, 52);
 		contentPane.add(lblSelecioneOMtodo);
 		
 		JRadioButton cartao =new JRadioButton("Credit Card");
