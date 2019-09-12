@@ -91,7 +91,7 @@ public class ConsultarProdutosEN extends JFrame {
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				ResultSet rs = PeedidoDAO.findAllToTable();
+				ResultSet rs = PeedidoDAO.findAllToTableEN();
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
@@ -100,7 +100,7 @@ public class ConsultarProdutosEN extends JFrame {
 			public void keyTyped(KeyEvent arg0) {
 				String nomeProduto = txtNome.getText();
 
-				ResultSet rs = PeedidoDAO.findByNameToTable(nomeProduto);
+				ResultSet rs = PeedidoDAO.findByNameToTableEN(nomeProduto);
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
