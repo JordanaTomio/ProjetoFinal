@@ -121,16 +121,16 @@ public class LoginDE extends JFrame {
 		JButton btnPT = new JButton("");
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lerPT();
-				
+				new Login().setVisible(true);
+				dispose();
 			}
 		});
 		
 		JButton btnEN = new JButton("");
 		btnEN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lerEN();
-				
+				new LoginEN().setVisible(true);
+				dispose();
 			}
 		});
 		btnEN.setBounds(138, 358, 55, 38);
@@ -150,8 +150,8 @@ public class LoginDE extends JFrame {
 		JButton btnAL = new JButton("");
 		btnAL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				lerAL();
-				
+				new LoginDE().setVisible(true);
+				dispose();
 			}
 		});
 		btnAL.setBounds(51, 358, 59, 35);
@@ -218,65 +218,5 @@ public class LoginDE extends JFrame {
 
 	}
 
-	protected void lerPT() {//2
-		Properties prop = new Properties();
 
-		try {
-
-			// carrega properties
-			prop.load(new FileInputStream(System.getProperty("user.dir")+"/PT.txt"));
-
-			// recupera e imprime valores
-			lblLogar.setText(prop.getProperty("btn1"));
-			lblRegistrese.setText(prop.getProperty("btn2"));
-			
-			prop.store(new FileOutputStream(System.getProperty("user.dir")+"/Idioma.txt"), "2");
-			new Login().setVisible(true);
-			dispose();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-	}
-
-	protected void lerAL() {//3
-		Properties prop = new Properties();
-
-		try {
-
-			// carrega properties
-			prop.load(new FileInputStream(System.getProperty("user.dir")+"/AL.txt"));
-
-			// recupera e imprime valores
-			lblLogar.setText(prop.getProperty("btn1"));
-			lblRegistrese.setText(prop.getProperty("btn2"));
-			
-			prop.store(new FileOutputStream(System.getProperty("user.dir")+"/Idioma.txt"),"3");
-			
-			new LoginDE().setVisible(true);
-			dispose();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-	}
-
-	protected void lerEN() {//1
-		Properties prop = new Properties();
-
-		try {
-
-			// carrega properties
-			prop.load(new FileInputStream(System.getProperty("user.dir")+"/EN.txt"));
-
-			// recupera e imprime valores
-			lblLogar.setText(prop.getProperty("btn1"));
-			lblRegistrese.setText(prop.getProperty("btn2"));
-			
-			prop.store(new FileOutputStream(System.getProperty("user.dir")+"/Idioma.txt"),"1");
-			
-			new LoginEN().setVisible(true);
-			dispose();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-	}
 }
