@@ -20,6 +20,18 @@ public class PeedidoDAO {
 			return null;
 		}
 	}
+	public static ResultSet getPedidosItemsDE(int idPedido) {
+		String q = "SELECT (v.NM_Produto) Produkt, (v.VL_Produto) Wert FROM v_cliente_itens_pedido v WHERE v.CD_Pedido = ?";
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			ps.setInt(1, idPedido);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Some error happen on get items from 'itens pedido cliente'");
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public static void updateValorTotal(int idCliente, double valorTotal) {
 		String q = "UPDATE pedido SET VL_Total = ? WHERE CD_Cliente = ?";
@@ -35,7 +47,7 @@ public class PeedidoDAO {
 	}
 
 	public static ResultSet findAllToTable() {
-		String q = "SELECT CD_Produto Código, NM_Produto Produto, VL_Produto Valor FROM produto";
+		String q = "SELECT CD_Produto CÃ³digo, NM_Produto Produto, VL_Produto Valor FROM produto";
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			return ps.executeQuery();
@@ -47,7 +59,7 @@ public class PeedidoDAO {
 	}
 
 	public static ResultSet findByNameToTable(String nome) {
-		String q = "SELECT CD_Produto Código, NM_Produto Produto, VL_Produto Valor FROM produto p WHERE p.NM_Produto LIKE ?";
+		String q = "SELECT CD_Produto CÃ³digo, NM_Produto Produto, VL_Produto Valor FROM produto p WHERE p.NM_Produto LIKE ?";
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			ps.setString(1, "%" + nome + "%");
