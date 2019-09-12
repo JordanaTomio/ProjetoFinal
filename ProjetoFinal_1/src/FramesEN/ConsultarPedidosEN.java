@@ -118,7 +118,7 @@ public class ConsultarPedidosEN extends JFrame {
 					String item = comboBox.getSelectedItem().toString();
 					String itens[] = item.split(": ");
 					int att = 3;
-					ResultSet rs = PeedidoDAO.getPedidosItems(Integer.parseInt(itens[1]));
+					ResultSet rs = PeedidoDAO.getPedidosItemsEN(Integer.parseInt(itens[1]));
 					table.setModel(Utilis.DbUtils.resultSetTable(rs));
 					ResultSet rs2 = PeedidoDAO.getPedidosATT(itens[1]);
 					try {
@@ -209,7 +209,7 @@ public class ConsultarPedidosEN extends JFrame {
 
 						if (comboBox.getItemCount() > 0) {
 
-							ResultSet rsPedidos = PeedidoDAO.getPedidosItems(Integer.parseInt(itens[1]));
+							ResultSet rsPedidos = PeedidoDAO.getPedidosItemsEN(Integer.parseInt(itens[1]));
 							table.setModel(Utilis.DbUtils.resultSetTable(rsPedidos));
 						}
 					}
@@ -251,7 +251,7 @@ public class ConsultarPedidosEN extends JFrame {
 
 		JLabel lblCarrinho = new JLabel("Bag");
 		lblCarrinho.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
-		lblCarrinho.setBounds(299, 11, 96, 50);
+		lblCarrinho.setBounds(303, 11, 83, 50);
 		contentPane.add(lblCarrinho);
 
 		JLabel lblValorTotal = new JLabel("Total Value: R$");
