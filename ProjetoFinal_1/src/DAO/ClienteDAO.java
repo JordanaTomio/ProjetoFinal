@@ -160,6 +160,20 @@ public class ClienteDAO {
 			return null;
 		}
 	}
+	public static ResultSet findAllTypedEN(String name) {
+		String q = "SELECT CD_Cliente Client, PN_Cliente Name, SN_Cliente Surname FROM cliente where PN_Cliente like '%"
+				+ name + "%'";
+
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Clientes aren't found.");
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	public static ResultSet findAllTypedDE(String name) {
 		String q = "SELECT CD_Cliente Kunde, PN_Cliente Name, SN_Cliente Vorname FROM cliente where PN_Cliente like '%"
 				+ name + "%'";
