@@ -124,7 +124,7 @@ public class ClienteDAO {
 		}
 	}
 
-	// Altera as informaçoes do usuario
+	// Altera as informaÃ§oes do usuario
 	public static void UpdateAllByID(int cdCodigo, String primeiroNome, String segundoNome, String sexo,
 			String telefone, String cep, String razao, String email) {
 		String q = "UPDATE cliente set EM_Cliente= ?, PN_Cliente= ?, SN_Cliente= ?, SX_Cliente= ?, TL_Cliente= ?, CEP_Cliente= ?, RZ_Cliente= ? WHERE CD_Cliente= ?";
@@ -146,10 +146,23 @@ public class ClienteDAO {
 		}
 	}
 
-	// Puxa as informaçoes pelo nome do cliente
+	// Puxa as informaÃ§oes pelo nome do cliente
 	public static ResultSet findAllTyped(String nome) {
 		String q = "SELECT CD_Cliente Cliente, PN_Cliente Nome, SN_Cliente Sobrenome FROM cliente where PN_Cliente like '%"
 				+ nome + "%'";
+
+		try {
+			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
+			return ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("Clientes aren't found.");
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public static ResultSet findAllTypedDE(String name) {
+		String q = "SELECT CD_Cliente Kunde, PN_Cliente Name, SN_Cliente Vorname FROM cliente where PN_Cliente like '%"
+				+ name + "%'";
 
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
