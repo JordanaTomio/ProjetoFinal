@@ -228,11 +228,11 @@ public class Cadastro extends JFrame {
 				}
 				if (CPF.equals(CPFConf)) {
 					System.out.println(CPFConf);
-					JOptionPane.showMessageDialog(null, "CPF jÃ¡ cadastrado!");
+					JOptionPane.showMessageDialog(null, "CPF j� cadastrado!");
 				
 				}else if(email.equals(emailConf)){
 					System.out.println(emailConf);
-					JOptionPane.showMessageDialog(null, "E-mail jÃ¡ cadastrado!");
+					JOptionPane.showMessageDialog(null, "E-mail j� cadastrado!");
 				
 				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
@@ -243,7 +243,7 @@ public class Cadastro extends JFrame {
 					dispose();
 
 				} else {
-					JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando!");
+					JOptionPane.showMessageDialog(null, "Informa��es faltando!");
 				}
 
 			}

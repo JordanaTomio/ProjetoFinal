@@ -199,10 +199,10 @@ public class CadastroEN extends JFrame {
 
 				if (btnMasculino.isSelected()) {
 					sexo = "Masculino";
-					System.out.println("batata");
+					
 				} else if (btnFeminino.isSelected()) {
 					sexo = "Feminino";
-					System.out.println("batata");
+					
 				} else if (rdbtnOutros.isSelected()) {
 					sexo = "Outros";
 				}
@@ -232,11 +232,11 @@ public class CadastroEN extends JFrame {
 				}
 				if (CPF.equals(CPFConf)) {
 					System.out.println(CPFConf);
-					JOptionPane.showMessageDialog(null, "CPF jÃ¡ cadastrado!");
+					JOptionPane.showMessageDialog(null, "This CPF is already registered!");
 				
 				}else if(email.equals(emailConf)){
 					System.out.println(emailConf);
-					JOptionPane.showMessageDialog(null, "E-mail jÃ¡ cadastrado!");
+					JOptionPane.showMessageDialog(null, "This Email is already registered!");
 				
 				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
@@ -247,7 +247,7 @@ public class CadastroEN extends JFrame {
 					dispose();
 
 				} else {
-					JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando!");
+					JOptionPane.showMessageDialog(null, "Missing Information!");
 				}
 
 			}
