@@ -217,8 +217,7 @@ public class PetAdotarDE extends JFrame {
 						txtDesc.setText(desc);
 						lblNigmviu.setText(CD);
 
-					}
-					else{
+					} else {
 						lblNigmviu.setText("99999999999999999999");
 						ResultSet rs1 = AnimalDAO.BuscaAnimalMenor(lblNigmviu.getText());
 						if (rs.next()) {
@@ -328,51 +327,51 @@ public class PetAdotarDE extends JFrame {
 					} else {
 						lblNigmviu.setText("0");
 						ResultSet rs1 = AnimalDAO.BuscaAnimalMaior(lblNigmviu.getText());
-							if (rs1.next()) {
-								String nome = rs1.getString("NM_Animal");
-								String ano = rs1.getString("ANO_Animal");
-								String raca = rs1.getString("RC_Animal");
-								String tamanho = rs1.getString("TM_Animal");
-								String tipo = rs1.getString("TP_Animal");
-								String sexo = rs1.getString("SX_Animal");
-								String vacinas = rs1.getString("VC_Animal");
-								String castrado = rs1.getString("CS_Animal");
-								String desc = rs1.getString("DS_Animal");
-								int Cd = rs1.getInt("CD_Animal");
+						if (rs1.next()) {
+							String nome = rs1.getString("NM_Animal");
+							String ano = rs1.getString("ANO_Animal");
+							String raca = rs1.getString("RC_Animal");
+							String tamanho = rs1.getString("TM_Animal");
+							String tipo = rs1.getString("TP_Animal");
+							String sexo = rs1.getString("SX_Animal");
+							String vacinas = rs1.getString("VC_Animal");
+							String castrado = rs1.getString("CS_Animal");
+							String desc = rs1.getString("DS_Animal");
+							int Cd = rs1.getInt("CD_Animal");
 
-								String CD = "" + Cd;
+							String CD = "" + Cd;
 
-								if (tipo.equals("Cachorro")) {
-									btnCao.setSelected(true);
-								} else {
-									btnGato.setSelected(true);
-								}
-
-								if (sexo.equals("Macho")) {
-									btnMacho.setSelected(true);
-								} else {
-									btnFemea.setSelected(true);
-								}
-
-								if (castrado.equals("Sim")) {
-									castradodb.setSelected(true);
-								} else {
-									castradodb.setSelected(false);
-								}
-
-								if (vacinas.equals("Sim")) {
-									vacinadodb.setSelected(true);
-								} else {
-									vacinadodb.setSelected(false);
-								}
-
-								txtTamanho.setText(tamanho);
-								txtRaca.setText(raca);
-								txtAno.setText(ano);
-								txtNomePet.setText(nome);
-								txtDesc.setText(desc);
-								lblNigmviu.setText(CD);
+							if (tipo.equals("Cachorro")) {
+								btnCao.setSelected(true);
+							} else {
+								btnGato.setSelected(true);
 							}
+
+							if (sexo.equals("Macho")) {
+								btnMacho.setSelected(true);
+							} else {
+								btnFemea.setSelected(true);
+							}
+
+							if (castrado.equals("Sim")) {
+								castradodb.setSelected(true);
+							} else {
+								castradodb.setSelected(false);
+							}
+
+							if (vacinas.equals("Sim")) {
+								vacinadodb.setSelected(true);
+							} else {
+								vacinadodb.setSelected(false);
+							}
+
+							txtTamanho.setText(tamanho);
+							txtRaca.setText(raca);
+							txtAno.setText(ano);
+							txtNomePet.setText(nome);
+							txtDesc.setText(desc);
+							lblNigmviu.setText(CD);
+						}
 					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
@@ -438,79 +437,86 @@ public class PetAdotarDE extends JFrame {
 		btnAdotar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				JOptionPane.showMessageDialog(null,
-						"Herzlichen Glückwunsch! Sie sind sehr nahe daran, ein Haustier zu adoptieren."+ "\n" 
-						+ " Wir werden uns mit Ihnen in Verbindung setzen, um den Probebesuch zu vereinbaren,"+ "\n" 
-						+ " damit Sie Ihren neuen Freund mitbringen können!");
-
 				int passe;
-				passe = Integer.parseInt(lblNigmviu.getText());
-				AnimalDAO.InsertAdotado(passe);
-				AnimalDAO.AdotarAnimal(txtNomePet.getText());
-				ResultSet rs = AnimalDAO.BuscaAnimalUpdate(passe);
-				System.out.println(rs);
 
-				try {
-					if (rs.next()) {
-						String nome = rs.getString("NM_Animal");
-						String ano = rs.getString("ANO_Animal");
-						String raca = rs.getString("RC_Animal");
-						String tamanho = rs.getString("TM_Animal");
-						String tipo = rs.getString("TP_Animal");
-						String sexo = rs.getString("SX_Animal");
-						String vacinas = rs.getString("VC_Animal");
-						String castrado = rs.getString("CS_Animal");
-						String desc = rs.getString("DS_Animal");
-						int Cd = rs.getInt("CD_Animal");
+				if (!txtNomePet.getText().equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Herzlichen Glückwunsch! Sie sind sehr nahe daran, ein Haustier zu adoptieren." + "\n"
+									+ " Wir werden uns mit Ihnen in Verbindung setzen, um den Probebesuch zu vereinbaren,"
+									+ "\n" + " damit Sie Ihren neuen Freund mitbringen können!");
 
-						String CD = "" + Cd;
+					passe = Integer.parseInt(lblNigmviu.getText());
+					AnimalDAO.InsertAdotado(passe);
 
-						if (tipo.equals("Cachorro")) {
-							btnCao.setSelected(true);
+					AnimalDAO.AdotarAnimal(txtNomePet.getText());
+
+					ResultSet rs = AnimalDAO.BuscaAnimalUpdate(passe);
+					System.out.println(rs);
+
+					try {
+						if (rs.next()) {
+							String nome = rs.getString("NM_Animal");
+							String ano = rs.getString("ANO_Animal");
+							String raca = rs.getString("RC_Animal");
+							String tamanho = rs.getString("TM_Animal");
+							String tipo = rs.getString("TP_Animal");
+							String sexo = rs.getString("SX_Animal");
+							String vacinas = rs.getString("VC_Animal");
+							String castrado = rs.getString("CS_Animal");
+							String desc = rs.getString("DS_Animal");
+							int Cd = rs.getInt("CD_Animal");
+
+							String CD = "" + Cd;
+
+							if (tipo.equals("Cachorro")) {
+								btnCao.setSelected(true);
+							} else {
+								btnGato.setSelected(true);
+							}
+
+							if (sexo.equals("Macho")) {
+								btnMacho.setSelected(true);
+							} else {
+								btnFemea.setSelected(true);
+							}
+
+							if (castrado.equals("Sim")) {
+								castradodb.setSelected(true);
+							} else {
+								castradodb.setSelected(false);
+							}
+
+							if (vacinas.equals("Sim")) {
+								vacinadodb.setSelected(true);
+							} else {
+								vacinadodb.setSelected(false);
+							}
+
+							txtTamanho.setText(tamanho);
+							txtRaca.setText(raca);
+							txtAno.setText(ano);
+							txtNomePet.setText(nome);
+							txtDesc.setText(desc);
+							lblNigmviu.setText(CD);
 						} else {
-							btnGato.setSelected(true);
-						}
-
-						if (sexo.equals("Macho")) {
-							btnMacho.setSelected(true);
-						} else {
-							btnFemea.setSelected(true);
-						}
-
-						if (castrado.equals("Sim")) {
-							castradodb.setSelected(true);
-						} else {
-							castradodb.setSelected(false);
-						}
-
-						if (vacinas.equals("Sim")) {
-							vacinadodb.setSelected(true);
-						} else {
+							txtTamanho.setText("");
+							txtRaca.setText("");
+							txtAno.setText("");
+							txtNomePet.setText("");
+							txtDesc.setText("");
+							lblNigmviu.setText("");
 							vacinadodb.setSelected(false);
+							castradodb.setSelected(false);
+							btnFemea.setSelected(false);
+							btnMacho.setSelected(false);
+							btnCao.setSelected(false);
+							btnGato.setSelected(false);
 						}
-
-						txtTamanho.setText(tamanho);
-						txtRaca.setText(raca);
-						txtAno.setText(ano);
-						txtNomePet.setText(nome);
-						txtDesc.setText(desc);
-						lblNigmviu.setText(CD);
-					} else {
-						txtTamanho.setText("");
-						txtRaca.setText("");
-						txtAno.setText("");
-						txtNomePet.setText("");
-						txtDesc.setText("");
-						lblNigmviu.setText("");
-						vacinadodb.setSelected(false);
-						castradodb.setSelected(false);
-						btnFemea.setSelected(false);
-						btnMacho.setSelected(false);
-						btnCao.setSelected(false);
-						btnGato.setSelected(false);
+					} catch (SQLException e1) {
+						e1.printStackTrace();
 					}
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				} else {
+					JOptionPane.showMessageDialog(null, "Nao h� bixos disponiveis para ado�ao");
 				}
 			}
 		});
