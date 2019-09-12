@@ -251,7 +251,7 @@ public class ConsultarPedidosEN extends JFrame {
 
 		JLabel lblCarrinho = new JLabel("Bag");
 		lblCarrinho.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
-		lblCarrinho.setBounds(226, 11, 237, 50);
+		lblCarrinho.setBounds(299, 11, 96, 50);
 		contentPane.add(lblCarrinho);
 
 		JLabel lblValorTotal = new JLabel("Total Value: R$");
