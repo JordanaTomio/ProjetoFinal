@@ -57,14 +57,14 @@ public class ConsultarClientesEN extends JFrame {
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				ResultSet rs = ClienteDAO.findAllTyped(txtNome.getText());
+				ResultSet rs = ClienteDAO.findAllTypedEN(txtNome.getText());
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
 		txtNome.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				ResultSet rs = ClienteDAO.findAllTyped(txtNome.getText());
+				ResultSet rs = ClienteDAO.findAllTypedEN(txtNome.getText());
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
@@ -99,7 +99,7 @@ public class ConsultarClientesEN extends JFrame {
 		
 		JLabel lblConsultarClientes = new JLabel("Search Clients");
 		lblConsultarClientes.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
-		lblConsultarClientes.setBounds(162, 25, 367, 66);
+		lblConsultarClientes.setBounds(205, 27, 269, 66);
 		contentPane.add(lblConsultarClientes);
 		
 		JLabel lblVoltar = new JLabel("");
