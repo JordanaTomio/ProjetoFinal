@@ -40,7 +40,7 @@ public class Adm extends JFrame {
 	 */
 	public Adm() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Adm.class.getResource("/imagens/3775232-16.png")));
-		setTitle("Administra\u00E7\u00E3o");
+		setTitle("Administração");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();

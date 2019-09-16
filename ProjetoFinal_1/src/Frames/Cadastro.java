@@ -272,7 +272,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(btnVoltar);
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatÃ³rios");
+		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigat�rios");
 		lbldadosObrigatrios.setBounds(30, 317, 95, 14);
 		lbldadosObrigatrios.setForeground(Color.RED);
 		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));

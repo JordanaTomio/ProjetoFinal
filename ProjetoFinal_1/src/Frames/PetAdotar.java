@@ -38,9 +38,9 @@ public class PetAdotar extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	JRadioButton btnMacho = new JRadioButton("Macho");
-	JRadioButton btnCao = new JRadioButton("C\u00E3o");
+	JRadioButton btnCao = new JRadioButton("Cãoo");
 	JRadioButton btnGato = new JRadioButton("Gato");
-	JRadioButton btnFemea = new JRadioButton("F\u00EAmea");
+	JRadioButton btnFemea = new JRadioButton("Fêmea");
 	JCheckBox vacinadodb = new JCheckBox("Vacinado");
 	JCheckBox castradodb = new JCheckBox("Castrado");
 	JLabel lblNigmviu = new JLabel("0");
@@ -440,9 +440,9 @@ public class PetAdotar extends JFrame {
 				int passe;
 				if (!txtNomePet.getText().equals("")) {
 					JOptionPane.showMessageDialog(null,
-							"ParabÃ©ns! VocÃª estÃ¡ muito perto de adotar um Pet." + "\n"
+							"Parabéns! Você está muito perto de adotar um Pet." + "\n"
 									+ "Entraremos em contato para agendar a visita" + "\n"
-									+ "de avaliaÃ§Ã£o para que vocÃª possa levar seu novo amigo!");
+									+ "de avaliação para que você possa levar seu novo amigo!");
 
 					passe = Integer.parseInt(lblNigmviu.getText());
 					AnimalDAO.InsertAdotado(passe);
@@ -515,14 +515,14 @@ public class PetAdotar extends JFrame {
 						e1.printStackTrace();
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "Nao há bixos disponiveis para adoçao");
+					JOptionPane.showMessageDialog(null, "Não há animais disponíveis para adoção");
 				}
 			}
 		});
 		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		contentPane.add(btnAdotar);
 
-		JLabel lblPetInformacoes = new JLabel("Pet InformaÃ§Ãµes");
+		JLabel lblPetInformacoes = new JLabel("Pet Informações");
 		lblPetInformacoes.setBounds(184, 23, 258, 44);
 		lblPetInformacoes.setFont(new Font("Bauhaus 93", Font.BOLD, 30));
 		contentPane.add(lblPetInformacoes);
@@ -542,7 +542,7 @@ public class PetAdotar extends JFrame {
 		lblTipo.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblTipo);
 
-		JLabel lblRaca = new JLabel("RaÃ§a:");
+		JLabel lblRaca = new JLabel("Raça:");
 		lblRaca.setBounds(25, 204, 51, 18);
 		lblRaca.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblRaca);
@@ -552,7 +552,7 @@ public class PetAdotar extends JFrame {
 		lblTamanho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblTamanho);
 
-		JLabel lblGenero = new JLabel("GÃªnero:");
+		JLabel lblGenero = new JLabel("Gênero:");
 		lblGenero.setBounds(387, 241, 56, 14);
 		lblGenero.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblGenero);

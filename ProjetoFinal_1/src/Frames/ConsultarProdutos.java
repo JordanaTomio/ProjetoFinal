@@ -1,9 +1,9 @@
 package Frames;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -47,7 +47,8 @@ public class ConsultarProdutos extends JFrame {
 	 */
 	public ConsultarProdutos() {
 		setTitle("Loja");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ConsultarProdutos.class.getResource("/imagens/3775232-16.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(ConsultarProdutos.class.getResource("/imagens/3775232-16.png")));
 		setBackground(new Color(255, 228, 225));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
@@ -113,12 +114,12 @@ public class ConsultarProdutos extends JFrame {
 		table = new JTable();
 		tblProdutos.setViewportView(table);
 		table.setBackground(new Color(255, 240, 245));
-		
+
 		JLabel lblConsultar = new JLabel("Consultar");
 		lblConsultar.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblConsultar.setBounds(240, 16, 216, 61);
 		contentPane.add(lblConsultar);
-		
+
 		JButton Carrinho = new JButton("Carrinho");
 		Carrinho.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Carrinho.addActionListener(new ActionListener() {
@@ -128,24 +129,24 @@ public class ConsultarProdutos extends JFrame {
 				dispose();
 			}
 		});
-		
-				JButton btnSair = new JButton("");
-				btnSair.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						new PetShopMenu().setVisible(true);
-						dispose();
-					}
-				});
-				btnSair.setForeground(new Color(0, 0, 0));
-				btnSair.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-				btnSair.setBackground(new Color(255, 240, 245));
-				btnSair.setBorderPainted(false);
-				btnSair.setFocusPainted(false);
-				btnSair.setOpaque(false);
-				btnSair.setContentAreaFilled(false);
-				btnSair.setBounds(8, 336, 51, 50);
-				contentPane.add(btnSair);
-		
+
+		JButton btnSair = new JButton("");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new PetShopMenu().setVisible(true);
+				dispose();
+			}
+		});
+		btnSair.setForeground(new Color(0, 0, 0));
+		btnSair.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		btnSair.setBackground(new Color(255, 240, 245));
+		btnSair.setBorderPainted(false);
+		btnSair.setFocusPainted(false);
+		btnSair.setOpaque(false);
+		btnSair.setContentAreaFilled(false);
+		btnSair.setBounds(8, 336, 51, 50);
+		contentPane.add(btnSair);
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(ConsultarProdutos.class.getResource("/imagens/3209260-128(1).png")));
 		lblNewLabel.setBounds(12, 336, 59, 55);
@@ -243,7 +244,7 @@ public class ConsultarProdutos extends JFrame {
 		lblPedido.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblPedido.setBounds(185, 120, 80, 30);
 		contentPane.add(lblPedido);
-		
+
 		JLabel background = new JLabel("New label");
 		background.setIcon(new ImageIcon(ConsultarProdutos.class.getResource("/imagens/Background.jpg")));
 		background.setBounds(0, 0, 660, 440);

@@ -23,12 +23,10 @@ import javax.swing.SwingConstants;
 import javax.swing.JFormattedTextField;
 import java.awt.Toolkit;
 
-
-
 public class CadastrarProduto extends JFrame {
 
 	private static final long serialVersionUID = -5472934021092490724L;
-	
+
 	private JPanel contentPane;
 	private JTextField txtValor;
 	private JTextField txtEstoque;
@@ -37,9 +35,10 @@ public class CadastrarProduto extends JFrame {
 	private JTextField txtUnidade;
 	private JFormattedTextField txtValidade;
 	private MaskFormatter validar;
-	
+
 	public CadastrarProduto() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarProduto.class.getResource("/imagens/3775232-16.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(CadastrarProduto.class.getResource("/imagens/3775232-16.png")));
 		setTitle("Cadastro de Produtos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
@@ -50,7 +49,7 @@ public class CadastrarProduto extends JFrame {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane.setLayout(null);
-		
+
 		JButton btnVoltar = new JButton("");
 		btnVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
@@ -60,9 +59,9 @@ public class CadastrarProduto extends JFrame {
 				dispose();
 			}
 		});
-		try{
+		try {
 			validar = new MaskFormatter("####/##/##");
-		}catch(ParseException pe){
+		} catch (ParseException pe) {
 			pe.printStackTrace();
 		}
 		txtValidade = new JFormattedTextField(validar);
@@ -99,22 +98,22 @@ public class CadastrarProduto extends JFrame {
 		lblEstoque.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblEstoque.setBounds(398, 176, 92, 23);
 		contentPane.add(lblEstoque);
-		
+
 		JLabel lblCadastroDeProdutos = new JLabel("Cadastro de Produtos");
 		lblCadastroDeProdutos.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblCadastroDeProdutos.setBounds(151, 11, 416, 68);
 		contentPane.add(lblCadastroDeProdutos);
-		
+
 		JLabel unidade_1 = new JLabel("Unidade:");
 		unidade_1.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		unidade_1.setBounds(34, 247, 103, 23);
 		contentPane.add(unidade_1);
-		
+
 		JLabel lblVoltar = new JLabel("");
 		lblVoltar.setIcon(new ImageIcon(CadastrarProduto.class.getResource("/imagens/3209260-128(1).png")));
 		lblVoltar.setBounds(20, 331, 40, 59);
 		contentPane.add(lblVoltar);
-		
+
 		txtEstoque = new JTextField();
 		txtEstoque.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		txtEstoque.setColumns(10);
@@ -149,23 +148,25 @@ public class CadastrarProduto extends JFrame {
 				String unidade = txtUnidade.getText();
 				String estoqueString = txtEstoque.getText();
 				String validade = txtValidade.getText();
-			//	String mes = txtMes.getText();
-			//	String ano = txtAno.getText();
+				// String mes = txtMes.getText();
+				// String ano = txtAno.getText();
 
-			//	String data = ano + "-" + mes + "-" + dia;
+				// String data = ano + "-" + mes + "-" + dia;
 
 				if (valorString.contains(",")) {
 					valorString = valorString.replace(",", ".");
 				} else {
-					
+
 				}
-				
-				
+
 				double valor = Double.parseDouble(valorString);
 				int estoque = Integer.parseInt(estoqueString);
 
 				if (!(nome.isEmpty() && valorString.isEmpty() && unidade.isEmpty() && estoqueString.isEmpty()
-						&& validade.isEmpty()/* && mes.isEmpty() && ano.isEmpty()*/)) {
+						&& validade
+								.isEmpty()/*
+											 * && mes.isEmpty() && ano.isEmpty()
+											 */)) {
 					// Cria e salva o produto.
 					Produto produto = new Produto(nome, descricao, valor, unidade, validade, estoque);
 					ProdutoDAO.save(produto);
@@ -177,8 +178,8 @@ public class CadastrarProduto extends JFrame {
 					txtUnidade.setText("");
 					txtEstoque.setText("");
 					txtValidade.setText("");
-			//		txtMes.setText("");
-			//		txtAno.setText("");
+					// txtMes.setText("");
+					// txtAno.setText("");
 					JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 				} else {
 					JOptionPane.showMessageDialog(null, "Informações faltando.", "Erro no cadastro", 1);
@@ -196,7 +197,7 @@ public class CadastrarProduto extends JFrame {
 		txtUnidade.setColumns(10);
 		txtUnidade.setBounds(147, 249, 181, 20);
 		contentPane.add(txtUnidade);
-		
+
 		JLabel Background = new JLabel("New label");
 		Background.setIcon(new ImageIcon(CadastrarProduto.class.getResource("/imagens/Background.jpg")));
 		Background.setBounds(0, 0, 654, 411);

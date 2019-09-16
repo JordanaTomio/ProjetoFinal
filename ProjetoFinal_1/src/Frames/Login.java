@@ -113,7 +113,7 @@ public class Login extends JFrame {
 					new Menu().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Email ou senha sÃƒÂ£o invÃƒÂ¡lidos.", "Erro no login.", 1);
+					JOptionPane.showMessageDialog(null, "Email ou senha são inválidos.", "Erro no login.", 1);
 				}
 
 			}
@@ -122,7 +122,7 @@ public class Login extends JFrame {
 		JButton btnPT = new JButton("");
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("vc ja está nesse");
+				System.out.println("Você está nessa aba");
 			}
 		});
 

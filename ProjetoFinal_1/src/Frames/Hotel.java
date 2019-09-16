@@ -151,7 +151,7 @@ public class Hotel extends JFrame {
 					dispose();
 					JOptionPane.showMessageDialog(null, "Agendamento finalizado!");
 				} else {
-					JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando!");
+					JOptionPane.showMessageDialog(null, "Informações faltando!");
 				}
 
 				// JOptionPane.showMessageDialog(null, "Data marcada.");
@@ -218,7 +218,7 @@ public class Hotel extends JFrame {
 						String nome = rs.getString("NM_Cuidador");
 						String ds = rs.getString("DS_Cuidador");
 						one = rs.getInt("CD_CUIDADOR");
-								txtNome.setText(nome);
+						txtNome.setText(nome);
 						txtDs.setText(ds);
 					} else {
 						one = 999999;
@@ -279,7 +279,7 @@ public class Hotel extends JFrame {
 		lblTraco.setBounds(399, 108, 2, 268);
 		contentPane.add(lblTraco);
 
-		JLabel lblAte = new JLabel("at\u00E9");
+		JLabel lblAte = new JLabel("até");
 		lblAte.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		lblAte.setBounds(266, 182, 36, 20);
 		contentPane.add(lblAte);
@@ -289,7 +289,7 @@ public class Hotel extends JFrame {
 		lblCuidadores.setBounds(461, 108, 117, 20);
 		contentPane.add(lblCuidadores);
 
-		JLabel lblData = new JLabel("Data: ");
+		JLabel lblData = new JLabel("Data:");
 		lblData.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		lblData.setBounds(97, 182, 63, 20);
 		contentPane.add(lblData);
@@ -299,7 +299,7 @@ public class Hotel extends JFrame {
 		label.setBounds(97, 131, 73, 20);
 		contentPane.add(label);
 
-		JLabel lblAlgumaObservao = new JLabel("Alguma observa\u00E7\u00E3o?");
+		JLabel lblAlgumaObservao = new JLabel("Alguma observação?");
 		lblAlgumaObservao.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblAlgumaObservao.setBounds(150, 253, 205, 28);
 		contentPane.add(lblAlgumaObservao);
