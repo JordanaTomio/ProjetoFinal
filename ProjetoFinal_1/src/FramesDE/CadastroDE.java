@@ -232,22 +232,22 @@ public class CadastroDE extends JFrame {
 				}
 				if (CPF.equals(CPFConf)) {
 					System.out.println(CPFConf);
-					JOptionPane.showMessageDialog(null, "CPF jÃƒÂ¡ cadastrado!");
+					JOptionPane.showMessageDialog(null, "CPF jÃƒÆ’Ã‚Â¡ cadastrado!");
 				
 				}else if(email.equals(emailConf)){
 					System.out.println(emailConf);
-					JOptionPane.showMessageDialog(null, "E-mail jÃƒÂ¡ cadastrado!");
+					JOptionPane.showMessageDialog(null, "E-mail jÃƒÆ’Ã‚Â¡ cadastrado!");
 				
 				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
 					System.out.println("inseriu");
-					new Login().setVisible(true);
+					new LoginDE().setVisible(true);
 					dispose();
 
 				} else {
-					JOptionPane.showMessageDialog(null, "InformaÃƒÂ§ÃƒÂµes faltando!");
+					JOptionPane.showMessageDialog(null, "Fehlende Informationen!");
 				}
 
 			}
