@@ -168,34 +168,35 @@ public class ConsultarProdutos extends JFrame {
 					String nomeProduto = null;
 					try {
 						nomeProduto = (String) table.getValueAt(table.getSelectedRow(), 1);
+						ResultSet rs = PeedidoDAO.findByName(nomeProduto);
+
+						int cdCodigo = 0;
+						int numEstoque = 0;
+						try {
+							if (rs.next()) {
+								cdCodigo = rs.getInt("CD_Produto");
+								numEstoque = rs.getInt("QT_Estoque_Produto");
+							}
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+
+						if (comboBox.getItemCount() > 0) {
+							if (numEstoque >= 1) {
+								String cdCodigoPedidoString = comboBox.getSelectedItem().toString();
+								int cdPedido = Integer.parseInt(cdCodigoPedidoString);
+								Items item = new Items(cdPedido, cdCodigo);
+								ItemsDAO.save(item);
+								JOptionPane.showMessageDialog(null, "Item adicionado com sucesso!", "Sucesso!", 1);
+								PeedidoDAO.removeFromEstoque(cdCodigo, numEstoque);
+							} else {
+								JOptionPane.showMessageDialog(null, "Item em falta!", "Falta de estoque!", 1);
+							}
+						}
 					} catch (ArrayIndexOutOfBoundsException e2) {
 						JOptionPane.showMessageDialog(null, "Ocorreu um erro!", "Erro!", 1);
 					}
-					ResultSet rs = PeedidoDAO.findByName(nomeProduto);
 
-					int cdCodigo = 0;
-					int numEstoque = 0;
-					try {
-						if (rs.next()) {
-							cdCodigo = rs.getInt("CD_Produto");
-							numEstoque = rs.getInt("QT_Estoque_Produto");
-						}
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-					}
-
-					if (comboBox.getItemCount() > 0) {
-						if (numEstoque >= 1) {
-							String cdCodigoPedidoString = comboBox.getSelectedItem().toString();
-							int cdPedido = Integer.parseInt(cdCodigoPedidoString);
-							Items item = new Items(cdPedido, cdCodigo);
-							ItemsDAO.save(item);
-							JOptionPane.showMessageDialog(null, "Item adicionado com sucesso!", "Sucesso!", 1);
-							PeedidoDAO.removeFromEstoque(cdCodigo, numEstoque);
-						} else {
-							JOptionPane.showMessageDialog(null, "Item em falta!", "Falta de estoque!", 1);
-						}
-					}
 				}
 			}
 		});
