@@ -181,38 +181,39 @@ public class ConsultarPedidosEN extends JFrame {
 					String nomeProduto = null;
 					try {
 						nomeProduto = (String) table.getValueAt(table.getSelectedRow(), 0);
+						ResultSet rs = PeedidoDAO.findByName(nomeProduto);
+
+						int idProduto = 0;
+						int numEstoque = 0;
+						try {
+							if (rs.next()) {
+								idProduto = rs.getInt("CD_Produto");
+								numEstoque = rs.getInt("QT_Estoque_Produto");
+							}
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+
+						if (comboBox.getItemCount() > 0) {
+							String item = comboBox.getSelectedItem().toString();
+							String itens[] = item.split(": ");
+
+							int idPedido = Integer.parseInt(itens[1]);
+
+							ItemsDAO.remove(idPedido, idProduto);
+							JOptionPane.showMessageDialog(null, "Item successfully removed", "Sucesso!", 1);
+							PeedidoDAO.addIntoEstoque(idProduto, numEstoque);
+
+							if (comboBox.getItemCount() > 0) {
+
+								ResultSet rsPedidos = PeedidoDAO.getPedidosItemsEN(Integer.parseInt(itens[1]));
+								table.setModel(Utilis.DbUtils.resultSetTable(rsPedidos));
+							}
+						}
 					} catch (ArrayIndexOutOfBoundsException e2) {
 						JOptionPane.showMessageDialog(null, "An error happened", "Error!", 1);
 					}
-					ResultSet rs = PeedidoDAO.findByName(nomeProduto);
 
-					int idProduto = 0;
-					int numEstoque = 0;
-					try {
-						if (rs.next()) {
-							idProduto = rs.getInt("CD_Produto");
-							numEstoque = rs.getInt("QT_Estoque_Produto");
-						}
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-					}
-
-					if (comboBox.getItemCount() > 0) {
-						String item = comboBox.getSelectedItem().toString();
-						String itens[] = item.split(": ");
-
-						int idPedido = Integer.parseInt(itens[1]);
-
-						ItemsDAO.remove(idPedido, idProduto);
-						JOptionPane.showMessageDialog(null, "Item successfully removed", "Sucesso!", 1);
-						PeedidoDAO.addIntoEstoque(idProduto, numEstoque);
-
-						if (comboBox.getItemCount() > 0) {
-
-							ResultSet rsPedidos = PeedidoDAO.getPedidosItemsEN(Integer.parseInt(itens[1]));
-							table.setModel(Utilis.DbUtils.resultSetTable(rsPedidos));
-						}
-					}
 				}
 			}
 		});

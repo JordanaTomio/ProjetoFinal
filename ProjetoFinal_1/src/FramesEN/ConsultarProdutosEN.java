@@ -169,34 +169,35 @@ public class ConsultarProdutosEN extends JFrame {
 					String nomeProduto = null;
 					try {
 						nomeProduto = (String) table.getValueAt(table.getSelectedRow(), 1);
+						ResultSet rs = PeedidoDAO.findByName(nomeProduto);
+
+						int cdCodigo = 0;
+						int numEstoque = 0;
+						try {
+							if (rs.next()) {
+								cdCodigo = rs.getInt("CD_Produto");
+								numEstoque = rs.getInt("QT_Estoque_Produto");
+							}
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+
+						if (comboBox.getItemCount() > 0) {
+							if (numEstoque >= 1) {
+								String cdCodigoPedidoString = comboBox.getSelectedItem().toString();
+								int cdPedido = Integer.parseInt(cdCodigoPedidoString);
+								Items item = new Items(cdPedido, cdCodigo);
+								ItemsDAO.save(item);
+								JOptionPane.showMessageDialog(null, "Item successfully added!", "Success!", 1);
+								PeedidoDAO.removeFromEstoque(cdCodigo, numEstoque);
+							} else {
+								JOptionPane.showMessageDialog(null, "Out of stock!", "Out of stock!", 1);
+							}
+						}
 					} catch (ArrayIndexOutOfBoundsException e2) {
 						JOptionPane.showMessageDialog(null, "An error happened", "Error!", 1);
 					}
-					ResultSet rs = PeedidoDAO.findByName(nomeProduto);
 
-					int cdCodigo = 0;
-					int numEstoque = 0;
-					try {
-						if (rs.next()) {
-							cdCodigo = rs.getInt("CD_Produto");
-							numEstoque = rs.getInt("QT_Estoque_Produto");
-						}
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-					}
-
-					if (comboBox.getItemCount() > 0) {
-						if (numEstoque >= 1) {
-							String cdCodigoPedidoString = comboBox.getSelectedItem().toString();
-							int cdPedido = Integer.parseInt(cdCodigoPedidoString);
-							Items item = new Items(cdPedido, cdCodigo);
-							ItemsDAO.save(item);
-							JOptionPane.showMessageDialog(null, "Item successfully added!", "Success!", 1);
-							PeedidoDAO.removeFromEstoque(cdCodigo, numEstoque);
-						} else {
-							JOptionPane.showMessageDialog(null, "Out of stock!", "Out of stock!", 1);
-						}
-					}
 				}
 			}
 		});
