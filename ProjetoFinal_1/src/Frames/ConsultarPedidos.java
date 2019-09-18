@@ -180,37 +180,37 @@ public class ConsultarPedidos extends JFrame {
 					String nomeProduto = null;
 					try {
 						nomeProduto = (String) table.getValueAt(table.getSelectedRow(), 0);
-					} catch (ArrayIndexOutOfBoundsException e2) {
-						JOptionPane.showMessageDialog(null, "Ocorreu um erro", "Erro!", 1);
-					}
-					ResultSet rs = PeedidoDAO.findByName(nomeProduto);
+						ResultSet rs = PeedidoDAO.findByName(nomeProduto);
 
-					int idProduto = 0;
-					int numEstoque = 0;
-					try {
-						if (rs.next()) {
-							idProduto = rs.getInt("CD_Produto");
-							numEstoque = rs.getInt("QT_Estoque_Produto");
+						int idProduto = 0;
+						int numEstoque = 0;
+						try {
+							if (rs.next()) {
+								idProduto = rs.getInt("CD_Produto");
+								numEstoque = rs.getInt("QT_Estoque_Produto");
+							}
+						} catch (SQLException e1) {
+							e1.printStackTrace();
 						}
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-					}
-
-					if (comboBox.getItemCount() > 0) {
-						String item = comboBox.getSelectedItem().toString();
-						String itens[] = item.split(": ");
-
-						int idPedido = Integer.parseInt(itens[1]);
-
-						ItemsDAO.remove(idPedido, idProduto);
-						JOptionPane.showMessageDialog(null, "Item removido com sucesso.", "Sucesso!", 1);
-						PeedidoDAO.addIntoEstoque(idProduto, numEstoque);
 
 						if (comboBox.getItemCount() > 0) {
+							String item = comboBox.getSelectedItem().toString();
+							String itens[] = item.split(": ");
 
-							ResultSet rsPedidos = PeedidoDAO.getPedidosItems(Integer.parseInt(itens[1]));
-							table.setModel(Utilis.DbUtils.resultSetTable(rsPedidos));
+							int idPedido = Integer.parseInt(itens[1]);
+
+							ItemsDAO.remove(idPedido, idProduto);
+							JOptionPane.showMessageDialog(null, "Item removido com sucesso.", "Sucesso!", 1);
+							PeedidoDAO.addIntoEstoque(idProduto, numEstoque);
+
+							if (comboBox.getItemCount() > 0) {
+
+								ResultSet rsPedidos = PeedidoDAO.getPedidosItems(Integer.parseInt(itens[1]));
+								table.setModel(Utilis.DbUtils.resultSetTable(rsPedidos));
+							}
 						}
+					} catch (ArrayIndexOutOfBoundsException e2) {
+						JOptionPane.showMessageDialog(null, "Ocorreu um erro", "Erro!", 1);
 					}
 				}
 			}

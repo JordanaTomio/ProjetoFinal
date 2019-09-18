@@ -60,7 +60,7 @@ public class PeedidoDAO {
 	}
 
 	public static ResultSet findAllToTable() {
-		String q = "SELECT CD_Produto Código, NM_Produto Produto, VL_Produto Valor FROM produto";
+		String q = "SELECT CD_Produto Codigo, NM_Produto Produto, VL_Produto Valor FROM produto";
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			return ps.executeQuery();
@@ -95,7 +95,7 @@ public class PeedidoDAO {
 	}
 
 	public static ResultSet findByNameToTable(String nome) {
-		String q = "SELECT CD_Produto Código, NM_Produto Produto, VL_Produto Valor FROM produto p WHERE p.NM_Produto LIKE ?";
+		String q = "SELECT CD_Produto Codigo, NM_Produto Produto, VL_Produto Valor FROM produto p WHERE p.NM_Produto LIKE ?";
 		try {
 			PreparedStatement ps = MySQLConfiguration.conn.prepareStatement(q);
 			ps.setString(1, "%" + nome + "%");
