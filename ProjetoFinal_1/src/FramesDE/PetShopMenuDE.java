@@ -48,8 +48,7 @@ public class PetShopMenuDE extends JFrame {
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuDE mnu = new MenuDE();
-				mnu.setVisible(true);
+				new MenuDE().setVisible(true);
 				dispose();
 			}
 		});
@@ -64,8 +63,7 @@ public class PetShopMenuDE extends JFrame {
 		btnPedidos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ConsultarPedidosDE frp = new ConsultarPedidosDE();
-				frp.setVisible(true);
+				new ConsultarPedidosDE().setVisible(true);
 				dispose();
 			}
 		});
@@ -80,8 +78,7 @@ public class PetShopMenuDE extends JFrame {
 		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PerfilDE pfl = new PerfilDE();
-				pfl.setVisible(true);
+				new PerfilDE().setVisible(true);
 				dispose();
 			}
 		});
@@ -96,8 +93,7 @@ public class PetShopMenuDE extends JFrame {
 		btnLoja.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLoja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ConsultarProdutosDE crp = new ConsultarProdutosDE();
-				crp.setVisible(true);
+				new ConsultarProdutosDE().setVisible(true);
 				dispose();
 			}
 		});
