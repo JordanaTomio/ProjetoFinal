@@ -148,8 +148,7 @@ public class PetAdotarDE extends JFrame {
 		btnVoltar.setOpaque(false);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuDE mnu = new MenuDE();
-				mnu.setVisible(true);
+				new MenuDE().setVisible(true);
 				dispose();
 			}
 		});
@@ -441,9 +440,9 @@ public class PetAdotarDE extends JFrame {
 
 				if (!txtNomePet.getText().equals("")) {
 					JOptionPane.showMessageDialog(null,
-							"Herzlichen Glückwunsch! Sie sind sehr nahe daran, ein Haustier zu adoptieren." + "\n"
+							"Herzlichen GlÃ¼ckwunsch! Sie sind sehr nahe daran, ein Haustier zu adoptieren." + "\n"
 									+ " Wir werden uns mit Ihnen in Verbindung setzen, um den Probebesuch zu vereinbaren,"
-									+ "\n" + " damit Sie Ihren neuen Freund mitbringen können!");
+									+ "\n" + " damit Sie Ihren neuen Freund mitbringen kÃ¶nnen!");
 
 					passe = Integer.parseInt(lblNigmviu.getText());
 					AnimalDAO.InsertAdotado(passe);
@@ -516,7 +515,7 @@ public class PetAdotarDE extends JFrame {
 						e1.printStackTrace();
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "Nao h� bixos disponiveis para ado�ao");
+					JOptionPane.showMessageDialog(null, "Es sind keine Tiere zur Adoption verfügbar!");
 				}
 			}
 		});
