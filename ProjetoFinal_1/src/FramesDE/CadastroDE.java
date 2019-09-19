@@ -175,7 +175,7 @@ public class CadastroDE extends JFrame {
 		contentPane.add(txtEM);
 		txtEM.setColumns(10);
 
-		JLabel lblGenero = new JLabel("Sex*: ");
+		JLabel lblGenero = new JLabel("Geschlecht*: ");
 		lblGenero.setBounds(337, 189, 63, 14);
 		lblGenero.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		contentPane.add(lblGenero);
@@ -232,11 +232,11 @@ public class CadastroDE extends JFrame {
 				}
 				if (CPF.equals(CPFConf)) {
 					System.out.println(CPFConf);
-					JOptionPane.showMessageDialog(null, "CPF jÃƒÆ’Ã‚Â¡ cadastrado!");
+					JOptionPane.showMessageDialog(null, "CPF ist bereits registriert!");
 				
 				}else if(email.equals(emailConf)){
 					System.out.println(emailConf);
-					JOptionPane.showMessageDialog(null, "E-mail jÃƒÆ’Ã‚Â¡ cadastrado!");
+					JOptionPane.showMessageDialog(null, "E-mail ist bereits registriert!");
 				
 				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
