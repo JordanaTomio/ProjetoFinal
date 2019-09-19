@@ -163,7 +163,7 @@ public class ConsultarPedidosDE extends JFrame {
 		comboBox.setBounds(113, 72, 183, 25);
 		contentPane.add(comboBox);
 
-		JButton btnFinalizar = new JButton("AbschlieBen");
+		JButton btnFinalizar = new JButton("Abschließen");
 		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
