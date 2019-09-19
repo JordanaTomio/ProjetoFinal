@@ -111,8 +111,8 @@ public class LoginDE extends JFrame {
 				if (auth) {
 					new MenuDE().setVisible(true);
 					dispose();
-				} else {
-					JOptionPane.showMessageDialog(null, "Email ou senha sÃ£o invÃ¡lidos.", "Erro no login.", 1);
+				} else {//ß
+					JOptionPane.showMessageDialog(null, "E-Mail oder Passwort ist ungültig.", "Fehler in login.", 1);
 				}
 
 			}
@@ -173,8 +173,7 @@ public class LoginDE extends JFrame {
 		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CadastroDE CIC = new CadastroDE();
-				CIC.setVisible(true);
+				new CadastroDE().setVisible(true);
 				dispose();
 			}
 		});
