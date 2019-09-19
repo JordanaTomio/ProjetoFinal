@@ -51,6 +51,8 @@ public class BanhoTosaDE extends JFrame {
 	private MaskFormatter data;
 	private JFormattedTextField txtHORA;
 	private MaskFormatter hora;
+	private JRadioButton rdbtnGato;
+	private JRadioButton rdbtnCachorro;
 
 	/**
 	 * Launch the application.
@@ -132,7 +134,7 @@ public class BanhoTosaDE extends JFrame {
 		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);
 
-		JRadioButton rdbtnGato = new JRadioButton("Katze");
+		rdbtnGato = new JRadioButton("Katze");
 		rdbtnGato.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup_1.add(rdbtnGato);
 		rdbtnGato.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
@@ -144,7 +146,7 @@ public class BanhoTosaDE extends JFrame {
 		rdbtnGato.setBounds(15, 176, 80, 23);
 		contentPane.add(rdbtnGato);
 
-		JRadioButton rdbtnCachorro = new JRadioButton("Hund");
+		rdbtnCachorro = new JRadioButton("Hund");
 		rdbtnCachorro.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup_1.add(rdbtnCachorro);
 		rdbtnCachorro.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
@@ -168,7 +170,7 @@ public class BanhoTosaDE extends JFrame {
 
 		contentPane.add(rdbtnPequeno);
 
-		rdbtnMedio = new JRadioButton("MittelgroB");
+		rdbtnMedio = new JRadioButton("Mittelgroß");
 		rdbtnMedio.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnMedio);
 		rdbtnMedio.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
@@ -180,7 +182,7 @@ public class BanhoTosaDE extends JFrame {
 		rdbtnMedio.setBounds(114, 202, 100, 23);
 		contentPane.add(rdbtnMedio);
 
-		rdbtnGrande = new JRadioButton("GroB");
+		rdbtnGrande = new JRadioButton("Groß");
 		rdbtnGrande.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnGrande);
 		rdbtnGrande.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
@@ -252,89 +254,89 @@ public class BanhoTosaDE extends JFrame {
 				else {
 					if (rdbtnPequeno.isSelected() && rdbtnBanho.isSelected()) {
 
-						Object[] options = { "BestÃ¤tigen", "Absagen" };
+						Object[] options = { "BestÃƒÂ¤tigen", "Absagen" };
 						Confi = JOptionPane.showOptionDialog(null, "Wert: R$ 15,00",
-								"MÃ¶chten Sie die Uhrzeit bestÃ¤tigen?", JOptionPane.YES_NO_OPTION,
+								"MÃƒÂ¶chten Sie die Uhrzeit bestÃƒÂ¤tigen?", JOptionPane.YES_NO_OPTION,
 								JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Zeit bestÃ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
+									"Zeit bestÃƒÂ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
 							variavel = 1;
 						} else {
 							JOptionPane.showMessageDialog(null,
-									"Es tut uns leid, dass wir nicht anders konnten, danke fÃ¼rs schauen!");
+									"Es tut uns leid, dass wir nicht anders konnten, danke fÃƒÂ¼rs schauen!");
 						}
 					} else if (rdbtnPequeno.isSelected() && rdbtnBanhoETosa.isSelected()) {
-						Object[] options = { "BestÃ¤tigen", "Absagen" };
+						Object[] options = { "BestÃƒÂ¤tigen", "Absagen" };
 						Confi = JOptionPane.showOptionDialog(null, "Wert: R$ 25,00",
-								"MÃ¶chten Sie die Uhrzeit bestÃ¤tigen?", JOptionPane.YES_NO_OPTION,
+								"MÃƒÂ¶chten Sie die Uhrzeit bestÃƒÂ¤tigen?", JOptionPane.YES_NO_OPTION,
 								JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Zeit bestÃ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
+									"Zeit bestÃƒÂ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
 							variavel = 2;
 						} else {
 							JOptionPane.showMessageDialog(null,
-									"Es tut uns leid, dass wir nicht anders konnten, danke fÃ¼rs schauen!");
+									"Es tut uns leid, dass wir nicht anders konnten, danke fÃƒÂ¼rs schauen!");
 						}
 
 					} else if (rdbtnMedio.isSelected() && rdbtnBanho.isSelected()) {
-						Object[] options = { "BestÃ¤tigen", "Absagen" };
+						Object[] options = { "BestÃƒÂ¤tigen", "Absagen" };
 						Confi = JOptionPane.showOptionDialog(null, "Wert: R$ 20,00",
-								"MÃ¶chten Sie die Uhrzeit bestÃ¤tigen?", JOptionPane.YES_NO_OPTION,
+								"MÃƒÂ¶chten Sie die Uhrzeit bestÃƒÂ¤tigen?", JOptionPane.YES_NO_OPTION,
 								JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Zeit bestÃ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
+									"Zeit bestÃƒÂ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
 							variavel = 3;
 						} else {
 							JOptionPane.showMessageDialog(null,
-									"Es tut uns leid, dass wir nicht anders konnten, danke fÃ¼rs schauen!");
+									"Es tut uns leid, dass wir nicht anders konnten, danke fÃƒÂ¼rs schauen!");
 						}
 					} else if (rdbtnMedio.isSelected() && rdbtnBanhoETosa.isSelected()) {
-						Object[] options = { "BestÃ¤tigen", "Absagen" };
+						Object[] options = { "BestÃƒÂ¤tigen", "Absagen" };
 						Confi = JOptionPane.showOptionDialog(null, "Wert: R$ 30,00",
-								"MÃ¶chten Sie die Uhrzeit bestÃ¤tigen?", JOptionPane.YES_NO_OPTION,
+								"MÃƒÂ¶chten Sie die Uhrzeit bestÃƒÂ¤tigen?", JOptionPane.YES_NO_OPTION,
 								JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Zeit bestÃ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
+									"Zeit bestÃƒÂ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
 							variavel = 4;
 						} else {
 							JOptionPane.showMessageDialog(null,
-									"Es tut uns leid, dass wir nicht anders konnten, danke fÃ¼rs schauen!");
+									"Es tut uns leid, dass wir nicht anders konnten, danke fÃƒÂ¼rs schauen!");
 						}
 					} else if (rdbtnGrande.isSelected() && rdbtnBanho.isSelected()) {
-						Object[] options = { "BestÃ¤tigen", "Absagen" };
+						Object[] options = { "BestÃƒÂ¤tigen", "Absagen" };
 						Confi = JOptionPane.showOptionDialog(null, "Wert: R$ 30,00",
-								"MÃ¶chten Sie die Uhrzeit bestÃ¤tigen?", JOptionPane.YES_NO_OPTION,
+								"MÃƒÂ¶chten Sie die Uhrzeit bestÃƒÂ¤tigen?", JOptionPane.YES_NO_OPTION,
 								JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Zeit bestÃ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
+									"Zeit bestÃƒÂ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
 							variavel = 5;
 						} else {
 							JOptionPane.showMessageDialog(null,
-									"Es tut uns leid, dass wir nicht anders konnten, danke fÃ¼rs schauen!");
+									"Es tut uns leid, dass wir nicht anders konnten, danke fÃƒÂ¼rs schauen!");
 						}
 					} else if (rdbtnGrande.isSelected() && rdbtnBanhoETosa.isSelected()) {
-						Object[] options = { "BestÃ¤tigen", "Absagen" };
+						Object[] options = { "BestÃƒÂ¤tigen", "Absagen" };
 						Confi = JOptionPane.showOptionDialog(null, "Wert: R$ 40,00",
-								"MÃ¶chten Sie die Uhrzeit bestÃ¤tigen?", JOptionPane.YES_NO_OPTION,
+								"MÃƒÂ¶chten Sie die Uhrzeit bestÃƒÂ¤tigen?", JOptionPane.YES_NO_OPTION,
 								JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Zeit bestÃ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
+									"Zeit bestÃƒÂ¤tigt! Bitte kommen Sie 15 Minuten im Voraus an!");
 							variavel = 6;
 						} else {
 							JOptionPane.showMessageDialog(null,
-									"Es tut uns leid, dass wir nicht anders konnten, danke fÃ¼rs schauen!");
+									"Es tut uns leid, dass wir nicht anders konnten, danke fÃƒÂ¼rs schauen!");
 						}
 					}
 					if ((Confi == 0))
