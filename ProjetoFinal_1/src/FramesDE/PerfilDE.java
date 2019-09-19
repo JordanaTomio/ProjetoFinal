@@ -156,7 +156,7 @@ public class PerfilDE<EntityManager> extends JFrame {
 		lblCepPerfil.setBounds(357, 249, 46, 14);
 		contentPane.add(lblCepPerfil);
 
-		lblGeneroPerfil = new JLabel("Sex: ");
+		lblGeneroPerfil = new JLabel("Geschlecht: ");
 		lblGeneroPerfil.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		lblGeneroPerfil.setBounds(348, 307, 63, 17);
 		contentPane.add(lblGeneroPerfil);
@@ -302,8 +302,7 @@ public class PerfilDE<EntityManager> extends JFrame {
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PetShopMenuDE psm = new PetShopMenuDE();
-				psm.setVisible(true);
+				new PetShopMenuDE().setVisible(true);
 				dispose();
 			}
 		});
