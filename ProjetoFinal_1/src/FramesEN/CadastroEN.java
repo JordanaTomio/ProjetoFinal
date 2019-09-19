@@ -243,7 +243,7 @@ public class CadastroEN extends JFrame {
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
 					System.out.println("inseriu");
-					new Login().setVisible(true);
+					new LoginEN().setVisible(true);
 					dispose();
 
 				} else {
