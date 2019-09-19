@@ -55,7 +55,7 @@ public class FinalizarPedidoDE extends JFrame {
 	 * Create the frame.
 	 */
 	public FinalizarPedidoDE() {
-		setTitle("AbschlieBen");
+		setTitle("Abschließen");
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(FinalizarPedidoDE.class.getResource("/imagens/3775232-16.png")));
 		DecimalFormat df = new DecimalFormat();
@@ -76,8 +76,7 @@ public class FinalizarPedidoDE extends JFrame {
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PetShopMenuDE psm = new PetShopMenuDE();
-				psm.setVisible(true);
+				new PetShopMenuDE().setVisible(true);
 				dispose();
 			}
 		});
@@ -218,16 +217,16 @@ public class FinalizarPedidoDE extends JFrame {
 		totalFinal.setBounds(264, 310, 135, 37);
 		contentPane.add(totalFinal);
 
-		JButton btnFinalizar = new JButton("AbschlieBen");
+		JButton btnFinalizar = new JButton("Abschließen");
 		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (!(avista.isSelected() || x2.isSelected() || x3.isSelected())) {
-					JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zahlungsart!");
+					JOptionPane.showMessageDialog(null, "Bitte wÃ¤hlen Sie eine Zahlungsart!");
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"Vielen Dank für Ihren Einkauf bei uns, schauen Sie öfter vorbei!");
+							"Vielen Dank fÃ¼r Ihren Einkauf bei uns, schauen Sie Ã¶fter vorbei!");
 					PeedidoDAO.updateATT(ConsultarPedidosDE.pedido[1]);
 					new MenuDE().setVisible(true);
 					dispose();
