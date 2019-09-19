@@ -58,8 +58,7 @@ public class MenuDE extends JFrame {
 		btnAdocao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAdocao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PetAdotarDE pea = new PetAdotarDE();
-				pea.setVisible(true);
+				new PetAdotarDE().setVisible(true);
 				dispose();
 			}
 		});
@@ -68,8 +67,7 @@ public class MenuDE extends JFrame {
 		btnLoja.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLoja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PetShopMenuDE psm = new PetShopMenuDE();
-				psm.setVisible(true);
+				new PetShopMenuDE().setVisible(true);
 				dispose();
 			}
 		});
@@ -78,8 +76,7 @@ public class MenuDE extends JFrame {
 		btnPetShop.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPetShop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BanhoTosaDE bnt = new BanhoTosaDE();
-				bnt.setVisible(true);
+				new BanhoTosaDE().setVisible(true);
 				dispose();
 			}
 		});
@@ -88,8 +85,7 @@ public class MenuDE extends JFrame {
 		btnLogoff.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogoff.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				LoginDE lgn = new LoginDE();
-				lgn.setVisible(true);
+				new LoginDE().setVisible(true);
 				dispose();
 			}
 		});
@@ -100,13 +96,12 @@ public class MenuDE extends JFrame {
 		btnLogoff.setOpaque(false);
 		contentPane.add(btnLogoff);
 		
-		btnVet = new JButton("VeterinÃ¡rio");
+		btnVet = new JButton("VeterinÃƒÂ¡rio");
 		btnVet.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVet.setIcon(new ImageIcon(MenuDE.class.getResource("/imagens/vet.png")));
 		btnVet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ContatoVeterinarioDE cvt = new ContatoVeterinarioDE();
-				cvt.setVisible(true);
+				new ContatoVeterinarioDE().setVisible(true);
 				dispose();
 			}
 		});
@@ -163,8 +158,7 @@ public class MenuDE extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (Main.cliente.getAdm() == 1){
 					btnAdm.setVisible(true);
-					AdmDE adm = new AdmDE();
-					adm.setVisible(true);
+					new AdmDE().setVisible(true);
 					dispose();
 				} else {
 					btnAdm.setVisible(false);
@@ -244,8 +238,7 @@ public class MenuDE extends JFrame {
 		btnHotel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHotel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HotelDE cdd = new HotelDE();
-				cdd.setVisible(true);
+				new HotelDE().setVisible(true);
 				dispose();
 			}
 		});
