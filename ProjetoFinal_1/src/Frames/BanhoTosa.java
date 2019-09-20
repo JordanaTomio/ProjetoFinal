@@ -1,18 +1,19 @@
 package Frames;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
-import java.awt.Cursor;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,7 +26,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
+import com.toedter.calendar.JDateChooser;
+
 import DAO.AgendaDAO;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class BanhoTosa extends JFrame {
 
@@ -47,10 +52,12 @@ public class BanhoTosa extends JFrame {
 	private JLabel lblVoltar;
 	private JLabel flor;
 	private JLabel lblInformaoesObrigtorias;
-	private JFormattedTextField txtData;
 	private MaskFormatter data;
-	private JFormattedTextField txtHORA;
 	private MaskFormatter hora;
+	JDateChooser txtDataChooser_1 = new JDateChooser();
+
+	private JTextField txtHORA;
+	// private String dia;
 
 	/**
 	 * Launch the application.
@@ -82,27 +89,17 @@ public class BanhoTosa extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
-		
-		try{
+
+		try {
 			data = new MaskFormatter("##/##");
-		}catch(ParseException pe){
+		} catch (ParseException pe) {
 			pe.printStackTrace();
 		}
-		try{
+		try {
 			hora = new MaskFormatter("##:##");
-		}catch(ParseException pe){
+		} catch (ParseException pe) {
 			pe.printStackTrace();
 		}
-		
-		txtHORA = new JFormattedTextField(hora);
-		txtHORA.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
-		txtHORA.setBounds(104, 134, 49, 20);
-		contentPane.add(txtHORA);
-		
-		txtData = new JFormattedTextField(data);
-		txtData.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
-		txtData.setBounds(23, 134, 52, 20);
-		contentPane.add(txtData);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(333, 121, 283, 188);
@@ -168,7 +165,7 @@ public class BanhoTosa extends JFrame {
 
 		contentPane.add(rdbtnPequeno);
 
-		rdbtnMedio = new JRadioButton("MÈdio");
+		rdbtnMedio = new JRadioButton("M√©dio");
 		rdbtnMedio.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnMedio);
 		rdbtnMedio.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
@@ -225,6 +222,12 @@ public class BanhoTosa extends JFrame {
 				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 			}
 		});
+		
+		JDateChooser txtDataChooser_1 = new JDateChooser();
+		txtDataChooser_1.setBackground(new Color(240, 248, 255));
+		txtDataChooser_1.setDateFormatString("dd-MM-yyyy");
+		txtDataChooser_1.setBounds(15, 134, 87, 20);
+		contentPane.add(txtDataChooser_1);
 
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -234,10 +237,14 @@ public class BanhoTosa extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int variavel = 0;
 				int Confi = 0;
-
+				String daata = ((JTextField) txtDataChooser_1.getDateEditor().getUiComponent()).getText();
+				//SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+				//Date data2 = txtDataChooser_1.getDate();
+				//String data3 = data2.toString();
+				//String daata = sdf.format(data3);
 				// Missing Informations
 
-				if (txtData.getText().isEmpty() || txtHORA.getText().isEmpty() || txtCLIENTE.getText().isEmpty()) {
+				if (daata.isEmpty() || txtHORA.getText().isEmpty() || txtCLIENTE.getText().isEmpty()) {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnPequeno.isSelected() && !rdbtnMedio.isSelected() && !rdbtnGrande.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
@@ -253,80 +260,80 @@ public class BanhoTosa extends JFrame {
 					if (rdbtnPequeno.isSelected() && rdbtnBanho.isSelected()) {
 
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 15,00", "Gostaria de confirmar Hor√°rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 15,00", "Gostaria de confirmar Hor√É¬°rio?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 1;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnPequeno.isSelected() && rdbtnBanhoETosa.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 25,00", "Gostaria de confirmar Hor·rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 25,00", "Gostaria de confirmar Hor√°rio?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio  confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio  confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 2;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 
 					} else if (rdbtnMedio.isSelected() && rdbtnBanho.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 20,00", "Gostaria de confirmar Hor·rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 20,00", "Gostaria de confirmar Hor√°rio?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 3;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnMedio.isSelected() && rdbtnBanhoETosa.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar Hor·rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar Hor√°rio?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio  confirmado! Favor chegar com 15 minutos de antecedÍcia!");
+									"Hor√°rio  confirmado! Favor chegar com 15 minutos de anteced√™cia!");
 							variavel = 4;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnGrande.isSelected() && rdbtnBanho.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar Hor·rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar Hor√°rio?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio  confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio  confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 5;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnGrande.isSelected() && rdbtnBanhoETosa.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 40,00", "Gostaria de confirmar Hor·rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 40,00", "Gostaria de confirmar Hor√°rio?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"Hor·rio  confirmado! Favor chegar com 15 minutos de antecedÍncia!");
+									"Hor√°rio  confirmado! Favor chegar com 15 minutos de anteced√™ncia!");
 							variavel = 6;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos n„o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos n√£o poder ajudar, agradecemos a procura!");
 						}
 					}
 					if ((Confi == 0))
-						AgendaDAO.Confirmar(txtData.getText(), txtHORA.getText(), txtCLIENTE.getText(), variavel);
+						AgendaDAO.Confirmar(daata, txtHORA.getText(), txtCLIENTE.getText(), variavel);
 				}
 				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 			}
@@ -367,7 +374,7 @@ public class BanhoTosa extends JFrame {
 
 		lblHORA = new JLabel("Hora");
 		lblHORA.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-		lblHORA.setBounds(112, 112, 35, 14);
+		lblHORA.setBounds(127, 112, 35, 14);
 		contentPane.add(lblHORA);
 
 		lblCLIENTE = new JLabel("Cliente");
@@ -380,12 +387,19 @@ public class BanhoTosa extends JFrame {
 		lblBanhoETosa.setBounds(194, 23, 291, 51);
 		contentPane.add(lblBanhoETosa);
 
+
+
+		txtHORA = new JTextField();
+		txtHORA.setBounds(114, 135, 55, 20);
+		contentPane.add(txtHORA);
+		txtHORA.setColumns(10);
+
 		flor = new JLabel("New label");
 		flor.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/230588225055212(1).png")));
 		flor.setBounds(277, 144, 429, 328);
 		contentPane.add(flor);
 
-		lblInformaoesObrigtorias = new JLabel("*InformaÁıes ObrigatÛrias*");
+		lblInformaoesObrigtorias = new JLabel("*Informa√ß√µes Obrigat√≥rias*");
 		lblInformaoesObrigtorias.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblInformaoesObrigtorias.setForeground(Color.RED);
 		lblInformaoesObrigtorias.setBounds(21, 85, 193, 23);
