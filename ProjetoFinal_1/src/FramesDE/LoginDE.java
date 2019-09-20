@@ -150,8 +150,7 @@ public class LoginDE extends JFrame {
 		JButton btnAL = new JButton("");
 		btnAL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new LoginDE().setVisible(true);
-				dispose();
+				System.out.println("Sie sind bereits in dieser Sprache");
 			}
 		});
 		btnAL.setBounds(51, 358, 59, 35);
