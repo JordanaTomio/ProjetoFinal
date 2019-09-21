@@ -9,8 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.ButtonGroup;
@@ -31,8 +29,6 @@ import javax.swing.text.MaskFormatter;
 import com.toedter.calendar.JDateChooser;
 
 import DAO.AgendaDAO;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
 
 public class BanhoTosa extends JFrame {
 
@@ -234,6 +230,7 @@ public class BanhoTosa extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int variavel = 0;
 				int Confi = 0;
+				//confere e valida a data
 				String daata = ((JTextField) txtDataChooser_1.getDateEditor().getUiComponent()).getText();
 				java.util.Date d = new Date();
 				String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);

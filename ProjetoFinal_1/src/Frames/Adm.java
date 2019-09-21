@@ -20,8 +20,9 @@ public class Adm extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
+	 * Frame de transição Adm
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -35,9 +36,6 @@ public class Adm extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public Adm() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Adm.class.getResource("/imagens/3775232-16.png")));
 		setTitle("Administração");

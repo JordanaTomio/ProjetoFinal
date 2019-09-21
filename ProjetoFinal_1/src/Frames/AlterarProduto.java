@@ -69,11 +69,14 @@ public class AlterarProduto extends JFrame {
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.addFocusListener(new FocusAdapter() {
+			
+			//Add os produtos na combo box
+			
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				comboBox.removeAllItems();
 				ResultSet rs = ProdutoDAO.findAll();
-
+				
 				try {
 					while (rs.next()) {
 						int cdCodigo = rs.getInt("CD_Produto");
@@ -85,6 +88,7 @@ public class AlterarProduto extends JFrame {
 				}
 			}
 		});
+		//Seta as informaçoes do produto
 		comboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				if (comboBox.getItemCount() > 0) {
