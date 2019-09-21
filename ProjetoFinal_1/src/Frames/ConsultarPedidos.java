@@ -46,9 +46,6 @@ public class ConsultarPedidos extends JFrame {
 	public static String[] pedido;
 	JCheckBox chckbxFinalizado = new JCheckBox("Finalizado");
 
-	/**
-	 * Create the frame.
-	 */
 	public ConsultarPedidos() {
 		setTitle("Carrinho");
 		setIconImage(

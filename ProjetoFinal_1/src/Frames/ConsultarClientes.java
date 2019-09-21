@@ -52,6 +52,9 @@ public class ConsultarClientes extends JFrame {
 		contentPane.add(lblNome);
 
 		txtNome = new JTextField();
+		
+		//Puxa os clientes do Database
+		
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -89,6 +92,7 @@ public class ConsultarClientes extends JFrame {
 			dispose();
 			}
 		});
+		
 		btnVoltar.setBounds(5, 338, 56, 55);
 		btnVoltar.setBorderPainted(false);
 		btnVoltar.setContentAreaFilled(false);
