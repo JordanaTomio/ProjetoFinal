@@ -42,9 +42,6 @@ public class ConsultarProdutos extends JFrame {
 	private JTable table;
 	private JComboBox comboBox;
 
-	/**
-	 * Create the frame.
-	 */
 	public ConsultarProdutos() {
 		setTitle("Loja");
 		setIconImage(
@@ -56,6 +53,9 @@ public class ConsultarProdutos extends JFrame {
 		contentPane = new JPanel();
 		setLocationRelativeTo(null);
 		contentPane.addMouseMotionListener(new MouseMotionAdapter() {
+			
+			//Seta o valor total no Database
+			
 			@Override
 			public void mouseMoved(MouseEvent e) {
 				if (comboBox.getItemCount() > 0) {
@@ -88,6 +88,9 @@ public class ConsultarProdutos extends JFrame {
 		txtNome = new JTextField();
 		txtNome.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtNome.addFocusListener(new FocusAdapter() {
+			
+			//Seta a tabela puxando do Database
+			
 			@Override
 			public void focusGained(FocusEvent e) {
 				ResultSet rs = PeedidoDAO.findAllToTable();
@@ -95,6 +98,9 @@ public class ConsultarProdutos extends JFrame {
 			}
 		});
 		txtNome.addKeyListener(new KeyAdapter() {
+			
+			//Faz a pesquisa na tabela utilizando o Database
+			
 			@Override
 			public void keyTyped(KeyEvent arg0) {
 				String nomeProduto = txtNome.getText();
@@ -163,6 +169,9 @@ public class ConsultarProdutos extends JFrame {
 		button.setForeground(new Color(0, 100, 0));
 		button.setBackground(new Color(255, 255, 255));
 		button.addActionListener(new ActionListener() {
+			
+			//confere se pode ser Adicionado o item e o adiciona
+			
 			public void actionPerformed(ActionEvent e) {
 				if (table.getRowCount() > 0) {
 					String nomeProduto = null;
@@ -206,6 +215,9 @@ public class ConsultarProdutos extends JFrame {
 		JButton btnNovoPedido = new JButton("Novo pedido");
 		btnNovoPedido.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNovoPedido.addActionListener(new ActionListener() {
+		
+			//cria um novo pedido
+			
 			public void actionPerformed(ActionEvent arg0) {
 				Pedido pedido = new Pedido(0, Main.cliente.getCdCodigo());
 				PeedidoDAO.save(pedido);
@@ -221,6 +233,9 @@ public class ConsultarProdutos extends JFrame {
 		comboBox.setBackground(new Color(255, 255, 255));
 		comboBox.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		comboBox.addFocusListener(new FocusAdapter() {
+			
+			//seta os pedidos na combobox
+			
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				comboBox.removeAllItems();

@@ -60,6 +60,9 @@ public class ConsultarPedidos extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		contentPane.addMouseMotionListener(new MouseMotionAdapter() {
+			
+			//Seta o valortotal puxando do Database
+			
 			@Override
 			public void mouseMoved(MouseEvent e) {
 				if (comboBox.getItemCount() > 0) {
@@ -109,6 +112,9 @@ public class ConsultarPedidos extends JFrame {
 
 		comboBox = new JComboBox();
 		comboBox.addItemListener(new ItemListener() {
+			
+			//seta as informaçoes do pedido puxadas no dataBase
+			
 			public void itemStateChanged(ItemEvent e) {
 				if (comboBox.getItemCount() > 0) {
 					String item = comboBox.getSelectedItem().toString();
@@ -135,6 +141,9 @@ public class ConsultarPedidos extends JFrame {
 			}
 		});
 		comboBox.addFocusListener(new FocusAdapter() {
+			
+			//Puxa os pedidos do Database
+			
 			@Override
 			public void focusGained(FocusEvent e) {
 				comboBox.removeAllItems();
@@ -172,6 +181,9 @@ public class ConsultarPedidos extends JFrame {
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
+			
+			//Retira o produto do pedido no Database
+			
 			public void actionPerformed(ActionEvent e) {
 				if (table.getRowCount() > 0) {
 					String nomeProduto = null;

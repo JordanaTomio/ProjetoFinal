@@ -7,7 +7,8 @@ import java.sql.SQLException;
 public class MySQLConfiguration {
 
 	public static Connection conn;
-
+	
+	//Faz conexao com o Database
 	public MySQLConfiguration() {
 		try {
 			//Lembrete altere para 3306 no Cedup

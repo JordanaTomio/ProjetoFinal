@@ -6,11 +6,11 @@ import java.sql.Types;
 
 public class DbeansUtilis extends Dbhiperbeans {
 
-	public ResultSetMetaData getMetaData() throws SQLException {
-		return new DummySimplestMetaData();
+	public ResultSetMetaData get() throws SQLException {
+		return new Simple();
 	}
 
-	private class DummySimplestMetaData implements ResultSetMetaData {
+	private class Simple implements ResultSetMetaData {
 
 		public String getCatalogName(int column) throws SQLException {
 			// TODO Auto-generated method stub
