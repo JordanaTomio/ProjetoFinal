@@ -7,8 +7,10 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.ButtonGroup;
@@ -108,15 +110,10 @@ public class BanhoTosa extends JFrame {
 		tblAGENDA = new JTable();
 		tblAGENDA.setEnabled(false);
 		scrollPane.setViewportView(tblAGENDA);
-		tblAGENDA
-				.setModel(new DefaultTableModel(
-						// https://www.guj.com.br/t/gravar-dados-direto-no-jtable/56176/3
-						// use isso
-						new Object[][] { { "00/00", "08:30", null }, { "00/00", "09:30", null },
-								{ "00/00", "10:30", null }, { "00/00", "11:30", null }, { "00/00", "13:30", null },
-								{ "00/00", "14:30", null }, { "00/00", "15:30", null }, { "00/00", "16:30", null },
-								{ "00/00", "17:30", null }, { "00/00", "18:00", null }, },
-						new String[] { "Data", "Hora", "Cliente" }));
+		tblAGENDA.setModel(new DefaultTableModel(
+				// https://www.guj.com.br/t/gravar-dados-direto-no-jtable/56176/3
+				// use isso
+				new Object[][] {}, new String[] { "Data", "Hora", "Cliente" }));
 		tblAGENDA.getColumnModel().getColumn(0).setPreferredWidth(38);
 		tblAGENDA.getColumnModel().getColumn(1).setPreferredWidth(46);
 
@@ -222,7 +219,7 @@ public class BanhoTosa extends JFrame {
 				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 			}
 		});
-		
+
 		JDateChooser txtDataChooser_1 = new JDateChooser();
 		txtDataChooser_1.setBackground(new Color(240, 248, 255));
 		txtDataChooser_1.setDateFormatString("dd-MM-yyyy");
@@ -238,11 +235,23 @@ public class BanhoTosa extends JFrame {
 				int variavel = 0;
 				int Confi = 0;
 				String daata = ((JTextField) txtDataChooser_1.getDateEditor().getUiComponent()).getText();
-				//SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-				//Date data2 = txtDataChooser_1.getDate();
-				//String data3 = data2.toString();
-				//String daata = sdf.format(data3);
-				// Missing Informations
+				java.util.Date d = new Date();
+				String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+
+				System.out.println(dStr);
+				System.out.println(daata);
+
+				String[] sprdAtual = dStr.split("/");
+				String jntAtual = sprdAtual[0] + sprdAtual[1] + sprdAtual[2];
+
+				String[] sprdValida = daata.split("-");
+				String jntValida = sprdValida[0] + sprdValida[1] + sprdValida[2];
+
+				System.out.println(jntAtual);
+				System.out.println(jntValida);
+
+				int Valida = Integer.parseInt(jntValida);
+				int atual = Integer.parseInt(jntAtual);
 
 				if (daata.isEmpty() || txtHORA.getText().isEmpty() || txtCLIENTE.getText().isEmpty()) {
 					lblInformaoesObrigtorias.setVisible(true);
@@ -252,16 +261,19 @@ public class BanhoTosa extends JFrame {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnCachorro.isSelected() && !rdbtnGato.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
+				} else if (Valida < atual) {
+					JOptionPane.showMessageDialog(null, "Data invalida!");
 				}
 
 				// -------------------------------------------------------------------
 
 				else {
-					if (rdbtnPequeno.isSelected() && rdbtnBanho.isSelected()) {
+					 if (rdbtnPequeno.isSelected() && rdbtnBanho.isSelected()) {
 
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 15,00", "Gostaria de confirmar HorÃ¡rio?",
-								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 15,00",
+								"Gostaria de confirmar HorÃ¡rio?", JOptionPane.YES_NO_OPTION,
+								JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
@@ -386,8 +398,6 @@ public class BanhoTosa extends JFrame {
 		lblBanhoETosa.setFont(new Font("Bauhaus 93", Font.BOLD, 40));
 		lblBanhoETosa.setBounds(194, 23, 291, 51);
 		contentPane.add(lblBanhoETosa);
-
-
 
 		txtHORA = new JTextField();
 		txtHORA.setBounds(114, 135, 55, 20);
