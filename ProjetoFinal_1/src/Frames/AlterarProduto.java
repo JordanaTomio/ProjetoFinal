@@ -182,6 +182,7 @@ public class AlterarProduto extends JFrame {
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnAlterar.addActionListener(new ActionListener() {
+			//Faz a altualizacao no database
 			public void actionPerformed(ActionEvent arg0) {
 				String item = comboBox.getSelectedItem().toString();
 				String itens[] = item.split(" - ");

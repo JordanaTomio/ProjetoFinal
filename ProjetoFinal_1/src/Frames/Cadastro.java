@@ -48,9 +48,6 @@ public class Cadastro extends JFrame {
 	JRadioButton btnMasculino = new JRadioButton("Masc");
 	JRadioButton rdbtnOutros = new JRadioButton("Outros");
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -64,9 +61,6 @@ public class Cadastro extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public Cadastro() {
 		setTitle("Cadastrar");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Cadastro.class.getResource("/imagens/3775232-16.png")));
@@ -182,6 +176,9 @@ public class Cadastro extends JFrame {
 		btnCadastrar.setForeground(new Color(0, 100, 0));
 		btnCadastrar.setBackground(new Color(255, 255, 255));
 		btnCadastrar.addActionListener(new ActionListener() {
+			
+			//cadastra o cliente no Database
+			
 			public void actionPerformed(ActionEvent arg0) {
 				String primeiroNome = txtPN.getText();
 				String ultimoNome = txtSN.getText();

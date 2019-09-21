@@ -32,9 +32,7 @@ public class ConsultarClientes extends JFrame {
 	public JTextField txtNome;
 	private JTable table;
 	
-	/**
-	 * Create the frame.
-	 */
+	
 	public ConsultarClientes() {
 		setTitle("Consultar Clientes");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ConsultarClientes.class.getResource("/imagens/3775232-16.png")));
@@ -68,6 +66,7 @@ public class ConsultarClientes extends JFrame {
 				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
+		
 		txtNome.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		txtNome.setColumns(10);
 		txtNome.setBounds(275, 124, 189, 21);

@@ -141,6 +141,9 @@ public class CadastrarProduto extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCadastrar.addActionListener(new ActionListener() {
+			
+			//Inseri produto no Database
+			
 			public void actionPerformed(ActionEvent e) {
 				String nome = txtNome.getText();
 				String descricao = txtDesc.getText();

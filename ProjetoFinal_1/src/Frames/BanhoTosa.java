@@ -55,11 +55,7 @@ public class BanhoTosa extends JFrame {
 	JDateChooser txtDataChooser_1 = new JDateChooser();
 
 	private JTextField txtHORA;
-	// private String dia;
-
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -227,6 +223,9 @@ public class BanhoTosa extends JFrame {
 		btnConfirmar.setForeground(new Color(0, 100, 0));
 		btnConfirmar.setBackground(new Color(255, 255, 255));
 		btnConfirmar.addActionListener(new ActionListener() {
+			
+			//Inseri no database o agendamento
+			
 			public void actionPerformed(ActionEvent e) {
 				int variavel = 0;
 				int Confi = 0;
