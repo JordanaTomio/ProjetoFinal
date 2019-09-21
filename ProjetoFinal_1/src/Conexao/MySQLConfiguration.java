@@ -12,7 +12,7 @@ public class MySQLConfiguration {
 	public MySQLConfiguration() {
 		try {
 			//Lembrete altere para 3306 no Cedup
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/petshopdb?autoReconnect=true&useSSL=false",
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/petshopdb?autoReconnect=true&useSSL=false",
 					"root", "");
 			System.out.println("Connected on Database");
 		} catch (SQLException e) {
