@@ -119,15 +119,25 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(txtCLIENTE);
 		
 		JComboBox cobox = new JComboBox();
-		cobox.setBounds(114, 135, 52, 19);
-		cobox.addItem("8:00");
-		cobox.addItem("9:00");
+		cobox.setBounds(114, 135, 60, 19);
+		cobox.addItem("08:30");
+		cobox.addItem("09:00");
+		cobox.addItem("09:30");
 		cobox.addItem("10:00");
+		cobox.addItem("10:30");
 		cobox.addItem("11:00");
+		cobox.addItem("11:30");
+		cobox.addItem("13:00");
+		cobox.addItem("13:30");
 		cobox.addItem("14:00");
+		cobox.addItem("14:30");
 		cobox.addItem("15:00");
+		cobox.addItem("15:30");
 		cobox.addItem("16:00");
+		cobox.addItem("16:30");
 		cobox.addItem("17:00");
+		cobox.addItem("17:30");
+		cobox.addItem("18:00");
 		contentPane.add(cobox);
 
 		String txtH = cobox.getSelectedItem().toString();
