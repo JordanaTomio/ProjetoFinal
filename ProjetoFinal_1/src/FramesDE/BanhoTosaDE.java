@@ -14,6 +14,7 @@ import java.awt.Cursor;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -56,7 +57,6 @@ public class BanhoTosaDE extends JFrame {
 	private JRadioButton rdbtnGato;
 	private JRadioButton rdbtnCachorro;
 	JDateChooser txtDataChooser_1 = new JDateChooser();
-	private JTextField txtHORA;
 
 	/**
 	 * Launch the application.
@@ -100,11 +100,6 @@ public class BanhoTosaDE extends JFrame {
 			pe.printStackTrace();
 		}
 
-		txtHORA = new JFormattedTextField(hora);
-		txtHORA.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
-		txtHORA.setBounds(104, 134, 49, 20);
-		contentPane.add(txtHORA);
-
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(333, 121, 283, 188);
 		contentPane.add(scrollPane);
@@ -132,6 +127,21 @@ public class BanhoTosaDE extends JFrame {
 		txtCLIENTE.setColumns(10);
 		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);
+		
+		JComboBox cbox = new JComboBox();
+		cbox.setBounds(114, 135, 52, 19);
+		cbox.addItem("8:00");
+		cbox.addItem("9:00");
+		cbox.addItem("10:00");
+		cbox.addItem("11:00");
+		cbox.addItem("14:00");
+		cbox.addItem("15:00");
+		cbox.addItem("16:00");
+		cbox.addItem("17:00");
+		contentPane.add(cbox);
+
+		String txtH = cbox.getSelectedItem().toString();
+		
 
 		rdbtnGato = new JRadioButton("Katze");
 		rdbtnGato.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -264,7 +274,7 @@ public class BanhoTosaDE extends JFrame {
 				int Valida = Integer.parseInt(jntValida);
 				int atual = Integer.parseInt(jntAtual);
 
-				if (daata.isEmpty() || txtHORA.getText().isEmpty() || txtCLIENTE.getText().isEmpty()) {
+				if (daata.isEmpty() || txtH.isEmpty() || txtCLIENTE.getText().isEmpty()) {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnPequeno.isSelected() && !rdbtnMedio.isSelected() && !rdbtnGrande.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
@@ -367,7 +377,7 @@ public class BanhoTosaDE extends JFrame {
 						}
 					}
 					if ((Confi == 0))
-						AgendaDAO.ConfirmarDE(daata, txtHORA.getText(), txtCLIENTE.getText(), variavel);
+						AgendaDAO.ConfirmarDE(daata, txtH, txtCLIENTE.getText(), variavel);
 				}
 				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.AtualizarDE()));
 			}

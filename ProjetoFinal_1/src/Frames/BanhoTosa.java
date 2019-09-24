@@ -29,6 +29,8 @@ import javax.swing.text.MaskFormatter;
 import com.toedter.calendar.JDateChooser;
 
 import DAO.AgendaDAO;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class BanhoTosa extends JFrame {
 
@@ -53,7 +55,6 @@ public class BanhoTosa extends JFrame {
 	private MaskFormatter data;
 	private MaskFormatter hora;
 	JDateChooser txtDataChooser_1 = new JDateChooser();
-	private JTextField txtHORA;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -116,7 +117,21 @@ public class BanhoTosa extends JFrame {
 		txtCLIENTE.setColumns(10);
 		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);
+		
+		JComboBox cbox = new JComboBox();
+		cbox.setBounds(114, 135, 52, 19);
+		cbox.addItem("8:00");
+		cbox.addItem("9:00");
+		cbox.addItem("10:00");
+		cbox.addItem("11:00");
+		cbox.addItem("14:00");
+		cbox.addItem("15:00");
+		cbox.addItem("16:00");
+		cbox.addItem("17:00");
+		contentPane.add(cbox);
 
+		String txtH = cbox.getSelectedItem().toString();
+		
 		JRadioButton rdbtnGato = new JRadioButton("Gato");
 		rdbtnGato.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup_1.add(rdbtnGato);
@@ -248,7 +263,7 @@ public class BanhoTosa extends JFrame {
 				int Valida = Integer.parseInt(jntValida);
 				int atual = Integer.parseInt(jntAtual);
 
-				if (daata.isEmpty() || txtHORA.getText().isEmpty() || txtCLIENTE.getText().isEmpty()) {
+				if (daata.isEmpty() || txtH.isEmpty() || txtCLIENTE.getText().isEmpty()) {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnPequeno.isSelected() && !rdbtnMedio.isSelected() && !rdbtnGrande.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
@@ -340,7 +355,7 @@ public class BanhoTosa extends JFrame {
 						}
 					}
 					if ((Confi == 0))
-						AgendaDAO.Confirmar(daata, txtHORA.getText(), txtCLIENTE.getText(), variavel);
+						AgendaDAO.Confirmar(daata, txtH, txtCLIENTE.getText(), variavel);
 				}
 				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 			}
@@ -394,22 +409,19 @@ public class BanhoTosa extends JFrame {
 		lblBanhoETosa.setBounds(194, 23, 291, 51);
 		contentPane.add(lblBanhoETosa);
 
-		txtHORA = new JTextField();
-		txtHORA.setBounds(114, 135, 55, 20);
-		contentPane.add(txtHORA);
-		txtHORA.setColumns(10);
-
 		flor = new JLabel("New label");
 		flor.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/230588225055212(1).png")));
 		flor.setBounds(277, 144, 429, 328);
 		contentPane.add(flor);
 
-		lblInformaoesObrigtorias = new JLabel("*Informações Obrigatórias*");
+		lblInformaoesObrigtorias = new JLabel("*Informa\u00E7\u00F5es obrigat\u00F3rias*");
 		lblInformaoesObrigtorias.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblInformaoesObrigtorias.setForeground(Color.RED);
 		lblInformaoesObrigtorias.setBounds(21, 85, 193, 23);
 		contentPane.add(lblInformaoesObrigtorias);
 		lblInformaoesObrigtorias.setVisible(false);
+		
+
 
 		background = new JLabel("New label");
 		background.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/Background.jpg")));
