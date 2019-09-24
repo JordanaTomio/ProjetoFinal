@@ -118,19 +118,19 @@ public class BanhoTosa extends JFrame {
 		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);
 		
-		JComboBox cbox = new JComboBox();
-		cbox.setBounds(114, 135, 52, 19);
-		cbox.addItem("8:00");
-		cbox.addItem("9:00");
-		cbox.addItem("10:00");
-		cbox.addItem("11:00");
-		cbox.addItem("14:00");
-		cbox.addItem("15:00");
-		cbox.addItem("16:00");
-		cbox.addItem("17:00");
-		contentPane.add(cbox);
+		JComboBox cobox = new JComboBox();
+		cobox.setBounds(114, 135, 52, 19);
+		cobox.addItem("8:00");
+		cobox.addItem("9:00");
+		cobox.addItem("10:00");
+		cobox.addItem("11:00");
+		cobox.addItem("14:00");
+		cobox.addItem("15:00");
+		cobox.addItem("16:00");
+		cobox.addItem("17:00");
+		contentPane.add(cobox);
 
-		String txtH = cbox.getSelectedItem().toString();
+		String txtH = cobox.getSelectedItem().toString();
 		
 		JRadioButton rdbtnGato = new JRadioButton("Gato");
 		rdbtnGato.setCursor(new Cursor(Cursor.HAND_CURSOR));

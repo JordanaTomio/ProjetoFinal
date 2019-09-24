@@ -128,7 +128,7 @@ public class BanhoTosaDE extends JFrame {
 		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);
 		
-		JComboBox cbox = new JComboBox();
+		JComboBox<String> cbox = new JComboBox<String>();
 		cbox.setBounds(114, 135, 52, 19);
 		cbox.addItem("8:00");
 		cbox.addItem("9:00");
