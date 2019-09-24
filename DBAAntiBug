@@ -164,8 +164,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 DELETE FROM `cliente`;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` (`CD_Cliente`, `EM_Cliente`, `PS_Cliente`, `PN_Cliente`, `SN_Cliente`, `SX_Cliente`, `TL_Cliente`, `ADM_Cliente`, `CEP_Cliente`, `CPF_Cliente`, `PJF_Cliente`, `RZ_Cliente`) VALUES
-	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '(12) 3    -    ', 1, '11111-   ', '23243', NULL, 'Jordana'),
-	(3, 'teste', '123', 'teste\r', 'oi', 'Feminino', '(12) 3    -    ', 0, '11111-   ', '23243', NULL, 'Jordana');
+	(3, 'teste1', '123', 'teste\r', 'oi', 'Feminino', '(12) 3    -    ', 0, '11111-   ', '23243', NULL, 'Jordana');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 
