@@ -8,7 +8,9 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.util.Date;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -25,6 +27,8 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
+import com.toedter.calendar.JDateChooser;
+
 import DAO.HotelDAO;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -40,6 +44,8 @@ public class Hotel extends JFrame {
 	private JFormattedTextField data;
 	private JFormattedTextField data2;
 	private JTextField txtNome;
+	private JDateChooser Date1;
+	private JDateChooser Date2;
 
 	JTextPane txtDs = new JTextPane();
 	private int one = -1;
@@ -96,6 +102,14 @@ public class Hotel extends JFrame {
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
+		
+		Date1 = new JDateChooser();
+		Date1.setBounds(192, 182, 73, 20);
+		contentPane.add(Date1);
+		
+		Date2 = new JDateChooser();
+		Date2.setBounds(303, 182, 73, 20);
+		contentPane.add(Date2);
 
 		JRadioButton gato = new JRadioButton("Gato");
 		gato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -118,7 +132,7 @@ public class Hotel extends JFrame {
 		cachorro.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		cachorro.setBounds(243, 223, 101, 23);
 		contentPane.add(cachorro);
-
+		
 		JButton btnFinalizar = new JButton("Agendar");
 		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.setForeground(new Color(0, 100, 0));
@@ -126,9 +140,24 @@ public class Hotel extends JFrame {
 		btnFinalizar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				
 				String nome = txtNomeCliente.getText();
-				String dataComeco = data.getText();
-				String dataFinal = data2.getText();
+				//String dataComeco = data.getText();
+				String daata = ((JTextField) Date1.getDateEditor().getUiComponent()).getText();
+				java.util.Date d = new Date();
+				String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+
+				System.out.println(dStr);
+				System.out.println(daata);
+			
+				//String dataFinal = data2.getText();
+				String daata2 = ((JTextField) Date2.getDateEditor().getUiComponent()).getText();
+				java.util.Date d2 = new Date();
+				String dStr2 = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d2);
+
+				System.out.println(dStr2);
+				System.out.println(daata2);
+
 				String cuidador = txtNome.getText();
 				String obs = txtObs.getText();
 				String ds = txtDs.getText();
@@ -142,10 +171,10 @@ public class Hotel extends JFrame {
 					System.out.println("cat");
 				}
 
-				if (!nome.isEmpty() && !dataComeco.isEmpty() && !dataFinal.isEmpty() && !cuidador.isEmpty()
+				if (!nome.isEmpty() && !daata.isEmpty() && !daata2.isEmpty() && !cuidador.isEmpty()
 						&& !tipo.isEmpty()) {
 					Beans.HotelBeans hotel = new Beans.HotelBeans();
-					DAO.HotelDAO.Agendar(nome, dataComeco, dataFinal, cuidador, obs, tipo);
+					DAO.HotelDAO.Agendar(nome, daata, daata2, cuidador, obs, tipo);
 					DAO.HotelDAO.save(hotel);
 					new Menu().setVisible(true);
 					dispose();
@@ -256,7 +285,7 @@ public class Hotel extends JFrame {
 		sair.setBounds(10, 336, 63, 51);
 		contentPane.add(sair);
 
-		data2 = new JFormattedTextField(mascaras);
+/*		data2 = new JFormattedTextField(mascaras);
 		data2.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		data2.setBounds(312, 183, 54, 19);
 		contentPane.add(data2);
@@ -266,7 +295,7 @@ public class Hotel extends JFrame {
 		data.setBounds(202, 183, 54, 19);
 		contentPane.add(data);
 
-		txtObs = new JTextField();
+*/		txtObs = new JTextField();
 		txtObs.setBounds(139, 280, 205, 20);
 		contentPane.add(txtObs);
 		txtObs.setColumns(10);
