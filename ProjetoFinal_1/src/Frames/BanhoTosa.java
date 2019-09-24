@@ -223,7 +223,7 @@ public class BanhoTosa extends JFrame {
 		btnConfirmar.setBackground(new Color(255, 255, 255));
 		btnConfirmar.addActionListener(new ActionListener() {
 			
-			//Inseri no database o agendamento
+			//Insere no database o agendamento
 			
 			public void actionPerformed(ActionEvent e) {
 				int variavel = 0;

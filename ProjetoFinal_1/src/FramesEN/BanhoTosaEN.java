@@ -239,7 +239,6 @@ public class BanhoTosaEN extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int variavel = 0;
 				int Confi = 0;
-
 				//confere e valida a data
 				String daata = ((JTextField) txtDataChooser_1.getDateEditor().getUiComponent()).getText();
 				java.util.Date d = new Date();
@@ -259,8 +258,6 @@ public class BanhoTosaEN extends JFrame {
 
 				int Valida = Integer.parseInt(jntValida);
 				int atual = Integer.parseInt(jntAtual);
-				
-				// Missing Informations
 
 				if (daata.isEmpty() || txtHORA.getText().isEmpty() || txtCLIENTE.getText().isEmpty()) {
 					lblInformaoesObrigtorias.setVisible(true);
@@ -271,7 +268,7 @@ public class BanhoTosaEN extends JFrame {
 				} else if (!rdbtnCachorro.isSelected() && !rdbtnGato.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (Valida < atual) {
-					JOptionPane.showMessageDialog(null, "Data invalida!");
+					JOptionPane.showMessageDialog(null, "Invalid date!");
 				}
 
 				// -------------------------------------------------------------------
