@@ -225,11 +225,11 @@ public class Cadastro extends JFrame {
 				}
 				if (CPF.equals(CPFConf)) {
 					System.out.println(CPFConf);
-					JOptionPane.showMessageDialog(null, "CPF j√° cadastrado!");
+					JOptionPane.showMessageDialog(null, "CPF j· cadastrado!");
 				
 				}else if(email.equals(emailConf)){
 					System.out.println(emailConf);
-					JOptionPane.showMessageDialog(null, "E-mail j√° cadastrado!");
+					JOptionPane.showMessageDialog(null, "E-mail j· cadastrado!");
 				
 				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
@@ -240,7 +240,7 @@ public class Cadastro extends JFrame {
 					dispose();
 
 				} else {
-					JOptionPane.showMessageDialog(null, "Informa√ß√µes faltando!");
+					JOptionPane.showMessageDialog(null, "InformaÁıes faltando!");
 				}
 
 			}
@@ -269,7 +269,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(btnVoltar);
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigat√≥rios");
+		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatÛrios");
 		lbldadosObrigatrios.setBounds(30, 317, 95, 14);
 		lbldadosObrigatrios.setForeground(Color.RED);
 		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));
