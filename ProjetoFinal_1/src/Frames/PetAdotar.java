@@ -38,7 +38,7 @@ public class PetAdotar extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	JRadioButton btnMacho = new JRadioButton("Macho");
-	JRadioButton btnCao = new JRadioButton("Cãoo");
+	JRadioButton btnCao = new JRadioButton("Cão");
 	JRadioButton btnGato = new JRadioButton("Gato");
 	JRadioButton btnFemea = new JRadioButton("Fêmea");
 	JCheckBox vacinadodb = new JCheckBox("Vacinado");

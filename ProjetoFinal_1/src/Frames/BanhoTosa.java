@@ -153,7 +153,7 @@ public class BanhoTosa extends JFrame {
 
 		contentPane.add(rdbtnPequeno);
 
-		rdbtnMedio = new JRadioButton("MÃ©dio");
+		rdbtnMedio = new JRadioButton("Médio");
 		rdbtnMedio.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnMedio);
 		rdbtnMedio.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
