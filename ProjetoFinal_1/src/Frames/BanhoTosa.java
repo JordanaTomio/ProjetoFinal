@@ -257,7 +257,7 @@ public class BanhoTosa extends JFrame {
 				} else if (!rdbtnCachorro.isSelected() && !rdbtnGato.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (Valida < atual) {
-					JOptionPane.showMessageDialog(null, "Data invalida!");
+					JOptionPane.showMessageDialog(null, "Data inválida!");
 				}
 
 				// -------------------------------------------------------------------
@@ -267,76 +267,76 @@ public class BanhoTosa extends JFrame {
 
 						Object[] options = { "Confirmar", "Cancelar" };
 						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 15,00",
-								"Gostaria de confirmar HorÃƒÂ¡rio?", JOptionPane.YES_NO_OPTION,
+								"Gostaria de confirmar horário?", JOptionPane.YES_NO_OPTION,
 								JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"HorÃ¡rio confirmado! Favor chegar com 15 minutos de antecedÃªncia!");
+									"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
 							variavel = 1;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos nÃ£o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnPequeno.isSelected() && rdbtnBanhoETosa.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 25,00", "Gostaria de confirmar HorÃ¡rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 25,00", "Gostaria de confirmar horário?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"HorÃ¡rio  confirmado! Favor chegar com 15 minutos de antecedÃªncia!");
+									"Horário  confirmado! Favor chegar com 15 minutos de antecedência!");
 							variavel = 2;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos nÃ£o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 						}
 
 					} else if (rdbtnMedio.isSelected() && rdbtnBanho.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 20,00", "Gostaria de confirmar HorÃ¡rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 20,00", "Gostaria de confirmar horário?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"HorÃ¡rio confirmado! Favor chegar com 15 minutos de antecedÃªncia!");
+									"Horário confirmado! Favor chegar com 15 minutos de antecedência!");
 							variavel = 3;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos nÃ£o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnMedio.isSelected() && rdbtnBanhoETosa.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar HorÃ¡rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar horário?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"HorÃ¡rio  confirmado! Favor chegar com 15 minutos de antecedÃªcia!");
+									"Horário  confirmado! Favor chegar com 15 minutos de antecedÃªcia!");
 							variavel = 4;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos nÃ£o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnGrande.isSelected() && rdbtnBanho.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar HorÃ¡rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 30,00", "Gostaria de confirmar horário?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"HorÃ¡rio  confirmado! Favor chegar com 15 minutos de antecedÃªncia!");
+									"Horário  confirmado! Favor chegar com 15 minutos de antecedência!");
 							variavel = 5;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos nÃ£o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 						}
 					} else if (rdbtnGrande.isSelected() && rdbtnBanhoETosa.isSelected()) {
 						Object[] options = { "Confirmar", "Cancelar" };
-						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 40,00", "Gostaria de confirmar HorÃ¡rio?",
+						Confi = JOptionPane.showOptionDialog(null, "Valor: R$ 40,00", "Gostaria de confirmar horário?",
 								JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
 						if (Confi == 0) {
 							JOptionPane.showMessageDialog(null,
-									"HorÃ¡rio  confirmado! Favor chegar com 15 minutos de antecedÃªncia!");
+									"Horário  confirmado! Favor chegar com 15 minutos de antecedência!");
 							variavel = 6;
 						} else {
-							JOptionPane.showMessageDialog(null, "Lamentamos nÃ£o poder ajudar, agradecemos a procura!");
+							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 						}
 					}
 					if ((Confi == 0))
