@@ -7,7 +7,9 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.util.Date;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -24,6 +26,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
+
+import com.toedter.calendar.JDateChooser;
 
 import DAO.AgendaDAO;
 
@@ -47,10 +51,10 @@ public class BanhoTosaEN extends JFrame {
 	private JLabel lblVoltar;
 	private JLabel flor;
 	private JLabel lblInformaoesObrigtorias;
-	private JFormattedTextField txtData;
 	private MaskFormatter data;
-	private JFormattedTextField txtHORA;
 	private MaskFormatter hora;
+	JDateChooser txtDataChooser_1 = new JDateChooser();
+	private JTextField txtHORA;
 
 	/**
 	 * Launch the application.
@@ -98,11 +102,6 @@ public class BanhoTosaEN extends JFrame {
 		txtHORA.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
 		txtHORA.setBounds(104, 134, 49, 20);
 		contentPane.add(txtHORA);
-
-		txtData = new JFormattedTextField(data);
-		txtData.setFont(new Font("Lucida Bright", Font.PLAIN, 12));
-		txtData.setBounds(23, 134, 52, 20);
-		contentPane.add(txtData);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(333, 121, 283, 188);
@@ -225,6 +224,12 @@ public class BanhoTosaEN extends JFrame {
 				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.AtualizarEN()));
 			}
 		});
+		
+		JDateChooser txtDataChooser_1 = new JDateChooser();
+		txtDataChooser_1.setBackground(new Color(240, 248, 255));
+		txtDataChooser_1.setDateFormatString("dd-MM-yyyy");
+		txtDataChooser_1.setBounds(15, 134, 87, 20);
+		contentPane.add(txtDataChooser_1);
 
 		JButton btnConfirmar = new JButton("Confirm");
 		btnConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -235,9 +240,29 @@ public class BanhoTosaEN extends JFrame {
 				int variavel = 0;
 				int Confi = 0;
 
+				//confere e valida a data
+				String daata = ((JTextField) txtDataChooser_1.getDateEditor().getUiComponent()).getText();
+				java.util.Date d = new Date();
+				String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+
+				System.out.println(dStr);
+				System.out.println(daata);
+
+				String[] sprdAtual = dStr.split("/");
+				String jntAtual = sprdAtual[0] + sprdAtual[1] + sprdAtual[2];
+
+				String[] sprdValida = daata.split("-");
+				String jntValida = sprdValida[0] + sprdValida[1] + sprdValida[2];
+
+				System.out.println(jntAtual);
+				System.out.println(jntValida);
+
+				int Valida = Integer.parseInt(jntValida);
+				int atual = Integer.parseInt(jntAtual);
+				
 				// Missing Informations
 
-				if (txtData.getText().isEmpty() || txtHORA.getText().isEmpty() || txtCLIENTE.getText().isEmpty()) {
+				if (daata.isEmpty() || txtHORA.getText().isEmpty() || txtCLIENTE.getText().isEmpty()) {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnPequeno.isSelected() && !rdbtnMedio.isSelected() && !rdbtnGrande.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
@@ -245,6 +270,8 @@ public class BanhoTosaEN extends JFrame {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnCachorro.isSelected() && !rdbtnGato.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
+				} else if (Valida < atual) {
+					JOptionPane.showMessageDialog(null, "Data invalida!");
 				}
 
 				// -------------------------------------------------------------------
@@ -326,7 +353,7 @@ public class BanhoTosaEN extends JFrame {
 						}
 					}
 					if ((Confi == 0))
-						AgendaDAO.ConfirmarEN(txtData.getText(), txtHORA.getText(), txtCLIENTE.getText(), variavel);
+						AgendaDAO.ConfirmarEN(daata, txtHORA.getText(), txtCLIENTE.getText(), variavel);
 				}
 				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.AtualizarEN()));
 			}

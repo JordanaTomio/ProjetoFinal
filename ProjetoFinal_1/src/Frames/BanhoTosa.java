@@ -53,7 +53,6 @@ public class BanhoTosa extends JFrame {
 	private MaskFormatter data;
 	private MaskFormatter hora;
 	JDateChooser txtDataChooser_1 = new JDateChooser();
-
 	private JTextField txtHORA;
 	
 	public static void main(String[] args) {
