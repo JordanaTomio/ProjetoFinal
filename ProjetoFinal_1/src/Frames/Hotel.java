@@ -108,173 +108,174 @@ public class Hotel extends JFrame {
 		txtNomeCliente.setBounds(166, 130, 210, 23);
 		contentPane.add(txtNomeCliente);
 		txtNomeCliente.setColumns(10);
-				
-						JRadioButton gato_1 = new JRadioButton("Gato");
-						gato_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						buttonGroup.add(gato_1);
-						gato_1.setContentAreaFilled(false);
-						gato_1.setBorderPainted(false);
-						gato_1.setOpaque(false);
-						gato_1.setFocusPainted(false);
-						gato_1.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-						gato_1.setBounds(168, 223, 63, 23);
-						contentPane.add(gato_1);
-				
-						JRadioButton cachorro_1 = new JRadioButton("Cachorro");
-						cachorro_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-						buttonGroup.add(cachorro_1);
-						cachorro_1.setContentAreaFilled(false);
-						cachorro_1.setBorderPainted(false);
-						cachorro_1.setOpaque(false);
-						cachorro_1.setFocusPainted(false);
-						cachorro_1.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-						cachorro_1.setBounds(243, 223, 101, 23);
-						contentPane.add(cachorro_1);
-		
-				Date1 = new JDateChooser();
-				Date1.setBounds(192, 182, 73, 20);
-				Date1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				contentPane.add(Date1);
-		
-				Date2 = new JDateChooser();
-				Date2.setBounds(303, 182, 73, 20);
-				Date2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				contentPane.add(Date2);
-		
-				JButton btnFinalizar = new JButton("Agendar");
-				btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				btnFinalizar.setForeground(new Color(0, 100, 0));
-				btnFinalizar.setBackground(Color.WHITE);
-				btnFinalizar.addActionListener(new ActionListener() {
 
-					public void actionPerformed(ActionEvent e) {
+		JRadioButton gato_1 = new JRadioButton("Gato");
+		gato_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonGroup.add(gato_1);
+		gato_1.setContentAreaFilled(false);
+		gato_1.setBorderPainted(false);
+		gato_1.setOpaque(false);
+		gato_1.setFocusPainted(false);
+		gato_1.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		gato_1.setBounds(168, 223, 63, 23);
+		contentPane.add(gato_1);
 
-						String nome = txtNomeCliente.getText();
-						// String dataComeco = data.getText();
-						String entrega = ((JTextField) Date1.getDateEditor().getUiComponent()).getText();
-						// String dataFinal = data2.getText();
-						String retirada = ((JTextField) Date2.getDateEditor().getUiComponent()).getText();
-					
-						String cuidador = txtNome.getText();
-						String obs = txtObs.getText();
+		JRadioButton cachorro_1 = new JRadioButton("Cachorro");
+		cachorro_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonGroup.add(cachorro_1);
+		cachorro_1.setContentAreaFilled(false);
+		cachorro_1.setBorderPainted(false);
+		cachorro_1.setOpaque(false);
+		cachorro_1.setFocusPainted(false);
+		cachorro_1.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		cachorro_1.setBounds(243, 223, 101, 23);
+		contentPane.add(cachorro_1);
 
-						if (cachorro_1.isSelected()) {
-							tipo = "Cachorro";
-							System.out.println("dog");
+		Date1 = new JDateChooser();
+		Date1.setBounds(192, 182, 73, 20);
+		Date1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		contentPane.add(Date1);
+
+		Date2 = new JDateChooser();
+		Date2.setBounds(303, 182, 73, 20);
+		Date2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		contentPane.add(Date2);
+
+		JButton btnFinalizar = new JButton("Agendar");
+		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnFinalizar.setForeground(new Color(0, 100, 0));
+		btnFinalizar.setBackground(Color.WHITE);
+		btnFinalizar.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+
+				String nome = txtNomeCliente.getText();
+				// String dataComeco = data.getText();
+				String entrega = ((JTextField) Date1.getDateEditor().getUiComponent()).getText();
+				// String dataFinal = data2.getText();
+				String retirada = ((JTextField) Date2.getDateEditor().getUiComponent()).getText();
+
+				String cuidador = txtNome.getText();
+				String obs = txtObs.getText();
+
+				if (cachorro_1.isSelected()) {
+					tipo = "Cachorro";
+					System.out.println("dog");
 				} else if (gato_1.isSelected()) {
-							tipo = "Gato";
-							System.out.println("cat");
-						}
-						if (!nome.isEmpty() && !entrega.isEmpty() && !retirada.isEmpty() && !cuidador.isEmpty()
-								&& !tipo.isEmpty()) {
-							if (Data.validaData(entrega)) {
-								if (Data.validaDuplaData(entrega,retirada)) {
-									Beans.HotelBeans hotel = new Beans.HotelBeans();
-									DAO.HotelDAO.Agendar(nome, entrega, retirada, cuidador, obs, tipo);
-									DAO.HotelDAO.save(hotel);
-									new Menu().setVisible(true);
-									dispose();
-									JOptionPane.showMessageDialog(null, "Agendamento finalizado!");
-								}else{
-									JOptionPane.showMessageDialog(null, "Data retirada invalida!");
-								}
+					tipo = "Gato";
+					System.out.println("cat");
+				}
+				if (!nome.isEmpty() && !entrega.isEmpty() && !retirada.isEmpty() && !cuidador.isEmpty()) {
+					if (gato_1.isSelected() || cachorro_1.isSelected()) {
+						if (Data.validaData(entrega)) {
+							if (Data.validaDuplaData(entrega, retirada)) {
+								Beans.HotelBeans hotel = new Beans.HotelBeans();
+								DAO.HotelDAO.Agendar(nome, entrega, retirada, cuidador, obs, tipo);
+								DAO.HotelDAO.save(hotel);
+								new Menu().setVisible(true);
+								dispose();
+								JOptionPane.showMessageDialog(null, "Agendamento finalizado!");
 							} else {
-								JOptionPane.showMessageDialog(null, "Data entrega invalida!");
+								JOptionPane.showMessageDialog(null, "Data retirada invalida!");
 							}
-
 						} else {
-							JOptionPane.showMessageDialog(null, "Informações faltando!");
+							JOptionPane.showMessageDialog(null, "Data entrega invalida!");
 						}
-
+					} else {
+						JOptionPane.showMessageDialog(null, "Informações faltando!");
 					}
-				});
-				txtObs = new JTextField();
-				txtObs.setBounds(139, 280, 205, 20);
-				contentPane.add(txtObs);
-				txtObs.setColumns(10);
-				btnFinalizar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-				btnFinalizar.setBounds(182, 336, 101, 31);
-				contentPane.add(btnFinalizar);
-		
-				btnVai = new JButton("");
-				btnVai.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				btnVai.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						ResultSet rs = HotelDAO.findmaior(one);
+				} else {
+					JOptionPane.showMessageDialog(null, "Informações faltando!");
+				}
+			}
+		});
+		txtObs = new JTextField();
+		txtObs.setBounds(139, 280, 205, 20);
+		contentPane.add(txtObs);
+		txtObs.setColumns(10);
+		btnFinalizar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
+		btnFinalizar.setBounds(182, 336, 101, 31);
+		contentPane.add(btnFinalizar);
 
-						try {
-							if (rs.next()) {
-								String nome = rs.getString("NM_Cuidador");
-								String ds = rs.getString("DS_Cuidador");
-								one = rs.getInt("CD_CUIDADOR");
-								txtNome.setText(nome);
-								txtDs.setText(ds);
+		btnVai = new JButton("");
+		btnVai.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnVai.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ResultSet rs = HotelDAO.findmaior(one);
 
-							} else {
-								one = 0;
-							}
-						} catch (SQLException e1) {
-							e1.printStackTrace();
-						}
+				try {
+					if (rs.next()) {
+						String nome = rs.getString("NM_Cuidador");
+						String ds = rs.getString("DS_Cuidador");
+						one = rs.getInt("CD_CUIDADOR");
+						txtNome.setText(nome);
+						txtDs.setText(ds);
+
+					} else {
+						one = 0;
 					}
-				});
-				btnVai.setContentAreaFilled(false);
-				btnVai.setOpaque(false);
-				btnVai.setFocusPainted(false);
-				btnVai.setBorderPainted(false);
-				
-						btnVai.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/3847912-128(2).png")));
-						btnVai.setBounds(523, 325, 89, 51);
-						contentPane.add(btnVai);
-		
-				btnVolta = new JButton("");
-				btnVolta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				btnVolta.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						ResultSet rs = HotelDAO.Findmenor(one);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnVai.setContentAreaFilled(false);
+		btnVai.setOpaque(false);
+		btnVai.setFocusPainted(false);
+		btnVai.setBorderPainted(false);
 
-						try {
-							if (rs.next()) {
-								String nome = rs.getString("NM_Cuidador");
-								String ds = rs.getString("DS_Cuidador");
-								one = rs.getInt("CD_CUIDADOR");
-								txtNome.setText(nome);
-								txtDs.setText(ds);
-							} else {
-								one = 999999;
-							}
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}
+		btnVai.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/3847912-128(2).png")));
+		btnVai.setBounds(523, 325, 89, 51);
+		contentPane.add(btnVai);
 
+		btnVolta = new JButton("");
+		btnVolta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnVolta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ResultSet rs = HotelDAO.Findmenor(one);
+
+				try {
+					if (rs.next()) {
+						String nome = rs.getString("NM_Cuidador");
+						String ds = rs.getString("DS_Cuidador");
+						one = rs.getInt("CD_CUIDADOR");
+						txtNome.setText(nome);
+						txtDs.setText(ds);
+					} else {
+						one = 999999;
 					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 
-				});
-				btnVolta.setContentAreaFilled(false);
-				btnVolta.setOpaque(false);
-				btnVolta.setFocusPainted(false);
-				btnVolta.setBorderPainted(false);
-				
-						btnVolta.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/3847912-128(1).png")));
-						btnVolta.setBounds(424, 325, 89, 51);
-						contentPane.add(btnVolta);
-		
-				JButton sair = new JButton("");
-				sair.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				sair.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						Menu mnu = new Menu();
-						mnu.setVisible(true);
-						dispose();
-					}
-				});
-				sair.setContentAreaFilled(false);
-				sair.setOpaque(false);
-				sair.setFocusPainted(false);
-				sair.setBorderPainted(false);
-				sair.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/3209260-128(1).png")));
-				sair.setBounds(10, 336, 63, 51);
-				contentPane.add(sair);
+			}
+
+		});
+		btnVolta.setContentAreaFilled(false);
+		btnVolta.setOpaque(false);
+		btnVolta.setFocusPainted(false);
+		btnVolta.setBorderPainted(false);
+
+		btnVolta.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/3847912-128(1).png")));
+		btnVolta.setBounds(424, 325, 89, 51);
+		contentPane.add(btnVolta);
+
+		JButton sair = new JButton("");
+		sair.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		sair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu mnu = new Menu();
+				mnu.setVisible(true);
+				dispose();
+			}
+		});
+		sair.setContentAreaFilled(false);
+		sair.setOpaque(false);
+		sair.setFocusPainted(false);
+		sair.setBorderPainted(false);
+		sair.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/3209260-128(1).png")));
+		sair.setBounds(10, 336, 63, 51);
+		contentPane.add(sair);
 
 		JLabel lblTraco = new JLabel("New label");
 		lblTraco.setIcon(new ImageIcon(Hotel.class.getResource("/imagens/Sem t\u00EDtulo.png")));
