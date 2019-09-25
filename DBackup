@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `agenda` (
   `SV_Servico` varchar(45) DEFAULT NULL,
   `VL_Servico` double DEFAULT NULL,
   PRIMARY KEY (`CD_Servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela petshopdb.agenda: ~0 rows (aproximadamente)
 DELETE FROM `agenda`;
@@ -73,15 +73,15 @@ DROP TABLE IF EXISTS `agendamento_cuidador`;
 CREATE TABLE IF NOT EXISTS `agendamento_cuidador` (
   `CD_AG_CUIDADOR` int(11) NOT NULL AUTO_INCREMENT,
   `NM_CLIENTE` varchar(50) DEFAULT '0',
-  `DT_EINS_AG_CUIDADOR` varchar(5) DEFAULT '0',
-  `DT_ZWEI_AG_CUIDADOR` varchar(5) DEFAULT '0',
+  `DT_EINS_AG_CUIDADOR` varchar(10) DEFAULT '0',
+  `DT_ZWEI_AG_CUIDADOR` varchar(10) DEFAULT '0',
   `OBS_Agendamento` varchar(200) DEFAULT 'Nada',
   `TP_Agendamento` varchar(50) DEFAULT 'Nada',
   `NM_CUIDADOR` varchar(50) NOT NULL,
   PRIMARY KEY (`CD_AG_CUIDADOR`),
   KEY `CD_CUIDADOR` (`NM_CUIDADOR`),
   CONSTRAINT `FK_agendamento_cuidador_cuidadores` FOREIGN KEY (`NM_CUIDADOR`) REFERENCES `cuidadores` (`NM_CUIDADOR`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela petshopdb.agendamento_cuidador: ~0 rows (aproximadamente)
 DELETE FROM `agendamento_cuidador`;
@@ -145,13 +145,14 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `PJF_Cliente` varchar(15) DEFAULT NULL,
   `RZ_Cliente` varchar(160) DEFAULT NULL,
   PRIMARY KEY (`CD_Cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela petshopdb.cliente: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela petshopdb.cliente: ~2 rows (aproximadamente)
 DELETE FROM `cliente`;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` (`CD_Cliente`, `EM_Cliente`, `PS_Cliente`, `PN_Cliente`, `SN_Cliente`, `SX_Cliente`, `TL_Cliente`, `ADM_Cliente`, `CEP_Cliente`, `CPF_Cliente`, `PJF_Cliente`, `RZ_Cliente`) VALUES
-	(3, 'teste', '123', 'teste\r', 'teste', 'Feminino', '(00)00000-0000   ', 0, '00000-000', '000.000.000-00', NULL, 'teste');
+	(3, 'teste', '123', 'teste\r', 'teste', 'Feminino', '(00)00000-0000   ', 0, '00000-000', '000.000.000-00', NULL, 'teste'),
+	(6, 'testeAdm', '123', 'teste', 'teste', 'Feminino', '(99)99999-9999', 1, '22222-222', '222.222.222-22', NULL, 'teste');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 
@@ -236,15 +237,9 @@ CREATE TABLE IF NOT EXISTS `item` (
   CONSTRAINT `fk_Item_Produto1` FOREIGN KEY (`CD_Produto`) REFERENCES `produto` (`CD_Produto`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela petshopdb.item: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela petshopdb.item: ~0 rows (aproximadamente)
 DELETE FROM `item`;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` (`CD_Pedido`, `CD_Produto`) VALUES
-	(3, 2),
-	(3, 3),
-	(4, 3),
-	(3, 4),
-	(3, 3);
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 
 
@@ -260,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   PRIMARY KEY (`CD_Pedido`),
   KEY `fk_Pedido_Cliente1_idx` (`CD_Cliente`),
   CONSTRAINT `fk_Pedido_Cliente1` FOREIGN KEY (`CD_Cliente`) REFERENCES `cliente` (`CD_Cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela petshopdb.pedido: ~0 rows (aproximadamente)
 DELETE FROM `pedido`;
@@ -292,15 +287,15 @@ INSERT INTO `produto` (`CD_Produto`, `NM_Produto`, `DS_Produto`, `VL_Produto`, `
 	(4, 'Coleira grande', 'Disponível nas cores azul, azul escuro e preto', 30, 'unidade', '2022-08-14', 19, '2019-08-14 16:11:15'),
 	(5, 'Ração Whiskas', 'Ração para filhotes ', 19.99, '1kg', '2022-08-14', 40, '2019-08-14 16:18:19'),
 	(6, 'Ração Whiskas Gatos Castrados', 'Ração para gatos castrados, com menos sódio', 15, '500g', '2022-08-14', 20, '2019-08-14 16:20:48'),
-	(7, 'Ração Magnus Cães Adultos', 'Ração premium para cães adultos', 103.5, '25kg', '2022-08-14', 15, '2019-08-14 16:21:48'),
+	(7, 'Ração Magnus Cães Adultos', 'Ração premium para cães adultos', 103.5, '25kg', '2022-08-14', 14, '2019-08-14 16:21:48'),
 	(8, 'Ração Pedigree', 'Ração para cães adultos, com nutrição para uma alimentação balanceada', 69.5, '15kg', '2022-08-14', 40, '2019-08-14 16:25:32'),
 	(9, 'Ração Premier Golden Special', 'A Ração Premier Golden Special Cães Adultos Frango e Carne é um alimento completo.', 104.9, '15kg', '2022-08-14', 21, '2019-08-14 16:27:24'),
 	(10, 'Ração Cachorro Premier Golden Formula Sênior', 'Indicada para cães acima de 7 anos de porte pequeno;', 91.9, '10kg', '2022-08-14', 15, '2019-08-14 16:28:17'),
 	(11, 'Petisco Doguitos Rodízio para Cães Adultos e Filhotes Sabor Carne', 'Petisco delicioso feito com carne fresca', 19.6, '65g', '2024-08-14', 42, '2019-08-14 16:31:39'),
 	(12, 'Biscoito em Pote Pet Dog', 'O Biscoito em Pote Pet Dog Sabores, contém um alto nível de vitaminas, minerais e ingredientes funcionais', 35.9, '800g', '2022-08-14', 15, '2019-08-14 16:32:39'),
-	(13, 'Biscoito Orgânico All Love Maça & Canela para Cães', 'Elaborado com ingredientes integrais, o Biscoito Orgânico All Love Maça & Canela para Cães é perfeito para mimar seu pet', 28.9, '200g', '2022-08-14', 17, '2019-08-14 16:33:04'),
+	(13, 'Biscoito Orgânico All Love Maça & Canela para Cães', 'Elaborado com ingredientes integrais, o Biscoito Orgânico All Love Maça & Canela para Cães é perfeito para mimar seu pet', 28.9, '200g', '2022-08-14', 16, '2019-08-14 16:33:04'),
 	(14, 'Petisco Dog Chow Carinhos para Cães Adultos e Filhotes Sabor Maçã e Banana', 'Hora da sobremesa! O Petisco Dog Chow Carinhos para Cães Adultos e Filhotes Sabor Maçã e Banana é petisco com delicioso com frutas de verdade', 5.99, '75g', '2019-08-14', 14, '2019-08-14 16:34:59'),
-	(15, 'Alimentador Automático iPet', 'Alimentador automático controlado por aplicativo, marca registrada do iPet', 356.5, 'unidade', '2019-08-14', 10, '2019-08-14 16:50:20'),
+	(15, 'Alimentador Automático iPet', 'Alimentador automático controlado por aplicativo, marca registrada do iPet', 356.5, 'unidade', '2019-08-14', 9, '2019-08-14 16:50:20'),
 	(16, 'Kit caminha e transporte', 'Kit com caminha e transporte para cães de porte pequeno', 254.6, 'unidade', '2019-08-14', 21, '2019-08-14 16:54:09');
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 
