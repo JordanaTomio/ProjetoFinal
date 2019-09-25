@@ -266,7 +266,7 @@ public class BanhoTosa extends JFrame {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnCachorro.isSelected() && !rdbtnGato.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
-				} else if (Data.validaDataTraço(daata)) {
+				} else if (Data.validaDataTraco(daata)) {
 					JOptionPane.showMessageDialog(null, "Data inválida!");
 				}
 

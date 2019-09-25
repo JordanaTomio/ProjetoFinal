@@ -34,7 +34,7 @@ public class Data {
 		}
 	}
 
-	public static boolean validaDataTraço(String data) {
+	public static boolean validaDataTraco (String data) {
 		String valida = data;
 		java.util.Date d = new Date();
 		String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
