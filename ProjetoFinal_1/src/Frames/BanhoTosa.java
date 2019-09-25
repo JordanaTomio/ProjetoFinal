@@ -29,6 +29,8 @@ import javax.swing.text.MaskFormatter;
 import com.toedter.calendar.JDateChooser;
 
 import DAO.AgendaDAO;
+import Utilis.Data;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
@@ -253,26 +255,9 @@ public class BanhoTosa extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int variavel = 0;
 				int Confi = 0;
-				//confere e valida a data
+				
 				String daata = ((JTextField) txtDataChooser_1.getDateEditor().getUiComponent()).getText();
-				java.util.Date d = new Date();
-				String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
-
-				System.out.println(dStr);
-				System.out.println(daata);
-
-				String[] sprdAtual = dStr.split("/");
-				String jntAtual = sprdAtual[0] + sprdAtual[1] + sprdAtual[2];
-
-				String[] sprdValida = daata.split("-");
-				String jntValida = sprdValida[0] + sprdValida[1] + sprdValida[2];
-
-				System.out.println(jntAtual);
-				System.out.println(jntValida);
-
-				int Valida = Integer.parseInt(jntValida);
-				int atual = Integer.parseInt(jntAtual);
-
+	
 				if (daata.isEmpty() || txtH.isEmpty() || txtCLIENTE.getText().isEmpty()) {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnPequeno.isSelected() && !rdbtnMedio.isSelected() && !rdbtnGrande.isSelected()) {
@@ -281,7 +266,7 @@ public class BanhoTosa extends JFrame {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnCachorro.isSelected() && !rdbtnGato.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
-				} else if (Valida <= atual) {
+				} else if (Data.validaDataTraço(daata)) {
 					JOptionPane.showMessageDialog(null, "Data inválida!");
 				}
 
