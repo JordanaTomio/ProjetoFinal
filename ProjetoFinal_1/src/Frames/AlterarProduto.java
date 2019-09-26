@@ -31,7 +31,8 @@ import java.awt.Cursor;
 public class AlterarProduto extends JFrame {
 
 	private static final long serialVersionUID = 8419457666179579366L;
-
+	
+	//Frame para a alteracao de dados de produtos ja cadastrados, exclusivo para administradores
 	private JPanel contentPane;
 	private JTextField txtNome;
 	private JTextField txtDesc;
@@ -41,12 +42,9 @@ public class AlterarProduto extends JFrame {
 	private JFormattedTextField txtValidade;
 	private MaskFormatter validade;
 
-	/**
-	 * Frame para alterar detalhes de produtos já cadastrados no DB.
-	 */
 	public AlterarProduto() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(AlterarProduto.class.getResource("/imagens/3775232-16.png")));
-		setTitle("Alteração de Produtos");
+		setTitle("AlteraÃ§Ã£o de Produtos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		setResizable(false);
@@ -89,7 +87,7 @@ public class AlterarProduto extends JFrame {
 			}
 		});
 		
-		//Seta as informaçoes do produto
+		//Seta as informaÃ§oes do produto
 		comboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				if (comboBox.getItemCount() > 0) {
@@ -148,7 +146,7 @@ public class AlterarProduto extends JFrame {
 		txtDesc.setBounds(137, 189, 189, 51);
 		contentPane.add(txtDesc);
 
-		JLabel lblDescricao = new JLabel("Descrição:");
+		JLabel lblDescricao = new JLabel("DescriÃ§Ã£o:");
 		lblDescricao.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblDescricao.setBounds(30, 206, 92, 14);
 		contentPane.add(lblDescricao);
@@ -207,7 +205,7 @@ public class AlterarProduto extends JFrame {
 				int estoque = Integer.parseInt(estoqueString);
 
 				ProdutoDAO.update(cdCodigo, nome, descricao, valor, unidade, validade, estoque);
-				JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Confirmação", 1);
+				JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "ConfirmaÃ§Ã£o", 1);
 			}
 		});
 
