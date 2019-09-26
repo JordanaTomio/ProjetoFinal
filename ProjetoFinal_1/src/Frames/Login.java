@@ -33,7 +33,8 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 
 public class Login extends JFrame {
-
+	
+	//Frame para autenticar o login 
 	private JPanel contentPane;
 	private JTextField txtEmail;
 	private JPasswordField txtSenha;
@@ -41,21 +42,6 @@ public class Login extends JFrame {
 	JLabel lblLogar = new JLabel("Entrar");
 	JLabel lblRegistrese = new JLabel("Registre-se");
 
-	/*
-	 * Jframe inicial de acesso 
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Login frame = new Login();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	public Login() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/imagens/3775232-16.png")));
 		setTitle("Login");
@@ -106,7 +92,7 @@ public class Login extends JFrame {
 					new Menu().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Email ou senha s„o inv·lidos.", "Erro no login.", 1);
+					JOptionPane.showMessageDialog(null, "Email ou senha s√£o inv√°lidos.", "Erro no login.", 1);
 				}
 			}
 		});
@@ -116,7 +102,7 @@ public class Login extends JFrame {
 		JButton btnPT = new JButton("");
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("VocÍ est· nessa aba");
+				System.out.println("Voc√™ est√° nessa aba");
 			}
 		});
 		JButton btnEN = new JButton("");
