@@ -43,10 +43,10 @@ public class Data {
 		System.out.println(valida);
 
 		String[] sprdAtual = dStr.split("/");
-		String jntAtual = sprdAtual[0] + sprdAtual[1] + sprdAtual[2];
+		String jntAtual = sprdAtual[0] + sprdAtual[1];
 
 		String[] sprdValida = valida.split("-");
-		String jntValida = sprdValida[0] + sprdValida[1] + sprdValida[2];
+		String jntValida = sprdValida[0] + sprdValida[1];
 
 		System.out.println(jntAtual);
 		System.out.println(jntValida);
@@ -54,7 +54,7 @@ public class Data {
 		int Validar = Integer.parseInt(jntValida);
 		int atual = Integer.parseInt(jntAtual);
 
-		if (Validar > atual) {
+		if (Validar < atual) {
 			return true;
 		} else {
 			return false;
