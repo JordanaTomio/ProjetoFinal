@@ -33,8 +33,7 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 
 public class Login extends JFrame {
-	
-	//Frame para autenticar o login 
+
 	private JPanel contentPane;
 	private JTextField txtEmail;
 	private JPasswordField txtSenha;
@@ -42,6 +41,21 @@ public class Login extends JFrame {
 	JLabel lblLogar = new JLabel("Entrar");
 	JLabel lblRegistrese = new JLabel("Registre-se");
 
+	/*
+	 * Jframe inicial de acesso 
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login frame = new Login();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	public Login() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/imagens/3775232-16.png")));
 		setTitle("Login");
@@ -100,12 +114,14 @@ public class Login extends JFrame {
 		//Passa para os Jframes de idiomas
 		
 		JButton btnPT = new JButton("");
+		btnPT.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Você está nessa aba");
 			}
 		});
 		JButton btnEN = new JButton("");
+		btnEN.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new LoginEN().setVisible(true);
@@ -128,6 +144,7 @@ public class Login extends JFrame {
 		contentPane.add(btnPT);
 
 		JButton btnAL = new JButton("");
+		btnAL.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new LoginDE().setVisible(true);
