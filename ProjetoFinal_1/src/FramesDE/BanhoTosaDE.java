@@ -31,7 +31,6 @@ import javax.swing.text.MaskFormatter;
 import com.toedter.calendar.JDateChooser;
 
 import DAO.AgendaDAO;
-import Utilis.Data;
 
 public class BanhoTosaDE extends JFrame {
 
@@ -128,7 +127,7 @@ public class BanhoTosaDE extends JFrame {
 		txtCLIENTE.setColumns(10);
 		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);
-
+		
 		JComboBox<String> cbox = new JComboBox<String>();
 		cbox.setBounds(114, 135, 52, 19);
 		cbox.addItem("08:30");
@@ -152,6 +151,7 @@ public class BanhoTosaDE extends JFrame {
 		contentPane.add(cbox);
 
 		String txtH = cbox.getSelectedItem().toString();
+		
 
 		rdbtnGato = new JRadioButton("Katze");
 		rdbtnGato.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -252,24 +252,38 @@ public class BanhoTosaDE extends JFrame {
 		txtDataChooser_1.setDateFormatString("dd-MM-yyyy");
 		txtDataChooser_1.setBounds(15, 134, 87, 20);
 		contentPane.add(txtDataChooser_1);
-
+		
 		JButton btnConfirmar = new JButton("Best\u00E4tigen");
 		btnConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnConfirmar.setForeground(new Color(0, 100, 0));
 		btnConfirmar.setBackground(new Color(255, 255, 255));
 		btnConfirmar.addActionListener(new ActionListener() {
 
-			// Insere no database o agendamento
-
+			//Insere no database o agendamento
+			
 			public void actionPerformed(ActionEvent e) {
 				int variavel = 0;
 				int Confi = 0;
-
+				//confere e valida a data
 				String daata = ((JTextField) txtDataChooser_1.getDateEditor().getUiComponent()).getText();
-				
+				java.util.Date d = new Date();
+				String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+
+				System.out.println(dStr);
+				System.out.println(daata);
+
+				String[] sprdAtual = dStr.split("/");
+				String jntAtual = sprdAtual[0] + sprdAtual[1] + sprdAtual[2];
+
 				String[] sprdValida = daata.split("-");
-				String Valida = sprdValida[0] +"/"+ sprdValida[1];
-				
+				String jntValida = sprdValida[0] + sprdValida[1] + sprdValida[2];
+
+				System.out.println(jntAtual);
+				System.out.println(jntValida);
+
+				int Valida = Integer.parseInt(jntValida);
+				int atual = Integer.parseInt(jntAtual);
+
 				if (daata.isEmpty() || txtH.isEmpty() || txtCLIENTE.getText().isEmpty()) {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnPequeno.isSelected() && !rdbtnMedio.isSelected() && !rdbtnGrande.isSelected()) {
@@ -278,8 +292,8 @@ public class BanhoTosaDE extends JFrame {
 					lblInformaoesObrigtorias.setVisible(true);
 				} else if (!rdbtnCachorro.isSelected() && !rdbtnGato.isSelected()) {
 					lblInformaoesObrigtorias.setVisible(true);
-				} else if (Data.validaDataTraco(daata)) {
-					JOptionPane.showMessageDialog(null, "Data inválida!");
+				} else if (Valida < atual) {
+					JOptionPane.showMessageDialog(null, "Ungültiges Datum!");
 				}
 
 				// -------------------------------------------------------------------
@@ -373,7 +387,7 @@ public class BanhoTosaDE extends JFrame {
 						}
 					}
 					if ((Confi == 0))
-						AgendaDAO.ConfirmarDE(Valida, txtH, txtCLIENTE.getText(), variavel);
+						AgendaDAO.ConfirmarDE(daata, txtH, txtCLIENTE.getText(), variavel);
 				}
 				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.AtualizarDE()));
 			}
