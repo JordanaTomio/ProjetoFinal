@@ -30,6 +30,7 @@ import javax.swing.JFormattedTextField;
 
 public class Cadastro extends JFrame {
 
+	//Frame para o cadastro de novos clientes
 	private JPanel contentPane;
 	private JTextField txtRZ_Social;
 	private JTextField txtEM;
@@ -48,23 +49,6 @@ public class Cadastro extends JFrame {
 	JRadioButton btnMasculino = new JRadioButton("Masc");
 	JRadioButton rdbtnOutros = new JRadioButton("Outros");
 
-	/*
-	* Jframe referente ao cadastro
-	*/
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Cadastro frame = new Cadastro();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public Cadastro() {
 		setTitle("Cadastrar");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Cadastro.class.getResource("/imagens/3775232-16.png")));
@@ -78,9 +62,9 @@ public class Cadastro extends JFrame {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		
-		/*-----------------------------
-		* Cria a mascara formatacao
-		*/
+	
+		//Cria a mascara formatacao
+		
 		try {
 			telefone = new MaskFormatter("(##)#####-####");
 		} catch (ParseException pe) {
@@ -237,10 +221,10 @@ public class Cadastro extends JFrame {
 				}
 				if (CPF.equals(CPFConf)) {
 					System.out.println(CPFConf);
-					JOptionPane.showMessageDialog(null, "CPF j· cadastrado!");
+					JOptionPane.showMessageDialog(null, "CPF j√° cadastrado!");
 				} else if (email.equals(emailConf)) {
 					System.out.println(emailConf);
-					JOptionPane.showMessageDialog(null, "E-mail j· cadastrado!");
+					JOptionPane.showMessageDialog(null, "E-mail j√° cadastrado!");
 				} else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
@@ -249,7 +233,7 @@ public class Cadastro extends JFrame {
 					new Login().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "InformaÁıes faltando!");
+					JOptionPane.showMessageDialog(null, "Informa√ß√µes faltando!");
 				}
 			}
 		});
@@ -280,7 +264,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(btnVoltar);
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigatÛrios");
+		JLabel lbldadosObrigatrios = new JLabel("*Dados obrigat√≥rios");
 		lbldadosObrigatrios.setBounds(30, 317, 95, 14);
 		lbldadosObrigatrios.setForeground(Color.RED);
 		lbldadosObrigatrios.setFont(new Font("Times New Roman", Font.PLAIN, 11));
