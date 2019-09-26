@@ -28,7 +28,8 @@ import DAO.AnimalDAO;
 import java.awt.Toolkit;
 
 public class PetAdotar extends JFrame {
-
+	
+	//Frame para adocao de animais
 	private JPanel contentPane;
 	private JTextField txtNomePet;
 	private JTextField txtAno;
@@ -38,37 +39,16 @@ public class PetAdotar extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	JRadioButton btnMacho = new JRadioButton("Macho");
-	JRadioButton btnCao = new JRadioButton("Cão");
+	JRadioButton btnCao = new JRadioButton("CÃ£o");
 	JRadioButton btnGato = new JRadioButton("Gato");
-	JRadioButton btnFemea = new JRadioButton("Fêmea");
+	JRadioButton btnFemea = new JRadioButton("FÃªmea");
 	JCheckBox vacinadodb = new JCheckBox("Vacinado");
 	JCheckBox castradodb = new JCheckBox("Castrado");
 	JLabel lblNigmviu = new JLabel("0");
 	Animal ani = new Animal();
-	// int one = -1;
-	// 1
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PetAdotar frame = new PetAdotar();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public PetAdotar() {
-		setTitle("Ado\u00E7\u00E3o");
+		setTitle("AdoÃ§Ã£o");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PetAdotar.class.getResource("/imagens/3775232-16.png")));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -167,7 +147,7 @@ public class PetAdotar extends JFrame {
 		JButton btnAnterior = new JButton("");
 		btnAnterior.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAnterior.addActionListener(new ActionListener() {
-
+		//Procura o animal anterior
 			public void actionPerformed(ActionEvent arg0) {
 				ResultSet rs = AnimalDAO.BuscaAnimalMenor(lblNigmviu.getText());
 
@@ -278,6 +258,7 @@ public class PetAdotar extends JFrame {
 		btnProximo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnProximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Procura o proximo animal
 				ResultSet rs = AnimalDAO.BuscaAnimalMaior(lblNigmviu.getText());
 				try {
 					if (rs.next()) {
@@ -429,6 +410,7 @@ public class PetAdotar extends JFrame {
 		contentPane.add(btnVoltar);
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
+		//'Set' o animal como adotado no DB
 		JButton btnAdotar = new JButton("Adotar ");
 		btnAdotar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAdotar.setForeground(new Color(0, 100, 0));
@@ -440,9 +422,9 @@ public class PetAdotar extends JFrame {
 				int passe;
 				if (!txtNomePet.getText().equals("")) {
 					JOptionPane.showMessageDialog(null,
-							"Parabéns! Você está muito perto de adotar um Pet." + "\n"
+							"ParabÃ©ns! VocÃª estÃ¡ muito perto de adotar um Pet." + "\n"
 									+ "Entraremos em contato para agendar a visita" + "\n"
-									+ "de avaliação para que você possa levar seu novo amigo!");
+									+ "de avaliaÃ§Ã£o para que vocÃª possa levar seu novo amigo!");
 
 					passe = Integer.parseInt(lblNigmviu.getText());
 					AnimalDAO.InsertAdotado(passe);
@@ -515,14 +497,14 @@ public class PetAdotar extends JFrame {
 						e1.printStackTrace();
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "Não há animais disponíveis para adoção");
+					JOptionPane.showMessageDialog(null, "NÃ£o hÃ¡ animais disponÃ­veis para adoÃ§Ã£o");
 				}
 			}
 		});
 		btnAdotar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		contentPane.add(btnAdotar);
 
-		JLabel lblPetInformacoes = new JLabel("Pet Informações");
+		JLabel lblPetInformacoes = new JLabel("Pet InformaÃ§Ãµes");
 		lblPetInformacoes.setBounds(184, 23, 258, 44);
 		lblPetInformacoes.setFont(new Font("Bauhaus 93", Font.BOLD, 30));
 		contentPane.add(lblPetInformacoes);
@@ -542,7 +524,7 @@ public class PetAdotar extends JFrame {
 		lblTipo.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblTipo);
 
-		JLabel lblRaca = new JLabel("Raça:");
+		JLabel lblRaca = new JLabel("RaÃ§a:");
 		lblRaca.setBounds(25, 204, 51, 18);
 		lblRaca.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblRaca);
@@ -552,7 +534,7 @@ public class PetAdotar extends JFrame {
 		lblTamanho.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblTamanho);
 
-		JLabel lblGenero = new JLabel("Gênero:");
+		JLabel lblGenero = new JLabel("GÃªnero:");
 		lblGenero.setBounds(387, 241, 56, 14);
 		lblGenero.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		contentPane.add(lblGenero);
