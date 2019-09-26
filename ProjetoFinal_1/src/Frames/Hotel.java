@@ -38,6 +38,8 @@ import java.awt.Toolkit;
 
 public class Hotel extends JFrame {
 
+	
+	//Frame para hospedagem de pets
 	private JPanel contentPane;
 	private JButton btnVai;
 	private JButton btnVolta;
@@ -57,19 +59,6 @@ public class Hotel extends JFrame {
 	JRadioButton cachorro = new JRadioButton("Cachorro");
 	private String tipo;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Hotel frame = new Hotel();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public Hotel() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Hotel.class.getResource("/imagens/3775232-16.png")));
 		setTitle("Hotel iPet");
@@ -84,6 +73,8 @@ public class Hotel extends JFrame {
 
 		txtNomeCliente = new JTextField();
 		txtNomeCliente.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
+		
+		//Cria mascaras
 		try {
 			mascaras = new MaskFormatter("##/##");
 		} catch (ParseException e1) {
@@ -140,7 +131,9 @@ public class Hotel extends JFrame {
 		Date2.setBounds(303, 182, 73, 20);
 		Date2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(Date2);
-
+		
+		
+		//Finaliza o agendamento e insere no banco
 		JButton btnFinalizar = new JButton("Agendar");
 		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.setForeground(new Color(0, 100, 0));
@@ -182,10 +175,10 @@ public class Hotel extends JFrame {
 							JOptionPane.showMessageDialog(null, "Data entrega invalida!");
 						}
 					} else {
-						JOptionPane.showMessageDialog(null, "Informações faltando!");
+						JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando!");
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "Informações faltando!");
+					JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando!");
 				}
 			}
 		});
@@ -197,6 +190,7 @@ public class Hotel extends JFrame {
 		btnFinalizar.setBounds(182, 336, 101, 31);
 		contentPane.add(btnFinalizar);
 
+		//Procura o proximo cuidador no DB
 		btnVai = new JButton("");
 		btnVai.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVai.addActionListener(new ActionListener() {
@@ -228,6 +222,7 @@ public class Hotel extends JFrame {
 		btnVai.setBounds(523, 325, 89, 51);
 		contentPane.add(btnVai);
 
+		//Procura o cuidador anterior no DB
 		btnVolta = new JButton("");
 		btnVolta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVolta.addActionListener(new ActionListener() {
@@ -282,7 +277,7 @@ public class Hotel extends JFrame {
 		lblTraco.setBounds(399, 108, 2, 268);
 		contentPane.add(lblTraco);
 
-		JLabel lblAte = new JLabel("até");
+		JLabel lblAte = new JLabel("atÃ©");
 		lblAte.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		lblAte.setBounds(266, 182, 36, 20);
 		contentPane.add(lblAte);
@@ -302,7 +297,7 @@ public class Hotel extends JFrame {
 		label.setBounds(97, 131, 73, 20);
 		contentPane.add(label);
 
-		JLabel lblAlgumaObservao = new JLabel("Alguma observação?");
+		JLabel lblAlgumaObservao = new JLabel("Alguma observaÃ§Ã£o?");
 		lblAlgumaObservao.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblAlgumaObservao.setBounds(150, 253, 205, 28);
 		contentPane.add(lblAlgumaObservao);
