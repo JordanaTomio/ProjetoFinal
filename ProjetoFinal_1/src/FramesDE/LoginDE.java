@@ -119,6 +119,7 @@ public class LoginDE extends JFrame {
 		});
 		
 		JButton btnPT = new JButton("");
+		btnPT.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Login().setVisible(true);
@@ -127,6 +128,7 @@ public class LoginDE extends JFrame {
 		});
 		
 		JButton btnEN = new JButton("");
+		btnEN.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new LoginEN().setVisible(true);
@@ -148,6 +150,7 @@ public class LoginDE extends JFrame {
 		contentPane.add(btnPT);
 		
 		JButton btnAL = new JButton("");
+		btnAL.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Sie sind bereits in dieser Sprache");
