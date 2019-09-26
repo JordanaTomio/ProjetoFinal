@@ -41,8 +41,8 @@ public class Login extends JFrame {
 	JLabel lblLogar = new JLabel("Entrar");
 	JLabel lblRegistrese = new JLabel("Registre-se");
 
-	/**
-	 * Launch the application.
+	/*
+	 * Jframe inicial de acesso 
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -56,10 +56,6 @@ public class Login extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Login() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/imagens/3775232-16.png")));
 		setTitle("Login");
@@ -92,40 +88,37 @@ public class Login extends JFrame {
 		btnEntrar.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-
 				contentPane.getRootPane().setDefaultButton(btnEntrar);
-
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 					btnEntrar.doClick();
-
 				}
 			}
 		});
 		btnEntrar.addActionListener(new ActionListener() {
-
+			
+			//Confirma o cadastro no Database
+			
 			public void actionPerformed(ActionEvent arg0) {
 				String email = txtEmail.getText();
 				String senha = txtSenha.getText();
-
 				boolean auth = DAO.ClienteDAO.giveAuth(email, senha);
-
 				if (auth) {
 					new Menu().setVisible(true);
 					dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "Email ou senha são inválidos.", "Erro no login.", 1);
 				}
-
 			}
 		});
-
+		
+		//Passa para os Jframes de idiomas
+		
 		JButton btnPT = new JButton("");
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Você está nessa aba");
 			}
 		});
-
 		JButton btnEN = new JButton("");
 		btnEN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -171,6 +164,9 @@ public class Login extends JFrame {
 		btnRegistrar.setBounds(442, 286, 89, 23);
 		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.addActionListener(new ActionListener() {
+			
+			//Abre o Jframe referente a cadastro
+			
 			public void actionPerformed(ActionEvent arg0) {
 				Cadastro CIC = new Cadastro();
 				CIC.setVisible(true);

@@ -48,6 +48,10 @@ public class Cadastro extends JFrame {
 	JRadioButton btnMasculino = new JRadioButton("Masc");
 	JRadioButton rdbtnOutros = new JRadioButton("Outros");
 
+	/*
+	* Jframe referente ao cadastro
+	*/
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -73,15 +77,15 @@ public class Cadastro extends JFrame {
 		contentPane.setLayout(null);
 		setResizable(false);
 		setLocationRelativeTo(null);
-
+		
+		/*-----------------------------
+		* Cria a mascara formatacao
+		*/
 		try {
 			telefone = new MaskFormatter("(##)#####-####");
 		} catch (ParseException pe) {
 			pe.printStackTrace();
 		}
-		txtTelefone = new JFormattedTextField(telefone);
-		txtTelefone.setBounds(128, 286, 150, 23);
-		contentPane.add(txtTelefone);
 
 		try {
 			CEP = new MaskFormatter("#####-###");
@@ -89,15 +93,22 @@ public class Cadastro extends JFrame {
 			pe.printStackTrace();
 		}
 
-		txtCEP = new JFormattedTextField(CEP);
-		txtCEP.setBounds(128, 184, 150, 23);
-		contentPane.add(txtCEP);
-
 		try {
 			CPF = new MaskFormatter("###.###.###-##");
 		} catch (ParseException pe) {
 			pe.printStackTrace();
 		}
+		
+		//-------------------------------
+		
+		txtTelefone = new JFormattedTextField(telefone);
+		txtTelefone.setBounds(128, 286, 150, 23);
+		contentPane.add(txtTelefone);
+		
+		txtCEP = new JFormattedTextField(CEP);
+		txtCEP.setBounds(128, 184, 150, 23);
+		contentPane.add(txtCEP);
+		
 		txtCPF = new JFormattedTextField(CPF);
 		txtCPF.setBounds(128, 145, 150, 22);
 		contentPane.add(txtCPF);
@@ -176,9 +187,9 @@ public class Cadastro extends JFrame {
 		btnCadastrar.setForeground(new Color(0, 100, 0));
 		btnCadastrar.setBackground(new Color(255, 255, 255));
 		btnCadastrar.addActionListener(new ActionListener() {
-			
-			//cadastra o cliente no Database
-			
+
+			// cadastra o cliente no Database
+
 			public void actionPerformed(ActionEvent arg0) {
 				String primeiroNome = txtPN.getText();
 				String ultimoNome = txtSN.getText();
@@ -205,15 +216,16 @@ public class Cadastro extends JFrame {
 				try {
 					if (rs.next()) {
 						CPFConf = rs.getString("CPF_Cliente");
-
 					}
 					System.out.println(CPFConf);
 				} catch (SQLException e) {
 					e.printStackTrace();
 					System.out.println(CPFConf);
 				}
+				
 				ResultSet rs1 = ClienteDAO.findEmail(email);
 				String emailConf = "";
+				
 				try {
 					if (rs1.next()) {
 						emailConf = rs1.getString("EM_Cliente");
@@ -226,23 +238,19 @@ public class Cadastro extends JFrame {
 				if (CPF.equals(CPFConf)) {
 					System.out.println(CPFConf);
 					JOptionPane.showMessageDialog(null, "CPF já cadastrado!");
-				
-				}else if(email.equals(emailConf)){
+				} else if (email.equals(emailConf)) {
 					System.out.println(emailConf);
 					JOptionPane.showMessageDialog(null, "E-mail já cadastrado!");
-				
-				}else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
+				} else if (!(email.isEmpty() && senha.isEmpty() && primeiroNome.isEmpty() && ultimoNome.isEmpty())) {
 					Beans.Cliente cliente = new Beans.Cliente(email, senha, primeiroNome, ultimoNome, sexo, telefone,
 							admin, CEP, CPF, pessoa, razao);
 					DAO.ClienteDAO.save(cliente);
 					System.out.println("inseriu");
 					new Login().setVisible(true);
 					dispose();
-
 				} else {
 					JOptionPane.showMessageDialog(null, "Informações faltando!");
 				}
-
 			}
 		});
 
@@ -260,6 +268,9 @@ public class Cadastro extends JFrame {
 		btnVoltar.setOpaque(false);
 		btnVoltar.setFont(new Font("Lucida Bright", Font.BOLD, 14));
 		btnVoltar.addActionListener(new ActionListener() {
+		
+			// Retorna para Jframe o Login
+			
 			public void actionPerformed(ActionEvent arg0) {
 				Login lgn = new Login();
 				lgn.setVisible(true);
