@@ -36,6 +36,8 @@ import javax.swing.DefaultComboBoxModel;
 
 public class BanhoTosa extends JFrame {
 
+	
+	//Frame para agendamento de banho e/ou tosa.
 	private JPanel contentPane;
 	private JTable tblAGENDA;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -120,7 +122,9 @@ public class BanhoTosa extends JFrame {
 		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);
 		
-		JComboBox cobox = new JComboBox();
+		
+		//add os horários disponiveis para o agendamento.
+		JComboBox<String> cobox = new JComboBox();
 		cobox.setBounds(114, 135, 60, 19);
 		cobox.addItem("08:30");
 		cobox.addItem("09:00");
@@ -228,6 +232,8 @@ public class BanhoTosa extends JFrame {
 		rdbtnBanhoETosa.setBounds(114, 230, 119, 23);
 		contentPane.add(rdbtnBanhoETosa);
 
+		
+		//atualiza com os agendamentos mais recentes.
 		JButton btnCarregar = new JButton("Atualizar");
 		btnCarregar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCarregar.setForeground(new Color(0, 100, 0));
@@ -416,7 +422,6 @@ public class BanhoTosa extends JFrame {
 		contentPane.add(lblInformaoesObrigtorias);
 		lblInformaoesObrigtorias.setVisible(false);
 		
-
 
 		background = new JLabel("New label");
 		background.setIcon(new ImageIcon(BanhoTosa.class.getResource("/imagens/Background.jpg")));

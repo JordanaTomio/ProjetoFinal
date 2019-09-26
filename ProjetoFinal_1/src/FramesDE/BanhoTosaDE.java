@@ -34,6 +34,7 @@ import DAO.AgendaDAO;
 
 public class BanhoTosaDE extends JFrame {
 
+	// Frame para agendamento de banho e/ou tosa.
 	private JPanel contentPane;
 	private JTable tblAGENDA;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -58,9 +59,6 @@ public class BanhoTosaDE extends JFrame {
 	private JRadioButton rdbtnCachorro;
 	JDateChooser txtDataChooser_1 = new JDateChooser();
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -127,7 +125,8 @@ public class BanhoTosaDE extends JFrame {
 		txtCLIENTE.setColumns(10);
 		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);
-		
+
+		//add os horários disponiveis para o agendamento.
 		JComboBox<String> cbox = new JComboBox<String>();
 		cbox.setBounds(114, 135, 52, 19);
 		cbox.addItem("08:30");
@@ -151,7 +150,6 @@ public class BanhoTosaDE extends JFrame {
 		contentPane.add(cbox);
 
 		String txtH = cbox.getSelectedItem().toString();
-		
 
 		rdbtnGato = new JRadioButton("Katze");
 		rdbtnGato.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -237,6 +235,7 @@ public class BanhoTosaDE extends JFrame {
 		rdbtnBanhoETosa.setBounds(114, 230, 181, 23);
 		contentPane.add(rdbtnBanhoETosa);
 
+		//atualiza com os agendamentos mais recentes.
 		JButton btnCarregar = new JButton("Aktualisieren");
 		btnCarregar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCarregar.setForeground(new Color(0, 100, 0));
@@ -252,19 +251,19 @@ public class BanhoTosaDE extends JFrame {
 		txtDataChooser_1.setDateFormatString("dd-MM-yyyy");
 		txtDataChooser_1.setBounds(15, 134, 87, 20);
 		contentPane.add(txtDataChooser_1);
-		
+
 		JButton btnConfirmar = new JButton("Best\u00E4tigen");
 		btnConfirmar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnConfirmar.setForeground(new Color(0, 100, 0));
 		btnConfirmar.setBackground(new Color(255, 255, 255));
 		btnConfirmar.addActionListener(new ActionListener() {
 
-			//Insere no database o agendamento
-			
+			// Insere no database o agendamento
+
 			public void actionPerformed(ActionEvent e) {
 				int variavel = 0;
 				int Confi = 0;
-				//confere e valida a data
+				// confere e valida a data
 				String daata = ((JTextField) txtDataChooser_1.getDateEditor().getUiComponent()).getText();
 				java.util.Date d = new Date();
 				String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
