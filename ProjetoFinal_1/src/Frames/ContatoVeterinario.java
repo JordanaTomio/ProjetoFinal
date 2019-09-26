@@ -25,26 +25,12 @@ import DAO.VeterinariosDAO;
 
 public class ContatoVeterinario extends JFrame {
 
+	//Frame com os contatos de veterinários da região de blumenau
 	private JPanel contentPane;
 	private JTextField txtBAIRRO;
 	private JTable table;
 
-	/*
-	* Jframe Referente aos Veterinarios
-	*/
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ContatoVeterinario frame = new ContatoVeterinario();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	public ContatoVeterinario() {
 		setTitle("Veterin\u00E1rios");
 		setIconImage(
