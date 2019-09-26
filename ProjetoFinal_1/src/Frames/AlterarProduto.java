@@ -42,7 +42,7 @@ public class AlterarProduto extends JFrame {
 	private MaskFormatter validade;
 
 	/**
-	 * Create the frame.
+	 * Frame para alterar detalhes de produtos já cadastrados no DB.
 	 */
 	public AlterarProduto() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(AlterarProduto.class.getResource("/imagens/3775232-16.png")));
@@ -88,6 +88,7 @@ public class AlterarProduto extends JFrame {
 				}
 			}
 		});
+		
 		//Seta as informaçoes do produto
 		comboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
@@ -182,7 +183,8 @@ public class AlterarProduto extends JFrame {
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnAlterar.addActionListener(new ActionListener() {
-			//Faz a altualizacao no database
+			
+			//Faz a atualizacao no database
 			public void actionPerformed(ActionEvent arg0) {
 				String item = comboBox.getSelectedItem().toString();
 				String itens[] = item.split(" - ");
