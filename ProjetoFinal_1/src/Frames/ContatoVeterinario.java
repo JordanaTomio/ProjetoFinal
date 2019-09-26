@@ -23,6 +23,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import Conexao.MySQLConfiguration;
+import DAO.PeedidoDAO;
+import DAO.VeterinariosDAO;
 
 public class ContatoVeterinario extends JFrame {
 
@@ -66,6 +68,29 @@ public class ContatoVeterinario extends JFrame {
 				dispose();
 			}
 		});
+
+		txtBAIRRO = new JTextField();
+		txtBAIRRO.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
+		txtBAIRRO.addKeyListener(new KeyAdapter() {
+
+			// Faz a busca dos Veterinarios no Database
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				ResultSet rs = VeterinariosDAO.VeterinariosDAO(txtBAIRRO.getText());
+					table.setModel(Utilis.DbUtils.resultSetTable(rs));
+			}
+		});
+		txtBAIRRO.setBounds(158, 135, 344, 20);
+		contentPane.add(txtBAIRRO);
+		txtBAIRRO.setColumns(10);
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(63, 163, 521, 173);
+		contentPane.add(scrollPane);
+
+		table = new JTable();
+		scrollPane.setViewportView(table);
 		btnVoltar.setFont(new Font("Broadway", Font.PLAIN, 11));
 		btnVoltar.setBounds(10, 340, 43, 50);
 		btnVoltar.setBorderPainted(false);
@@ -93,64 +118,6 @@ public class ContatoVeterinario extends JFrame {
 		lblBAIRRO.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		lblBAIRRO.setBounds(158, 105, 162, 26);
 		contentPane.add(lblBAIRRO);
-
-		txtBAIRRO = new JTextField();
-		txtBAIRRO.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
-		txtBAIRRO.addKeyListener(new KeyAdapter() {
-
-			//Faz a busca no Database
-			//tem que transforma isso em methodo!
-			
-			@Override
-			public void keyTyped(KeyEvent e) {
-
-				MySQLConfiguration c = new MySQLConfiguration();
-
-				String q = "";
-				String w = "";
-				// -------------------------------------------------------------\\
-				q = "SELECT NM_Veterinario Nome, TL_Veterinario Telefone, LC_Veterinario Endereço"
-						+ " FROM contato_veterinario";
-				if (!txtBAIRRO.getText().isEmpty()) {
-					if (w.isEmpty()) {
-						w = "BR_Veterinario like '%" + txtBAIRRO.getText() + "%' ";
-					} else {
-						w += "and BR_Veterinario like '%" + txtBAIRRO.getText() + "%' ";
-					}
-				}
-				// -------------------------------------------------------------\\
-				if (!w.isEmpty()) {
-					q += " WHERE " + w;
-				}
-				// -------------------------------------------------------------\\
-				q += " order by CD_Veterinario";
-				try {
-					PreparedStatement ps = c.conn.prepareStatement(q);
-					ResultSet rs = ps.executeQuery();
-
-					table.setModel(Utilis.DbUtils.resultSetTable(rs));
-
-					rs.close();
-					ps.close();
-
-				} catch (Exception ex) {
-					System.err.println("ERRO NO 'SQL'");
-					System.err.println(q);
-					ex.printStackTrace();
-				}
-
-			}
-		});
-		txtBAIRRO.setBounds(158, 135, 344, 20);
-		contentPane.add(txtBAIRRO);
-		txtBAIRRO.setColumns(10);
-
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(63, 163, 521, 173);
-		contentPane.add(scrollPane);
-
-		table = new JTable();
-		scrollPane.setViewportView(table);
 
 		JLabel background = new JLabel("New label");
 		background.setIcon(new ImageIcon(ContatoVeterinario.class.getResource("/imagens/Background.jpg")));
