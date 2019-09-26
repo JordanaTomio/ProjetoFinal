@@ -36,6 +36,7 @@ import javax.swing.DefaultComboBoxModel;
 
 public class BanhoTosa extends JFrame {
 
+	//Frame para agendamento de banho e tosa
 	private JPanel contentPane;
 	private JTable tblAGENDA;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -86,6 +87,7 @@ public class BanhoTosa extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 
+		//Cria mascaras de formatacao
 		try {
 			data = new MaskFormatter("##/##");
 		} catch (ParseException pe) {
@@ -105,8 +107,7 @@ public class BanhoTosa extends JFrame {
 		tblAGENDA.setEnabled(false);
 		scrollPane.setViewportView(tblAGENDA);
 		tblAGENDA.setModel(new DefaultTableModel(
-				// https://www.guj.com.br/t/gravar-dados-direto-no-jtable/56176/3
-				// use isso
+				
 				new Object[][] {}, new String[] { "Data", "Hora", "Cliente" }));
 		tblAGENDA.getColumnModel().getColumn(0).setPreferredWidth(38);
 		tblAGENDA.getColumnModel().getColumn(1).setPreferredWidth(46);
@@ -120,6 +121,7 @@ public class BanhoTosa extends JFrame {
 		txtCLIENTE.setBounds(184, 134, 100, 20);
 		contentPane.add(txtCLIENTE);
 
+		//Cria horarios para o agendamento
 		JComboBox cobox = new JComboBox();
 		cobox.setBounds(114, 135, 60, 19);
 		cobox.addItem("08:30");
@@ -228,6 +230,7 @@ public class BanhoTosa extends JFrame {
 		rdbtnBanhoETosa.setBounds(114, 230, 119, 23);
 		contentPane.add(rdbtnBanhoETosa);
 
+		//Atualiza a tabela com os agendamentos mais recentes
 		JButton btnCarregar = new JButton("Atualizar");
 		btnCarregar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCarregar.setForeground(new Color(0, 100, 0));
