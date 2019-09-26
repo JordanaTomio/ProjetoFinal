@@ -16,21 +16,9 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 
 public class PetShopMenu extends JFrame {
-
+	
+	//Frame menu
 	private JPanel contentPane;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PetShopMenu frame = new PetShopMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public PetShopMenu() {
 		setTitle("Menu Pet Shop");
