@@ -41,7 +41,6 @@ public class HotelEN extends JFrame {
 	private JButton btnVai;
 	private JButton btnVolta;
 	private JTextField txtNomeCliente;
-	private MaskFormatter mascaras;
 	private JTextField txtNome;
 	private JDateChooser Date1, Date2;
 	JTextPane txtDs = new JTextPane();
@@ -85,20 +84,6 @@ public class HotelEN extends JFrame {
 
 		txtNomeCliente = new JTextField();
 		txtNomeCliente.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		txtNomeCliente.setText("Enter your name...");
-		txtNomeCliente.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				txtNomeCliente.setText("");
-			}
-		});
-
-		// https://www.devmedia.com.br/java-swing-conheca-os-componentes-jtextfield-e-jformattedtextfield/30981
-		try {
-			mascaras = new MaskFormatter("##/##");
-		} catch (ParseException e1) {
-			e1.printStackTrace();
-		}
 
 		JRadioButton gato = new JRadioButton("Cat");
 		gato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
