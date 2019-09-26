@@ -28,6 +28,7 @@ public class ConsultarClientes extends JFrame {
 
 	private static final long serialVersionUID = -4029146897243358982L;
 	
+	//Frame para consultar clientes, excluisvo para administradores	
 	private JPanel contentPane;
 	public JTextField txtNome;
 	private JTable table;
