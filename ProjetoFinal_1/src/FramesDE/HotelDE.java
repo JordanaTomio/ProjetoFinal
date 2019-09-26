@@ -86,20 +86,7 @@ public class HotelDE extends JFrame {
 
 		txtNomeCliente = new JTextField();
 		txtNomeCliente.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
-		txtNomeCliente.setText("Schreibe seine name...");
-		txtNomeCliente.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				txtNomeCliente.setText("");
-			}
-		});
-
-		// https://www.devmedia.com.br/java-swing-conheca-os-componentes-jtextfield-e-jformattedtextfield/30981
-		try {
-			mascaras = new MaskFormatter("##/##");
-		} catch (ParseException e1) {
-			e1.printStackTrace();
-		}
+	
 		
 		JRadioButton gato = new JRadioButton("Katze");
 		buttonGroup.add(gato);
