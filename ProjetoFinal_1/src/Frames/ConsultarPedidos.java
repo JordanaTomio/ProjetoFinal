@@ -35,7 +35,8 @@ import Utilis.DbUtils;
 public class ConsultarPedidos extends JFrame {
 
 	private static final long serialVersionUID = -1830098794526254168L;
-
+	
+	//Frame para consultar pedidos antes da finalizacao
 	private JPanel contentPane;
 	private JComboBox comboBox;
 	private JTable table;
@@ -50,6 +51,7 @@ public class ConsultarPedidos extends JFrame {
 		setTitle("Carrinho");
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(ConsultarPedidos.class.getResource("/imagens/3775232-16.png")));
+		//Cria mascara de formatacao (02 digitos depois da virgula)
 		DecimalFormat df = new DecimalFormat();
 		df.setMaximumFractionDigits(2);
 
@@ -113,7 +115,7 @@ public class ConsultarPedidos extends JFrame {
 		comboBox = new JComboBox();
 		comboBox.addItemListener(new ItemListener() {
 			
-			//seta as informaçoes do pedido puxadas no dataBase
+			//seta as informaÃ§oes do pedido puxadas no dataBase
 			
 			public void itemStateChanged(ItemEvent e) {
 				if (comboBox.getItemCount() > 0) {
