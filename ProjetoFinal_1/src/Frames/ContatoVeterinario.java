@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.swing.ImageIcon;
@@ -22,8 +21,6 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import Conexao.MySQLConfiguration;
-import DAO.PeedidoDAO;
 import DAO.VeterinariosDAO;
 
 public class ContatoVeterinario extends JFrame {
@@ -32,6 +29,9 @@ public class ContatoVeterinario extends JFrame {
 	private JTextField txtBAIRRO;
 	private JTable table;
 
+	/*
+	* Jframe Referente aos Veterinarios
+	*/
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -62,6 +62,9 @@ public class ContatoVeterinario extends JFrame {
 		JButton btnVoltar = new JButton("");
 		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
+
+			// Retorna ao Jframe Menu
+
 			public void actionPerformed(ActionEvent arg0) {
 				Menu mnu = new Menu();
 				mnu.setVisible(true);
@@ -78,7 +81,7 @@ public class ContatoVeterinario extends JFrame {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				ResultSet rs = VeterinariosDAO.VeterinariosDAO(txtBAIRRO.getText());
-					table.setModel(Utilis.DbUtils.resultSetTable(rs));
+				table.setModel(Utilis.DbUtils.resultSetTable(rs));
 			}
 		});
 		txtBAIRRO.setBounds(158, 135, 344, 20);
@@ -104,7 +107,7 @@ public class ContatoVeterinario extends JFrame {
 		label.setBounds(477, 32, 137, 132);
 		contentPane.add(label);
 
-		JLabel lblNewLabel = new JLabel("Veterin·rio");
+		JLabel lblNewLabel = new JLabel("Veterin√°rio");
 		lblNewLabel.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblNewLabel.setBounds(226, 31, 203, 63);
 		contentPane.add(lblNewLabel);
