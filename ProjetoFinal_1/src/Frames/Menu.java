@@ -16,26 +16,11 @@ import java.awt.Color;
 import java.awt.Toolkit;
 
 public class Menu extends JFrame {
-
+	
+	//Frame menu
 	private JPanel contentPane;
 	private JButton btnVet;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Menu frame = new Menu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/*
-	 * Jframe de transicao Principal
-	 */
 	public Menu() {
 		setTitle("Menu");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Menu.class.getResource("/imagens/3775232-16.png")));
@@ -61,7 +46,7 @@ public class Menu extends JFrame {
 			}
 		});
 
-		btnVet = new JButton("Veterin·rio");
+		btnVet = new JButton("Veterin√°rio");
 		btnVet.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVet.setIcon(new ImageIcon(Menu.class.getResource("/imagens/vet.png")));
 		btnVet.addActionListener(new ActionListener() {
@@ -124,7 +109,7 @@ public class Menu extends JFrame {
 		btnAdm.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAdm.addActionListener(new ActionListener() {
 
-			// Seta visivel as opÁoes para adm
+			// Seta visivel as op√ßoes para adm
 
 			public void actionPerformed(ActionEvent e) {
 				if (Main.cliente.getAdm() == 1) {
@@ -147,7 +132,7 @@ public class Menu extends JFrame {
 		btnLoja.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLoja.addActionListener(new ActionListener() {
 
-			// Envia para o Jframe de TransiÁao referente a compras
+			// Envia para o Jframe de Transi√ßao referente a compras
 
 			public void actionPerformed(ActionEvent e) {
 				PetShopMenu psm = new PetShopMenu();
@@ -211,7 +196,7 @@ public class Menu extends JFrame {
 		label.setBounds(258, 129, 138, 135);
 		contentPane.add(label);
 
-		JLabel lblVeterinrio = new JLabel("Veterin·rio");
+		JLabel lblVeterinrio = new JLabel("Veterin√°rio");
 		lblVeterinrio.setFont(new Font("Lucida Bright", Font.BOLD, 13));
 		lblVeterinrio.setBounds(561, 305, 77, 22);
 		contentPane.add(lblVeterinrio);
@@ -227,7 +212,7 @@ public class Menu extends JFrame {
 		lblNewLabel.setBounds(69, 129, 138, 135);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblAdoo = new JLabel("AdoÁ„o");
+		JLabel lblAdoo = new JLabel("Ado√ß√£o");
 		lblAdoo.setBounds(494, 244, 65, 22);
 		contentPane.add(lblAdoo);
 		lblAdoo.setForeground(new Color(0, 0, 0));
@@ -253,7 +238,7 @@ public class Menu extends JFrame {
 		}
 		contentPane.add(lblManager);
 
-		JLabel lblAdministrao = new JLabel("AdministraÁ„o");
+		JLabel lblAdministrao = new JLabel("Administra√ß√£o");
 		lblAdministrao.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		lblAdministrao.setBounds(539, 88, 103, 33);
 
