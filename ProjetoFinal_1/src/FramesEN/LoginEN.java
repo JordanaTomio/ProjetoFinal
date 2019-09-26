@@ -123,6 +123,7 @@ public class LoginEN extends JFrame {
 		
 		//Passa para os Jframes de idiomas
 		JButton btnPT = new JButton("");
+		btnPT.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Login().setVisible(true);
@@ -131,6 +132,7 @@ public class LoginEN extends JFrame {
 		});
 		
 		JButton btnEN = new JButton("");
+		btnEN.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("you are already here");
@@ -151,6 +153,7 @@ public class LoginEN extends JFrame {
 		contentPane.add(btnPT);
 		
 		JButton btnAL = new JButton("");
+		btnAL.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new LoginDE().setVisible(true);
