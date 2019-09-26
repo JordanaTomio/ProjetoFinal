@@ -143,16 +143,15 @@ public class CadastrarProdutoDE extends JFrame {
 		btnCadastrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//Insere produto no Database
+
 				String nome = txtNome.getText();
 				String descricao = txtDesc.getText();
 				String valorString = txtValor.getText();
 				String unidade = txtUnidade.getText();
 				String estoqueString = txtEstoque.getText();
 				String validade = txtValidade.getText();
-			//	String mes = txtMes.getText();
-			//	String ano = txtAno.getText();
-
-			//	String data = ano + "-" + mes + "-" + dia;
 
 				if (valorString.contains(",")) {
 					valorString = valorString.replace(",", ".");
@@ -177,8 +176,7 @@ public class CadastrarProdutoDE extends JFrame {
 					txtUnidade.setText("");
 					txtEstoque.setText("");
 					txtValidade.setText("");
-			//		txtMes.setText("");
-			//		txtAno.setText("");
+
 				} else {
 					JOptionPane.showMessageDialog(null, "Fehlende Informationen. "," Registrierungsfehler", 1);
 				}

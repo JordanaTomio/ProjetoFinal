@@ -42,7 +42,7 @@ public class LoginEN extends JFrame {
 	JLabel lblRegistrese = new JLabel("Register");
 
 	/**
-	 * Launch the application.
+	 * Jframe inicial de acesso 
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -90,6 +90,8 @@ public class LoginEN extends JFrame {
 		btnEntrar.setBounds(390, 227, 183, 28);
 		btnEntrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEntrar.addKeyListener(new KeyAdapter() {
+			
+			//Confirma o cadastro no Database
 			@Override
 			public void keyPressed(KeyEvent e) {
 
@@ -119,6 +121,7 @@ public class LoginEN extends JFrame {
 			}
 		});
 		
+		//Passa para os Jframes de idiomas
 		JButton btnPT = new JButton("");
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -173,6 +176,8 @@ public class LoginEN extends JFrame {
 		btnRegistrar.setBounds(442, 286, 89, 23);
 		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.addActionListener(new ActionListener() {
+			
+			//Abre o Jframe referente a cadastro
 			public void actionPerformed(ActionEvent arg0) {
 				CadastroEN CIC = new CadastroEN();
 				CIC.setVisible(true);

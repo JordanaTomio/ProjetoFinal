@@ -143,16 +143,15 @@ public class CadastrarProdutoEN extends JFrame {
 		btnCadastrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				//Insere produto no Database
+
 				String nome = txtNome.getText();
 				String descricao = txtDesc.getText();
 				String valorString = txtValor.getText();
 				String unidade = txtUnidade.getText();
 				String estoqueString = txtEstoque.getText();
 				String validade = txtValidade.getText();
-			//	String mes = txtMes.getText();
-			//	String ano = txtAno.getText();
-
-			//	String data = ano + "-" + mes + "-" + dia;
 
 				if (valorString.contains(",")) {
 					valorString = valorString.replace(",", ".");

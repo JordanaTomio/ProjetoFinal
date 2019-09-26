@@ -20,7 +20,7 @@ public class Adm extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Frame de transição Adm
+	 * Frame que abre uma aba exclusiva para administradores que tenham acesso.
 	 */
 	
 	public static void main(String[] args) {

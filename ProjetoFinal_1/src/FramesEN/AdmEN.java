@@ -20,7 +20,7 @@ public class AdmEN extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
+	 * Frame que abre uma aba exclusiva para administradores que tenham acesso.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -50,6 +50,8 @@ public class AdmEN extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
+		//volta para o menu principal
 		JButton btnVoltar = new JButton("");
 		btnVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
@@ -71,6 +73,8 @@ public class AdmEN extends JFrame {
 		lblVoltar.setBounds(20, 344, 53, 56);
 		contentPane.add(lblVoltar);
 		
+		
+		//vai para o frame consulta de clientes
 		JButton btnConsultar = new JButton("");
 		btnConsultar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnConsultar.setContentAreaFilled(false);
@@ -105,6 +109,8 @@ public class AdmEN extends JFrame {
 		lblCadastrar.setBounds(54, 275, 141, 45);
 		contentPane.add(lblCadastrar);
 		
+		
+		//vai para o frame cadastrar produtos
 		JButton btnCadastrar = new JButton("");
 		btnCadastrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnCadastrar.addActionListener(new ActionListener() {

@@ -151,10 +151,6 @@ public class CadastrarProduto extends JFrame {
 				String unidade = txtUnidade.getText();
 				String estoqueString = txtEstoque.getText();
 				String validade = txtValidade.getText();
-				// String mes = txtMes.getText();
-				// String ano = txtAno.getText();
-
-				// String data = ano + "-" + mes + "-" + dia;
 
 				if (valorString.contains(",")) {
 					valorString = valorString.replace(",", ".");
