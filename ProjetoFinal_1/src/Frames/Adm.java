@@ -23,22 +23,9 @@ public class Adm extends JFrame {
 	 * Frame que abre uma aba exclusiva para administradores que tenham acesso.
 	 */
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Adm frame = new Adm();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public Adm() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Adm.class.getResource("/imagens/3775232-16.png")));
-		setTitle("Administração");
+		setTitle("AdministraÃ§Ã£o");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();
@@ -134,7 +121,7 @@ public class Adm extends JFrame {
 		btnCadastrar.setBounds(47, 148, 141, 135);
 		contentPane.add(btnCadastrar);
 		
-		JLabel lblAdministrao = new JLabel("Administração");
+		JLabel lblAdministrao = new JLabel("AdministraÃ§Ã£o");
 		lblAdministrao.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblAdministrao.setBounds(215, 24, 281, 68);
 		contentPane.add(lblAdministrao);
