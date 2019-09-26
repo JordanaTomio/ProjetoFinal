@@ -34,6 +34,7 @@ import DAO.PeedidoDAO;
 
 public class ConsultarProdutos extends JFrame {
 
+	//Frame para consultar os itens na loja
 	private static final long serialVersionUID = 6415911970193186182L;
 
 	private JPanel contentPane;
