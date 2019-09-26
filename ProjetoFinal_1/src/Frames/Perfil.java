@@ -32,6 +32,7 @@ import java.awt.Toolkit;
 
 public class Perfil<EntityManager> extends JFrame {
 
+	//Frame para visualizacao e correcao de dados
 	private JPanel contentPane;
 	private JTextField txtNomePerfil;
 	private JTextField txtSobreNomePerfil;
@@ -77,6 +78,7 @@ public class Perfil<EntityManager> extends JFrame {
 		setResizable(false);
 		setLocationRelativeTo(null);
 
+		//Cria mascaras de formatacao
 		try {
 			TelefonePerfil = new MaskFormatter("(##) #####-####");
 		} catch (ParseException pe) {
@@ -191,6 +193,7 @@ public class Perfil<EntityManager> extends JFrame {
 		btnOutro.setContentAreaFilled(false);
 		contentPane.add(btnOutro);
 
+		//Busca no DB os dados
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBuscar.setForeground(new Color(0, 100, 0));
@@ -245,6 +248,7 @@ public class Perfil<EntityManager> extends JFrame {
 		btnBuscar.setBounds(36, 304, 111, 23);
 		contentPane.add(btnBuscar);
 
+		//Altera no DB os dados desejados
 		btnAlterar = new JButton("Alterar");
 		btnAlterar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAlterar.setForeground(new Color(0, 100, 0));
@@ -292,7 +296,7 @@ public class Perfil<EntityManager> extends JFrame {
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Confirmação", 1);
+				JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "ConfirmaÃ§Ã£o", 1);
 			}
 		});
 		btnAlterar.setBounds(186, 304, 111, 23);
