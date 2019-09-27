@@ -251,7 +251,7 @@ public class HotelDE extends JFrame {
 			"New label");lblTraco.setIcon(new ImageIcon(HotelDE.class.getResource("/imagens/Sem t\u00EDtulo.png")));lblTraco.setBounds(399,108,2,268);contentPane.add(lblTraco);
 
 	JLabel lblAte = new JLabel(
-			"bis");lblAte.setFont(new Font("Lucida Bright",Font.PLAIN,20));lblAte.setBounds(266,182,36,20);contentPane.add(lblAte);
+			"bis");lblAte.setFont(new Font("Lucida Bright", Font.PLAIN, 15));lblAte.setBounds(267,182,36,20);contentPane.add(lblAte);
 
 	JLabel lblCuidadores = new JLabel(
 			"Kinderm\u00E4dchen");lblCuidadores.setFont(new Font("Lucida Bright",Font.PLAIN,20));lblCuidadores.setBounds(440,108,166,20);contentPane.add(lblCuidadores);

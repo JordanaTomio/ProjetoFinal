@@ -278,7 +278,7 @@ public class Hotel extends JFrame {
 		contentPane.add(lblTraco);
 
 		JLabel lblAte = new JLabel("at\u00E9");
-		lblAte.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		lblAte.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		lblAte.setBounds(262, 184, 36, 20);
 		contentPane.add(lblAte);
 
@@ -313,7 +313,7 @@ public class Hotel extends JFrame {
 		contentPane.add(lblTipo);
 
 		JLabel lblDe = new JLabel("de");
-		lblDe.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		lblDe.setFont(new Font("Lucida Bright", Font.PLAIN, 15));
 		lblDe.setBounds(159, 178, 46, 31);
 		contentPane.add(lblDe);
 
