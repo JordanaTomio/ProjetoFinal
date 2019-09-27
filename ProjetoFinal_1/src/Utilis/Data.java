@@ -16,10 +16,10 @@ public class Data {
 		System.out.println(valida);
 
 		String[] sprdAtual = dStr.split("/");
-		String jntAtual = sprdAtual[0] + sprdAtual[1] + sprdAtual[2];
+		String jntAtual = sprdAtual[2] + sprdAtual[1] + sprdAtual[0];
 
 		String[] sprdValida = valida.split("/");
-		String jntValida = sprdValida[0] + sprdValida[1] + sprdValida[2];
+		String jntValida =sprdValida[2]  + sprdValida[1] +sprdValida[0] ;
 
 		System.out.println(jntAtual);
 		System.out.println(jntValida);
@@ -43,10 +43,10 @@ public class Data {
 		System.out.println(valida);
 
 		String[] sprdAtual = dStr.split("/");
-		String jntAtual = sprdAtual[0] + sprdAtual[1];
+		String jntAtual = sprdAtual[1] + sprdAtual[0];
 
 		String[] sprdValida = valida.split("-");
-		String jntValida = sprdValida[0] + sprdValida[1];
+		String jntValida = sprdValida[1] + sprdValida[0];
 
 		System.out.println(jntAtual);
 		System.out.println(jntValida);
@@ -68,13 +68,13 @@ public class Data {
 		String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
 
 		String[] sprdAtual = dStr.split("/");
-		String jntAtual = sprdAtual[0] + sprdAtual[1] + sprdAtual[2];
+		String jntAtual = sprdAtual[2] + sprdAtual[1] + sprdAtual[0];
 
 		String[] sprdValida = valida.split("/");
-		String jntValida = sprdValida[0] + sprdValida[1] + sprdValida[2];
+		String jntValida = sprdValida[2] + sprdValida[1] + sprdValida[0];
 
 		String[] sprdValida2 = valida2.split("/");
-		String jntValida2 = sprdValida2[0] + sprdValida2[1] + sprdValida2[2];
+		String jntValida2 = sprdValida2[2] + sprdValida2[1] + sprdValida2[0];
 
 		System.out.println(jntAtual);
 		System.out.println(jntValida);
