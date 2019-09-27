@@ -128,7 +128,7 @@ public class BanhoTosaEN extends JFrame {
 		contentPane.add(txtCLIENTE);
 
 		JComboBox cbox = new JComboBox();
-		cbox.setBounds(111, 135, 52, 19);
+		cbox.setBounds(111, 135, 63, 19);
 		cbox.addItem("08:30");
 		cbox.addItem("09:00");
 		cbox.addItem("09:30");
@@ -407,7 +407,7 @@ public class BanhoTosaEN extends JFrame {
 
 		lblHORA = new JLabel("Hour");
 		lblHORA.setFont(new Font("Lucida Bright", Font.BOLD, 14));
-		lblHORA.setBounds(112, 112, 41, 14);
+		lblHORA.setBounds(122, 116, 41, 14);
 		contentPane.add(lblHORA);
 
 		lblCLIENTE = new JLabel("Client");
