@@ -123,12 +123,12 @@ public class Hotel extends JFrame {
 		contentPane.add(cachorro_1);
 
 		Date1 = new JDateChooser();
-		Date1.setBounds(192, 182, 73, 20);
+		Date1.setBounds(182, 184, 73, 20);
 		Date1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(Date1);
 
 		Date2 = new JDateChooser();
-		Date2.setBounds(303, 182, 73, 20);
+		Date2.setBounds(294, 185, 73, 20);
 		Date2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(Date2);
 		
@@ -277,9 +277,9 @@ public class Hotel extends JFrame {
 		lblTraco.setBounds(399, 108, 2, 268);
 		contentPane.add(lblTraco);
 
-		JLabel lblAte = new JLabel("até");
-		lblAte.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-		lblAte.setBounds(266, 182, 36, 20);
+		JLabel lblAte = new JLabel("at\u00E9");
+		lblAte.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		lblAte.setBounds(262, 184, 36, 20);
 		contentPane.add(lblAte);
 
 		JLabel lblCuidadores = new JLabel("Cuidadores");
@@ -297,7 +297,7 @@ public class Hotel extends JFrame {
 		label.setBounds(97, 131, 73, 20);
 		contentPane.add(label);
 
-		JLabel lblAlgumaObservao = new JLabel("Alguma observação?");
+		JLabel lblAlgumaObservao = new JLabel("Alguma observa\u00E7\u00E3o?");
 		lblAlgumaObservao.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblAlgumaObservao.setBounds(150, 253, 205, 28);
 		contentPane.add(lblAlgumaObservao);
@@ -312,9 +312,9 @@ public class Hotel extends JFrame {
 		lblTipo.setBounds(97, 224, 63, 23);
 		contentPane.add(lblTipo);
 
-		JLabel lblDe = new JLabel("De");
-		lblDe.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-		lblDe.setBounds(165, 177, 46, 31);
+		JLabel lblDe = new JLabel("de");
+		lblDe.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
+		lblDe.setBounds(159, 178, 46, 31);
 		contentPane.add(lblDe);
 
 		JLabel background = new JLabel("");
