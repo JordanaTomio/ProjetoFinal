@@ -353,8 +353,10 @@ public class BanhoTosa extends JFrame {
 							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 						}
 					}
-					if ((Confi == 0))
-						AgendaDAO.Confirmar(Valida, txtH, txtCLIENTE.getText(), variavel);
+				if ((Confi == 0))
+						passe = (String) cobox.getSelectedItem();
+						
+						AgendaDAO.Confirmar(Valida, passe, txtCLIENTE.getText(), variavel);
 				}
 				tblAGENDA.setModel(Utilis.DbUtils.resultSetTable(AgendaDAO.Atualizar()));
 			}
