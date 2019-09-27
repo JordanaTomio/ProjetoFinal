@@ -353,6 +353,7 @@ public class BanhoTosa extends JFrame {
 							JOptionPane.showMessageDialog(null, "Lamentamos não poder ajudar, agradecemos a procura!");
 						}
 					}
+				String passe = null;
 				if ((Confi == 0))
 						passe = (String) cobox.getSelectedItem();
 						
