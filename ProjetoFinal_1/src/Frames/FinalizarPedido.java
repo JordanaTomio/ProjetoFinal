@@ -36,7 +36,7 @@ public class FinalizarPedido extends JFrame {
 	String lbl = ConsultarPedidos.ValoresTotaisString;
 
 	public FinalizarPedido() {
-		setTitle("Finaliza√ß√£o");
+		setTitle("FinalizaÁ„o");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(FinalizarPedido.class.getResource("/imagens/3775232-16.png")));
 		
 		//Cria formatacao para numeros (02 digitos)
@@ -69,7 +69,7 @@ public class FinalizarPedido extends JFrame {
 		btnVoltar.setContentAreaFilled(false);
 		contentPane.add(btnVoltar);
 		
-		JLabel lblSeuTotal = new JLabel("Seu total √© de R$");
+		JLabel lblSeuTotal = new JLabel("Seu total È de R$");
 		lblSeuTotal.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		lblSeuTotal.setBounds(194, 100, 179, 26);
 		contentPane.add(lblSeuTotal);
@@ -87,12 +87,12 @@ public class FinalizarPedido extends JFrame {
 		total.setText(ConsultarPedidos.ValoresTotaisString);
 		contentPane.add(total);
 		
-		JLabel lblSelecioneOMtodo = new JLabel("Selecione o m√©todo de pagamento:");
+		JLabel lblSelecioneOMtodo = new JLabel("Selecione o mÈtodo de pagamento:");
 		lblSelecioneOMtodo.setFont(new Font("Lucida Bright", Font.PLAIN, 16));
 		lblSelecioneOMtodo.setBounds(171, 122, 282, 52);
 		contentPane.add(lblSelecioneOMtodo);
 		
-		JRadioButton cartao = new JRadioButton("Cart√£o");
+		JRadioButton cartao = new JRadioButton("Cart„o");
 		cartao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cartao.addMouseListener(new MouseAdapter() {
 			@Override
@@ -114,7 +114,7 @@ public class FinalizarPedido extends JFrame {
 		cartao.setFocusPainted(false);
 		contentPane.add(cartao);
 		
-		JRadioButton avista = new JRadioButton("√Ä vista");
+		JRadioButton avista = new JRadioButton("¿ vista");
 		avista.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		avista.addMouseListener(new MouseAdapter() {
 			@Override
@@ -209,7 +209,7 @@ public class FinalizarPedido extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			
 				if (!(avista.isSelected() || x2.isSelected() || x3.isSelected() )) {
-					JOptionPane.showMessageDialog(null, "Por favor, selecione um m√©todo de pagamento!");
+					JOptionPane.showMessageDialog(null, "Por favor, selecione um mÈtodo de pagamento!");
 				} else {
 					JOptionPane.showMessageDialog(null, "Obrigada por comprar conosco, volte sempre!");
 					PeedidoDAO.updateATT(ConsultarPedidos.pedido[1]);

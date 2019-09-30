@@ -106,7 +106,7 @@ public class Login extends JFrame {
 					new Menu().setVisible(true);
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Email ou senha s√£o inv√°lidos.", "Erro no login.", 1);
+					JOptionPane.showMessageDialog(null, "Email ou senha s„o inv·lidos.", "Erro no login.", 1);
 				}
 			}
 		});
@@ -117,7 +117,7 @@ public class Login extends JFrame {
 		btnPT.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Voc√™ est√° nessa aba");
+				System.out.println("VocÍ j· est· nessa aba");
 			}
 		});
 		JButton btnEN = new JButton("");

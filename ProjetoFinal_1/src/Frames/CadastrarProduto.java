@@ -80,7 +80,7 @@ public class CadastrarProduto extends JFrame {
 		lblNome.setBounds(34, 105, 69, 23);
 		contentPane.add(lblNome);
 
-		JLabel lblDescrio = new JLabel("DescriÃ§Ã£o:");
+		JLabel lblDescrio = new JLabel("Descrição:");
 		lblDescrio.setFont(new Font("Lucida Bright", Font.PLAIN, 18));
 		lblDescrio.setBounds(34, 152, 92, 17);
 		contentPane.add(lblDescrio);
@@ -182,7 +182,7 @@ public class CadastrarProduto extends JFrame {
 					// txtAno.setText("");
 					JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 				} else {
-					JOptionPane.showMessageDialog(null, "InformaÃ§Ãµes faltando.", "Erro no cadastro", 1);
+					JOptionPane.showMessageDialog(null, "Informações faltando.", "Erro no cadastro", 1);
 				}
 			}
 		});

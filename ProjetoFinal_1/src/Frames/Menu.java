@@ -196,7 +196,7 @@ public class Menu extends JFrame {
 		label.setBounds(258, 129, 138, 135);
 		contentPane.add(label);
 
-		JLabel lblVeterinrio = new JLabel("Veterin√°rio");
+		JLabel lblVeterinrio = new JLabel("Veterin·rio");
 		lblVeterinrio.setFont(new Font("Lucida Bright", Font.BOLD, 13));
 		lblVeterinrio.setBounds(561, 305, 77, 22);
 		contentPane.add(lblVeterinrio);
@@ -212,7 +212,7 @@ public class Menu extends JFrame {
 		lblNewLabel.setBounds(69, 129, 138, 135);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblAdoo = new JLabel("Ado√ß√£o");
+		JLabel lblAdoo = new JLabel("AdoÁ„o");
 		lblAdoo.setBounds(494, 244, 65, 22);
 		contentPane.add(lblAdoo);
 		lblAdoo.setForeground(new Color(0, 0, 0));
@@ -238,7 +238,7 @@ public class Menu extends JFrame {
 		}
 		contentPane.add(lblManager);
 
-		JLabel lblAdministrao = new JLabel("Administra√ß√£o");
+		JLabel lblAdministrao = new JLabel("AdministraÁ„o");
 		lblAdministrao.setFont(new Font("Lucida Bright", Font.PLAIN, 14));
 		lblAdministrao.setBounds(539, 88, 103, 33);
 

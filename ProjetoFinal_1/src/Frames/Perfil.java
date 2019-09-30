@@ -296,7 +296,7 @@ public class Perfil<EntityManager> extends JFrame {
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "ConfirmaÃ§Ã£o", 1);
+				JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Confirmação", 1);
 			}
 		});
 		btnAlterar.setBounds(186, 304, 111, 23);

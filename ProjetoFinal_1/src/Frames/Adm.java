@@ -25,7 +25,7 @@ public class Adm extends JFrame {
 	
 	public Adm() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Adm.class.getResource("/imagens/3775232-16.png")));
-		setTitle("AdministraÃ§Ã£o");
+		setTitle("Administração");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 660, 440);
 		contentPane = new JPanel();
@@ -121,7 +121,7 @@ public class Adm extends JFrame {
 		btnCadastrar.setBounds(47, 148, 141, 135);
 		contentPane.add(btnCadastrar);
 		
-		JLabel lblAdministrao = new JLabel("AdministraÃ§Ã£o");
+		JLabel lblAdministrao = new JLabel("Administração");
 		lblAdministrao.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblAdministrao.setBounds(215, 24, 281, 68);
 		contentPane.add(lblAdministrao);

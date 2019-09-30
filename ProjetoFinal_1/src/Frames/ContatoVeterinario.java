@@ -32,7 +32,7 @@ public class ContatoVeterinario extends JFrame {
 
 	
 	public ContatoVeterinario() {
-		setTitle("Veterin\u00E1rios");
+		setTitle("Veterin·rios");
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(ContatoVeterinario.class.getResource("/imagens/3775232-16.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,7 +93,7 @@ public class ContatoVeterinario extends JFrame {
 		label.setBounds(477, 32, 137, 132);
 		contentPane.add(label);
 
-		JLabel lblNewLabel = new JLabel("Veterin√°rio");
+		JLabel lblNewLabel = new JLabel("Veterin·rio");
 		lblNewLabel.setFont(new Font("Bauhaus 93", Font.PLAIN, 40));
 		lblNewLabel.setBounds(226, 31, 203, 63);
 		contentPane.add(lblNewLabel);
